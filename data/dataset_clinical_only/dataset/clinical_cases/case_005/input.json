@@ -1,0 +1,27 @@
+{
+  "patient_id": "PAT-00105",
+  "demographics": {
+    "age": 60,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "microcalcificaciones en cluster mama izquierda detectadas en screening",
+    "asintomatica"
+  ],
+  "medical_history": [
+    {
+      "date": "2025-10",
+      "event": "Mamografia screening: cluster pleomorfico CSE izquierdo — BI-RADS 4."
+    },
+    {
+      "date": "2022",
+      "event": "Mamografia previa: BI-RADS 2."
+    }
+  ],
+  "current_labs": {
+    "CA_15_3": 22,
+    "CEA": 1.8,
+    "hemograma": "normal"
+  }
+}

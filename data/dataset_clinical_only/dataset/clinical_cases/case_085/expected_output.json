@@ -1,0 +1,15 @@
+{
+  "case_id": "case_085",
+  "correct_gt_ids": [
+    "GT-COLON-001"
+  ],
+  "acceptable_secondary_gt_ids": [
+    "GT-COLON-002"
+  ],
+  "imaging_needed_ground_truth": true,
+  "urgency_ground_truth": "alta",
+  "specialist_decision": "DERIVAR_A_IMAGEN",
+  "conclusive_ground_truth": true,
+  "difficulty": "dificil",
+  "notes": "Anemia ferropenica leve + sangre oculta en premenopausica — descartar ca colon."
+}

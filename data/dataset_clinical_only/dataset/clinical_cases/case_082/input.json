@@ -1,0 +1,30 @@
+{
+  "patient_id": "PAT-00407",
+  "demographics": {
+    "age": 67,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "diabetes nueva 3 meses",
+    "perdida peso 4 kg",
+    "fatiga",
+    "sin dolor"
+  ],
+  "medical_history": [
+    {
+      "date": "2023",
+      "event": "Pancreatitis aguda biliar resuelta."
+    },
+    {
+      "date": "2025-08",
+      "event": "Diabetes inesperada en paciente delgado."
+    }
+  ],
+  "current_labs": {
+    "CA_19_9": 78,
+    "CEA": 4.1,
+    "glucemia": 218,
+    "HbA1c": 9.2
+  }
+}

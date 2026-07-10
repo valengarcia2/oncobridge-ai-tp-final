@@ -1,0 +1,28 @@
+{
+  "patient_id": "PAT-00222",
+  "demographics": {
+    "age": 60,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "dolor FII agudo 3 dias",
+    "fiebre",
+    "antecedente diverticulosis"
+  ],
+  "medical_history": [
+    {
+      "date": "2022",
+      "event": "Diverticulosis sigmoidea en colonoscopia."
+    },
+    {
+      "date": "2024",
+      "event": "Diverticulitis previa no complicada."
+    }
+  ],
+  "current_labs": {
+    "leucocitos": 12400,
+    "PCR": 88,
+    "CEA": 1.9
+  }
+}

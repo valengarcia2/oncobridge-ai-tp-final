@@ -1,0 +1,23 @@
+{
+  "patient_id": "PAT-00304",
+  "demographics": {
+    "age": 28,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "dolor mamario premenstrual ciclico",
+    "engrosamiento difuso bilateral",
+    "sin masa"
+  ],
+  "medical_history": [
+    {
+      "date": "2024",
+      "event": "Cambios fibroquisticos en ecografias previas."
+    }
+  ],
+  "current_labs": {
+    "hemograma": "normal",
+    "CA_15_3": 18
+  }
+}

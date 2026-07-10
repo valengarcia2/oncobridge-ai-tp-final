@@ -1,0 +1,76 @@
+{
+  "gt_id": "GT-PULM-004",
+  "icd_10": "C45.0",
+  "icd_10_description": "Mesotelioma maligno de la pleura",
+  "objective_data": {
+    "biomarkers": {
+      "mesotelina_serica": "elevada",
+      "fibulina_3": "elevada",
+      "CA_125": "elevado en algunos casos"
+    },
+    "clinical_findings": [
+      "derrame pleural unilateral persistente",
+      "engrosamiento pleural nodular",
+      "dolor toracico cronico",
+      "disnea progresiva por restriccion"
+    ],
+    "risk_factors": [
+      "exposicion ocupacional a asbesto (latencia 20-40 anos)",
+      "edad > 60 anos",
+      "tabaquismo (cofactor)"
+    ],
+    "prior_imaging_red_flags": [
+      "engrosamiento pleural nodular previo",
+      "calcificaciones pleurales"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "disnea progresiva",
+      "dolor toracico no pleuritico persistente",
+      "perdida de peso",
+      "tos seca"
+    ],
+    "patient_reported_concerns": [
+      "le cuesta cada vez mas respirar",
+      "trabajo con asbesto hace muchos anos",
+      "le duele el pecho del mismo lado siempre"
+    ],
+    "onset_pattern": "evolucion en meses con derrame pleural recidivante. Larga latencia desde exposicion."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "chest_CT",
+      "chest_MRI",
+      "PET_CT"
+    ],
+    "views_recommended": [
+      "TC torax con contraste",
+      "RM si invasion de pared",
+      "biopsia pleural toracoscopica"
+    ],
+    "imaging_location": {
+      "body_region": "torax con foco en pleura",
+      "anatomical_landmarks": "pleura visceral y parietal, fisuras pleurales, pericardio, diafragma",
+      "bilateral_comparison_required": true,
+      "priority_zones": [
+        "engrosamiento pleural nodular > 1cm",
+        "extension a fisura interlobar",
+        "compromiso de pared toracica o pericardio",
+        "derrame pleural acompanante"
+      ],
+      "positioning_notes": "TC con contraste para caracterizar engrosamiento. RM si dudas de invasion de pared o diafragma."
+    },
+    "expected_imaging_findings": "Engrosamiento pleural circunferencial nodular > 1cm con captacion. Derrame pleural unilateral. Retraccion ipsilateral del hemitorax. Posible invasion fisural y mediastinal.",
+    "meddiffusion_prompt": "Chest CT axial with contrast, circumferential nodular pleural thickening, pleural effusion, hemithorax retraction, mesothelioma, asbestos exposure pattern, clinical medical imaging",
+    "meddiffusion_negative_prompt": "smooth pleural effusion, transudate, normal lung",
+    "image_generation_notes": "Engrosamiento pleural nodular circunferencial. Derrame pleural unilateral acompanante."
+  },
+  "base_probability": 0.55,
+  "urgency_level": "alta",
+  "notes": "Sospechar en exposicion ocupacional a asbesto. Biopsia toracoscopica es el estandar. Pronostico ominoso.",
+  "_meta": {
+    "category": "oncologica",
+    "organ": "pulmon"
+  }
+}

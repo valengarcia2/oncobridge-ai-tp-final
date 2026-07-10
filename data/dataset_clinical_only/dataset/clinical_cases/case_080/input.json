@@ -1,0 +1,24 @@
+{
+  "patient_id": "PAT-00405",
+  "demographics": {
+    "age": 38,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "hemoptisis minima recurrente 2 meses",
+    "tos sin expectoracion",
+    "fatiga"
+  ],
+  "medical_history": [
+    {
+      "date": "2024",
+      "event": "Sin antecedentes respiratorios."
+    }
+  ],
+  "current_labs": {
+    "CEA": 8.2,
+    "CYFRA_21_1": 5.1,
+    "ALK_rearrangement": "pendiente"
+  }
+}

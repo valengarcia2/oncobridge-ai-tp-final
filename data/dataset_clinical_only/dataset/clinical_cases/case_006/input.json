@@ -1,0 +1,29 @@
+{
+  "patient_id": "PAT-00106",
+  "demographics": {
+    "age": 49,
+    "sex": "F",
+    "family_history": [
+      "breast_cancer"
+    ]
+  },
+  "current_symptoms": [
+    "calcificaciones lineales segmentarias mama derecha",
+    "sin masa palpable"
+  ],
+  "medical_history": [
+    {
+      "date": "2025-08",
+      "event": "Hermana DCIS a los 51."
+    },
+    {
+      "date": "2025-11",
+      "event": "Mamografia: calcificaciones segmentarias BI-RADS 5."
+    }
+  ],
+  "current_labs": {
+    "CA_15_3": 26,
+    "CEA": 2.1,
+    "hemograma": "normal"
+  }
+}

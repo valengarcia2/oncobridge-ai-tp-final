@@ -1,0 +1,72 @@
+{
+  "gt_id": "GT-COLITIS-001",
+  "icd_10": "K51.9",
+  "icd_10_description": "Colitis ulcerosa, no especificada (diferencial benigno)",
+  "objective_data": {
+    "biomarkers": {
+      "calprotectina_fecal": "elevada",
+      "PCR": "elevada en brote",
+      "p_ANCA": "positivo en colitis ulcerosa"
+    },
+    "clinical_findings": [
+      "diarrea con sangre y moco",
+      "urgencia defecatoria",
+      "tenesmo rectal",
+      "dolor abdominal en flanco izquierdo"
+    ],
+    "risk_factors": [
+      "antecedente familiar",
+      "edad joven (20-40 anos)",
+      "tabaquismo previo (paradojicamente)"
+    ],
+    "prior_imaging_red_flags": [
+      "engrosamiento mural difuso colonico",
+      "perdida de haustras"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "diarrea sanguinolenta",
+      "dolor abdominal",
+      "urgencia y tenesmo",
+      "perdida de peso"
+    ],
+    "patient_reported_concerns": [
+      "tiene diarrea con sangre",
+      "le duele la panza siempre"
+    ],
+    "onset_pattern": "brotes y remisiones. Evolucion cronica."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "colonoscopy",
+      "abdominal_CT"
+    ],
+    "views_recommended": [
+      "colonoscopia con biopsias seriadas",
+      "TC en complicaciones"
+    ],
+    "imaging_location": {
+      "body_region": "colon completo con extension variable",
+      "anatomical_landmarks": "mucosa colonica desde recto en ascenso continuo",
+      "bilateral_comparison_required": false,
+      "priority_zones": [
+        "mucosa colonica",
+        "extension continua",
+        "evaluacion de complicaciones"
+      ],
+      "positioning_notes": "Colonoscopia con biopsias multiples. TC solo en complicaciones (megacolon, perforacion)."
+    },
+    "expected_imaging_findings": "Engrosamiento mural difuso continuo desde recto. Perdida de haustras (colon en tubo). Sin saltos. Ulceras superficiales en mucosa.",
+    "meddiffusion_prompt": "Abdominal CT coronal, continuous diffuse colonic wall thickening, loss of haustration, lead pipe appearance, ulcerative colitis pattern, clinical medical imaging",
+    "meddiffusion_negative_prompt": "skip lesions, mass lesion, focal adenocarcinoma",
+    "image_generation_notes": "Patron difuso continuo de inflamacion colonica. Sin masa."
+  },
+  "base_probability": 0.34,
+  "urgency_level": "media",
+  "notes": "Diferencial benigno cronico. Riesgo de cancer colorrectal aumenta con anos de enfermedad - vigilancia endoscopica indicada.",
+  "_meta": {
+    "category": "benigna",
+    "organ": "colon"
+  }
+}

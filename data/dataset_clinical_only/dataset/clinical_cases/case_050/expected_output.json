@@ -1,0 +1,13 @@
+{
+  "case_id": "case_050",
+  "correct_gt_ids": [
+    "GT-NEUMONIA-001"
+  ],
+  "acceptable_secondary_gt_ids": [],
+  "imaging_needed_ground_truth": false,
+  "urgency_ground_truth": "ninguna",
+  "specialist_decision": "NO_DERIVAR",
+  "conclusive_ground_truth": true,
+  "difficulty": "facil",
+  "notes": "Neumonia bacteriana en joven sin red flags oncologicas."
+}

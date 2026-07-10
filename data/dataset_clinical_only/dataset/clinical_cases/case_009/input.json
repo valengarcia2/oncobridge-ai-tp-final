@@ -1,0 +1,35 @@
+{
+  "patient_id": "PAT-00109",
+  "demographics": {
+    "age": 67,
+    "sex": "M",
+    "family_history": [
+      "lung_cancer"
+    ]
+  },
+  "current_symptoms": [
+    "tos hemoptoica 6 semanas",
+    "perdida de peso 8 kg",
+    "disnea progresiva",
+    "dolor toracico derecho"
+  ],
+  "medical_history": [
+    {
+      "date": "1980-2020",
+      "event": "Tabaquismo 45 paquetes/ano."
+    },
+    {
+      "date": "2022",
+      "event": "EPOC GOLD II."
+    },
+    {
+      "date": "2024-03",
+      "event": "Neumonia lobulo medio derecho."
+    }
+  ],
+  "current_labs": {
+    "CEA": 12.4,
+    "CYFRA_21_1": 5.8,
+    "hemograma": "anemia leve"
+  }
+}

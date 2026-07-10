@@ -1,0 +1,21 @@
+{
+  "patient_id": "PAT-00212",
+  "demographics": {
+    "age": 33,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "dolor lumbar tras mudanza, mejorando",
+    "sin red flags"
+  ],
+  "medical_history": [
+    {
+      "date": "2024",
+      "event": "Sin antecedentes relevantes."
+    }
+  ],
+  "current_labs": {
+    "hemograma": "normal"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "patient_id": "PAT-00217",
+  "demographics": {
+    "age": 25,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "bulto movil 1.5 cm CSE mama derecha indoloro",
+    "consistencia gomosa"
+  ],
+  "medical_history": [
+    {
+      "date": "2024-08",
+      "event": "Ecografia mamaria: lesion ovalada bordes lisos 1.5 cm — BI-RADS 3."
+    },
+    {
+      "date": "2025-06",
+      "event": "Control ecografico: lesion estable."
+    }
+  ],
+  "current_labs": {
+    "CA_15_3": 14,
+    "hemograma": "normal"
+  }
+}

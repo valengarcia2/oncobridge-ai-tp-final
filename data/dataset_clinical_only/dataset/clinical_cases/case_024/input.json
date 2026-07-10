@@ -1,0 +1,28 @@
+{
+  "patient_id": "PAT-00124",
+  "demographics": {
+    "age": 38,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "nodulo tiroideo de 1.5 cm derecho",
+    "asintomatica"
+  ],
+  "medical_history": [
+    {
+      "date": "2025-09",
+      "event": "Ecografia tiroidea: nodulo solido hipoecoico con microcalcificaciones TI-RADS 5."
+    },
+    {
+      "date": "2025-11",
+      "event": "PAAF: bethesda VI (maligno)."
+    }
+  ],
+  "current_labs": {
+    "TSH": 1.8,
+    "T4_libre": 1.1,
+    "tiroglobulina": 18,
+    "calcitonina": "< 2"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "gt_id": "GT-GRANULOMA-001",
+  "icd_10": "D38.1",
+  "icd_10_description": "Tumor de comportamiento incierto del aparato respiratorio (granuloma)",
+  "objective_data": {
+    "biomarkers": {
+      "marcadores_tumorales": "normales",
+      "quantiferon": "puede ser positivo si etiologia TBC",
+      "ACE_angiotensina": "elevada en sarcoidosis"
+    },
+    "clinical_findings": [
+      "habitualmente asintomatico",
+      "hallazgo incidental en imagen",
+      "calcificaciones centrales o difusas",
+      "tamano estable en estudios sucesivos"
+    ],
+    "risk_factors": [
+      "exposicion a TBC previa",
+      "histoplasmosis o coccidioidomicosis endemica",
+      "sarcoidosis previa"
+    ],
+    "prior_imaging_red_flags": [
+      "lesion calcificada estable",
+      "ausencia de crecimiento en > 2 anos"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "habitualmente asintomatico",
+      "tos seca leve en ocasiones",
+      "deteccion incidental"
+    ],
+    "patient_reported_concerns": [
+      "le encontraron una mancha pero no siente nada",
+      "le hicieron una placa por otro motivo y vieron eso"
+    ],
+    "onset_pattern": "estable o ausente. Descubrimiento incidental tipico."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "chest_CT",
+      "chest_xray"
+    ],
+    "views_recommended": [
+      "TC torax con cortes finos",
+      "comparacion con estudios previos"
+    ],
+    "imaging_location": {
+      "body_region": "torax (zona de lesion)",
+      "anatomical_landmarks": "parenquima pulmonar perifierico habitualmente",
+      "bilateral_comparison_required": false,
+      "priority_zones": [
+        "nodulo solitario",
+        "caracteristicas de benignidad (calcio, estabilidad)"
+      ],
+      "positioning_notes": "TC con cortes finos para caracterizar calcificaciones. Comparar con estudios previos para confirmar estabilidad."
+    },
+    "expected_imaging_findings": "Nodulo redondeado < 10mm con calcificacion central, en pop-corn o difusa. Bordes bien definidos. Estable en estudios seriados > 2 anos.",
+    "meddiffusion_prompt": "Chest CT, small well-defined round nodule with central calcification, popcorn pattern, benign granuloma, stable lesion, clinical medical imaging",
+    "meddiffusion_negative_prompt": "spiculated mass, irregular borders, cavitation, growth in serial scans",
+    "image_generation_notes": "Nodulo pequeno calcificado bien definido. Patron benigno clasico."
+  },
+  "base_probability": 0.25,
+  "urgency_level": "baja",
+  "notes": "Diferencial benigno mas frecuente para nodulos pequenos. Si > 8mm sin calcio o crece, escalar a investigacion oncologica.",
+  "_meta": {
+    "category": "benigna",
+    "organ": "pulmon"
+  }
+}

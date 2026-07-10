@@ -1,0 +1,61 @@
+{
+  "patient_id": "PAT-00513",
+  "demographics": {
+    "age": 60,
+    "sex": "F",
+    "family_history": [
+      "colorectal_cancer",
+      "endometrial_cancer"
+    ]
+  },
+  "current_symptoms": [
+    "rectorragia y dolor abdominal en aumento 2 meses"
+  ],
+  "medical_history": [
+    {
+      "date": "2000",
+      "event": "Sindrome Lynch (MSH2)."
+    },
+    {
+      "date": "2003",
+      "event": "Histerectomia + anexectomia profilactica."
+    },
+    {
+      "date": "2005",
+      "event": "Colonoscopia: polipos serrados."
+    },
+    {
+      "date": "2008",
+      "event": "Ca colon derecho estadio II — hemicolectomia + QT adyuvante."
+    },
+    {
+      "date": "2012",
+      "event": "Vigilancia: cancer ureter izq — nefrouretrectomia."
+    },
+    {
+      "date": "2015",
+      "event": "Colonoscopia anual sin polipos."
+    },
+    {
+      "date": "2018",
+      "event": "Ca gastrico in situ — gastrectomia subtotal."
+    },
+    {
+      "date": "2021",
+      "event": "Colonoscopia: polipo bajo grado extirpado."
+    },
+    {
+      "date": "2023",
+      "event": "Colonoscopia: normal."
+    },
+    {
+      "date": "2025-10",
+      "event": "Colonoscopia urgente: masa estenosante colon transverso."
+    }
+  ],
+  "current_labs": {
+    "CEA": 24,
+    "CA_19_9": 142,
+    "hemograma": "Hb 9.8 ferropenica"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "patient_id": "PAT-00127",
+  "demographics": {
+    "age": 65,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "esplenomegalia masiva",
+    "adenopatias abdominales en TC por dolor",
+    "fatiga",
+    "saciedad precoz"
+  ],
+  "medical_history": [
+    {
+      "date": "2018",
+      "event": "Linfocitosis cronica en seguimiento."
+    },
+    {
+      "date": "2025-10",
+      "event": "Aumento brusco de adenopatias."
+    }
+  ],
+  "current_labs": {
+    "LDH": 568,
+    "B2_microglobulina": 6.4,
+    "hemograma": "linfocitos 24000"
+  }
+}

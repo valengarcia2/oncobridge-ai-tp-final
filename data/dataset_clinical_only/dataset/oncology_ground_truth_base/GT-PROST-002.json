@@ -1,0 +1,70 @@
+{
+  "gt_id": "GT-PROST-002",
+  "icd_10": "N40.1",
+  "icd_10_description": "Hiperplasia prostatica benigna con sintomas del tracto urinario inferior",
+  "objective_data": {
+    "biomarkers": {
+      "PSA": "puede estar leve a moderadamente elevado",
+      "PSA_libre_ratio": "> 25%"
+    },
+    "clinical_findings": [
+      "prostata aumentada de tamano homogenea",
+      "consistencia firme elastica",
+      "sin nodulos al tacto",
+      "sintomas miccionales (LUTS)"
+    ],
+    "risk_factors": [
+      "edad > 50 anos",
+      "antecedente familiar"
+    ],
+    "prior_imaging_red_flags": [
+      "PI-RADS 1-2 en estudios previos"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "nicturia",
+      "polaquiuria diurna",
+      "chorro debil",
+      "sensacion de vaciado incompleto",
+      "tenesmo vesical"
+    ],
+    "patient_reported_concerns": [
+      "se levanta varias veces a orinar de noche",
+      "el chorro no sale bien",
+      "siente que no termina de vaciar"
+    ],
+    "onset_pattern": "evolucion en anos. Progresion lenta."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "prostate_MRI",
+      "transrectal_ultrasound"
+    ],
+    "views_recommended": [
+      "mp-MRI",
+      "ecografia transrectal"
+    ],
+    "imaging_location": {
+      "body_region": "pelvis",
+      "anatomical_landmarks": "zona transicional de prostata (origen de HPB)",
+      "bilateral_comparison_required": false,
+      "priority_zones": [
+        "zona transicional aumentada",
+        "ausencia de lesion focal sospechosa"
+      ],
+      "positioning_notes": "Evaluacion de tamano y caracteristicas zona transicional vs periferica. Descartar lesion focal coexistente."
+    },
+    "expected_imaging_findings": "Prostata aumentada de volumen a expensas de zona transicional con nodulos hiperplasicos. Zona periferica habitualmente respetada. Sin lesion focal sospechosa.",
+    "meddiffusion_prompt": "Prostate MRI T2, enlarged transition zone with nodular hyperplasia, preserved peripheral zone, benign prostatic hyperplasia, clinical medical imaging",
+    "meddiffusion_negative_prompt": "focal peripheral lesion, restricted diffusion, malignant pattern",
+    "image_generation_notes": "Prostata aumentada de tamano por hiperplasia de zona transicional. Sin lesion focal."
+  },
+  "base_probability": 0.39,
+  "urgency_level": "baja",
+  "notes": "Diferencial benigno muy frecuente en mayores de 50. Sintomas LUTS habituales. PSA puede confundir; ratio libre/total ayuda.",
+  "_meta": {
+    "category": "benigna",
+    "organ": "prostata"
+  }
+}

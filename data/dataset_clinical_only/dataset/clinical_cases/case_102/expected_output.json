@@ -1,0 +1,13 @@
+{
+  "case_id": "case_102",
+  "correct_gt_ids": [
+    "GT-PULM-001"
+  ],
+  "acceptable_secondary_gt_ids": [],
+  "imaging_needed_ground_truth": true,
+  "urgency_ground_truth": "alta",
+  "specialist_decision": "DERIVAR_A_IMAGEN",
+  "conclusive_ground_truth": true,
+  "difficulty": "moderado",
+  "notes": "Multimorbido oncologico con historia densa. Sistema debe priorizar lo relevante hoy."
+}

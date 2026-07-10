@@ -1,0 +1,27 @@
+{
+  "patient_id": "PAT-00108",
+  "demographics": {
+    "age": 73,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "masa retroareolar de 3 cm con retraccion del pezon",
+    "evolucion 4 meses"
+  ],
+  "medical_history": [
+    {
+      "date": "2020",
+      "event": "Hipertension arterial."
+    },
+    {
+      "date": "2024-08",
+      "event": "Mamografia: BI-RADS 0 — recomendacion estudios adicionales no realizados."
+    }
+  ],
+  "current_labs": {
+    "CA_15_3": 64,
+    "CEA": 11.2,
+    "hemograma": "normal"
+  }
+}

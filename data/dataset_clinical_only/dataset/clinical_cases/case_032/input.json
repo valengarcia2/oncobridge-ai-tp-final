@@ -1,0 +1,20 @@
+{
+  "patient_id": "PAT-00202",
+  "demographics": {
+    "age": 28,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "control laboral anual sin sintomas"
+  ],
+  "medical_history": [
+    {
+      "date": "2024-08",
+      "event": "Apto fisico normal."
+    }
+  ],
+  "current_labs": {
+    "hemograma": "normal"
+  }
+}

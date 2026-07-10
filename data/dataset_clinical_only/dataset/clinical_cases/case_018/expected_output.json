@@ -1,0 +1,15 @@
+{
+  "case_id": "case_018",
+  "correct_gt_ids": [
+    "GT-COLON-002"
+  ],
+  "acceptable_secondary_gt_ids": [
+    "GT-COLON-001"
+  ],
+  "imaging_needed_ground_truth": true,
+  "urgency_ground_truth": "media",
+  "specialist_decision": "DERIVAR_A_IMAGEN",
+  "conclusive_ground_truth": true,
+  "difficulty": "facil",
+  "notes": "Polipo sesil grande premaligno. Polipectomia + estudio."
+}

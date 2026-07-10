@@ -1,0 +1,23 @@
+{
+  "patient_id": "PAT-00208",
+  "demographics": {
+    "age": 56,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "sintomas climatericos (sofocos, insomnio)"
+  ],
+  "medical_history": [
+    {
+      "date": "2024",
+      "event": "Menopausia."
+    }
+  ],
+  "current_labs": {
+    "FSH": 78,
+    "LH": 32,
+    "estradiol": "bajo",
+    "hemograma": "normal"
+  }
+}

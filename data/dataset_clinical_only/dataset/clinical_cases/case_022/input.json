@@ -1,0 +1,32 @@
+{
+  "patient_id": "PAT-00122",
+  "demographics": {
+    "age": 72,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "hematuria macroscopica",
+    "PSA en ascenso explosivo",
+    "dolor pelvico"
+  ],
+  "medical_history": [
+    {
+      "date": "2023",
+      "event": "PSA 3.1."
+    },
+    {
+      "date": "2025-09",
+      "event": "PSA 28 — biopsia transrectal pendiente."
+    },
+    {
+      "date": "2025-12",
+      "event": "mp-MRI: lesion zona periferica PI-RADS 5 + extension extrapprostatica."
+    }
+  ],
+  "current_labs": {
+    "PSA": 28,
+    "PSA_libre_ratio": "5%",
+    "FAL": 312
+  }
+}

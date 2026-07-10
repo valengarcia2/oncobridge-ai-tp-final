@@ -1,0 +1,28 @@
+{
+  "patient_id": "PAT-00216",
+  "demographics": {
+    "age": 32,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "eritema y calor mama izq 4 dias",
+    "fiebre 38.4",
+    "amamantando"
+  ],
+  "medical_history": [
+    {
+      "date": "2025-05",
+      "event": "Parto."
+    },
+    {
+      "date": "2025-08",
+      "event": "Fisura pezon."
+    }
+  ],
+  "current_labs": {
+    "leucocitos": 14200,
+    "PCR": 64,
+    "CA_15_3": 22
+  }
+}

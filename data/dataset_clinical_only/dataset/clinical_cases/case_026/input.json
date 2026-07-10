@@ -1,0 +1,30 @@
+{
+  "patient_id": "PAT-00126",
+  "demographics": {
+    "age": 24,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "masa mediastinal anterior detectada en RX por tos cronica",
+    "adenopatia supraclavicular izquierda",
+    "sudoracion nocturna",
+    "prurito"
+  ],
+  "medical_history": [
+    {
+      "date": "2020",
+      "event": "Mononucleosis EBV."
+    },
+    {
+      "date": "2025-10",
+      "event": "RX por tos cronica: ensanchamiento mediastinal."
+    }
+  ],
+  "current_labs": {
+    "LDH": 348,
+    "VSG": 88,
+    "B2_microglobulina": 3.2,
+    "hemograma": "anemia leve"
+  }
+}

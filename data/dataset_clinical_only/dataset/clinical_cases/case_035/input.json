@@ -1,0 +1,23 @@
+{
+  "patient_id": "PAT-00205",
+  "demographics": {
+    "age": 22,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "lumbalgia 1 semana post entrenamiento intenso",
+    "mejora con reposo"
+  ],
+  "medical_history": [
+    {
+      "date": "2024-12",
+      "event": "Apto deportivo normal."
+    }
+  ],
+  "current_labs": {
+    "hemograma": "normal",
+    "CPK": 412,
+    "creatinina": 0.9
+  }
+}

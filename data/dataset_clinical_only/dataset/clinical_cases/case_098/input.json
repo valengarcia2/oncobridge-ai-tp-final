@@ -1,0 +1,61 @@
+{
+  "patient_id": "PAT-00508",
+  "demographics": {
+    "age": 68,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "disnea progresiva 4 meses",
+    "tos seca",
+    "perdida peso 5 kg",
+    "dolor toracico vago"
+  ],
+  "medical_history": [
+    {
+      "date": "1965-1980",
+      "event": "Trabajo en mina (silica)."
+    },
+    {
+      "date": "1985",
+      "event": "Silicosis simple."
+    },
+    {
+      "date": "1990-2010",
+      "event": "Tabaquismo 25 paquetes/ano."
+    },
+    {
+      "date": "2000",
+      "event": "Bronquitis cronica."
+    },
+    {
+      "date": "2010",
+      "event": "EPOC."
+    },
+    {
+      "date": "2018",
+      "event": "Silicosis complicada."
+    },
+    {
+      "date": "2020",
+      "event": "Cor pulmonale."
+    },
+    {
+      "date": "2023",
+      "event": "TC torax: opacidades fibroticas + masa subpleural 2 cm."
+    },
+    {
+      "date": "2024",
+      "event": "Seguimiento: masa estable."
+    },
+    {
+      "date": "2025-11",
+      "event": "TC: masa creció a 3.5 cm con bordes espiculados."
+    }
+  ],
+  "current_labs": {
+    "CEA": 12.8,
+    "CYFRA_21_1": 6.4,
+    "hemograma": "policitemia secundaria"
+  }
+}

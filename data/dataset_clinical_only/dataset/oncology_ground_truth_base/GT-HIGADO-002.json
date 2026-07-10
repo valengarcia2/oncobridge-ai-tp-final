@@ -1,0 +1,64 @@
+{
+  "gt_id": "GT-HIGADO-002",
+  "icd_10": "D18.0",
+  "icd_10_description": "Hemangioma hepatico (diferencial benigno)",
+  "objective_data": {
+    "biomarkers": {
+      "AFP": "normal",
+      "marcadores_hepaticos": "normales"
+    },
+    "clinical_findings": [
+      "habitualmente asintomatico",
+      "hallazgo incidental tipico"
+    ],
+    "risk_factors": [
+      "sexo femenino",
+      "edad media",
+      "uso de estrogenos"
+    ],
+    "prior_imaging_red_flags": [
+      "lesion hepatica estable en estudios previos"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "asintomatico habitualmente",
+      "dolor leve si > 5 cm"
+    ],
+    "patient_reported_concerns": [
+      "le vieron una lesion en el higado por casualidad"
+    ],
+    "onset_pattern": "estable. Hallazgo incidental."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "abdominal_MRI",
+      "abdominal_CT",
+      "ultrasound_abdomen"
+    ],
+    "views_recommended": [
+      "RM con contraste",
+      "TC trifasica si dudas"
+    ],
+    "imaging_location": {
+      "body_region": "abdomen, higado",
+      "anatomical_landmarks": "parenquima hepatico, frecuentemente lobulo derecho",
+      "bilateral_comparison_required": false,
+      "priority_zones": [
+        "lesion focal con patron de captacion centripeta tipico"
+      ],
+      "positioning_notes": "Patron de captacion globular periferica progresiva (en flash filling para < 2cm) es diagnostico."
+    },
+    "expected_imaging_findings": "Lesion focal con realce nodular periferico globular progresivo hacia centro en fases sucesivas. Hiperintenso en T2. Sin lavado. Estable.",
+    "meddiffusion_prompt": "Abdominal MRI T2 hyperintense liver lesion with peripheral nodular enhancement, centripetal filling pattern, hemangioma benign, clinical medical imaging",
+    "meddiffusion_negative_prompt": "washout pattern, capsule, infiltrative mass, malignant",
+    "image_generation_notes": "Hemangioma con captacion centripeta globular. Patron benigno tipico."
+  },
+  "base_probability": 0.18,
+  "urgency_level": "baja",
+  "notes": "Lesion benigna mas frecuente del higado. Diagnostico por imagen confiable. No requiere seguimiento si tipico.",
+  "_meta": {
+    "category": "benigna",
+    "organ": "higado"
+  }
+}

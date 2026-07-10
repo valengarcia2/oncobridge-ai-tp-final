@@ -1,0 +1,21 @@
+{
+  "patient_id": "PAT-00206",
+  "demographics": {
+    "age": 35,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "cefalea tensional 1 mes asociada a estres laboral"
+  ],
+  "medical_history": [
+    {
+      "date": "2024-11",
+      "event": "Consulta neurologica: cefalea tensional."
+    }
+  ],
+  "current_labs": {
+    "hemograma": "normal",
+    "TSH": 1.8
+  }
+}

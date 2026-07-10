@@ -1,0 +1,28 @@
+{
+  "patient_id": "PAT-00223",
+  "demographics": {
+    "age": 26,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "diarrea con sangre cronica",
+    "tenesmo"
+  ],
+  "medical_history": [
+    {
+      "date": "2022",
+      "event": "Colitis ulcerosa diagnosticada — pancolitis leve."
+    },
+    {
+      "date": "2024",
+      "event": "Mantenimiento con mesalazina."
+    }
+  ],
+  "current_labs": {
+    "calprotectina": 412,
+    "PCR": 28,
+    "CEA": 1.2,
+    "p_ANCA": "positivo"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "case_id": "case_068",
+  "correct_gt_ids": [
+    "GT-GRANULOMA-001"
+  ],
+  "acceptable_secondary_gt_ids": [
+    "GT-PULM-001"
+  ],
+  "imaging_needed_ground_truth": false,
+  "urgency_ground_truth": "baja",
+  "specialist_decision": "SEGUIMIENTO_CLINICO",
+  "conclusive_ground_truth": true,
+  "difficulty": "moderado",
+  "notes": "Granuloma post histoplasmosis estable. Seguimiento sin biopsia."
+}

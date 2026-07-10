@@ -1,0 +1,23 @@
+{
+  "patient_id": "PAT-00414",
+  "demographics": {
+    "age": 65,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "hematuria intermitente 6 meses",
+    "PSA dentro de limites"
+  ],
+  "medical_history": [
+    {
+      "date": "2025-06",
+      "event": "Estudio urologico: HPB. Cistoscopia con lesion 1 cm en uretra prostatica."
+    }
+  ],
+  "current_labs": {
+    "PSA": 3.4,
+    "PSA_libre_ratio": "18%",
+    "hemograma": "anemia leve"
+  }
+}

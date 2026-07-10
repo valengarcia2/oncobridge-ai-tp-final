@@ -1,0 +1,80 @@
+{
+  "gt_id": "GT-PANCREAS-001",
+  "icd_10": "C25.0",
+  "icd_10_description": "Neoplasia maligna de la cabeza del pancreas (adenocarcinoma ductal)",
+  "objective_data": {
+    "biomarkers": {
+      "CA_19_9": "> 37 U/mL (elevado, mas sensible)",
+      "CEA": "elevado",
+      "bilirrubina_total": "elevada en obstruccion biliar"
+    },
+    "clinical_findings": [
+      "ictericia obstructiva indolora (Courvoisier)",
+      "perdida de peso marcada",
+      "dolor epigastrico irradiado a dorso",
+      "diabetes de aparicion reciente",
+      "tromboflebitis migratoria (Trousseau)"
+    ],
+    "risk_factors": [
+      "edad > 60 anos",
+      "tabaquismo",
+      "diabetes",
+      "pancreatitis cronica",
+      "antecedente familiar (BRCA2, sindrome de Peutz-Jeghers)"
+    ],
+    "prior_imaging_red_flags": [
+      "dilatacion biliar y de Wirsung en estudios previos"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "ictericia progresiva indolora",
+      "prurito",
+      "coluria y acolia",
+      "perdida de peso marcada",
+      "dolor epigastrico a dorso"
+    ],
+    "patient_reported_concerns": [
+      "se puso amarillo sin dolor",
+      "esta bajando mucho de peso",
+      "le duele la espalda"
+    ],
+    "onset_pattern": "evolucion en meses. Diagnostico habitualmente tardio."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "abdominal_CT",
+      "endoscopic_ultrasound",
+      "MRCP"
+    ],
+    "views_recommended": [
+      "TC abdomen multifasica con protocolo pancreas",
+      "ecoendoscopia con biopsia",
+      "colangio-RM (MRCP)"
+    ],
+    "imaging_location": {
+      "body_region": "abdomen con foco en cabeza pancreatica",
+      "anatomical_landmarks": "cabeza/cuerpo/cola de pancreas, ducto pancreatico (Wirsung), via biliar, mesenterio, arteria mesenterica superior",
+      "bilateral_comparison_required": false,
+      "priority_zones": [
+        "masa pancreatica focal",
+        "dilatacion biliar y de Wirsung (signo del doble conducto)",
+        "compromiso vascular (arteria mesenterica, vena porta)",
+        "adenopatias regionales",
+        "metastasis hepaticas y peritoneales"
+      ],
+      "positioning_notes": "TC con protocolo pancreatico: fase arterial (pancreas), portal (hepatica), tardia. Evaluar resecabilidad vascular."
+    },
+    "expected_imaging_findings": "Masa hipodensa en cabeza pancreatica que dilata Wirsung y via biliar (signo del doble conducto). Atrofia pancreatica distal. Posible compromiso arterial/venoso.",
+    "meddiffusion_prompt": "Abdominal CT axial portal phase, hypodense mass pancreatic head with dilated common bile duct and Wirsung double duct sign, vascular involvement, pancreatic adenocarcinoma, clinical medical imaging",
+    "meddiffusion_negative_prompt": "normal pancreas, chronic pancreatitis only, benign cyst",
+    "image_generation_notes": "Masa en cabeza pancreatica con signo del doble conducto. Patron clasico de pancreatocarcinoma."
+  },
+  "base_probability": 0.7,
+  "urgency_level": "alta",
+  "notes": "Pronostico ominoso. Resecabilidad define tratamiento. La biopsia por ecoendoscopia confirma.",
+  "_meta": {
+    "category": "oncologica",
+    "organ": "pancreas"
+  }
+}

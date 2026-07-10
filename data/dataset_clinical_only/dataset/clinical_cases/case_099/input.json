@@ -1,0 +1,62 @@
+{
+  "patient_id": "PAT-00509",
+  "demographics": {
+    "age": 71,
+    "sex": "F",
+    "family_history": [
+      "pancreatic_cancer"
+    ]
+  },
+  "current_symptoms": [
+    "ictericia indolora 2 semanas",
+    "perdida peso 9 kg",
+    "diabetes nueva",
+    "dolor epigastrico a dorso"
+  ],
+  "medical_history": [
+    {
+      "date": "1995",
+      "event": "Pancreatitis aguda alcoholica."
+    },
+    {
+      "date": "2005",
+      "event": "Cesacion alcohol."
+    },
+    {
+      "date": "2010",
+      "event": "Pancreatitis cronica establecida."
+    },
+    {
+      "date": "2015",
+      "event": "Insuficiencia pancreatica exocrina."
+    },
+    {
+      "date": "2018",
+      "event": "Diabetes pancreatogenica tipo 3c."
+    },
+    {
+      "date": "2020",
+      "event": "Hermana con ca pancreas."
+    },
+    {
+      "date": "2022",
+      "event": "MR pancreatica: cambios cronicos sin masa."
+    },
+    {
+      "date": "2024",
+      "event": "Descontrol glicemico inexplicable."
+    },
+    {
+      "date": "2025-11",
+      "event": "Ictericia nueva."
+    }
+  ],
+  "current_labs": {
+    "CA_19_9": 942,
+    "CEA": 28,
+    "bilirrubina": 6.4,
+    "FAL": 512,
+    "glucemia": 412,
+    "HbA1c": 11.8
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "patient_id": "PAT-00303",
+  "demographics": {
+    "age": 54,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "eritema cutaneo mama izquierda + edema 3 semanas",
+    "respuesta parcial a antibiotico",
+    "sin masa palpable"
+  ],
+  "medical_history": [
+    {
+      "date": "2025-08",
+      "event": "Sin antecedentes ginecologicos."
+    },
+    {
+      "date": "2025-12",
+      "event": "Primer ciclo antibiotico — mejoria parcial."
+    }
+  ],
+  "current_labs": {
+    "leucocitos": 9200,
+    "PCR": 32,
+    "CA_15_3": 31,
+    "CEA": 4.2
+  }
+}

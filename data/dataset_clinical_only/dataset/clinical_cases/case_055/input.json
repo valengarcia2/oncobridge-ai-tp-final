@@ -1,0 +1,22 @@
+{
+  "patient_id": "PAT-00225",
+  "demographics": {
+    "age": 48,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "nodulo tiroideo 1 cm bordes lisos hallazgo en eco rutinaria"
+  ],
+  "medical_history": [
+    {
+      "date": "2025-08",
+      "event": "Ecografia: TI-RADS 2 nodulo isoecoico."
+    }
+  ],
+  "current_labs": {
+    "TSH": 2.1,
+    "T4_libre": 1.1,
+    "tiroglobulina": 12
+  }
+}

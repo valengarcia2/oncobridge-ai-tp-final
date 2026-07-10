@@ -1,0 +1,11 @@
+{
+  "case_id": "case_109",
+  "correct_gt_ids": [],
+  "acceptable_secondary_gt_ids": [],
+  "imaging_needed_ground_truth": true,
+  "urgency_ground_truth": "alta",
+  "specialist_decision": "DERIVAR_A_IMAGEN",
+  "conclusive_ground_truth": true,
+  "difficulty": "dificil",
+  "notes": "Ca ovario BRCA1 — el GT base no cubre estricto ovario, caso de borde para evaluar comportamiento SIN_ELEMENTOS o no."
+}

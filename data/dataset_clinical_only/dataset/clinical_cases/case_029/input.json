@@ -1,0 +1,33 @@
+{
+  "patient_id": "PAT-00129",
+  "demographics": {
+    "age": 58,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "multiples nodulos hepaticos en TC realizada por dolor abdominal",
+    "perdida peso 9 kg"
+  ],
+  "medical_history": [
+    {
+      "date": "2005",
+      "event": "Hepatitis B cronica HBeAg+."
+    },
+    {
+      "date": "2018",
+      "event": "Cirrosis Child B."
+    },
+    {
+      "date": "2025-11",
+      "event": "TC abdomen: multiples nodulos hipervasculares."
+    }
+  ],
+  "current_labs": {
+    "AFP": 4280,
+    "AST": 142,
+    "bilirrubina": 4.2,
+    "albumina": 2.6,
+    "INR": 1.7
+  }
+}

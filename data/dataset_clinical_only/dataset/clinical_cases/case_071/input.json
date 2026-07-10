@@ -1,0 +1,25 @@
+{
+  "patient_id": "PAT-00311",
+  "demographics": {
+    "age": 32,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "diarrea sanguinolenta 2 meses",
+    "dolor abdominal",
+    "perdida peso 4 kg"
+  ],
+  "medical_history": [
+    {
+      "date": "2023",
+      "event": "Colitis ulcerosa diagnosticada — pancolitis."
+    }
+  ],
+  "current_labs": {
+    "calprotectina": 842,
+    "PCR": 64,
+    "CEA": 2.4,
+    "p_ANCA": "positivo"
+  }
+}

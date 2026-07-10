@@ -1,0 +1,21 @@
+{
+  "patient_id": "PAT-00226",
+  "demographics": {
+    "age": 55,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "lesion hepatica hallazgo incidental TC abdomen"
+  ],
+  "medical_history": [
+    {
+      "date": "2025-10",
+      "event": "TC abdomen por dolor calculo renal: lesion hiperecogenica hepatica 4 cm caracteristicas hemangioma."
+    }
+  ],
+  "current_labs": {
+    "AFP": 2.1,
+    "hepatograma": "normal"
+  }
+}

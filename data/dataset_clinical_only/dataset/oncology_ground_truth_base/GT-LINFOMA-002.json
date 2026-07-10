@@ -1,0 +1,79 @@
+{
+  "gt_id": "GT-LINFOMA-002",
+  "icd_10": "C81.9",
+  "icd_10_description": "Linfoma de Hodgkin, no especificado",
+  "objective_data": {
+    "biomarkers": {
+      "LDH": "elevada",
+      "VSG": "elevada",
+      "B2_microglobulina": "elevada",
+      "CD30_CD15": "positivos en celulas de Reed-Sternberg"
+    },
+    "clinical_findings": [
+      "adenopatia supraclavicular o cervical indolora",
+      "masa mediastinal anterior en jovenes",
+      "sintomas B (fiebre, sudoracion, perdida peso)",
+      "prurito generalizado",
+      "dolor adenopatico tras consumo de alcohol (signo de Hoster)"
+    ],
+    "risk_factors": [
+      "edad bimodal (20-30 y > 50)",
+      "antecedente de mononucleosis EBV",
+      "inmunosupresion",
+      "antecedente familiar"
+    ],
+    "prior_imaging_red_flags": [
+      "masa mediastinal anterior",
+      "adenopatias cervicales bilaterales"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "ganglios cervicales o supraclaviculares duros indoloros",
+      "fiebre intermitente",
+      "sudoracion nocturna",
+      "prurito",
+      "perdida de peso > 10%"
+    ],
+    "patient_reported_concerns": [
+      "le aparecio un bulto en el cuello que no duele",
+      "tiene prurito sin causa",
+      "le agarra fiebre que va y viene"
+    ],
+    "onset_pattern": "evolucion subaguda. Adenopatias indoloras de crecimiento progresivo."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "PET_CT",
+      "neck_chest_abdomen_CT"
+    ],
+    "views_recommended": [
+      "PET-TC FDG cuerpo entero",
+      "TC con contraste para mediciones",
+      "biopsia ganglionar excisional"
+    ],
+    "imaging_location": {
+      "body_region": "cuerpo entero (cervical, mediastino, abdomen)",
+      "anatomical_landmarks": "cadenas ganglionares supradiafragmaticas e infradiafragmaticas, mediastino anterior, bazo",
+      "bilateral_comparison_required": true,
+      "priority_zones": [
+        "adenopatias supradiafragmaticas (cervical, supraclavicular, mediastinal anterior)",
+        "masa mediastinal anterior > 10cm (bulky)",
+        "extension infradiafragmatica",
+        "bazo (compromiso esplenico)"
+      ],
+      "positioning_notes": "PET-TC es estandar para staging Ann Arbor y respuesta. Masa bulky modifica estrategia."
+    },
+    "expected_imaging_findings": "Adenopatias coalescentes en territorios contiguos con avidez FDG. Masa mediastinal anterior (frecuente en jovenes). Compromiso esplenico focal o difuso.",
+    "meddiffusion_prompt": "PET CT, FDG-avid mediastinal mass with bilateral cervical lymphadenopathy, anterior mediastinum, Hodgkin lymphoma staging, clinical medical imaging",
+    "meddiffusion_negative_prompt": "single isolated node, reactive small nodes, normal mediastinum",
+    "image_generation_notes": "Masa mediastinal anterior con adenopatias cervicales. Patron supradiafragmatico clasico de Hodgkin."
+  },
+  "base_probability": 0.58,
+  "urgency_level": "alta",
+  "notes": "Subtipo con buen pronostico si se diagnostica temprano. Biopsia excisional confirma. PET-TC define respuesta.",
+  "_meta": {
+    "category": "oncologica",
+    "organ": "linfoide"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "gt_id": "GT-PULM-002",
+  "icd_10": "C34.9",
+  "icd_10_description": "Neoplasia maligna del pulmon, parte no especificada (carcinoma escamoso)",
+  "objective_data": {
+    "biomarkers": {
+      "CYFRA_21_1": "marcador mas sensible para escamoso",
+      "SCC_Ag": "elevado",
+      "PD_L1": "variable"
+    },
+    "clinical_findings": [
+      "tos productiva cronica",
+      "hemoptisis franca",
+      "neumonia postobstructiva recurrente",
+      "atelectasia lobar",
+      "ronquera por compresion del nervio recurrente"
+    ],
+    "risk_factors": [
+      "tabaquismo intenso",
+      "edad > 60 anos",
+      "exposicion a polvos industriales"
+    ],
+    "prior_imaging_red_flags": [
+      "masa central perihiliar",
+      "atelectasia segmentaria",
+      "cavitacion en lesion previa"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "hemoptisis recurrente",
+      "infecciones respiratorias repetidas en mismo lobulo",
+      "disnea por obstruccion bronquial",
+      "dolor toracico"
+    ],
+    "patient_reported_concerns": [
+      "tiene neumonia que vuelve siempre del mismo lado",
+      "tose sangre con frecuencia",
+      "se ahoga cada vez mas"
+    ],
+    "onset_pattern": "evolucion subaguda en meses. Frecuentemente central, asociado a fenomenos obstructivos."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "chest_CT",
+      "chest_xray",
+      "bronchoscopy"
+    ],
+    "views_recommended": [
+      "TC torax con contraste",
+      "broncoscopia para biopsia"
+    ],
+    "imaging_location": {
+      "body_region": "torax con foco en arbol bronquial central",
+      "anatomical_landmarks": "bronquios principales, hilios pulmonares, ganglios mediastinales",
+      "bilateral_comparison_required": true,
+      "priority_zones": [
+        "masa endobronquial o perihiliar",
+        "atelectasia o consolidacion postobstructiva",
+        "cavitacion intratumoral",
+        "compromiso mediastinal"
+      ],
+      "positioning_notes": "TC con contraste para caracterizar masa central. Broncoscopia indispensable para biopsia y mapeo endobronquial."
+    },
+    "expected_imaging_findings": "Masa central perihiliar con tendencia a cavitacion. Atelectasia lobar postobstructiva. Compromiso de bronquio principal o segmentario.",
+    "meddiffusion_prompt": "Chest CT axial, central perihilar cavitary mass, post-obstructive atelectasis, bronchial encasement, squamous cell carcinoma lung, clinical medical imaging",
+    "meddiffusion_negative_prompt": "peripheral nodule, calcified granuloma, normal lung",
+    "image_generation_notes": "Masa central con cavitacion. Atelectasia postobstructiva visible."
+  },
+  "base_probability": 0.68,
+  "urgency_level": "alta",
+  "notes": "Tipicamente central. Biopsia broncoscopica suele ser diagnostica.",
+  "_meta": {
+    "category": "oncologica",
+    "organ": "pulmon"
+  }
+}

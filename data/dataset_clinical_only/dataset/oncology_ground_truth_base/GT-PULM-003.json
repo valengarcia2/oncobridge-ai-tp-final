@@ -1,0 +1,75 @@
+{
+  "gt_id": "GT-PULM-003",
+  "icd_10": "C34.0",
+  "icd_10_description": "Neoplasia maligna del bronquio principal (carcinoma de celulas pequenas)",
+  "objective_data": {
+    "biomarkers": {
+      "NSE": "elevado (enolasa neuroespecifica)",
+      "ProGRP": "marcador especifico",
+      "LDH": "elevada en enfermedad extensa"
+    },
+    "clinical_findings": [
+      "progresion clinica muy rapida",
+      "sindromes paraneoplasicos (SIADH, Cushing, miastenia)",
+      "compromiso mediastinal masivo",
+      "metastasis sistemicas frecuentes al diagnostico"
+    ],
+    "risk_factors": [
+      "tabaquismo intenso (casi exclusivo)",
+      "edad 60-70 anos"
+    ],
+    "prior_imaging_red_flags": [
+      "masa hiliar de crecimiento rapido",
+      "compromiso mediastinal extenso"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "tos y disnea de aparicion rapida (semanas)",
+      "perdida de peso marcada",
+      "sintomas neurologicos paraneoplasicos",
+      "sindrome de vena cava superior"
+    ],
+    "patient_reported_concerns": [
+      "se descompenso muy rapido",
+      "esta hinchado de la cara",
+      "tiene confusion y se cansa mucho"
+    ],
+    "onset_pattern": "evolucion en semanas, muy rapida. Sintomas sistemicos prominentes."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "chest_CT",
+      "PET_CT",
+      "brain_MRI"
+    ],
+    "views_recommended": [
+      "TC torax y abdomen con contraste",
+      "RM cerebral",
+      "PET-TC para staging"
+    ],
+    "imaging_location": {
+      "body_region": "torax + estudios sistemicos por alta tasa metastasica",
+      "anatomical_landmarks": "hilios pulmonares, mediastino, suprarrenales, encefalo",
+      "bilateral_comparison_required": true,
+      "priority_zones": [
+        "masa hiliar central",
+        "compromiso ganglionar mediastinal masivo",
+        "vena cava superior",
+        "metastasis hepaticas y suprarrenales"
+      ],
+      "positioning_notes": "Staging completo desde el diagnostico (TC torax + abdomen + RM cerebro) por alta probabilidad metastatica."
+    },
+    "expected_imaging_findings": "Masa hiliar central voluminosa con adenopatias mediastinales coalescentes. Compresion vascular frecuente. Metastasis sistemicas habituales al diagnostico.",
+    "meddiffusion_prompt": "Chest CT, large central hilar mass with bulky mediastinal lymphadenopathy, vascular compression, small cell lung carcinoma, clinical medical imaging",
+    "meddiffusion_negative_prompt": "small peripheral nodule, granuloma, normal lung",
+    "image_generation_notes": "Masa hiliar voluminosa con compromiso mediastinal masivo."
+  },
+  "base_probability": 0.66,
+  "urgency_level": "alta",
+  "notes": "Forma mas agresiva. Tratamiento inmediato. Casi exclusivo de fumadores.",
+  "_meta": {
+    "category": "oncologica",
+    "organ": "pulmon"
+  }
+}

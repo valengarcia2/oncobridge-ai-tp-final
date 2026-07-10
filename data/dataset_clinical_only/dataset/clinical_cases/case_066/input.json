@@ -1,0 +1,26 @@
+{
+  "patient_id": "PAT-00306",
+  "demographics": {
+    "age": 65,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "consolidacion persistente lobulo medio derecho post 6 semanas antibiotico"
+  ],
+  "medical_history": [
+    {
+      "date": "1960-2010",
+      "event": "Tabaquismo intenso."
+    },
+    {
+      "date": "2025-10",
+      "event": "Neumonia LMD — antibiotico, sin resolucion radiologica."
+    }
+  ],
+  "current_labs": {
+    "leucocitos": 7400,
+    "PCR": 18,
+    "CEA": 6.4
+  }
+}

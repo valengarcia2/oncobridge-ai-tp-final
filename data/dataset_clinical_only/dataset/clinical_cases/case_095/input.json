@@ -1,0 +1,60 @@
+{
+  "patient_id": "PAT-00505",
+  "demographics": {
+    "age": 42,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "adenopatias cervicales bilaterales 2 cm",
+    "sudoracion nocturna",
+    "fiebre vespertina",
+    "perdida peso 11 kg",
+    "esplenomegalia"
+  ],
+  "medical_history": [
+    {
+      "date": "2010",
+      "event": "Toxoplasmosis con adenopatias autolimitadas."
+    },
+    {
+      "date": "2015",
+      "event": "Mononucleosis EBV."
+    },
+    {
+      "date": "2020",
+      "event": "Diagnostico VIH — TAR iniciada."
+    },
+    {
+      "date": "2021",
+      "event": "Carga viral indetectable."
+    },
+    {
+      "date": "2022",
+      "event": "Adenopatias cervicales menores asintomaticas — atribuidas a sistema inmune en reconstitucion."
+    },
+    {
+      "date": "2023",
+      "event": "Control: linfocitos atipicos en hemograma."
+    },
+    {
+      "date": "2024",
+      "event": "Ganglios cervicales aumentan tamano."
+    },
+    {
+      "date": "2025-08",
+      "event": "Inicio sintomas B."
+    },
+    {
+      "date": "2025-11",
+      "event": "Biopsia ganglionar — resultado pendiente."
+    }
+  ],
+  "current_labs": {
+    "LDH": 642,
+    "B2_microglobulina": 6.2,
+    "hemograma": "anemia, trombocitopenia leve",
+    "CD4": 380,
+    "carga_viral_VIH": "indetectable"
+  }
+}

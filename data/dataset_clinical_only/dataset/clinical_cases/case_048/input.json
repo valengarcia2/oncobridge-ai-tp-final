@@ -1,0 +1,21 @@
+{
+  "patient_id": "PAT-00218",
+  "demographics": {
+    "age": 35,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "bulto blando que cambia con el ciclo",
+    "fluctuante"
+  ],
+  "medical_history": [
+    {
+      "date": "2025-06",
+      "event": "Ecografia: quiste simple anecogenico 2 cm BI-RADS 2."
+    }
+  ],
+  "current_labs": {
+    "hemograma": "normal"
+  }
+}

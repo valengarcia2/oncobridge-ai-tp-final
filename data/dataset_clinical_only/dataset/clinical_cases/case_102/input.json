@@ -1,0 +1,65 @@
+{
+  "patient_id": "PAT-00512",
+  "demographics": {
+    "age": 79,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "nodulo pulmonar 3 cm bordes irregulares LSI",
+    "tos cronica",
+    "perdida peso 3 kg"
+  ],
+  "medical_history": [
+    {
+      "date": "1955-1990",
+      "event": "Tabaquismo 50 paquetes/ano."
+    },
+    {
+      "date": "1992",
+      "event": "IAM con stent."
+    },
+    {
+      "date": "1995",
+      "event": "Diabetes tipo 2."
+    },
+    {
+      "date": "2000",
+      "event": "EPOC moderado."
+    },
+    {
+      "date": "2005",
+      "event": "Ca prostata Gleason 6 — vigilancia activa."
+    },
+    {
+      "date": "2010",
+      "event": "Ca colorrectal estadio I — hemicolectomia derecha curativa."
+    },
+    {
+      "date": "2015",
+      "event": "Nefropatia diabetica."
+    },
+    {
+      "date": "2018",
+      "event": "Insuficiencia cardiaca FE 40%."
+    },
+    {
+      "date": "2020",
+      "event": "ACV menor."
+    },
+    {
+      "date": "2023",
+      "event": "TC torax control: nodulo 2 mm — seguimiento."
+    },
+    {
+      "date": "2025-11",
+      "event": "TC: nodulo crecio a 3 cm con bordes irregulares."
+    }
+  ],
+  "current_labs": {
+    "CEA": 18.2,
+    "CYFRA_21_1": 5.8,
+    "hemograma": "anemia leve",
+    "creatinina": 1.8
+  }
+}

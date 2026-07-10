@@ -1,0 +1,52 @@
+{
+  "patient_id": "PAT-00517",
+  "demographics": {
+    "age": 58,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "multiples nodulos hepaticos hallazgo en TC por dolor lumbar"
+  ],
+  "medical_history": [
+    {
+      "date": "2010",
+      "event": "Ca mama izq estadio II — mastectomia + QT + RT + hormonoterapia 5 anos."
+    },
+    {
+      "date": "2015",
+      "event": "Remision completa."
+    },
+    {
+      "date": "2018",
+      "event": "Vigilancia anual mamografia + RM mamaria."
+    },
+    {
+      "date": "2022",
+      "event": "Sin evidencia de recidiva."
+    },
+    {
+      "date": "2024",
+      "event": "Densitometria: osteopenia."
+    },
+    {
+      "date": "2025-08",
+      "event": "Lumbalgia que no cede con AINE."
+    },
+    {
+      "date": "2025-10",
+      "event": "RM lumbar: lesion focal cuerpo vertebral L3 — biopsia: metastasis adenocarcinoma."
+    },
+    {
+      "date": "2025-11",
+      "event": "TC torax-abdomen-pelvis: multiples nodulos hepaticos."
+    }
+  ],
+  "current_labs": {
+    "CA_15_3": 412,
+    "CEA": 28,
+    "FAL": 642,
+    "calcio": 11.4,
+    "hemograma": "anemia"
+  }
+}

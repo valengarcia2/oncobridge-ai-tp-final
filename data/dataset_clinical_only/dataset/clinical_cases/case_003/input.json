@@ -1,0 +1,31 @@
+{
+  "patient_id": "PAT-00103",
+  "demographics": {
+    "age": 66,
+    "sex": "F",
+    "family_history": [
+      "breast_cancer"
+    ]
+  },
+  "current_symptoms": [
+    "masa de 4 cm en cuadrante inferior interno mama izquierda",
+    "perdida de peso 3 kg",
+    "ganglio supraclavicular palpable"
+  ],
+  "medical_history": [
+    {
+      "date": "2018",
+      "event": "Hermana fallecida por cancer de mama metastasico."
+    },
+    {
+      "date": "2024-12",
+      "event": "Sin controles mamarios desde hace 5 anos."
+    }
+  ],
+  "current_labs": {
+    "CA_15_3": 84.3,
+    "CEA": 18.4,
+    "FAL": 230,
+    "hemograma": "anemia leve"
+  }
+}

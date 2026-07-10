@@ -1,0 +1,28 @@
+{
+  "patient_id": "PAT-00313",
+  "demographics": {
+    "age": 66,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "nodulo hepatico 2 cm en cirrosis"
+  ],
+  "medical_history": [
+    {
+      "date": "2010",
+      "event": "Cirrosis enolica."
+    },
+    {
+      "date": "2025-09",
+      "event": "Ecografia screening: nuevo nodulo 2 cm hipoecoico."
+    }
+  ],
+  "current_labs": {
+    "AFP": 38,
+    "AST": 64,
+    "ALT": 48,
+    "albumina": 3.4,
+    "INR": 1.2
+  }
+}

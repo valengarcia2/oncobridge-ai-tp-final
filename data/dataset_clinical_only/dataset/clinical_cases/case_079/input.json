@@ -1,0 +1,24 @@
+{
+  "patient_id": "PAT-00404",
+  "demographics": {
+    "age": 42,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "tos seca 4 meses",
+    "disnea sutil esfuerzo",
+    "perdida peso 3 kg"
+  ],
+  "medical_history": [
+    {
+      "date": "2024-06",
+      "event": "Diagnostico asma leve."
+    }
+  ],
+  "current_labs": {
+    "CEA": 6.8,
+    "CYFRA_21_1": 4.2,
+    "hemograma": "normal"
+  }
+}

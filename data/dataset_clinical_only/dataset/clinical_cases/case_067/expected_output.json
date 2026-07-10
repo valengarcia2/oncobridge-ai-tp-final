@@ -1,0 +1,15 @@
+{
+  "case_id": "case_067",
+  "correct_gt_ids": [
+    "GT-TBC-001"
+  ],
+  "acceptable_secondary_gt_ids": [
+    "GT-PULM-002"
+  ],
+  "imaging_needed_ground_truth": true,
+  "urgency_ground_truth": "media",
+  "specialist_decision": "DERIVAR_A_IMAGEN",
+  "conclusive_ground_truth": true,
+  "difficulty": "moderado",
+  "notes": "TBC activa. Hemoptisis + sintomas B simulan ca pulmon."
+}

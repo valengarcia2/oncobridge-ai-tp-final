@@ -1,0 +1,76 @@
+{
+  "gt_id": "GT-BRCA-003",
+  "icd_10": "D05.1",
+  "icd_10_description": "Carcinoma intraductal in situ (DCIS) de la mama",
+  "objective_data": {
+    "biomarkers": {
+      "CA_15_3": "habitualmente normal",
+      "CEA": "habitualmente normal",
+      "ER_PR": "positivo en ~75% de los casos",
+      "HER2": "positivo en ~25% (alto grado)"
+    },
+    "clinical_findings": [
+      "ausencia frecuente de hallazgos clinicos palpables",
+      "deteccion habitualmente por mamografia de screening",
+      "ocasional descarga por pezon serosa o sanguinolenta",
+      "enfermedad de Paget asociada en raros casos"
+    ],
+    "risk_factors": [
+      "edad > 40 anos en programas de screening",
+      "antecedente familiar de cancer de mama",
+      "biopsia previa con hiperplasia ductal atipica",
+      "densidad mamaria alta"
+    ],
+    "prior_imaging_red_flags": [
+      "microcalcificaciones nuevas en cluster",
+      "calcificaciones pleomorficas o lineales finas",
+      "BI-RADS 4 en mamografia de screening"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "habitualmente asintomatico",
+      "descarga por pezon en casos raros",
+      "deteccion incidental en screening"
+    ],
+    "patient_reported_concerns": [
+      "viene por control de rutina",
+      "le mandaron a investigar calcificaciones",
+      "no siente nada pero la llamaron por la mamografia"
+    ],
+    "onset_pattern": "subclinico, deteccion radiologica antes de manifestacion clinica. Sin progresion sintomatica perceptible."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "mammography",
+      "breast_MRI"
+    ],
+    "views_recommended": [
+      "CC y MLO bilateral",
+      "magnificacion en zona de calcificaciones",
+      "biopsia estereotactica si BI-RADS 4-5"
+    ],
+    "imaging_location": {
+      "body_region": "mama afectada (segun ubicacion de calcificaciones)",
+      "anatomical_landmarks": "conductos galactoforos, region intraductal sin invasion estromal",
+      "bilateral_comparison_required": true,
+      "priority_zones": [
+        "cluster de microcalcificaciones",
+        "distribucion segmentaria de calcificaciones",
+        "evaluacion de extension lobar"
+      ],
+      "positioning_notes": "Magnificacion 1.8x sobre el cluster. Vista de magnificacion ortogonal. RM con contraste si extension preocupante."
+    },
+    "expected_imaging_findings": "Microcalcificaciones pleomorficas en cluster, distribucion segmentaria o lineal. Ausencia de masa asociada. En RM: realce no masivo lineal segmentario.",
+    "meddiffusion_prompt": "Magnified mammography view, pleomorphic microcalcifications cluster, segmental distribution, no associated mass, ductal carcinoma in situ DCIS pattern, BI-RADS 4, clinical medical imaging",
+    "meddiffusion_negative_prompt": "invasive mass, spiculated tumor, large lesion, benign macrocalcifications, normal tissue",
+    "image_generation_notes": "Foco en cluster de microcalcificaciones sin masa. Vista magnificada como en mamografia diagnostica."
+  },
+  "base_probability": 0.58,
+  "urgency_level": "media",
+  "notes": "Lesion pre-invasiva. Biopsia estereotactica es el siguiente paso. Riesgo de progresion a invasor varia segun grado nuclear.",
+  "_meta": {
+    "category": "oncologica",
+    "organ": "mama"
+  }
+}

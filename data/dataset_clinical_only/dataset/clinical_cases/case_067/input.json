@@ -1,0 +1,24 @@
+{
+  "patient_id": "PAT-00307",
+  "demographics": {
+    "age": 28,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "tos productiva con sangre",
+    "fiebre",
+    "sudoracion nocturna"
+  ],
+  "medical_history": [
+    {
+      "date": "2024",
+      "event": "Inmigro de zona endemica TBC."
+    }
+  ],
+  "current_labs": {
+    "PPD": "positivo",
+    "quantiferon": "positivo",
+    "BAAR_esputo": "positivo"
+  }
+}

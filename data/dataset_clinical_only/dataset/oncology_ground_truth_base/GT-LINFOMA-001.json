@@ -1,0 +1,77 @@
+{
+  "gt_id": "GT-LINFOMA-001",
+  "icd_10": "C85.9",
+  "icd_10_description": "Linfoma no Hodgkin (forma no especificada)",
+  "objective_data": {
+    "biomarkers": {
+      "LDH": "elevada",
+      "B2_microglobulina": "elevada",
+      "CD20_inmunohistoquimica": "positiva en celulas B"
+    },
+    "clinical_findings": [
+      "adenopatias periferica multiples indoloras",
+      "sintomas B (fiebre, sudoracion nocturna, perdida de peso)",
+      "esplenomegalia",
+      "hepatomegalia"
+    ],
+    "risk_factors": [
+      "inmunosupresion",
+      "VIH",
+      "enfermedades autoinmunes",
+      "infecciones cronicas (EBV, H. pylori)"
+    ],
+    "prior_imaging_red_flags": [
+      "adenomegalias > 1.5 cm bilaterales",
+      "esplenomegalia"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "adenopatias palpables multiples",
+      "fiebre vespertina",
+      "sudoracion nocturna",
+      "perdida de peso > 10%",
+      "fatiga"
+    ],
+    "patient_reported_concerns": [
+      "le aparecieron ganglios en muchos lados",
+      "sudo mucho de noche",
+      "esta cansado y sin apetito"
+    ],
+    "onset_pattern": "evolucion variable. Sintomas B definen pronostico."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "PET_CT",
+      "neck_chest_abdomen_CT"
+    ],
+    "views_recommended": [
+      "PET-TC con FDG",
+      "TC cervico-toraco-abdomino-pelvica con contraste",
+      "biopsia ganglionar excisional"
+    ],
+    "imaging_location": {
+      "body_region": "cuerpo entero (cervical, axilar, mediastinal, abdominal, inguinal)",
+      "anatomical_landmarks": "cadenas ganglionares, bazo, higado, medula osea",
+      "bilateral_comparison_required": true,
+      "priority_zones": [
+        "adenopatias multiples (estadificacion Ann Arbor)",
+        "esplenomegalia",
+        "infiltracion medula osea",
+        "compromiso extranodal (estomago, intestino, piel)"
+      ],
+      "positioning_notes": "PET-TC es estandar para staging. TC con contraste para mediciones. Biopsia excisional > PAAF para diagnostico."
+    },
+    "expected_imaging_findings": "Adenopatias coalescentes en multiples territorios. Captacion intensa en PET. Esplenomegalia con compromiso difuso o focal. Compromiso medular.",
+    "meddiffusion_prompt": "PET CT whole body, multiple FDG-avid lymph nodes cervical axillary mediastinal, splenomegaly, lymphoma staging, clinical medical imaging",
+    "meddiffusion_negative_prompt": "single isolated lymph node, normal study, reactive small nodes",
+    "image_generation_notes": "Adenopatias multiples avidas en PET. Compromiso multi-territorio caracteristico."
+  },
+  "base_probability": 0.61,
+  "urgency_level": "alta",
+  "notes": "Biopsia ganglionar excisional confirma subtipo. PET-TC estadifica.",
+  "_meta": {
+    "category": "oncologica",
+    "organ": "linfoide"
+  }
+}

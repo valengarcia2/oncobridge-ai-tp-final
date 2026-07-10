@@ -1,0 +1,28 @@
+{
+  "patient_id": "PAT-00110",
+  "demographics": {
+    "age": 72,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "nodulo pulmonar 22 mm lobulo superior derecho",
+    "tos seca",
+    "leve baja de peso"
+  ],
+  "medical_history": [
+    {
+      "date": "1965-2010",
+      "event": "Tabaquismo 50 paquetes/ano."
+    },
+    {
+      "date": "2025-09",
+      "event": "TC torax screening baja dosis: nodulo de 22 mm bordes espiculados."
+    }
+  ],
+  "current_labs": {
+    "CEA": 8.4,
+    "CYFRA_21_1": 4.2,
+    "hemograma": "normal"
+  }
+}

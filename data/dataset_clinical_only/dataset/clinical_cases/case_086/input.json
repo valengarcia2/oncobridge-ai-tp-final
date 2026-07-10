@@ -1,0 +1,23 @@
+{
+  "patient_id": "PAT-00411",
+  "demographics": {
+    "age": 52,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "ganglio cervical lateral derecho 1 cm dura indolora 2 meses"
+  ],
+  "medical_history": [
+    {
+      "date": "2024",
+      "event": "Sin antecedentes."
+    }
+  ],
+  "current_labs": {
+    "TSH": 1.8,
+    "tiroglobulina": 142,
+    "calcitonina": "< 2",
+    "hemograma": "normal"
+  }
+}

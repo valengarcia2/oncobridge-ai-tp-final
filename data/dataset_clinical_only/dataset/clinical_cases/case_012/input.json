@@ -1,0 +1,33 @@
+{
+  "patient_id": "PAT-00112",
+  "demographics": {
+    "age": 71,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "derrame pleural recurrente derecho",
+    "dolor toracico cronico",
+    "disnea progresiva"
+  ],
+  "medical_history": [
+    {
+      "date": "1965-1990",
+      "event": "Trabajador en astillero — exposicion asbesto documentada."
+    },
+    {
+      "date": "2025-09",
+      "event": "Toracocentesis: liquido seroso, citologia negativa."
+    },
+    {
+      "date": "2025-11",
+      "event": "Re-acumulacion del derrame."
+    }
+  ],
+  "current_labs": {
+    "mesotelina": 4.2,
+    "CEA": 2.8,
+    "CYFRA_21_1": 3.4,
+    "hemograma": "normal"
+  }
+}

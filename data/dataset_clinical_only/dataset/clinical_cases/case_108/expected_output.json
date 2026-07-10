@@ -1,0 +1,13 @@
+{
+  "case_id": "case_108",
+  "correct_gt_ids": [
+    "GT-HIGADO-001"
+  ],
+  "acceptable_secondary_gt_ids": [],
+  "imaging_needed_ground_truth": true,
+  "urgency_ground_truth": "alta",
+  "specialist_decision": "DERIVAR_A_IMAGEN",
+  "conclusive_ground_truth": true,
+  "difficulty": "moderado",
+  "notes": "HCC con doble etiologia (alcohol + VHC), descompensacion clinica nueva. RM gadoxetato."
+}

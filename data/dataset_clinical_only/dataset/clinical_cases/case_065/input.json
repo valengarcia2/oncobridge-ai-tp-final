@@ -1,0 +1,28 @@
+{
+  "patient_id": "PAT-00305",
+  "demographics": {
+    "age": 71,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "tos cronica 8 semanas",
+    "expectoracion mucopurulenta",
+    "sin hemoptisis"
+  ],
+  "medical_history": [
+    {
+      "date": "1970-1995",
+      "event": "Tabaquismo (cesado 30 anos)."
+    },
+    {
+      "date": "2024-10",
+      "event": "Neumonia lobulo inferior izquierdo — resuelta."
+    }
+  ],
+  "current_labs": {
+    "leucocitos": 9800,
+    "PCR": 24,
+    "CEA": 3.2
+  }
+}

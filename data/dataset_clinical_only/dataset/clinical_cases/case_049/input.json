@@ -1,0 +1,22 @@
+{
+  "patient_id": "PAT-00219",
+  "demographics": {
+    "age": 28,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "tos seca 4 dias, rinorrea, fiebre leve"
+  ],
+  "medical_history": [
+    {
+      "date": "2024-12",
+      "event": "Control previo normal."
+    }
+  ],
+  "current_labs": {
+    "leucocitos": 7800,
+    "PCR": 8,
+    "hemograma": "normal"
+  }
+}

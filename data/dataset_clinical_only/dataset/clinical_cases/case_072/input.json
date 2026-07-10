@@ -1,0 +1,27 @@
+{
+  "patient_id": "PAT-00312",
+  "demographics": {
+    "age": 60,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "hallazgo incidental lesion hepatica 3 cm en ecografia abdominal"
+  ],
+  "medical_history": [
+    {
+      "date": "2010-2015",
+      "event": "ACO 5 anos."
+    },
+    {
+      "date": "2025-11",
+      "event": "Ecografia: lesion hiperecogenica homogenea."
+    }
+  ],
+  "current_labs": {
+    "AFP": 3.2,
+    "CEA": 1.5,
+    "CA_19_9": 12,
+    "hepatograma": "normal"
+  }
+}

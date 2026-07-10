@@ -1,0 +1,32 @@
+{
+  "patient_id": "PAT-00114",
+  "demographics": {
+    "age": 76,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "neumonia recurrente lobulo inferior derecho",
+    "hemoptisis ocasional",
+    "atelectasia documentada"
+  ],
+  "medical_history": [
+    {
+      "date": "1960-2010",
+      "event": "Tabaquismo 60 paquetes/ano."
+    },
+    {
+      "date": "2025-06",
+      "event": "Primera neumonia LID."
+    },
+    {
+      "date": "2025-11",
+      "event": "Segunda neumonia mismo segmento."
+    }
+  ],
+  "current_labs": {
+    "CEA": 9.2,
+    "CYFRA_21_1": 6.1,
+    "hemograma": "anemia leve"
+  }
+}

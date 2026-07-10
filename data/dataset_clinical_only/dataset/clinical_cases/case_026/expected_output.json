@@ -1,0 +1,15 @@
+{
+  "case_id": "case_026",
+  "correct_gt_ids": [
+    "GT-LINFOMA-002"
+  ],
+  "acceptable_secondary_gt_ids": [
+    "GT-LINFOMA-001"
+  ],
+  "imaging_needed_ground_truth": true,
+  "urgency_ground_truth": "alta",
+  "specialist_decision": "DERIVAR_A_IMAGEN",
+  "conclusive_ground_truth": true,
+  "difficulty": "facil",
+  "notes": "Hodgkin clasico — joven con masa mediastinal y sintomas B."
+}

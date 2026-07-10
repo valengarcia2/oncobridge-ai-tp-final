@@ -1,0 +1,57 @@
+{
+  "patient_id": "PAT-00504",
+  "demographics": {
+    "age": 64,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "PSA en ascenso 4.2 a 12.8 en 18 meses",
+    "molestia perineal",
+    "dolor lumbar"
+  ],
+  "medical_history": [
+    {
+      "date": "2018-04",
+      "event": "PSA basal 2.1."
+    },
+    {
+      "date": "2020",
+      "event": "Vigilancia activa por PSA bajo."
+    },
+    {
+      "date": "2022",
+      "event": "PSA 4.2 — biopsia TR negativa 12 cilindros."
+    },
+    {
+      "date": "2023",
+      "event": "PSA 5.6."
+    },
+    {
+      "date": "2024-03",
+      "event": "PSA 6.8 — mp-MRI PI-RADS 3."
+    },
+    {
+      "date": "2024-09",
+      "event": "PSA 8.4 — mp-MRI PI-RADS 4."
+    },
+    {
+      "date": "2025-04",
+      "event": "Biopsia fusion: ASAP (atypical small acinar proliferation)."
+    },
+    {
+      "date": "2025-08",
+      "event": "PSA 12.8 — re-mp-MRI: crecimiento lesion."
+    },
+    {
+      "date": "2025-11",
+      "event": "Aparicion dolor lumbar."
+    }
+  ],
+  "current_labs": {
+    "PSA": 12.8,
+    "PSA_libre_ratio": "6%",
+    "PCA3": "elevado",
+    "FAL": 142
+  }
+}

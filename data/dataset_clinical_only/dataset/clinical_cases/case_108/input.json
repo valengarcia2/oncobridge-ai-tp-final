@@ -1,0 +1,65 @@
+{
+  "patient_id": "PAT-00518",
+  "demographics": {
+    "age": 54,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "malestar abdominal",
+    "perdida peso 6 kg",
+    "ascitis nueva",
+    "encefalopatia leve"
+  ],
+  "medical_history": [
+    {
+      "date": "1990-2005",
+      "event": "Consumo alcohol 100 g/dia."
+    },
+    {
+      "date": "2005",
+      "event": "Diagnostico hepatitis alcoholica."
+    },
+    {
+      "date": "2008",
+      "event": "Cesacion alcohol."
+    },
+    {
+      "date": "2010",
+      "event": "Cirrosis hepatica."
+    },
+    {
+      "date": "2015",
+      "event": "Esofagopatia portal — banding profilactico."
+    },
+    {
+      "date": "2018",
+      "event": "Hepatitis C cronica reciente confirmada — antiviral con respuesta sostenida."
+    },
+    {
+      "date": "2020",
+      "event": "Vigilancia HCC con AFP y ecografia cada 6 meses."
+    },
+    {
+      "date": "2023",
+      "event": "AFP 18 (basal) — ecografia: cirrosis sin nodulos."
+    },
+    {
+      "date": "2025-04",
+      "event": "AFP 24 — ecografia: pequena lesion 1.5 cm — RM no concluyente."
+    },
+    {
+      "date": "2025-11",
+      "event": "AFP 412 — ecografia: lesion crece a 4.8 cm."
+    }
+  ],
+  "current_labs": {
+    "AFP": 412,
+    "AST": 142,
+    "ALT": 88,
+    "bilirrubina": 4.8,
+    "albumina": 2.4,
+    "INR": 1.8,
+    "amonio": 88
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "gt_id": "GT-TIROIDES-001",
+  "icd_10": "C73",
+  "icd_10_description": "Neoplasia maligna de la glandula tiroides (carcinoma papilar)",
+  "objective_data": {
+    "biomarkers": {
+      "tiroglobulina": "elevada (marcador post-tiroidectomia)",
+      "calcitonina": "elevada en medular",
+      "TSH": "variable, frecuentemente normal",
+      "BRAF_V600E": "mutacion en papilar"
+    },
+    "clinical_findings": [
+      "nodulo tiroideo palpable",
+      "adenopatia cervical",
+      "habitualmente eutiroideo",
+      "disfonia por compromiso del recurrente en avanzados"
+    ],
+    "risk_factors": [
+      "exposicion a radiacion cervical",
+      "antecedente familiar de cancer tiroideo",
+      "sindromes hereditarios (MEN2)"
+    ],
+    "prior_imaging_red_flags": [
+      "TI-RADS 4-5 en ecografia previa"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "nodulo o bulto cervical anterior",
+      "ganglios cervicales palpables",
+      "habitualmente eutiroideo"
+    ],
+    "patient_reported_concerns": [
+      "siente un bulto en el cuello",
+      "le notaron ganglios"
+    ],
+    "onset_pattern": "evolucion lenta. Crecimiento progresivo."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "thyroid_ultrasound",
+      "cervical_CT",
+      "fine_needle_aspiration"
+    ],
+    "views_recommended": [
+      "ecografia tiroidea con TI-RADS",
+      "PAAF guiada por eco",
+      "TC cervical si sospecha extracapsular"
+    ],
+    "imaging_location": {
+      "body_region": "cuello anterior + cadenas cervicales",
+      "anatomical_landmarks": "lobulos tiroideos, istmo, cadenas ganglionares cervicales (niveles II-VI)",
+      "bilateral_comparison_required": true,
+      "priority_zones": [
+        "nodulo tiroideo focal",
+        "caracteristicas TI-RADS (hipoecoico, mas alto que ancho, microcalcificaciones, bordes irregulares)",
+        "adenopatias cervicales"
+      ],
+      "positioning_notes": "Ecografia alta frecuencia con transductor lineal. Reportar TI-RADS. PAAF si TI-RADS 4-5 segun tamano."
+    },
+    "expected_imaging_findings": "Nodulo solido hipoecoico, mas alto que ancho, con microcalcificaciones y bordes irregulares. Adenopatias cervicales con quistificacion o microcalcificaciones.",
+    "meddiffusion_prompt": "Thyroid ultrasound, hypoechoic solid nodule with microcalcifications, taller than wide, irregular margins, TI-RADS 5, papillary thyroid carcinoma, clinical medical imaging",
+    "meddiffusion_negative_prompt": "isoechoic nodule, well-defined, no calcifications, benign goiter",
+    "image_generation_notes": "Nodulo tiroideo con caracteristicas TI-RADS 5. Microcalcificaciones visibles."
+  },
+  "base_probability": 0.57,
+  "urgency_level": "media",
+  "notes": "Carcinoma papilar es el subtipo mas frecuente. Pronostico habitualmente bueno con tratamiento.",
+  "_meta": {
+    "category": "oncologica",
+    "organ": "tiroides"
+  }
+}

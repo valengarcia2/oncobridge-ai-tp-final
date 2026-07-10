@@ -1,0 +1,25 @@
+{
+  "patient_id": "PAT-00302",
+  "demographics": {
+    "age": 48,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "eritema mama derecha 2 semanas progresivo",
+    "induracion",
+    "sin fiebre"
+  ],
+  "medical_history": [
+    {
+      "date": "2024",
+      "event": "Trauma local por accidente domestico."
+    }
+  ],
+  "current_labs": {
+    "leucocitos": 9800,
+    "PCR": 28,
+    "CA_15_3": 26,
+    "CEA": 1.8
+  }
+}

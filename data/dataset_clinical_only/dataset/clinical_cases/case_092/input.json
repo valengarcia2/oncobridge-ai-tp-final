@@ -1,0 +1,70 @@
+{
+  "patient_id": "PAT-00502",
+  "demographics": {
+    "age": 73,
+    "sex": "M",
+    "family_history": [
+      "lung_cancer"
+    ]
+  },
+  "current_symptoms": [
+    "hemoptisis recurrente 2 meses",
+    "disnea progresiva",
+    "perdida peso 12 kg",
+    "dolor toracico",
+    "voz ronca"
+  ],
+  "medical_history": [
+    {
+      "date": "1965-2018",
+      "event": "Tabaquismo 60 paquetes/ano (cesado 2018)."
+    },
+    {
+      "date": "1985",
+      "event": "Pleuresia."
+    },
+    {
+      "date": "1998",
+      "event": "Bronquitis aguda recurrente."
+    },
+    {
+      "date": "2008",
+      "event": "Hipertension arterial diagnosticada."
+    },
+    {
+      "date": "2012",
+      "event": "Diabetes tipo 2."
+    },
+    {
+      "date": "2015",
+      "event": "EPOC GOLD II."
+    },
+    {
+      "date": "2018",
+      "event": "Cese tabaquismo + EPOC GOLD III."
+    },
+    {
+      "date": "2020",
+      "event": "Cardiopatia isquemica — stent coronario."
+    },
+    {
+      "date": "2022",
+      "event": "Neumonia comunitaria — LID."
+    },
+    {
+      "date": "2024-08",
+      "event": "Neumonia atipica LID — tratamiento prolongado."
+    },
+    {
+      "date": "2025-12",
+      "event": "TC torax: opacidad persistente LID."
+    }
+  ],
+  "current_labs": {
+    "CEA": 24.6,
+    "CYFRA_21_1": 12.4,
+    "NSE": 38,
+    "hemograma": "anemia Hb 10.8",
+    "HbA1c": 7.8
+  }
+}

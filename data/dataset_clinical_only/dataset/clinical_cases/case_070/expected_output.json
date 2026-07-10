@@ -1,0 +1,15 @@
+{
+  "case_id": "case_070",
+  "correct_gt_ids": [
+    "GT-DIVERT-001"
+  ],
+  "acceptable_secondary_gt_ids": [
+    "GT-COLON-001"
+  ],
+  "imaging_needed_ground_truth": true,
+  "urgency_ground_truth": "media",
+  "specialist_decision": "DERIVAR_A_IMAGEN",
+  "conclusive_ground_truth": true,
+  "difficulty": "dificil",
+  "notes": "CEA leve + colonoscopia incompleta = recompletar para descartar ca."
+}

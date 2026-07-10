@@ -1,0 +1,66 @@
+{
+  "gt_id": "GT-COLON-002",
+  "icd_10": "D12.6",
+  "icd_10_description": "Polipo adenomatoso de colon (lesion premaligna)",
+  "objective_data": {
+    "biomarkers": {
+      "sangre_oculta_heces": "positivo en algunos casos",
+      "marcadores_tumorales": "habitualmente normales"
+    },
+    "clinical_findings": [
+      "habitualmente asintomatico",
+      "rectorragia minima ocasional"
+    ],
+    "risk_factors": [
+      "edad > 50 anos",
+      "antecedente familiar",
+      "poliposis adenomatosa familiar"
+    ],
+    "prior_imaging_red_flags": [
+      "polipo conocido en colonoscopia previa"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "habitualmente asintomatico",
+      "sangrado minimo en heces",
+      "deteccion en screening"
+    ],
+    "patient_reported_concerns": [
+      "viene a control",
+      "le encontraron sangre oculta",
+      "le indicaron colonoscopia"
+    ],
+    "onset_pattern": "asintomatico, deteccion endoscopica."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "colonoscopy"
+    ],
+    "views_recommended": [
+      "colonoscopia con polipectomia y biopsia"
+    ],
+    "imaging_location": {
+      "body_region": "colon (zona del polipo)",
+      "anatomical_landmarks": "mucosa colonica, pediculo si aplica",
+      "bilateral_comparison_required": false,
+      "priority_zones": [
+        "polipo individual",
+        "evaluacion de tamano y morfologia",
+        "deteccion de polipos sincronicos"
+      ],
+      "positioning_notes": "Colonoscopia completa hasta ciego con preparacion adecuada. Polipectomia con biopsia."
+    },
+    "expected_imaging_findings": "Lesion polipoidea sesil o pediculada. Tamano > 10mm aumenta riesgo de displasia. Morfologia velloso o tubulovelloso es mas riesgosa.",
+    "meddiffusion_prompt": "Colonoscopy view, pedunculated polyp 12mm sigmoid colon, smooth surface, benign adenomatous appearance, premalignant lesion, clinical medical imaging",
+    "meddiffusion_negative_prompt": "invasive cancer ulcerated mass, advanced malignancy",
+    "image_generation_notes": "Polipo pediculado adenomatoso de tamano moderado. Lesion premaligna clasica."
+  },
+  "base_probability": 0.36,
+  "urgency_level": "media",
+  "notes": "Lesion premaligna. Polipectomia es curativa. Grado de displasia define seguimiento.",
+  "_meta": {
+    "category": "premaligna",
+    "organ": "colon"
+  }
+}

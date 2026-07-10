@@ -1,0 +1,25 @@
+{
+  "patient_id": "PAT-00308",
+  "demographics": {
+    "age": 73,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "nodulo solitario 7 mm calcificado en TC torax control"
+  ],
+  "medical_history": [
+    {
+      "date": "2018",
+      "event": "Histoplasmosis tratada hace 7 anos."
+    },
+    {
+      "date": "2023",
+      "event": "Nodulo previo de mismo tamano y morfologia."
+    }
+  ],
+  "current_labs": {
+    "CEA": 1.8,
+    "CYFRA_21_1": 1.4
+  }
+}

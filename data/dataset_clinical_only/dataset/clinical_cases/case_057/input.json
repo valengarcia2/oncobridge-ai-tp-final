@@ -1,0 +1,27 @@
+{
+  "patient_id": "PAT-00227",
+  "demographics": {
+    "age": 65,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "EPID en seguimiento — disnea de esfuerzo estable"
+  ],
+  "medical_history": [
+    {
+      "date": "2020",
+      "event": "EPID idiopatica diagnosticada por HRCT."
+    },
+    {
+      "date": "2024",
+      "event": "Tratamiento con pirfenidona."
+    }
+  ],
+  "current_labs": {
+    "KL_6": 624,
+    "CEA": 2.4,
+    "CYFRA_21_1": 2.1,
+    "hemograma": "normal"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "patient_id": "PAT-00204",
+  "demographics": {
+    "age": 65,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "control anual sin sintomas",
+    "PSA estable seguimiento"
+  ],
+  "medical_history": [
+    {
+      "date": "2018-2025",
+      "event": "PSA entre 1.2 y 1.8."
+    },
+    {
+      "date": "2024-04",
+      "event": "Colonoscopia: 1 polipo hiperplasico extirpado."
+    }
+  ],
+  "current_labs": {
+    "PSA": 1.5,
+    "hemograma": "normal",
+    "CEA": 1.1
+  }
+}

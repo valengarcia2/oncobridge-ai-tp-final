@@ -1,0 +1,61 @@
+{
+  "patient_id": "PAT-00506",
+  "demographics": {
+    "age": 66,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "dolor HCD 2 meses",
+    "perdida peso 6 kg",
+    "fatiga",
+    "ictericia leve nueva",
+    "edema MMII"
+  ],
+  "medical_history": [
+    {
+      "date": "1985",
+      "event": "Hepatitis B aguda."
+    },
+    {
+      "date": "1995",
+      "event": "Diagnostico hepatitis B cronica."
+    },
+    {
+      "date": "2005",
+      "event": "Cirrosis hepatica."
+    },
+    {
+      "date": "2010",
+      "event": "Varices esofagicas — banding."
+    },
+    {
+      "date": "2015",
+      "event": "Tenofovir — ADN-VHB indetectable."
+    },
+    {
+      "date": "2018",
+      "event": "Encefalopatia hepatica grado I."
+    },
+    {
+      "date": "2020-2025",
+      "event": "Vigilancia HCC: ecografia y AFP cada 6 meses, AFP siempre < 10."
+    },
+    {
+      "date": "2025-04",
+      "event": "Ecografia: parenquima cirrotico sin nodulos."
+    },
+    {
+      "date": "2025-10",
+      "event": "Ecografia: nuevo nodulo 4.2 cm lobulo derecho."
+    }
+  ],
+  "current_labs": {
+    "AFP": 1240,
+    "AST": 92,
+    "ALT": 78,
+    "bilirrubina": 3.2,
+    "albumina": 2.8,
+    "INR": 1.6
+  }
+}

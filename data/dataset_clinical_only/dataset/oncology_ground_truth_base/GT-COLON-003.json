@@ -1,0 +1,70 @@
+{
+  "gt_id": "GT-COLON-003",
+  "icd_10": "C26.0",
+  "icd_10_description": "Neoplasia maligna del tracto intestinal, no especificada (tumor carcinoide)",
+  "objective_data": {
+    "biomarkers": {
+      "cromogranina_A": "elevada",
+      "5_HIAA_urinario": "elevado",
+      "serotonina": "elevada"
+    },
+    "clinical_findings": [
+      "sindrome carcinoide (flushing, diarrea)",
+      "dolor abdominal recurrente",
+      "obstruccion intestinal en avanzados"
+    ],
+    "risk_factors": [
+      "edad media",
+      "MEN1 asociada en algunos casos"
+    ],
+    "prior_imaging_red_flags": [
+      "lesion submucosa en estudio previo"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "episodios de rubor facial",
+      "diarrea cronica acuosa",
+      "dolor abdominal colico"
+    ],
+    "patient_reported_concerns": [
+      "le viene flushing en la cara",
+      "tiene diarrea cronica sin causa clara"
+    ],
+    "onset_pattern": "evolucion en meses. Sintomas inespecificos inicialmente."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "abdominal_CT",
+      "octreoscan",
+      "MRI_abdomen"
+    ],
+    "views_recommended": [
+      "TC abdomen con contraste",
+      "octreoscan o PET-Galio-DOTATATE",
+      "RM hepatica si sospecha metastatica"
+    ],
+    "imaging_location": {
+      "body_region": "abdomen completo",
+      "anatomical_landmarks": "intestino delgado distal (ileon terminal), mesenterio, higado",
+      "bilateral_comparison_required": false,
+      "priority_zones": [
+        "lesion submucosa en intestino",
+        "masa mesenterica con calcificaciones",
+        "metastasis hepaticas hipervasculares"
+      ],
+      "positioning_notes": "TC con fases arterial y portal. Octreoscan es muy especifico para tumores neuroendocrinos."
+    },
+    "expected_imaging_findings": "Lesion submucosa de pequeno tamano. Masa mesenterica con efecto desmoplasico (signo de rueda de carro). Metastasis hepaticas hipervasculares en fase arterial.",
+    "meddiffusion_prompt": "Abdominal CT, small submucosal lesion ileum with mesenteric desmoplastic mass calcified, hypervascular liver metastases arterial phase, carcinoid tumor pattern, clinical medical imaging",
+    "meddiffusion_negative_prompt": "diffuse colitis, normal small bowel, large solid colon mass",
+    "image_generation_notes": "Lesion neuroendocrina con efecto desmoplasico tipico."
+  },
+  "base_probability": 0.52,
+  "urgency_level": "media",
+  "notes": "Tumores neuroendocrinos. Diagnostico frecuentemente tardio. Octreoscan o PET-DOTATATE muy especificos.",
+  "_meta": {
+    "category": "oncologica",
+    "organ": "intestino"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "patient_id": "PAT-00104",
+  "demographics": {
+    "age": 53,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "descarga sanguinolenta unilateral pezon derecho",
+    "asimetria nueva en mamografia"
+  ],
+  "medical_history": [
+    {
+      "date": "2025-09",
+      "event": "Mamografia screening: asimetria focal CSE derecho — BI-RADS 4."
+    }
+  ],
+  "current_labs": {
+    "CA_15_3": 31,
+    "CEA": 3.4,
+    "hemograma": "normal"
+  }
+}

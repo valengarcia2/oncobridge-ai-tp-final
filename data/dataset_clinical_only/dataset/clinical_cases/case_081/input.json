@@ -1,0 +1,26 @@
+{
+  "patient_id": "PAT-00406",
+  "demographics": {
+    "age": 56,
+    "sex": "F",
+    "family_history": [
+      "lung_cancer"
+    ]
+  },
+  "current_symptoms": [
+    "dolor en hombro derecho irradiado 3 meses",
+    "perdida peso 4 kg",
+    "sin sintomas respiratorios"
+  ],
+  "medical_history": [
+    {
+      "date": "2024",
+      "event": "Diagnostico de tendinitis del manguito rotador — sin mejoria con kinesiologia."
+    }
+  ],
+  "current_labs": {
+    "CEA": 7.4,
+    "CYFRA_21_1": 3.8,
+    "hemograma": "normal"
+  }
+}

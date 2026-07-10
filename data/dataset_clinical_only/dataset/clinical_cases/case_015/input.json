@@ -1,0 +1,28 @@
+{
+  "patient_id": "PAT-00115",
+  "demographics": {
+    "age": 69,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "nodulo lobulado lobulo superior izquierdo 28 mm",
+    "dolor pleuritico",
+    "perdida peso 6 kg"
+  ],
+  "medical_history": [
+    {
+      "date": "1970-2020",
+      "event": "Tabaquismo 40 paquetes/ano."
+    },
+    {
+      "date": "2025-10",
+      "event": "TC: nodulo 28 mm con extension pleural."
+    }
+  ],
+  "current_labs": {
+    "CEA": 14.2,
+    "CYFRA_21_1": 5.4,
+    "hemograma": "normal"
+  }
+}

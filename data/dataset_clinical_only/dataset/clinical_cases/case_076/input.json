@@ -1,0 +1,28 @@
+{
+  "patient_id": "PAT-00401",
+  "demographics": {
+    "age": 51,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "pesadez mamaria izq sin masa palpable",
+    "engrosamiento sutil progresivo",
+    "asimetria leve"
+  ],
+  "medical_history": [
+    {
+      "date": "2023-09",
+      "event": "Mamografia BI-RADS 2."
+    },
+    {
+      "date": "2025-04",
+      "event": "Ecografia: tejido denso sin lesiones focales."
+    }
+  ],
+  "current_labs": {
+    "CA_15_3": 29,
+    "CEA": 3.1,
+    "hemograma": "normal"
+  }
+}

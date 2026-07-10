@@ -1,0 +1,29 @@
+# --- Contratos de datos y validación ---
+pydantic>=2.6
+
+# --- Configuración / entorno ---
+python-dotenv>=1.0
+
+# --- Cliente LLM (Componente 1 y 2) ---
+google-genai>=1.0
+
+# --- RAG: retrieval híbrido (Paso 3) ---
+rank-bm25>=0.2.2
+sentence-transformers>=3.0
+numpy>=1.26
+
+# --- Conteo de tokens para medir eficiencia de contexto (Paso 4) ---
+tiktoken>=0.7
+
+# --- Generación de imágenes sintéticas (Paso 10, Componente 2) ---
+diffusers>=0.30
+torch>=2.2
+transformers>=4.40
+pillow>=10.0
+
+# --- Interfaz no técnica (Paso 17) ---
+streamlit>=1.35
+
+# --- Testing y evaluación ---
+pytest>=8.0
+pandas>=2.2

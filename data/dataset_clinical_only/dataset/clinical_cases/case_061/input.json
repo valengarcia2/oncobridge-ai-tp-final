@@ -1,0 +1,29 @@
+{
+  "patient_id": "PAT-00301",
+  "demographics": {
+    "age": 32,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "eritema y calor mama izquierda 5 dias",
+    "masa blanda dolorosa",
+    "fiebre 38.4"
+  ],
+  "medical_history": [
+    {
+      "date": "2025-05",
+      "event": "Parto normal."
+    },
+    {
+      "date": "2025-08",
+      "event": "Fisura pezon."
+    }
+  ],
+  "current_labs": {
+    "leucocitos": 14200,
+    "PCR": 64,
+    "CA_15_3": 22,
+    "CEA": 1.4
+  }
+}

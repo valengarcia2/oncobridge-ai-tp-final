@@ -1,0 +1,15 @@
+{
+  "case_id": "case_105",
+  "correct_gt_ids": [
+    "GT-COLON-001"
+  ],
+  "acceptable_secondary_gt_ids": [
+    "GT-COLITIS-001"
+  ],
+  "imaging_needed_ground_truth": true,
+  "urgency_ground_truth": "alta",
+  "specialist_decision": "DERIVAR_A_IMAGEN",
+  "conclusive_ground_truth": true,
+  "difficulty": "moderado",
+  "notes": "Ca colorrectal sobre EII de larga data — riesgo conocido. Staging completo."
+}

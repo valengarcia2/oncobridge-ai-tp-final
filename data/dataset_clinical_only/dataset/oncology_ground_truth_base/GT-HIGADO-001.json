@@ -1,0 +1,81 @@
+{
+  "gt_id": "GT-HIGADO-001",
+  "icd_10": "C22.0",
+  "icd_10_description": "Carcinoma hepatocelular (hepatocarcinoma)",
+  "objective_data": {
+    "biomarkers": {
+      "alfa_fetoproteina_AFP": "> 400 ng/mL altamente sugestivo",
+      "PIVKA_II": "elevado",
+      "AST_ALT": "elevadas",
+      "albumina": "disminuida en cirrosis"
+    },
+    "clinical_findings": [
+      "hepatomegalia",
+      "ascitis",
+      "ictericia",
+      "esplenomegalia (hipertension portal)",
+      "circulacion colateral abdominal"
+    ],
+    "risk_factors": [
+      "cirrosis hepatica de cualquier causa",
+      "hepatitis B o C cronica",
+      "alcoholismo cronico",
+      "hemocromatosis",
+      "esteatohepatitis no alcoholica"
+    ],
+    "prior_imaging_red_flags": [
+      "nodulos hepaticos en cirrosis",
+      "AFP en aumento"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "dolor abdominal HCD",
+      "perdida de peso",
+      "ascitis",
+      "ictericia",
+      "encefalopatia hepatica en avanzado"
+    ],
+    "patient_reported_concerns": [
+      "le crece la panza",
+      "se puso amarillo",
+      "le duele el lado derecho"
+    ],
+    "onset_pattern": "evolucion variable. Frecuentemente sobre cirrosis preexistente."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "abdominal_MRI",
+      "abdominal_CT",
+      "ultrasound_abdomen"
+    ],
+    "views_recommended": [
+      "RM hepatica con contraste especifico (gadoxetato)",
+      "TC trifasica (arterial, portal, tardia)",
+      "ecografia con contraste"
+    ],
+    "imaging_location": {
+      "body_region": "abdomen con foco en higado",
+      "anatomical_landmarks": "segmentos hepaticos (Couinaud), vena porta, vena hepatica, vias biliares",
+      "bilateral_comparison_required": false,
+      "priority_zones": [
+        "nodulo hepatico focal",
+        "captacion arterial con washout portal/tardio (patron LI-RADS)",
+        "trombosis tumoral en porta",
+        "extension extrahepatica"
+      ],
+      "positioning_notes": "RM con gadoxetato (Primovist) es muy sensible. TC trifasica imprescindible. Reportar con criterios LI-RADS."
+    },
+    "expected_imaging_findings": "Lesion hepatica con realce arterial (wash-in) y lavado (wash-out) en fase portal y/o tardia. Capsula. LI-RADS 5. Posible trombosis tumoral en porta.",
+    "meddiffusion_prompt": "Abdominal MRI axial arterial phase, hyperenhancing liver lesion with washout portal phase, capsule, LI-RADS 5, hepatocellular carcinoma in cirrhosis, clinical medical imaging",
+    "meddiffusion_negative_prompt": "hemangioma flash filling, benign cyst, normal liver",
+    "image_generation_notes": "Patron LI-RADS 5 clasico de hepatocarcinoma. Hipervascularizacion arterial con lavado."
+  },
+  "base_probability": 0.69,
+  "urgency_level": "alta",
+  "notes": "Diagnostico por imagen valido en cirrosis con criterios LI-RADS sin biopsia. AFP no diagnostico per se.",
+  "_meta": {
+    "category": "oncologica",
+    "organ": "higado"
+  }
+}

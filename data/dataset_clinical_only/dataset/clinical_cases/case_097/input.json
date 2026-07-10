@@ -1,0 +1,57 @@
+{
+  "patient_id": "PAT-00507",
+  "demographics": {
+    "age": 58,
+    "sex": "F",
+    "family_history": [
+      "breast_cancer"
+    ]
+  },
+  "current_symptoms": [
+    "microcalcificaciones nuevas mama izquierda en screening",
+    "asintomatica"
+  ],
+  "medical_history": [
+    {
+      "date": "2005",
+      "event": "Hiperplasia ductal atipica en biopsia mama izquierda."
+    },
+    {
+      "date": "2008",
+      "event": "Anastrazol profilactico 5 anos."
+    },
+    {
+      "date": "2013",
+      "event": "Discontinuacion anastrazol — controles anuales."
+    },
+    {
+      "date": "2015",
+      "event": "Mamografia: cluster benigno BI-RADS 3 — vigilancia."
+    },
+    {
+      "date": "2018",
+      "event": "Mamografia: estable BI-RADS 2."
+    },
+    {
+      "date": "2020",
+      "event": "Pandemia COVID — perdida de 1 control."
+    },
+    {
+      "date": "2022",
+      "event": "Mamografia: BI-RADS 2."
+    },
+    {
+      "date": "2024",
+      "event": "Mamografia: leve aumento de densidad — BI-RADS 0."
+    },
+    {
+      "date": "2025-10",
+      "event": "Mamografia: cluster pleomorfico nuevo CSE izq — BI-RADS 4."
+    }
+  ],
+  "current_labs": {
+    "CA_15_3": 28,
+    "CEA": 2.4,
+    "hemograma": "normal"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "patient_id": "PAT-00520",
+  "demographics": {
+    "age": 75,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "nueva diabetes tipo 2 6 meses",
+    "perdida peso 11 kg",
+    "ictericia indolora",
+    "dolor epigastrico a dorso"
+  ],
+  "medical_history": [
+    {
+      "date": "1990-2010",
+      "event": "Tabaquismo 30 paquetes/ano."
+    },
+    {
+      "date": "2000",
+      "event": "HTA esencial."
+    },
+    {
+      "date": "2010",
+      "event": "EPOC GOLD I."
+    },
+    {
+      "date": "2015",
+      "event": "Pancreatitis aguda biliar — colecistectomia."
+    },
+    {
+      "date": "2018",
+      "event": "MR colangiopancreatografica: via biliar normal."
+    },
+    {
+      "date": "2020",
+      "event": "Cardiopatia isquemica con stent."
+    },
+    {
+      "date": "2022",
+      "event": "Adenopatias inguinales reactivas atribuidas a forunculosis."
+    },
+    {
+      "date": "2025-04",
+      "event": "Diabetes diagnosticada en analitica rutinaria."
+    },
+    {
+      "date": "2025-09",
+      "event": "Aparicion ictericia."
+    },
+    {
+      "date": "2025-11",
+      "event": "CA-19-9 muy elevado en analitica."
+    }
+  ],
+  "current_labs": {
+    "CA_19_9": 1240,
+    "CEA": 42,
+    "bilirrubina": 9.4,
+    "FAL": 812,
+    "GGT": 624,
+    "glucemia": 312,
+    "HbA1c": 11.2
+  }
+}

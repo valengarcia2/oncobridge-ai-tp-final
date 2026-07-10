@@ -1,0 +1,15 @@
+{
+  "case_id": "case_007",
+  "correct_gt_ids": [
+    "GT-BRCA-004"
+  ],
+  "acceptable_secondary_gt_ids": [
+    "GT-MASTITIS-001"
+  ],
+  "imaging_needed_ground_truth": true,
+  "urgency_ground_truth": "alta",
+  "specialist_decision": "DERIVAR_A_IMAGEN",
+  "conclusive_ground_truth": true,
+  "difficulty": "moderado",
+  "notes": "Carcinoma inflamatorio confundido con mastitis. Biopsia cutanea urgente."
+}

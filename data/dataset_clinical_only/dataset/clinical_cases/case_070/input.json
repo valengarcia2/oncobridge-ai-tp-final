@@ -1,0 +1,23 @@
+{
+  "patient_id": "PAT-00310",
+  "demographics": {
+    "age": 64,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "dolor FII recurrente 4 episodios en 6 meses",
+    "cambio habito intestinal"
+  ],
+  "medical_history": [
+    {
+      "date": "2024",
+      "event": "Diverticulitis recurrente — colonoscopia incompleta."
+    }
+  ],
+  "current_labs": {
+    "leucocitos": 9200,
+    "PCR": 22,
+    "CEA": 4.8
+  }
+}

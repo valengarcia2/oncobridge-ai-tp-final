@@ -1,0 +1,34 @@
+{
+  "patient_id": "PAT-00107",
+  "demographics": {
+    "age": 39,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "eritema mamario difuso 1/3 mama derecha de 5 semanas",
+    "edema piel de naranja",
+    "aumento rapido de tamano",
+    "sin fiebre, sin respuesta a 2 cursos antibiotico"
+  ],
+  "medical_history": [
+    {
+      "date": "2025-06",
+      "event": "Parto a termino."
+    },
+    {
+      "date": "2025-10",
+      "event": "Diagnostico de mastitis post-lactancia. Antibioticos sin mejoria."
+    },
+    {
+      "date": "2025-12",
+      "event": "Segundo curso antibiotico — sin respuesta."
+    }
+  ],
+  "current_labs": {
+    "CA_15_3": 58,
+    "CEA": 9.2,
+    "leucocitos": 9200,
+    "PCR": 18
+  }
+}

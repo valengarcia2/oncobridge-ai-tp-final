@@ -1,0 +1,36 @@
+{
+  "patient_id": "PAT-00130",
+  "demographics": {
+    "age": 71,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "ictericia indolora 3 semanas",
+    "prurito",
+    "coluria y acolia",
+    "perdida peso 7 kg",
+    "dolor epigastrico a dorso"
+  ],
+  "medical_history": [
+    {
+      "date": "2015",
+      "event": "Diabetes tipo 2."
+    },
+    {
+      "date": "2025-09",
+      "event": "Descompensacion glicemica reciente."
+    },
+    {
+      "date": "2020-2025",
+      "event": "Tabaquismo 15 paquetes/ano."
+    }
+  ],
+  "current_labs": {
+    "CA_19_9": 542,
+    "CEA": 18.2,
+    "bilirrubina": 8.4,
+    "FAL": 624,
+    "GGT": 412
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "patient_id": "PAT-00412",
+  "demographics": {
+    "age": 44,
+    "sex": "M",
+    "family_history": [
+      "thyroid_cancer"
+    ]
+  },
+  "current_symptoms": [
+    "disfonia progresiva 4 semanas sin causa otorrinolaringologica clara"
+  ],
+  "medical_history": [
+    {
+      "date": "2024",
+      "event": "Padre con carcinoma medular tiroides."
+    }
+  ],
+  "current_labs": {
+    "TSH": 1.4,
+    "calcitonina": 412,
+    "CEA": 28
+  }
+}

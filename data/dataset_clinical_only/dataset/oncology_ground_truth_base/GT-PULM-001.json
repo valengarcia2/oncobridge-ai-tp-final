@@ -1,0 +1,83 @@
+{
+  "gt_id": "GT-PULM-001",
+  "icd_10": "C34.1",
+  "icd_10_description": "Neoplasia maligna del lobulo superior del pulmon (adenocarcinoma)",
+  "objective_data": {
+    "biomarkers": {
+      "CEA": "> 5 ng/mL",
+      "CYFRA_21_1": "elevado",
+      "EGFR": "mutacion en subtipos especificos",
+      "ALK_ROS1": "rearreglo en jovenes no fumadores",
+      "PD_L1": "expresion variable"
+    },
+    "clinical_findings": [
+      "perdida de peso no intencional (> 5%)",
+      "tos cronica con o sin hemoptisis",
+      "dedos en palillo de tambor (acropaquia)",
+      "disnea progresiva",
+      "sindromes paraneoplasicos"
+    ],
+    "risk_factors": [
+      "tabaquismo activo o pasado (paquetes-ano > 20)",
+      "edad > 55 anos",
+      "exposicion a asbesto, radon, humo de lena",
+      "antecedente familiar de cancer de pulmon",
+      "EPOC o fibrosis pulmonar previa"
+    ],
+    "prior_imaging_red_flags": [
+      "nodulo solitario > 8mm en estudio previo",
+      "crecimiento de nodulo conocido",
+      "nodulo con bordes espiculados o lobulados"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "tos persistente > 3 semanas",
+      "hemoptisis (incluso minima)",
+      "disnea progresiva",
+      "perdida de peso",
+      "dolor toracico sordo"
+    ],
+    "patient_reported_concerns": [
+      "tose desde hace meses y no mejora",
+      "esta perdiendo peso sin razon",
+      "ve sangre en el esputo"
+    ],
+    "onset_pattern": "evolucion en meses, frecuentemente con sintomas inespecificos al inicio."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "chest_CT",
+      "chest_xray",
+      "PET_CT"
+    ],
+    "views_recommended": [
+      "TC torax con contraste",
+      "RX PA y lateral",
+      "PET-TC para staging"
+    ],
+    "imaging_location": {
+      "body_region": "torax con foco en lobulo afectado",
+      "anatomical_landmarks": "lobulos pulmonares, hilios, mediastino, pleura",
+      "bilateral_comparison_required": true,
+      "priority_zones": [
+        "nodulo o masa pulmonar",
+        "ganglios mediastinales (estaciones 4, 7, 10)",
+        "pleura y derrame pleural",
+        "huesos visibles (costillas, columna)"
+      ],
+      "positioning_notes": "TC con cortes finos (1-1.25 mm) con contraste IV. Reconstrucciones MIP y MinIP para nodulos. PET-TC para staging si confirma malignidad."
+    },
+    "expected_imaging_findings": "Nodulo o masa pulmonar > 8mm con bordes espiculados, lobulados o irregulares. Posible cavitacion, broncograma aereo. Adenopatias mediastinales > 10mm.",
+    "meddiffusion_prompt": "Chest CT axial view, irregular spiculated pulmonary mass upper lobe, lobulated margins, bronchial involvement, mediastinal lymphadenopathy, lung adenocarcinoma, clinical medical imaging",
+    "meddiffusion_negative_prompt": "smooth round nodule, calcified granuloma, normal lung, pneumonia infiltrate",
+    "image_generation_notes": "Masa pulmonar irregular en lobulo superior. Bordes espiculados. Posible adenopatia mediastinal asociada."
+  },
+  "base_probability": 0.74,
+  "urgency_level": "alta",
+  "notes": "Subtipo histologico mas frecuente. Cribado con TC baja dosis en > 55 anos fumadores reduce mortalidad. Confirmar con biopsia.",
+  "_meta": {
+    "category": "oncologica",
+    "organ": "pulmon"
+  }
+}

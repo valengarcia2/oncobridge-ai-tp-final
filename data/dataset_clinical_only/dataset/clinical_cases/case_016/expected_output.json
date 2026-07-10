@@ -1,0 +1,16 @@
+{
+  "case_id": "case_016",
+  "correct_gt_ids": [
+    "GT-COLON-001"
+  ],
+  "acceptable_secondary_gt_ids": [
+    "GT-COLON-002",
+    "GT-DIVERT-001"
+  ],
+  "imaging_needed_ground_truth": true,
+  "urgency_ground_truth": "alta",
+  "specialist_decision": "DERIVAR_A_IMAGEN",
+  "conclusive_ground_truth": true,
+  "difficulty": "facil",
+  "notes": "Ca colorrectal con triada clasica (rectorragia + anemia + perdida peso)."
+}

@@ -1,0 +1,75 @@
+{
+  "gt_id": "GT-MASTITIS-001",
+  "icd_10": "N61.0",
+  "icd_10_description": "Mastitis infecciosa no asociada al parto (diferencial benigno)",
+  "objective_data": {
+    "biomarkers": {
+      "CA_15_3": "normal (< 35 U/mL)",
+      "CEA": "normal (< 5 ng/mL)",
+      "leucocitos": "elevados (leucocitosis > 11.000/uL en mastitis bacteriana)",
+      "PCR": "elevada (proceso inflamatorio activo)",
+      "cultivo_secrecion": "positivo para S. aureus u otros germenes en mastitis infecciosa"
+    },
+    "clinical_findings": [
+      "eritema y calor local en zona afectada",
+      "edema y tumefaccion difusa (no masa delimitada)",
+      "descarga purulenta por pezon en casos abscedados",
+      "fiebre > 38C",
+      "adenopatia axilar reactiva (blanda, movil, dolorosa)"
+    ],
+    "risk_factors": [
+      "lactancia materna activa",
+      "antecedente de mastitis previa",
+      "trauma o fisura en pezon",
+      "inmunosupresion",
+      "tabaquismo"
+    ],
+    "prior_imaging_red_flags": []
+  },
+  "subjective_data": {
+    "symptoms": [
+      "dolor mamario intenso de aparicion aguda (< 1 semana)",
+      "calor y rubor local",
+      "masa blanda y sensible al tacto",
+      "fiebre con escalofrios",
+      "malestar general"
+    ],
+    "patient_reported_concerns": [
+      "se le puso rojo y caliente de golpe",
+      "le duele mucho al amamantar",
+      "tiene fiebre desde hace dos dias"
+    ],
+    "onset_pattern": "aparicion aguda en dias, frecuentemente asociada a lactancia o trauma. Responde a antibioticos en 48-72 hs."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "breast_ultrasound"
+    ],
+    "views_recommended": [
+      "ecografia focalizada en zona eritematosa",
+      "evaluacion de cadena axilar ipsilateral"
+    ],
+    "imaging_location": {
+      "body_region": "mama afectada (zona de eritema y dolor)",
+      "anatomical_landmarks": "zona de induracion palpable, conductos galactoforos retroareolares, espacio subcutaneo en area inflamatoria",
+      "bilateral_comparison_required": false,
+      "priority_zones": [
+        "area de maximo eritema y calor",
+        "region retroareolar para descartar absceso subareolar",
+        "ganglios axilares ipsilaterales (reactivos)"
+      ],
+      "positioning_notes": "Ecografia alta frecuencia (>12 MHz) en zona inflamada. Evaluar coleccion liquida (absceso) vs edema difuso. Si hay absceso documentar tamano y profundidad para guia de drenaje."
+    },
+    "expected_imaging_findings": "Engrosamiento cutaneo y subcutaneo difuso con aumento de ecogenicidad del tejido adiposo periglandular. Coleccion hipoecoica con debris en caso de absceso. Ausencia de masa solida espiculada.",
+    "meddiffusion_prompt": "Breast ultrasound high frequency, diffuse subcutaneous edema, skin thickening, hyperechoic fatty tissue, no solid mass, inflammatory pattern, mastitis, clinical medical imaging",
+    "meddiffusion_negative_prompt": "spiculated mass, microcalcifications, malignant lesion, architectural distortion",
+    "image_generation_notes": "Patron inflamatorio difuso. Engrosamiento cutaneo sin masa. Si se incluye absceso: coleccion hipoecoica con debris."
+  },
+  "base_probability": 0.41,
+  "urgency_level": "media",
+  "notes": "Diferencial critico con carcinoma inflamatorio. Si no mejora con antibioticos en 72h o hay masa residual, considerar biopsia para descartar GT-BRCA-004.",
+  "_meta": {
+    "category": "benigna",
+    "organ": "mama"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "case_id": "case_071",
+  "correct_gt_ids": [
+    "GT-COLITIS-001"
+  ],
+  "acceptable_secondary_gt_ids": [
+    "GT-COLON-001"
+  ],
+  "imaging_needed_ground_truth": true,
+  "urgency_ground_truth": "media",
+  "specialist_decision": "DERIVAR_A_IMAGEN",
+  "conclusive_ground_truth": true,
+  "difficulty": "moderado",
+  "notes": "Brote severo CU. Riesgo aumentado ca colorrectal a largo plazo — vigilancia."
+}

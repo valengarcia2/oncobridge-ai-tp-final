@@ -1,0 +1,36 @@
+{
+  "patient_id": "PAT-00408",
+  "demographics": {
+    "age": 62,
+    "sex": "F",
+    "family_history": [
+      "pancreatic_cancer"
+    ]
+  },
+  "current_symptoms": [
+    "dolor abdominal vago",
+    "saciedad precoz",
+    "diabetes empeoro",
+    "perdida peso 5 kg"
+  ],
+  "medical_history": [
+    {
+      "date": "2018",
+      "event": "Diabetes tipo 2."
+    },
+    {
+      "date": "2025-09",
+      "event": "Descontrol glicemico inexplicable."
+    },
+    {
+      "date": "2025-10",
+      "event": "Madre fallecida por ca pancreas."
+    }
+  ],
+  "current_labs": {
+    "CA_19_9": 124,
+    "CEA": 8.2,
+    "glucemia": 312,
+    "HbA1c": 11.4
+  }
+}

@@ -1,0 +1,20 @@
+# Entorno virtual
+venv/
+
+# Variables de entorno con secretos reales
+.env
+
+# Cache de Python
+__pycache__/
+*.pyc
+
+# Cache de pytest
+.pytest_cache/
+
+# Cache de sentence-transformers / modelos descargados
+.cache/
+
+# Archivos del sistema operativo
+.DS_Store
+
+*.egg-info/

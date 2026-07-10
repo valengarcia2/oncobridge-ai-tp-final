@@ -1,0 +1,24 @@
+{
+  "patient_id": "PAT-00403",
+  "demographics": {
+    "age": 58,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "distorsion arquitectural focal hallada en mamografia screening",
+    "sin masa",
+    "asintomatica"
+  ],
+  "medical_history": [
+    {
+      "date": "2025-10",
+      "event": "Mamografia screening: distorsion CSE derecho — BI-RADS 4."
+    }
+  ],
+  "current_labs": {
+    "CA_15_3": 22,
+    "CEA": 2.4,
+    "hemograma": "normal"
+  }
+}

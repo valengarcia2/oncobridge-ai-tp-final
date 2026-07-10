@@ -1,0 +1,29 @@
+{
+  "patient_id": "PAT-00125",
+  "demographics": {
+    "age": 38,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "adenopatias cervicales y axilares bilaterales",
+    "sudoracion nocturna profusa 2 meses",
+    "perdida peso 9 kg",
+    "fiebre vespertina"
+  ],
+  "medical_history": [
+    {
+      "date": "2023-06",
+      "event": "Mononucleosis EBV positivo."
+    },
+    {
+      "date": "2025-11",
+      "event": "Ganglios — derivada a hematologia."
+    }
+  ],
+  "current_labs": {
+    "LDH": 412,
+    "B2_microglobulina": 4.8,
+    "hemograma": "anemia leve, linfocitos atipicos"
+  }
+}

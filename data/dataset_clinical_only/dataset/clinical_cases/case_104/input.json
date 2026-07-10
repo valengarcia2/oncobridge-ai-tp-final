@@ -1,0 +1,57 @@
+{
+  "patient_id": "PAT-00514",
+  "demographics": {
+    "age": 46,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "masa cervical anterior izq 3 cm crecimiento 2 meses",
+    "disfagia leve",
+    "voz ronca"
+  ],
+  "medical_history": [
+    {
+      "date": "1985",
+      "event": "Radioterapia cervical en infancia por linfoma."
+    },
+    {
+      "date": "2010",
+      "event": "Hipotiroidismo — levotiroxina."
+    },
+    {
+      "date": "2015",
+      "event": "Ecografia tiroidea: glandula heterogenea sin nodulos."
+    },
+    {
+      "date": "2018",
+      "event": "Bocio multinodular pequeno benigno."
+    },
+    {
+      "date": "2020",
+      "event": "Embarazo y lactancia normales."
+    },
+    {
+      "date": "2022",
+      "event": "Ecografia anual: nodulos estables."
+    },
+    {
+      "date": "2024",
+      "event": "Ecografia: nuevo nodulo TI-RADS 4."
+    },
+    {
+      "date": "2025-08",
+      "event": "PAAF: Bethesda IV (indeterminado)."
+    },
+    {
+      "date": "2025-11",
+      "event": "Crecimiento del nodulo + clinica compresiva."
+    }
+  ],
+  "current_labs": {
+    "TSH": 1.4,
+    "T4_libre": 1.1,
+    "tiroglobulina": 412,
+    "calcitonina": "< 2"
+  }
+}

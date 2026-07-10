@@ -1,0 +1,27 @@
+{
+  "patient_id": "PAT-00118",
+  "demographics": {
+    "age": 58,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "sangre oculta positiva en screening",
+    "asintomatico"
+  ],
+  "medical_history": [
+    {
+      "date": "2025-08",
+      "event": "Test inmunoquimico fecal positivo en screening."
+    },
+    {
+      "date": "2025-10",
+      "event": "Colonoscopia: polipo sesil 18 mm sigmoide — pendiente biopsia."
+    }
+  ],
+  "current_labs": {
+    "CEA": 3.8,
+    "hemograma": "normal",
+    "sangre_oculta": "positivo"
+  }
+}

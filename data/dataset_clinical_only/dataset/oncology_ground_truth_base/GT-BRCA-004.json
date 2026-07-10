@@ -1,0 +1,81 @@
+{
+  "gt_id": "GT-BRCA-004",
+  "icd_10": "C50.9",
+  "icd_10_description": "Carcinoma inflamatorio de mama (forma agresiva)",
+  "objective_data": {
+    "biomarkers": {
+      "CA_15_3": "frecuentemente elevado",
+      "CEA": "elevado en enfermedad metastasica",
+      "HER2": "positivo en proporcion alta",
+      "Ki_67": "alto indice proliferativo"
+    },
+    "clinical_findings": [
+      "eritema mamario difuso > 1/3 de la mama",
+      "edema cutaneo (piel de naranja) prominente",
+      "aumento rapido del tamano mamario",
+      "calor local sin etiologia infecciosa",
+      "adenopatia axilar firme y fija"
+    ],
+    "risk_factors": [
+      "edad media (< 60 anos)",
+      "embarazo o post-parto reciente",
+      "obesidad",
+      "antecedente familiar oncologico"
+    ],
+    "prior_imaging_red_flags": [
+      "engrosamiento cutaneo difuso",
+      "trabeculacion del tejido subcutaneo",
+      "ausencia de mejoria con antibioticos previos"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "enrojecimiento y calor mamario de evolucion rapida (< 3 meses)",
+      "aumento de tamano mamario",
+      "dolor o ardor mamario",
+      "engrosamiento cutaneo evidente",
+      "ausencia de fiebre sistemica"
+    ],
+    "patient_reported_concerns": [
+      "la mama se le puso roja y dura en pocas semanas",
+      "le dieron antibioticos y no mejoro",
+      "siente la mama caliente y mas grande"
+    ],
+    "onset_pattern": "evolucion rapida en semanas, sin fiebre sistemica, sin respuesta a antibioticos. Diagnostico diferencial critico con mastitis."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "mammography",
+      "breast_ultrasound",
+      "breast_MRI"
+    ],
+    "views_recommended": [
+      "MLO CC bilateral",
+      "RM con contraste",
+      "biopsia cutanea (punch)"
+    ],
+    "imaging_location": {
+      "body_region": "mama afectada con evaluacion bilateral",
+      "anatomical_landmarks": "piel, tejido subcutaneo, vasos linfaticos dermicos, ganglios axilares",
+      "bilateral_comparison_required": true,
+      "priority_zones": [
+        "engrosamiento cutaneo difuso",
+        "infiltracion subcutanea",
+        "ganglios axilares ipsilaterales",
+        "evaluacion de la mama contralateral"
+      ],
+      "positioning_notes": "Mamografia tecnicamente dificil por edema cutaneo. RM con contraste es habitualmente mejor herramienta. Incluir biopsia cutanea para confirmar invasion linfatica dermica."
+    },
+    "expected_imaging_findings": "Engrosamiento cutaneo difuso > 4mm, trabeculacion del tejido subcutaneo, masa subyacente puede no ser visible. RM: realce difuso en patron cutaneo y subcutaneo.",
+    "meddiffusion_prompt": "Mammography MLO CC, diffuse skin thickening, subcutaneous edema, trabecular pattern, dense breast, inflammatory breast cancer, peau orange skin appearance, clinical medical imaging",
+    "meddiffusion_negative_prompt": "benign mastitis, fluid collection abscess, normal breast tissue, focal mass only",
+    "image_generation_notes": "Engrosamiento cutaneo difuso > 4mm. Patron infiltrativo no focal. Notable diferencia con mastitis benigna."
+  },
+  "base_probability": 0.71,
+  "urgency_level": "alta",
+  "notes": "Forma mas agresiva de cancer de mama. Diagnostico urgente. La biopsia cutanea con invasion linfatica dermica es patognomonica.",
+  "_meta": {
+    "category": "oncologica",
+    "organ": "mama"
+  }
+}

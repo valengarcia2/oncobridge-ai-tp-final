@@ -1,0 +1,32 @@
+{
+  "patient_id": "PAT-00116",
+  "demographics": {
+    "age": 62,
+    "sex": "M",
+    "family_history": [
+      "colorectal_cancer"
+    ]
+  },
+  "current_symptoms": [
+    "rectorragia recurrente 2 meses",
+    "cambio habito intestinal",
+    "perdida peso 6 kg",
+    "fatiga"
+  ],
+  "medical_history": [
+    {
+      "date": "2019-04",
+      "event": "Polipectomia: tubular bajo grado."
+    },
+    {
+      "date": "2024-12",
+      "event": "Padre fallecio por ca colon."
+    }
+  ],
+  "current_labs": {
+    "CEA": 8.9,
+    "CA_19_9": 67,
+    "hemograma": "anemia ferropenica Hb 9.8",
+    "sangre_oculta": "positivo"
+  }
+}

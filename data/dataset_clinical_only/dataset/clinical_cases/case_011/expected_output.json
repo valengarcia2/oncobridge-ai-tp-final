@@ -1,0 +1,16 @@
+{
+  "case_id": "case_011",
+  "correct_gt_ids": [
+    "GT-PULM-003"
+  ],
+  "acceptable_secondary_gt_ids": [
+    "GT-PULM-002",
+    "GT-LINFOMA-001"
+  ],
+  "imaging_needed_ground_truth": true,
+  "urgency_ground_truth": "alta",
+  "specialist_decision": "DERIVAR_A_IMAGEN",
+  "conclusive_ground_truth": true,
+  "difficulty": "moderado",
+  "notes": "Carcinoma celulas pequenas con SVCS — staging y oncologia URGENTE."
+}

@@ -1,0 +1,28 @@
+{
+  "patient_id": "PAT-00314",
+  "demographics": {
+    "age": 67,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "LUTS progresivos 1 ano",
+    "PSA en ascenso 3.2 a 5.8",
+    "tacto rectal: prostata agrandada lisa"
+  ],
+  "medical_history": [
+    {
+      "date": "2020",
+      "event": "HPB diagnosticada."
+    },
+    {
+      "date": "2025-08",
+      "event": "Cambios LUTS, escalamiento medicamentoso."
+    }
+  ],
+  "current_labs": {
+    "PSA": 5.8,
+    "PSA_libre_ratio": "22%",
+    "creatinina": 0.9
+  }
+}

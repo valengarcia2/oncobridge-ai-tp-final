@@ -1,0 +1,29 @@
+{
+  "patient_id": "PAT-00120",
+  "demographics": {
+    "age": 67,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "heces oscuras (melena) 1 mes",
+    "anemia ferropenica progresiva",
+    "dolor epigastrico",
+    "perdida peso 8 kg"
+  ],
+  "medical_history": [
+    {
+      "date": "2010",
+      "event": "Helicobacter pylori erradicado."
+    },
+    {
+      "date": "2025-11",
+      "event": "Endoscopia alta: ulcera gastrica con bordes infiltrantes."
+    }
+  ],
+  "current_labs": {
+    "CEA": 18.4,
+    "CA_72_4": "elevado",
+    "hemograma": "Hb 8.4 ferropenica"
+  }
+}

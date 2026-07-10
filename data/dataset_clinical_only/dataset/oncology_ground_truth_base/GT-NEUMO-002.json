@@ -1,0 +1,68 @@
+{
+  "gt_id": "GT-NEUMO-002",
+  "icd_10": "J84.9",
+  "icd_10_description": "Enfermedad pulmonar intersticial, no especificada",
+  "objective_data": {
+    "biomarkers": {
+      "KL_6": "elevado en EPID",
+      "anticuerpos_autoinmunes": "evaluar AR, esclerodermia"
+    },
+    "clinical_findings": [
+      "estertores tipo velcro bibasales",
+      "disnea progresiva",
+      "tos seca"
+    ],
+    "risk_factors": [
+      "exposicion ocupacional (polvos, aves)",
+      "tabaquismo",
+      "enfermedad autoinmune"
+    ],
+    "prior_imaging_red_flags": [
+      "patron reticular bibasal",
+      "panal de abeja"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "disnea progresiva",
+      "tos seca cronica",
+      "intolerancia al ejercicio"
+    ],
+    "patient_reported_concerns": [
+      "se cansa mucho al subir escaleras",
+      "tose seco sin parar"
+    ],
+    "onset_pattern": "progresion en anos. Disnea de inicio insidioso."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "chest_CT"
+    ],
+    "views_recommended": [
+      "TC alta resolucion (HRCT) en inspiracion y espiracion"
+    ],
+    "imaging_location": {
+      "body_region": "torax bilateral",
+      "anatomical_landmarks": "lobulos inferiores, region subpleural",
+      "bilateral_comparison_required": true,
+      "priority_zones": [
+        "patron reticular",
+        "panal de abeja",
+        "vidrio esmerilado",
+        "bronquiectasias por traccion"
+      ],
+      "positioning_notes": "HRCT con cortes en inspiracion y espiracion. Caracterizar distribucion (subpleural, basal)."
+    },
+    "expected_imaging_findings": "Patron reticular bibasal subpleural con panal de abeja en estadios avanzados. Vidrio esmerilado. Bronquiectasias por traccion.",
+    "meddiffusion_prompt": "Chest HRCT axial, bibasilar subpleural reticulation, honeycombing, traction bronchiectasis, interstitial lung disease, clinical medical imaging",
+    "meddiffusion_negative_prompt": "discrete mass, lobar consolidation, cavity, normal lung parenchyma",
+    "image_generation_notes": "Patron intersticial bibasal con panal de abeja en HRCT. Diagnostico diferencial no oncologico."
+  },
+  "base_probability": 0.29,
+  "urgency_level": "media",
+  "notes": "Diferencial relevante en pacientes con disnea cronica. Imagen es clave para tipificar.",
+  "_meta": {
+    "category": "benigna",
+    "organ": "pulmon"
+  }
+}

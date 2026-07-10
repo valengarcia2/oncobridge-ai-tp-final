@@ -1,0 +1,35 @@
+{
+  "patient_id": "PAT-00121",
+  "demographics": {
+    "age": 68,
+    "sex": "M",
+    "family_history": [
+      "prostate_cancer"
+    ]
+  },
+  "current_symptoms": [
+    "nicturia 4x",
+    "chorro debil progresivo",
+    "dolor lumbar bajo persistente",
+    "perdida peso 4 kg"
+  ],
+  "medical_history": [
+    {
+      "date": "2022-04",
+      "event": "PSA 4.8."
+    },
+    {
+      "date": "2024-09",
+      "event": "PSA 9.2 — duplico en 2 anos."
+    },
+    {
+      "date": "2025-12",
+      "event": "Padre y tio paternos con ca prostata."
+    }
+  ],
+  "current_labs": {
+    "PSA": 12.4,
+    "PSA_libre_ratio": "8%",
+    "FAL": 198
+  }
+}

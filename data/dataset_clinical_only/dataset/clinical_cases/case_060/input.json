@@ -1,0 +1,22 @@
+{
+  "patient_id": "PAT-00230",
+  "demographics": {
+    "age": 40,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "pequeno polipo intestinal hiperplasico hallazgo en colonoscopia screening"
+  ],
+  "medical_history": [
+    {
+      "date": "2025-08",
+      "event": "Colonoscopia: polipo hiperplasico 4 mm extirpado, histologia benigna."
+    }
+  ],
+  "current_labs": {
+    "CEA": 1.4,
+    "hemograma": "normal",
+    "sangre_oculta": "negativa"
+  }
+}

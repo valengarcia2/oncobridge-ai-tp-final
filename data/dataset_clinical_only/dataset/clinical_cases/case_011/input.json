@@ -1,0 +1,30 @@
+{
+  "patient_id": "PAT-00111",
+  "demographics": {
+    "age": 64,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "sindrome de vena cava superior",
+    "disnea aguda",
+    "edema facial y MMSS",
+    "perdida peso 10 kg en 2 meses"
+  ],
+  "medical_history": [
+    {
+      "date": "1975-2024",
+      "event": "Tabaquismo 55 paquetes/ano."
+    },
+    {
+      "date": "2025-11",
+      "event": "Aparicion en 3 semanas del sindrome."
+    }
+  ],
+  "current_labs": {
+    "NSE": 64,
+    "ProGRP": 412,
+    "LDH": 612,
+    "hemograma": "normal"
+  }
+}

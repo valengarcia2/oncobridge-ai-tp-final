@@ -1,0 +1,23 @@
+{
+  "patient_id": "PAT-00213",
+  "demographics": {
+    "age": 41,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "cuadro viral autolimitado 5 dias",
+    "mialgias"
+  ],
+  "medical_history": [
+    {
+      "date": "2024-12",
+      "event": "Vacunacion antigripal."
+    }
+  ],
+  "current_labs": {
+    "leucocitos": 6800,
+    "PCR": 14,
+    "hemograma": "normal"
+  }
+}

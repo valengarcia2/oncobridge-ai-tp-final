@@ -1,0 +1,70 @@
+{
+  "gt_id": "GT-DIVERT-001",
+  "icd_10": "K57.30",
+  "icd_10_description": "Diverticulitis del intestino grueso (diferencial benigno)",
+  "objective_data": {
+    "biomarkers": {
+      "leucocitos": "elevados",
+      "PCR": "elevada",
+      "marcadores_tumorales": "normales"
+    },
+    "clinical_findings": [
+      "dolor agudo en fosa iliaca izquierda",
+      "fiebre",
+      "defensa abdominal localizada",
+      "leucocitosis"
+    ],
+    "risk_factors": [
+      "edad > 50 anos",
+      "dieta baja en fibra",
+      "obesidad",
+      "sedentarismo"
+    ],
+    "prior_imaging_red_flags": [
+      "diverticulosis conocida"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "dolor agudo fosa iliaca izquierda",
+      "fiebre",
+      "alteracion habito intestinal"
+    ],
+    "patient_reported_concerns": [
+      "le agarro dolor fuerte de un lado",
+      "tiene fiebre y le duele al apretar la panza"
+    ],
+    "onset_pattern": "agudo, dias. Frecuentemente recurrente."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "abdominal_CT"
+    ],
+    "views_recommended": [
+      "TC abdomen con contraste"
+    ],
+    "imaging_location": {
+      "body_region": "abdomen con foco en sigmoide",
+      "anatomical_landmarks": "colon sigmoide, diverticulos, grasa pericolonica",
+      "bilateral_comparison_required": false,
+      "priority_zones": [
+        "diverticulos inflamados",
+        "engrosamiento mural focal segmentario",
+        "trabeculacion grasa pericolonica",
+        "descartar absceso o perforacion"
+      ],
+      "positioning_notes": "TC con contraste IV. Evaluar complicaciones (absceso, fistula, perforacion libre)."
+    },
+    "expected_imaging_findings": "Diverticulos sigmoideos con engrosamiento mural focal y trabeculacion de la grasa pericolonica. Posible absceso peri-sigmoideo. Sin masa formada.",
+    "meddiffusion_prompt": "Abdominal CT axial, sigmoid diverticulitis, focal wall thickening, pericolonic fat stranding, diverticula visible, clinical medical imaging",
+    "meddiffusion_negative_prompt": "discrete mass tumor, lymphadenopathy, neoplastic infiltrate",
+    "image_generation_notes": "Inflamacion diverticular con trabeculacion grasa. Sin masa."
+  },
+  "base_probability": 0.31,
+  "urgency_level": "media",
+  "notes": "Diferencial frecuente con carcinoma colorrectal en pacientes mayores. La colonoscopia diferida (4-6 semanas post-evento agudo) descarta neoplasia subyacente.",
+  "_meta": {
+    "category": "benigna",
+    "organ": "colon"
+  }
+}

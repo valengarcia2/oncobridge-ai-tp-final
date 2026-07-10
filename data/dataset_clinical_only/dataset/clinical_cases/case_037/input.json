@@ -1,0 +1,23 @@
+{
+  "patient_id": "PAT-00207",
+  "demographics": {
+    "age": 50,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "chequeo medico empresarial sin sintomas"
+  ],
+  "medical_history": [
+    {
+      "date": "2024",
+      "event": "Examen anual previo normal."
+    }
+  ],
+  "current_labs": {
+    "hemograma": "normal",
+    "perfil_lipidico": "normal",
+    "PSA": 1.2,
+    "CEA": 0.9
+  }
+}

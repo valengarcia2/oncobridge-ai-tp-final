@@ -1,0 +1,21 @@
+{
+  "patient_id": "PAT-00215",
+  "demographics": {
+    "age": 26,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "consulta preconcepcional"
+  ],
+  "medical_history": [
+    {
+      "date": "2024",
+      "event": "Ciclos regulares."
+    }
+  ],
+  "current_labs": {
+    "hemograma": "normal",
+    "TSH": 1.4
+  }
+}

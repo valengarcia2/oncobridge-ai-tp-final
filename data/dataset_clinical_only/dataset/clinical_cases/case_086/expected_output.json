@@ -1,0 +1,15 @@
+{
+  "case_id": "case_086",
+  "correct_gt_ids": [
+    "GT-TIROIDES-001"
+  ],
+  "acceptable_secondary_gt_ids": [
+    "GT-LINFOMA-001"
+  ],
+  "imaging_needed_ground_truth": true,
+  "urgency_ground_truth": "media",
+  "specialist_decision": "DERIVAR_A_IMAGEN",
+  "conclusive_ground_truth": true,
+  "difficulty": "dificil",
+  "notes": "Adenopatia cervical aislada con tiroglobulina elevada — pensar ca tiroides oculto."
+}

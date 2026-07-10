@@ -1,0 +1,28 @@
+{
+  "patient_id": "PAT-00309",
+  "demographics": {
+    "age": 58,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "dolor agudo FII 3 dias",
+    "alteracion transito",
+    "fiebre 38.2"
+  ],
+  "medical_history": [
+    {
+      "date": "2022",
+      "event": "Diverticulosis sigmoidea."
+    },
+    {
+      "date": "2024",
+      "event": "Diverticulitis previa."
+    }
+  ],
+  "current_labs": {
+    "leucocitos": 13400,
+    "PCR": 78,
+    "CEA": 2.1
+  }
+}

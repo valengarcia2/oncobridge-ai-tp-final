@@ -1,0 +1,30 @@
+{
+  "patient_id": "PAT-00415",
+  "demographics": {
+    "age": 72,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "descompensacion ascitica nueva 1 mes",
+    "perdida peso 6 kg",
+    "fatiga"
+  ],
+  "medical_history": [
+    {
+      "date": "2010",
+      "event": "Cirrosis alcoholica Child A."
+    },
+    {
+      "date": "2020-2025",
+      "event": "Vigilancia HCC con AFP siempre normal y ecografias sin nodulos."
+    }
+  ],
+  "current_labs": {
+    "AFP": 84,
+    "AST": 122,
+    "albumina": 2.4,
+    "INR": 1.8,
+    "bilirrubina": 3.8
+  }
+}

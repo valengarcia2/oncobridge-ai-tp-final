@@ -1,0 +1,24 @@
+{
+  "patient_id": "PAT-00211",
+  "demographics": {
+    "age": 67,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "dolor articular bilateral simetrico",
+    "rigidez matutina"
+  ],
+  "medical_history": [
+    {
+      "date": "2022",
+      "event": "Artritis reumatoide en seguimiento reumatologico."
+    }
+  ],
+  "current_labs": {
+    "FR": 142,
+    "anti_CCP": 88,
+    "PCR": 22,
+    "hemograma": "normal"
+  }
+}

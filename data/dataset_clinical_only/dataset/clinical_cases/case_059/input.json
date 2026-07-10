@@ -1,0 +1,22 @@
+{
+  "patient_id": "PAT-00229",
+  "demographics": {
+    "age": 31,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "bulto cervical bilateral indoloro 1 cm post infeccion respiratoria"
+  ],
+  "medical_history": [
+    {
+      "date": "2025-11",
+      "event": "Faringitis viral hace 3 semanas."
+    }
+  ],
+  "current_labs": {
+    "hemograma": "normal",
+    "LDH": 198,
+    "VSG": 12
+  }
+}

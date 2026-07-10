@@ -1,0 +1,57 @@
+{
+  "patient_id": "PAT-00515",
+  "demographics": {
+    "age": 70,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "cambio en habito intestinal",
+    "perdida peso 8 kg",
+    "fatiga",
+    "dolor abdominal vago"
+  ],
+  "medical_history": [
+    {
+      "date": "1995",
+      "event": "Colitis ulcerosa diagnosticada."
+    },
+    {
+      "date": "1998",
+      "event": "Brote severo — colectomia parcial."
+    },
+    {
+      "date": "2000",
+      "event": "Mesalazina mantenimiento."
+    },
+    {
+      "date": "2008",
+      "event": "Vigilancia endoscopica anual."
+    },
+    {
+      "date": "2015",
+      "event": "Displasia bajo grado en biopsia segmento residual."
+    },
+    {
+      "date": "2018",
+      "event": "Displasia alto grado focal — resseccion ampliada."
+    },
+    {
+      "date": "2020",
+      "event": "Vigilancia: sin displasia."
+    },
+    {
+      "date": "2023",
+      "event": "Colonoscopia: pseudopolipos inflamatorios."
+    },
+    {
+      "date": "2025-09",
+      "event": "Colonoscopia: lesion plana sospechosa sigmoide — biopsia muestra adenoCA."
+    }
+  ],
+  "current_labs": {
+    "CEA": 14.2,
+    "CA_19_9": 68,
+    "hemograma": "anemia leve"
+  }
+}

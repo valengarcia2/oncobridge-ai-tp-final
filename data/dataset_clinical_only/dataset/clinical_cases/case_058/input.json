@@ -1,0 +1,26 @@
+{
+  "patient_id": "PAT-00228",
+  "demographics": {
+    "age": 50,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "descarga bilateral lechosa por estimulacion mamaria"
+  ],
+  "medical_history": [
+    {
+      "date": "2024-08",
+      "event": "ACO desde hace 1 ano."
+    },
+    {
+      "date": "2025-09",
+      "event": "Ecografia mamaria normal."
+    }
+  ],
+  "current_labs": {
+    "prolactina": 18,
+    "TSH": 2.4,
+    "CA_15_3": 16
+  }
+}

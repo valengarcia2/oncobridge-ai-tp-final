@@ -1,0 +1,28 @@
+{
+  "patient_id": "PAT-00402",
+  "demographics": {
+    "age": 64,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "mama izq se ve diferente y mas pesada",
+    "ropa queda distinta de un lado",
+    "sin masa al examen"
+  ],
+  "medical_history": [
+    {
+      "date": "2024",
+      "event": "Terapia hormonal de reemplazo 10 anos."
+    },
+    {
+      "date": "2025-07",
+      "event": "Mamografia: leve asimetria — BI-RADS 3, control en 6 meses."
+    }
+  ],
+  "current_labs": {
+    "CA_15_3": 34,
+    "CEA": 3.8,
+    "hemograma": "normal"
+  }
+}

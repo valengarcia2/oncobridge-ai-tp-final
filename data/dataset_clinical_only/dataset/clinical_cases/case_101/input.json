@@ -1,0 +1,57 @@
+{
+  "patient_id": "PAT-00511",
+  "demographics": {
+    "age": 49,
+    "sex": "F",
+    "family_history": [
+      "breast_cancer"
+    ]
+  },
+  "current_symptoms": [
+    "masa CSE mama derecha 3 cm 4 semanas",
+    "adenopatia axilar"
+  ],
+  "medical_history": [
+    {
+      "date": "1995",
+      "event": "Ca mama izquierdo a los 19 anos en familiar de primer grado."
+    },
+    {
+      "date": "2000",
+      "event": "Test BRCA1 negativo."
+    },
+    {
+      "date": "2005",
+      "event": "Mama izquierda: biopsia — hiperplasia ductal atipica."
+    },
+    {
+      "date": "2008",
+      "event": "Lumpectomia con margenes negativos."
+    },
+    {
+      "date": "2010",
+      "event": "Tamoxifeno 5 anos."
+    },
+    {
+      "date": "2015",
+      "event": "Mamografia anual estable."
+    },
+    {
+      "date": "2020",
+      "event": "Mamografia y RM anuales — estable."
+    },
+    {
+      "date": "2023",
+      "event": "Densitometria: osteopenia post tamoxifeno."
+    },
+    {
+      "date": "2025-11",
+      "event": "Aparicion masa mama derecha (nunca antes)."
+    }
+  ],
+  "current_labs": {
+    "CA_15_3": 52,
+    "CEA": 8.4,
+    "hemograma": "normal"
+  }
+}

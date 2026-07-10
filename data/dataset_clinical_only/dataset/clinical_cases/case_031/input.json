@@ -1,0 +1,21 @@
+{
+  "patient_id": "PAT-00201",
+  "demographics": {
+    "age": 30,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "control ginecologico anual sin sintomas"
+  ],
+  "medical_history": [
+    {
+      "date": "2024-11",
+      "event": "Papanicolaou normal."
+    }
+  ],
+  "current_labs": {
+    "hemograma": "normal",
+    "tiroides": "normal"
+  }
+}

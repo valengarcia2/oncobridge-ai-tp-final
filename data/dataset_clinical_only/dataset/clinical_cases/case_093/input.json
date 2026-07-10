@@ -1,0 +1,65 @@
+{
+  "patient_id": "PAT-00503",
+  "demographics": {
+    "age": 56,
+    "sex": "F",
+    "family_history": [
+      "colorectal_cancer",
+      "Lynch_syndrome"
+    ]
+  },
+  "current_symptoms": [
+    "rectorragia 3 meses",
+    "cambio calibre heces",
+    "perdida peso 7 kg",
+    "anemia progresiva",
+    "fatiga"
+  ],
+  "medical_history": [
+    {
+      "date": "2015",
+      "event": "Sindrome Lynch confirmado geneticamente (MLH1)."
+    },
+    {
+      "date": "2016",
+      "event": "Histerectomia + ooforectomia profilactica."
+    },
+    {
+      "date": "2017",
+      "event": "Colonoscopia: 3 polipos extirpados (1 adenoma alto grado)."
+    },
+    {
+      "date": "2018",
+      "event": "Colonoscopia: 2 polipos pequenos."
+    },
+    {
+      "date": "2019",
+      "event": "Tia paterna ca endometrio."
+    },
+    {
+      "date": "2020",
+      "event": "Hermano ca colon a los 48."
+    },
+    {
+      "date": "2021",
+      "event": "Colonoscopia: polipo serrado extirpado."
+    },
+    {
+      "date": "2022",
+      "event": "Estudio gastroscopia preventiva — Helicobacter erradicado."
+    },
+    {
+      "date": "2023",
+      "event": "Colonoscopia: sin polipos."
+    },
+    {
+      "date": "2024",
+      "event": "Colonoscopia: lesion sospechosa sigmoide — biopsia pendiente."
+    }
+  ],
+  "current_labs": {
+    "CEA": 14.8,
+    "CA_19_9": 38,
+    "hemograma": "Hb 9.2"
+  }
+}

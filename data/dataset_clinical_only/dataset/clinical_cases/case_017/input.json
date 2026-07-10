@@ -1,0 +1,29 @@
+{
+  "patient_id": "PAT-00117",
+  "demographics": {
+    "age": 71,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "obstruccion intestinal subaguda",
+    "distension abdominal",
+    "vomitos recurrentes",
+    "ausencia deposiciones 4 dias"
+  ],
+  "medical_history": [
+    {
+      "date": "2018",
+      "event": "Sin colonoscopia previa."
+    },
+    {
+      "date": "2025-12",
+      "event": "Dolor abdominal en aumento 1 mes."
+    }
+  ],
+  "current_labs": {
+    "CEA": 28,
+    "CA_19_9": 142,
+    "hemograma": "anemia normocitica"
+  }
+}

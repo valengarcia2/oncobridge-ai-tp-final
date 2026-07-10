@@ -1,0 +1,22 @@
+{
+  "patient_id": "PAT-00220",
+  "demographics": {
+    "age": 42,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "fiebre + tos productiva + dolor pleuritico"
+  ],
+  "medical_history": [
+    {
+      "date": "2025-11",
+      "event": "Inicio brusco con escalofrios."
+    }
+  ],
+  "current_labs": {
+    "leucocitos": 14400,
+    "PCR": 142,
+    "procalcitonina": 2.8
+  }
+}

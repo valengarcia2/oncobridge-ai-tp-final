@@ -1,0 +1,16 @@
+{
+  "case_id": "case_092",
+  "correct_gt_ids": [
+    "GT-PULM-002"
+  ],
+  "acceptable_secondary_gt_ids": [
+    "GT-PULM-001",
+    "GT-PULM-003"
+  ],
+  "imaging_needed_ground_truth": true,
+  "urgency_ground_truth": "alta",
+  "specialist_decision": "DERIVAR_A_IMAGEN",
+  "conclusive_ground_truth": true,
+  "difficulty": "moderado",
+  "notes": "Multimorbido con history pulmonar densa. Sistema debe extraer eventos relevantes."
+}

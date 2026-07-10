@@ -1,0 +1,24 @@
+{
+  "patient_id": "PAT-00410",
+  "demographics": {
+    "age": 48,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "cambio sutil habito intestinal 4 meses",
+    "anemia leve detectada en analitica rutina"
+  ],
+  "medical_history": [
+    {
+      "date": "2024",
+      "event": "Sin antecedentes."
+    }
+  ],
+  "current_labs": {
+    "hemograma": "Hb 11.2 microcitica leve",
+    "ferritina": 18,
+    "CEA": 3.4,
+    "sangre_oculta": "positivo"
+  }
+}

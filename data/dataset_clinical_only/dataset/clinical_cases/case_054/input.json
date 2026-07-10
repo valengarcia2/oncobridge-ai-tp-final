@@ -1,0 +1,27 @@
+{
+  "patient_id": "PAT-00224",
+  "demographics": {
+    "age": 62,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "nicturia 2x, chorro debil leve",
+    "sin dolor"
+  ],
+  "medical_history": [
+    {
+      "date": "2020",
+      "event": "HPB sintomatica."
+    },
+    {
+      "date": "2025-09",
+      "event": "PSA 2.8, ecografia transrectal: prostata aumentada zona transicional."
+    }
+  ],
+  "current_labs": {
+    "PSA": 2.8,
+    "PSA_libre_ratio": "32%",
+    "creatinina": 0.9
+  }
+}

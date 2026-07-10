@@ -1,0 +1,73 @@
+{
+  "gt_id": "GT-NEUMONIA-001",
+  "icd_10": "J18.9",
+  "icd_10_description": "Neumonia bacteriana, organismo no especificado (diferencial benigno)",
+  "objective_data": {
+    "biomarkers": {
+      "leucocitos": "leucocitosis > 12.000/uL",
+      "PCR": "elevada",
+      "procalcitonina": "elevada en bacteriana",
+      "marcadores_tumorales": "normales"
+    },
+    "clinical_findings": [
+      "fiebre > 38C aguda",
+      "tos productiva purulenta",
+      "estertores crepitantes localizados",
+      "matidez a la percusion",
+      "egofonia o broncofonia"
+    ],
+    "risk_factors": [
+      "edad > 65 anos o < 5 anos",
+      "tabaquismo",
+      "inmunosupresion",
+      "comorbilidades (EPOC, diabetes)"
+    ],
+    "prior_imaging_red_flags": []
+  },
+  "subjective_data": {
+    "symptoms": [
+      "fiebre aguda con escalofrios",
+      "tos con expectoracion verdosa o amarillenta",
+      "dolor toracico pleuritico",
+      "disnea aguda"
+    ],
+    "patient_reported_concerns": [
+      "se le subio la fiebre de golpe",
+      "tose mucho con flema verde",
+      "le duele al respirar profundo"
+    ],
+    "onset_pattern": "aparicion aguda en dias, frecuentemente con fiebre. Respuesta a antibioticos en 48-72h."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "chest_xray",
+      "chest_CT"
+    ],
+    "views_recommended": [
+      "RX PA y lateral",
+      "TC solo si no responde a tratamiento"
+    ],
+    "imaging_location": {
+      "body_region": "torax (lobulo afectado)",
+      "anatomical_landmarks": "lobulos pulmonares, segmentos broncopulmonares",
+      "bilateral_comparison_required": true,
+      "priority_zones": [
+        "consolidacion lobar o segmentaria",
+        "evolucion en estudios seriados",
+        "descartar derrame paraneumonico"
+      ],
+      "positioning_notes": "RX inicial es suficiente en mayoria de casos. TC solo si no resuelve clinicamente en 4-6 semanas para descartar neoplasia subyacente."
+    },
+    "expected_imaging_findings": "Consolidacion lobar o segmentaria con broncograma aereo. Bordes mal definidos. Posible derrame pleural reactivo. Resolucion progresiva con tratamiento.",
+    "meddiffusion_prompt": "Chest x-ray PA view, lobar consolidation right lower lobe, air bronchograms, pneumonia infiltrate, well-defined inflammatory pattern, clinical medical imaging",
+    "meddiffusion_negative_prompt": "discrete mass, spiculated nodule, cavitation, calcified lesion, normal lung",
+    "image_generation_notes": "Consolidacion lobar con broncograma aereo. Patron alveolar inflamatorio."
+  },
+  "base_probability": 0.32,
+  "urgency_level": "media",
+  "notes": "Diferencial frecuente. Si no resuelve a las 4-6 semanas con tratamiento, ESCALAR a investigacion por neoplasia subyacente (carcinoma postobstructivo).",
+  "_meta": {
+    "category": "benigna",
+    "organ": "pulmon"
+  }
+}

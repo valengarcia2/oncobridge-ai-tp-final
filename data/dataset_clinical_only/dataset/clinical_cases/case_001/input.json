@@ -1,0 +1,35 @@
+{
+  "patient_id": "PAT-00101",
+  "demographics": {
+    "age": 58,
+    "sex": "F",
+    "family_history": [
+      "breast_cancer",
+      "ovarian_cancer"
+    ]
+  },
+  "current_symptoms": [
+    "masa palpable CSE mama izquierda",
+    "dolor localizado 3 semanas",
+    "retraccion sutil del pezon"
+  ],
+  "medical_history": [
+    {
+      "date": "2021-03",
+      "event": "Biopsia mama derecha — fibroadenoma."
+    },
+    {
+      "date": "2023-11",
+      "event": "Mamografia bilateral — BI-RADS 2."
+    },
+    {
+      "date": "2025-08",
+      "event": "Madre con cancer de mama a los 55."
+    }
+  ],
+  "current_labs": {
+    "CA_15_3": 42.1,
+    "CEA": 6.2,
+    "hemograma": "normal"
+  }
+}

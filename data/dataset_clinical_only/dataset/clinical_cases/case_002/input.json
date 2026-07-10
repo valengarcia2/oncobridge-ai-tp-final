@@ -1,0 +1,24 @@
+{
+  "patient_id": "PAT-00102",
+  "demographics": {
+    "age": 47,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "masa firme en CSE mama derecha 2.5 cm",
+    "ganglio axilar derecho palpable",
+    "dolor leve"
+  ],
+  "medical_history": [
+    {
+      "date": "2024-09",
+      "event": "Mamografia: BI-RADS 4 mama derecha. Recomendacion biopsia, no concretada."
+    }
+  ],
+  "current_labs": {
+    "CA_15_3": 38.0,
+    "CEA": 4.8,
+    "hemograma": "normal"
+  }
+}

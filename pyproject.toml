@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oncobridge-ai"
+version = "0.1.0"
+description = "OncoBridge AI - Sistema de apoyo al diagnostico oncologico (TP Final IA Generativa para Biomedicina)"
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+where = ["src"]

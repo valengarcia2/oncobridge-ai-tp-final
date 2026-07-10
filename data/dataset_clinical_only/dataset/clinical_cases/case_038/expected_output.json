@@ -1,0 +1,11 @@
+{
+  "case_id": "case_038",
+  "correct_gt_ids": [],
+  "acceptable_secondary_gt_ids": [],
+  "imaging_needed_ground_truth": false,
+  "urgency_ground_truth": "ninguna",
+  "specialist_decision": "SIN_ELEMENTOS_PARA_EVALUAR",
+  "conclusive_ground_truth": false,
+  "difficulty": "facil",
+  "notes": "Climaterio fisiologico."
+}

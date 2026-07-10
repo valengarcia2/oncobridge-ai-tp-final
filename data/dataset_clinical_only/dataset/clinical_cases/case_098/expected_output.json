@@ -1,0 +1,15 @@
+{
+  "case_id": "case_098",
+  "correct_gt_ids": [
+    "GT-PULM-001"
+  ],
+  "acceptable_secondary_gt_ids": [
+    "GT-PULM-004"
+  ],
+  "imaging_needed_ground_truth": true,
+  "urgency_ground_truth": "alta",
+  "specialist_decision": "DERIVAR_A_IMAGEN",
+  "conclusive_ground_truth": true,
+  "difficulty": "moderado",
+  "notes": "Ca pulmon sobre silicosis cronica. Larga historia ocupacional."
+}

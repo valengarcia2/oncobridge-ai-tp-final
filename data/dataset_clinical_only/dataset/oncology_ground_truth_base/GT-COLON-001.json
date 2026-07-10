@@ -1,0 +1,80 @@
+{
+  "gt_id": "GT-COLON-001",
+  "icd_10": "C18.7",
+  "icd_10_description": "Neoplasia maligna del colon sigmoide (adenocarcinoma)",
+  "objective_data": {
+    "biomarkers": {
+      "CEA": "> 5 ng/mL",
+      "CA_19_9": "elevado",
+      "sangre_oculta_heces": "positivo"
+    },
+    "clinical_findings": [
+      "cambio en habitos intestinales",
+      "rectorragia",
+      "anemia ferropenica inexplicada",
+      "masa abdominal palpable en casos avanzados",
+      "perdida de peso"
+    ],
+    "risk_factors": [
+      "edad > 50 anos",
+      "antecedente familiar de cancer colorrectal",
+      "poliposis previa",
+      "enfermedad inflamatoria intestinal de larga data",
+      "dieta baja en fibra, alta en carnes rojas"
+    ],
+    "prior_imaging_red_flags": [
+      "engrosamiento mural focal en colonoscopia previa",
+      "polipo > 1cm en estudio anterior"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "cambio en habito intestinal (constipacion o diarrea)",
+      "rectorragia",
+      "dolor abdominal persistente",
+      "perdida de peso",
+      "anemia inexplicable"
+    ],
+    "patient_reported_concerns": [
+      "cambio la forma en que va al bano",
+      "ve sangre en las heces",
+      "esta cansado y bajando de peso"
+    ],
+    "onset_pattern": "evolucion en meses. Sintomas progresivos."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "colonoscopy",
+      "abdominal_CT",
+      "MRI_pelvis"
+    ],
+    "views_recommended": [
+      "colonoscopia con biopsia",
+      "TC abdomen-pelvis con contraste",
+      "RM pelvis si sigmoide bajo o recto"
+    ],
+    "imaging_location": {
+      "body_region": "abdomen-pelvis con foco en sigmoide",
+      "anatomical_landmarks": "colon sigmoide, mesenterio, ganglios regionales, higado",
+      "bilateral_comparison_required": false,
+      "priority_zones": [
+        "engrosamiento mural en sigmoide",
+        "adenopatias mesentericas",
+        "compromiso peritoneal",
+        "metastasis hepaticas (segmentos)"
+      ],
+      "positioning_notes": "TC con contraste en fases arterial y portal para evaluar higado. Colonoscopia indispensable para biopsia."
+    },
+    "expected_imaging_findings": "Engrosamiento mural focal asimetrico en sigmoide. Adenopatias mesentericas. Posibles lesiones hipoatenuantes en higado (metastasis).",
+    "meddiffusion_prompt": "Abdominal CT axial with contrast, focal asymmetric wall thickening sigmoid colon, mesenteric lymphadenopathy, possible liver metastases, colorectal adenocarcinoma, clinical medical imaging",
+    "meddiffusion_negative_prompt": "diffuse colitis pattern, normal colon, diverticular disease only",
+    "image_generation_notes": "Engrosamiento mural sigmoideo. Adenopatias regionales visibles."
+  },
+  "base_probability": 0.72,
+  "urgency_level": "alta",
+  "notes": "Cribado con colonoscopia en > 50 anos reduce mortalidad. Biopsia confirma. Staging con TC + RM pelvica si recto.",
+  "_meta": {
+    "category": "oncologica",
+    "organ": "colon"
+  }
+}

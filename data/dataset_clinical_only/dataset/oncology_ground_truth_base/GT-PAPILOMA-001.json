@@ -1,0 +1,69 @@
+{
+  "gt_id": "GT-PAPILOMA-001",
+  "icd_10": "D24.9",
+  "icd_10_description": "Papiloma intraductal benigno",
+  "objective_data": {
+    "biomarkers": {
+      "CA_15_3": "normal",
+      "CEA": "normal"
+    },
+    "clinical_findings": [
+      "descarga por pezon serosa o sanguinolenta unilateral",
+      "frecuentemente sin masa palpable",
+      "secrecion de un solo conducto"
+    ],
+    "risk_factors": [
+      "edad 40-60 anos",
+      "antecedente de proliferacion ductal"
+    ],
+    "prior_imaging_red_flags": [
+      "dilatacion ductal en ecografia",
+      "defecto de llenado en galactografia"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "descarga por pezon espontanea",
+      "secrecion sanguinolenta unilateral",
+      "ausencia de dolor"
+    ],
+    "patient_reported_concerns": [
+      "le sale liquido por el pezon sin apretar",
+      "vio sangre en el sosten",
+      "es solo de un lado"
+    ],
+    "onset_pattern": "descarga ductal intermitente o continua, frecuentemente unilateral."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "breast_ultrasound",
+      "mammography",
+      "galactography"
+    ],
+    "views_recommended": [
+      "ecografia ductal",
+      "galactografia si descarga unilateral persistente"
+    ],
+    "imaging_location": {
+      "body_region": "mama afectada, region retroareolar",
+      "anatomical_landmarks": "conductos galactoforos retroareolares, region subareolar",
+      "bilateral_comparison_required": false,
+      "priority_zones": [
+        "conductos retroareolares dilatados",
+        "defectos de llenado intraductal"
+      ],
+      "positioning_notes": "Ecografia ductal con compresion del pezon. Galactografia si la ecografia no aclara la lesion."
+    },
+    "expected_imaging_findings": "Lesion intraductal hipoecoica con dilatacion del conducto adyacente. En galactografia: defecto de llenado redondeado intraductal. Sin invasion de pared.",
+    "meddiffusion_prompt": "Breast ultrasound retroareolar region, dilated duct with intraductal hypoechoic lesion, papilloma, benign appearance, clinical medical imaging",
+    "meddiffusion_negative_prompt": "spiculated mass outside duct, malignant invasion, microcalcifications",
+    "image_generation_notes": "Lesion intraductal en zona retroareolar. Conducto dilatado con nodulo intraductal homogeneo."
+  },
+  "base_probability": 0.38,
+  "urgency_level": "media",
+  "notes": "Aunque benigno, puede coexistir con DCIS. Biopsia excisional habitual para confirmar y descartar atipia.",
+  "_meta": {
+    "category": "benigna",
+    "organ": "mama"
+  }
+}

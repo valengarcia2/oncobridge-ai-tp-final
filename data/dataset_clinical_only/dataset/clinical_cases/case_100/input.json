@@ -1,0 +1,52 @@
+{
+  "patient_id": "PAT-00510",
+  "demographics": {
+    "age": 52,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "adenopatias cervicales y mediastinales en TC realizada por chequeo deportivo",
+    "sintomas B leves"
+  ],
+  "medical_history": [
+    {
+      "date": "2005",
+      "event": "Linfoma Hodgkin estadio II — quimio ABVD + radioterapia mediastinal."
+    },
+    {
+      "date": "2010",
+      "event": "Remision completa."
+    },
+    {
+      "date": "2015",
+      "event": "Hipotiroidismo post radioterapia."
+    },
+    {
+      "date": "2018",
+      "event": "Cardiopatia post radioterapia leve."
+    },
+    {
+      "date": "2020",
+      "event": "Ca mama masculino post radioterapia (segundo primario)."
+    },
+    {
+      "date": "2021",
+      "event": "Mastectomia + quimio."
+    },
+    {
+      "date": "2024",
+      "event": "Control oncologico anual sin recidiva."
+    },
+    {
+      "date": "2025-11",
+      "event": "TC pre apto deportivo: adenopatias multiples nuevas."
+    }
+  ],
+  "current_labs": {
+    "LDH": 412,
+    "B2_microglobulina": 4.2,
+    "hemograma": "normal",
+    "TSH": 4.8
+  }
+}

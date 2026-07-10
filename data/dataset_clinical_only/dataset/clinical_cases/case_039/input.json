@@ -1,0 +1,22 @@
+{
+  "patient_id": "PAT-00209",
+  "demographics": {
+    "age": 44,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "control por hipertension arterial estable"
+  ],
+  "medical_history": [
+    {
+      "date": "2020",
+      "event": "HTA esencial bien controlada con enalapril."
+    }
+  ],
+  "current_labs": {
+    "creatinina": 0.9,
+    "hemograma": "normal",
+    "perfil_lipidico": "normal"
+  }
+}

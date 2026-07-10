@@ -1,0 +1,29 @@
+{
+  "patient_id": "PAT-00119",
+  "demographics": {
+    "age": 54,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "episodios de flushing facial recurrentes",
+    "diarrea cronica acuosa 6 meses",
+    "broncoespasmo intermitente"
+  ],
+  "medical_history": [
+    {
+      "date": "2024",
+      "event": "Diagnostico empirico de sindrome intestino irritable."
+    },
+    {
+      "date": "2025-08",
+      "event": "TC abdomen: masa mesenterica con calcificaciones."
+    }
+  ],
+  "current_labs": {
+    "cromogranina_A": 412,
+    "5_HIAA_urinario": 84,
+    "CEA": 2.1,
+    "hemograma": "normal"
+  }
+}

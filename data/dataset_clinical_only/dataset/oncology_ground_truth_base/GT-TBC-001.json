@@ -1,0 +1,79 @@
+{
+  "gt_id": "GT-TBC-001",
+  "icd_10": "A15.0",
+  "icd_10_description": "Tuberculosis pulmonar activa (diferencial benigno)",
+  "objective_data": {
+    "biomarkers": {
+      "PPD": "positivo",
+      "quantiferon_TB": "positivo",
+      "BAAR_esputo": "positivo",
+      "cultivo_micobacterias": "confirma diagnostico"
+    },
+    "clinical_findings": [
+      "tos cronica > 3 semanas",
+      "fiebre vespertina",
+      "sudoracion nocturna",
+      "perdida de peso",
+      "hemoptisis ocasional"
+    ],
+    "risk_factors": [
+      "contacto con caso bacilifero",
+      "inmigracion de zona endemica",
+      "VIH o inmunosupresion",
+      "diabetes",
+      "hacinamiento"
+    ],
+    "prior_imaging_red_flags": [
+      "infiltrado apical persistente",
+      "cavitacion en lobulos superiores"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "tos cronica con expectoracion",
+      "sudoracion nocturna",
+      "fiebre vespertina",
+      "perdida de peso",
+      "hemoptisis"
+    ],
+    "patient_reported_concerns": [
+      "tose desde hace meses",
+      "se despierta empapado de sudor",
+      "esta perdiendo peso"
+    ],
+    "onset_pattern": "evolucion cronica en semanas a meses. Sintomas sistemicos prominentes."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "chest_xray",
+      "chest_CT"
+    ],
+    "views_recommended": [
+      "RX PA y lateral",
+      "TC si dudas"
+    ],
+    "imaging_location": {
+      "body_region": "torax con foco en lobulos superiores",
+      "anatomical_landmarks": "segmentos apicales y posteriores de lobulos superiores",
+      "bilateral_comparison_required": true,
+      "priority_zones": [
+        "infiltrados apicales",
+        "cavitaciones",
+        "adenopatias hiliares",
+        "diseminacion miliar"
+      ],
+      "positioning_notes": "RX inicial. TC para caracterizar cavidades y descartar coinfeccion. Importante diferenciar de carcinoma cavitado."
+    },
+    "expected_imaging_findings": "Infiltrados nodulares en lobulos superiores con cavitacion. Adenopatias hiliares. Puede asociar derrame pleural o patron miliar.",
+    "meddiffusion_prompt": "Chest x-ray PA view, upper lobe cavitary infiltrate with surrounding consolidation, hilar lymphadenopathy, pulmonary tuberculosis, clinical medical imaging",
+    "meddiffusion_negative_prompt": "single peripheral nodule, smooth mass, normal lung",
+    "image_generation_notes": "Infiltrado cavitado apical clasico. Imagen tipica de TBC reactivada."
+  },
+  "base_probability": 0.43,
+  "urgency_level": "media",
+  "notes": "Diferencial critico con carcinoma cavitado. Sintomas sistemicos prolongados y contexto epidemiologico orientan. BAAR confirma.",
+  "_meta": {
+    "category": "benigna",
+    "organ": "pulmon"
+  }
+}

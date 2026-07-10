@@ -1,0 +1,962 @@
+{
+  "dataset_name": "dataset_clinical_only",
+  "total_gt_entries": 30,
+  "total_clinical_cases": 110,
+  "distribution": {
+    "TP": 30,
+    "TN": 30,
+    "FP": 15,
+    "FN": 15,
+    "COMPLEX": 20
+  },
+  "cases": [
+    {
+      "case_id": "case_001",
+      "category": "TP",
+      "patient_id": "PAT-00101",
+      "correct_gt_ids": [
+        "GT-BRCA-001"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_002",
+      "category": "TP",
+      "patient_id": "PAT-00102",
+      "correct_gt_ids": [
+        "GT-BRCA-001"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_003",
+      "category": "TP",
+      "patient_id": "PAT-00103",
+      "correct_gt_ids": [
+        "GT-BRCA-001"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_004",
+      "category": "TP",
+      "patient_id": "PAT-00104",
+      "correct_gt_ids": [
+        "GT-BRCA-002"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_005",
+      "category": "TP",
+      "patient_id": "PAT-00105",
+      "correct_gt_ids": [
+        "GT-BRCA-003"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_006",
+      "category": "TP",
+      "patient_id": "PAT-00106",
+      "correct_gt_ids": [
+        "GT-BRCA-003"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_007",
+      "category": "TP",
+      "patient_id": "PAT-00107",
+      "correct_gt_ids": [
+        "GT-BRCA-004"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_008",
+      "category": "TP",
+      "patient_id": "PAT-00108",
+      "correct_gt_ids": [
+        "GT-BRCA-001"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_009",
+      "category": "TP",
+      "patient_id": "PAT-00109",
+      "correct_gt_ids": [
+        "GT-PULM-002"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_010",
+      "category": "TP",
+      "patient_id": "PAT-00110",
+      "correct_gt_ids": [
+        "GT-PULM-001"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_011",
+      "category": "TP",
+      "patient_id": "PAT-00111",
+      "correct_gt_ids": [
+        "GT-PULM-003"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_012",
+      "category": "TP",
+      "patient_id": "PAT-00112",
+      "correct_gt_ids": [
+        "GT-PULM-004"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_013",
+      "category": "TP",
+      "patient_id": "PAT-00113",
+      "correct_gt_ids": [
+        "GT-PULM-002"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_014",
+      "category": "TP",
+      "patient_id": "PAT-00114",
+      "correct_gt_ids": [
+        "GT-PULM-002"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_015",
+      "category": "TP",
+      "patient_id": "PAT-00115",
+      "correct_gt_ids": [
+        "GT-PULM-001"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_016",
+      "category": "TP",
+      "patient_id": "PAT-00116",
+      "correct_gt_ids": [
+        "GT-COLON-001"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_017",
+      "category": "TP",
+      "patient_id": "PAT-00117",
+      "correct_gt_ids": [
+        "GT-COLON-001"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_018",
+      "category": "TP",
+      "patient_id": "PAT-00118",
+      "correct_gt_ids": [
+        "GT-COLON-002"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_019",
+      "category": "TP",
+      "patient_id": "PAT-00119",
+      "correct_gt_ids": [
+        "GT-COLON-003"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_020",
+      "category": "TP",
+      "patient_id": "PAT-00120",
+      "correct_gt_ids": [
+        "GT-COLON-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_021",
+      "category": "TP",
+      "patient_id": "PAT-00121",
+      "correct_gt_ids": [
+        "GT-PROST-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_022",
+      "category": "TP",
+      "patient_id": "PAT-00122",
+      "correct_gt_ids": [
+        "GT-PROST-001"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_023",
+      "category": "TP",
+      "patient_id": "PAT-00123",
+      "correct_gt_ids": [
+        "GT-TIROIDES-001"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_024",
+      "category": "TP",
+      "patient_id": "PAT-00124",
+      "correct_gt_ids": [
+        "GT-TIROIDES-001"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_025",
+      "category": "TP",
+      "patient_id": "PAT-00125",
+      "correct_gt_ids": [
+        "GT-LINFOMA-001"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_026",
+      "category": "TP",
+      "patient_id": "PAT-00126",
+      "correct_gt_ids": [
+        "GT-LINFOMA-002"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_027",
+      "category": "TP",
+      "patient_id": "PAT-00127",
+      "correct_gt_ids": [
+        "GT-LINFOMA-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_028",
+      "category": "TP",
+      "patient_id": "PAT-00128",
+      "correct_gt_ids": [
+        "GT-HIGADO-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_029",
+      "category": "TP",
+      "patient_id": "PAT-00129",
+      "correct_gt_ids": [
+        "GT-HIGADO-001"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_030",
+      "category": "TP",
+      "patient_id": "PAT-00130",
+      "correct_gt_ids": [
+        "GT-PANCREAS-001"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_031",
+      "category": "TN",
+      "patient_id": "PAT-00201",
+      "correct_gt_ids": [],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_032",
+      "category": "TN",
+      "patient_id": "PAT-00202",
+      "correct_gt_ids": [],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_033",
+      "category": "TN",
+      "patient_id": "PAT-00203",
+      "correct_gt_ids": [],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_034",
+      "category": "TN",
+      "patient_id": "PAT-00204",
+      "correct_gt_ids": [],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_035",
+      "category": "TN",
+      "patient_id": "PAT-00205",
+      "correct_gt_ids": [],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_036",
+      "category": "TN",
+      "patient_id": "PAT-00206",
+      "correct_gt_ids": [],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_037",
+      "category": "TN",
+      "patient_id": "PAT-00207",
+      "correct_gt_ids": [],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_038",
+      "category": "TN",
+      "patient_id": "PAT-00208",
+      "correct_gt_ids": [],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_039",
+      "category": "TN",
+      "patient_id": "PAT-00209",
+      "correct_gt_ids": [],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_040",
+      "category": "TN",
+      "patient_id": "PAT-00210",
+      "correct_gt_ids": [],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_041",
+      "category": "TN",
+      "patient_id": "PAT-00211",
+      "correct_gt_ids": [],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_042",
+      "category": "TN",
+      "patient_id": "PAT-00212",
+      "correct_gt_ids": [],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_043",
+      "category": "TN",
+      "patient_id": "PAT-00213",
+      "correct_gt_ids": [],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_044",
+      "category": "TN",
+      "patient_id": "PAT-00214",
+      "correct_gt_ids": [],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_045",
+      "category": "TN",
+      "patient_id": "PAT-00215",
+      "correct_gt_ids": [],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_046",
+      "category": "TN",
+      "patient_id": "PAT-00216",
+      "correct_gt_ids": [
+        "GT-MASTITIS-001"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_047",
+      "category": "TN",
+      "patient_id": "PAT-00217",
+      "correct_gt_ids": [
+        "GT-FIBROA-001"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_048",
+      "category": "TN",
+      "patient_id": "PAT-00218",
+      "correct_gt_ids": [
+        "GT-QUISTE-001"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_049",
+      "category": "TN",
+      "patient_id": "PAT-00219",
+      "correct_gt_ids": [],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_050",
+      "category": "TN",
+      "patient_id": "PAT-00220",
+      "correct_gt_ids": [
+        "GT-NEUMONIA-001"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_051",
+      "category": "TN",
+      "patient_id": "PAT-00221",
+      "correct_gt_ids": [
+        "GT-GRANULOMA-001"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_052",
+      "category": "TN",
+      "patient_id": "PAT-00222",
+      "correct_gt_ids": [
+        "GT-DIVERT-001"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_053",
+      "category": "TN",
+      "patient_id": "PAT-00223",
+      "correct_gt_ids": [
+        "GT-COLITIS-001"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_054",
+      "category": "TN",
+      "patient_id": "PAT-00224",
+      "correct_gt_ids": [
+        "GT-PROST-002"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_055",
+      "category": "TN",
+      "patient_id": "PAT-00225",
+      "correct_gt_ids": [
+        "GT-TIROIDES-002"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_056",
+      "category": "TN",
+      "patient_id": "PAT-00226",
+      "correct_gt_ids": [
+        "GT-HIGADO-002"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_057",
+      "category": "TN",
+      "patient_id": "PAT-00227",
+      "correct_gt_ids": [
+        "GT-NEUMO-002"
+      ],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_058",
+      "category": "TN",
+      "patient_id": "PAT-00228",
+      "correct_gt_ids": [],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_059",
+      "category": "TN",
+      "patient_id": "PAT-00229",
+      "correct_gt_ids": [],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_060",
+      "category": "TN",
+      "patient_id": "PAT-00230",
+      "correct_gt_ids": [],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_061",
+      "category": "FP",
+      "patient_id": "PAT-00301",
+      "correct_gt_ids": [
+        "GT-MASTITIS-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_062",
+      "category": "FP",
+      "patient_id": "PAT-00302",
+      "correct_gt_ids": [
+        "GT-MASTITIS-001"
+      ],
+      "difficulty": "dificil"
+    },
+    {
+      "case_id": "case_063",
+      "category": "FP",
+      "patient_id": "PAT-00303",
+      "correct_gt_ids": [
+        "GT-MASTITIS-001"
+      ],
+      "difficulty": "dificil"
+    },
+    {
+      "case_id": "case_064",
+      "category": "FP",
+      "patient_id": "PAT-00304",
+      "correct_gt_ids": [],
+      "difficulty": "facil"
+    },
+    {
+      "case_id": "case_065",
+      "category": "FP",
+      "patient_id": "PAT-00305",
+      "correct_gt_ids": [
+        "GT-NEUMONIA-001"
+      ],
+      "difficulty": "dificil"
+    },
+    {
+      "case_id": "case_066",
+      "category": "FP",
+      "patient_id": "PAT-00306",
+      "correct_gt_ids": [
+        "GT-PULM-002"
+      ],
+      "difficulty": "dificil"
+    },
+    {
+      "case_id": "case_067",
+      "category": "FP",
+      "patient_id": "PAT-00307",
+      "correct_gt_ids": [
+        "GT-TBC-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_068",
+      "category": "FP",
+      "patient_id": "PAT-00308",
+      "correct_gt_ids": [
+        "GT-GRANULOMA-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_069",
+      "category": "FP",
+      "patient_id": "PAT-00309",
+      "correct_gt_ids": [
+        "GT-DIVERT-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_070",
+      "category": "FP",
+      "patient_id": "PAT-00310",
+      "correct_gt_ids": [
+        "GT-DIVERT-001"
+      ],
+      "difficulty": "dificil"
+    },
+    {
+      "case_id": "case_071",
+      "category": "FP",
+      "patient_id": "PAT-00311",
+      "correct_gt_ids": [
+        "GT-COLITIS-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_072",
+      "category": "FP",
+      "patient_id": "PAT-00312",
+      "correct_gt_ids": [
+        "GT-HIGADO-002"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_073",
+      "category": "FP",
+      "patient_id": "PAT-00313",
+      "correct_gt_ids": [
+        "GT-HIGADO-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_074",
+      "category": "FP",
+      "patient_id": "PAT-00314",
+      "correct_gt_ids": [
+        "GT-PROST-002"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_075",
+      "category": "FP",
+      "patient_id": "PAT-00315",
+      "correct_gt_ids": [
+        "GT-PROST-002"
+      ],
+      "difficulty": "dificil"
+    },
+    {
+      "case_id": "case_076",
+      "category": "FN",
+      "patient_id": "PAT-00401",
+      "correct_gt_ids": [
+        "GT-BRCA-002"
+      ],
+      "difficulty": "dificil"
+    },
+    {
+      "case_id": "case_077",
+      "category": "FN",
+      "patient_id": "PAT-00402",
+      "correct_gt_ids": [
+        "GT-BRCA-002"
+      ],
+      "difficulty": "dificil"
+    },
+    {
+      "case_id": "case_078",
+      "category": "FN",
+      "patient_id": "PAT-00403",
+      "correct_gt_ids": [
+        "GT-BRCA-002"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_079",
+      "category": "FN",
+      "patient_id": "PAT-00404",
+      "correct_gt_ids": [
+        "GT-PULM-001"
+      ],
+      "difficulty": "dificil"
+    },
+    {
+      "case_id": "case_080",
+      "category": "FN",
+      "patient_id": "PAT-00405",
+      "correct_gt_ids": [
+        "GT-PULM-001"
+      ],
+      "difficulty": "dificil"
+    },
+    {
+      "case_id": "case_081",
+      "category": "FN",
+      "patient_id": "PAT-00406",
+      "correct_gt_ids": [
+        "GT-PULM-001"
+      ],
+      "difficulty": "dificil"
+    },
+    {
+      "case_id": "case_082",
+      "category": "FN",
+      "patient_id": "PAT-00407",
+      "correct_gt_ids": [
+        "GT-PANCREAS-001"
+      ],
+      "difficulty": "dificil"
+    },
+    {
+      "case_id": "case_083",
+      "category": "FN",
+      "patient_id": "PAT-00408",
+      "correct_gt_ids": [
+        "GT-PANCREAS-001"
+      ],
+      "difficulty": "dificil"
+    },
+    {
+      "case_id": "case_084",
+      "category": "FN",
+      "patient_id": "PAT-00409",
+      "correct_gt_ids": [
+        "GT-COLON-001"
+      ],
+      "difficulty": "dificil"
+    },
+    {
+      "case_id": "case_085",
+      "category": "FN",
+      "patient_id": "PAT-00410",
+      "correct_gt_ids": [
+        "GT-COLON-001"
+      ],
+      "difficulty": "dificil"
+    },
+    {
+      "case_id": "case_086",
+      "category": "FN",
+      "patient_id": "PAT-00411",
+      "correct_gt_ids": [
+        "GT-TIROIDES-001"
+      ],
+      "difficulty": "dificil"
+    },
+    {
+      "case_id": "case_087",
+      "category": "FN",
+      "patient_id": "PAT-00412",
+      "correct_gt_ids": [
+        "GT-TIROIDES-001"
+      ],
+      "difficulty": "dificil"
+    },
+    {
+      "case_id": "case_088",
+      "category": "FN",
+      "patient_id": "PAT-00413",
+      "correct_gt_ids": [
+        "GT-PROST-001"
+      ],
+      "difficulty": "dificil"
+    },
+    {
+      "case_id": "case_089",
+      "category": "FN",
+      "patient_id": "PAT-00414",
+      "correct_gt_ids": [
+        "GT-PROST-001"
+      ],
+      "difficulty": "dificil"
+    },
+    {
+      "case_id": "case_090",
+      "category": "FN",
+      "patient_id": "PAT-00415",
+      "correct_gt_ids": [
+        "GT-HIGADO-001"
+      ],
+      "difficulty": "dificil"
+    },
+    {
+      "case_id": "case_091",
+      "category": "COMPLEX",
+      "patient_id": "PAT-00501",
+      "correct_gt_ids": [
+        "GT-BRCA-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_092",
+      "category": "COMPLEX",
+      "patient_id": "PAT-00502",
+      "correct_gt_ids": [
+        "GT-PULM-002"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_093",
+      "category": "COMPLEX",
+      "patient_id": "PAT-00503",
+      "correct_gt_ids": [
+        "GT-COLON-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_094",
+      "category": "COMPLEX",
+      "patient_id": "PAT-00504",
+      "correct_gt_ids": [
+        "GT-PROST-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_095",
+      "category": "COMPLEX",
+      "patient_id": "PAT-00505",
+      "correct_gt_ids": [
+        "GT-LINFOMA-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_096",
+      "category": "COMPLEX",
+      "patient_id": "PAT-00506",
+      "correct_gt_ids": [
+        "GT-HIGADO-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_097",
+      "category": "COMPLEX",
+      "patient_id": "PAT-00507",
+      "correct_gt_ids": [
+        "GT-BRCA-003"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_098",
+      "category": "COMPLEX",
+      "patient_id": "PAT-00508",
+      "correct_gt_ids": [
+        "GT-PULM-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_099",
+      "category": "COMPLEX",
+      "patient_id": "PAT-00509",
+      "correct_gt_ids": [
+        "GT-PANCREAS-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_100",
+      "category": "COMPLEX",
+      "patient_id": "PAT-00510",
+      "correct_gt_ids": [
+        "GT-LINFOMA-001"
+      ],
+      "difficulty": "dificil"
+    },
+    {
+      "case_id": "case_101",
+      "category": "COMPLEX",
+      "patient_id": "PAT-00511",
+      "correct_gt_ids": [
+        "GT-BRCA-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_102",
+      "category": "COMPLEX",
+      "patient_id": "PAT-00512",
+      "correct_gt_ids": [
+        "GT-PULM-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_103",
+      "category": "COMPLEX",
+      "patient_id": "PAT-00513",
+      "correct_gt_ids": [
+        "GT-COLON-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_104",
+      "category": "COMPLEX",
+      "patient_id": "PAT-00514",
+      "correct_gt_ids": [
+        "GT-TIROIDES-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_105",
+      "category": "COMPLEX",
+      "patient_id": "PAT-00515",
+      "correct_gt_ids": [
+        "GT-COLON-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_106",
+      "category": "COMPLEX",
+      "patient_id": "PAT-00516",
+      "correct_gt_ids": [
+        "GT-PULM-004"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_107",
+      "category": "COMPLEX",
+      "patient_id": "PAT-00517",
+      "correct_gt_ids": [
+        "GT-BRCA-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_108",
+      "category": "COMPLEX",
+      "patient_id": "PAT-00518",
+      "correct_gt_ids": [
+        "GT-HIGADO-001"
+      ],
+      "difficulty": "moderado"
+    },
+    {
+      "case_id": "case_109",
+      "category": "COMPLEX",
+      "patient_id": "PAT-00519",
+      "correct_gt_ids": [],
+      "difficulty": "dificil"
+    },
+    {
+      "case_id": "case_110",
+      "category": "COMPLEX",
+      "patient_id": "PAT-00520",
+      "correct_gt_ids": [
+        "GT-PANCREAS-001"
+      ],
+      "difficulty": "moderado"
+    }
+  ]
+}

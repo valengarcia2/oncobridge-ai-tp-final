@@ -1,0 +1,29 @@
+{
+  "patient_id": "PAT-00409",
+  "demographics": {
+    "age": 55,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "anemia ferropenica inexplicada",
+    "fatiga leve",
+    "sin rectorragia"
+  ],
+  "medical_history": [
+    {
+      "date": "2024-01",
+      "event": "Hemorroides con sangrado ocasional."
+    },
+    {
+      "date": "2025-09",
+      "event": "Atribucion previa de anemia a hemorroides — sin colonoscopia."
+    }
+  ],
+  "current_labs": {
+    "hemograma": "Hb 10.1 microcitica",
+    "ferritina": 8,
+    "CEA": 4.8,
+    "sangre_oculta": "positivo"
+  }
+}

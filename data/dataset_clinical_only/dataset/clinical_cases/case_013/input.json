@@ -1,0 +1,28 @@
+{
+  "patient_id": "PAT-00113",
+  "demographics": {
+    "age": 58,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "adenopatia supraclavicular izquierda dura 3 cm",
+    "tos seca",
+    "ronquera 2 semanas"
+  ],
+  "medical_history": [
+    {
+      "date": "1985-2015",
+      "event": "Tabaquismo 30 paquetes/ano."
+    },
+    {
+      "date": "2025-10",
+      "event": "Disfonia progresiva — sospecha compromiso recurrente."
+    }
+  ],
+  "current_labs": {
+    "CEA": 22,
+    "CYFRA_21_1": 8.4,
+    "hemograma": "normal"
+  }
+}

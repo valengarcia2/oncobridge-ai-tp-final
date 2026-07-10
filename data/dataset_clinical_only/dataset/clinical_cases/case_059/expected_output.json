@@ -1,0 +1,11 @@
+{
+  "case_id": "case_059",
+  "correct_gt_ids": [],
+  "acceptable_secondary_gt_ids": [],
+  "imaging_needed_ground_truth": false,
+  "urgency_ground_truth": "ninguna",
+  "specialist_decision": "NO_DERIVAR",
+  "conclusive_ground_truth": true,
+  "difficulty": "facil",
+  "notes": "Adenopatias reactivas post viral. Observacion."
+}

@@ -1,0 +1,13 @@
+{
+  "case_id": "case_049",
+  "correct_gt_ids": [],
+  "acceptable_secondary_gt_ids": [
+    "GT-NEUMONIA-001"
+  ],
+  "imaging_needed_ground_truth": false,
+  "urgency_ground_truth": "ninguna",
+  "specialist_decision": "NO_DERIVAR",
+  "conclusive_ground_truth": true,
+  "difficulty": "facil",
+  "notes": "Cuadro viral autolimitado."
+}

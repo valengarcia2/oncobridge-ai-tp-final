@@ -1,0 +1,79 @@
+{
+  "gt_id": "GT-PROST-001",
+  "icd_10": "C61",
+  "icd_10_description": "Neoplasia maligna de la prostata (adenocarcinoma)",
+  "objective_data": {
+    "biomarkers": {
+      "PSA_total": "> 4 ng/mL (sospecha), > 10 ng/mL (alta sospecha)",
+      "PSA_libre_ratio": "< 15% sugiere malignidad",
+      "PCA3": "elevado",
+      "fosfatasa_alcalina": "elevada en metastasis oseas"
+    },
+    "clinical_findings": [
+      "tacto rectal con prostata nodular o asimetrica",
+      "induracion al tacto",
+      "habitualmente asintomatico hasta avanzado",
+      "metastasis oseas frecuentes"
+    ],
+    "risk_factors": [
+      "edad > 50 anos (65+ peak)",
+      "antecedente familiar primer grado",
+      "raza afroamericana",
+      "obesidad"
+    ],
+    "prior_imaging_red_flags": [
+      "PI-RADS 4-5 en RM previa",
+      "lesion focal en zona periferica"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "habitualmente asintomatico en estadios tempranos",
+      "sintomas miccionales (LUTS) en avanzados",
+      "dolor oseo en metastasico",
+      "hematuria o hemospermia"
+    ],
+    "patient_reported_concerns": [
+      "viene por screening por edad",
+      "le subio el PSA",
+      "tiene dolor de huesos"
+    ],
+    "onset_pattern": "evolucion en anos. Habitualmente lentamente progresivo."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "prostate_MRI",
+      "transrectal_ultrasound",
+      "bone_scan"
+    ],
+    "views_recommended": [
+      "RM multiparametrica prostata (mp-MRI) con PI-RADS",
+      "biopsia transrectal o transperineal guiada",
+      "centellografia osea si PSA > 20 o Gleason >= 8"
+    ],
+    "imaging_location": {
+      "body_region": "pelvis con foco en prostata",
+      "anatomical_landmarks": "zonas periferica/transicional/central de prostata, vesiculas seminales, ganglios pelvicos",
+      "bilateral_comparison_required": false,
+      "priority_zones": [
+        "lesion focal en zona periferica (origen habitual)",
+        "extension extraprostatica",
+        "vesiculas seminales",
+        "ganglios pelvicos",
+        "huesos visibles (sacro, pelvis)"
+      ],
+      "positioning_notes": "mp-MRI con bobina endorrectal opcional. Secuencias T2, DWI y dinamico contrastado. Reportar PI-RADS por lesion."
+    },
+    "expected_imaging_findings": "Lesion focal hipointensa en T2 en zona periferica con restriccion de difusion (DWI hiperintenso, ADC bajo). Realce dinamico precoz. PI-RADS 4-5.",
+    "meddiffusion_prompt": "Prostate MRI multiparametric axial T2, focal hypointense lesion peripheral zone, DWI restricted diffusion, PI-RADS 5, prostate cancer, clinical medical imaging",
+    "meddiffusion_negative_prompt": "diffuse benign prostatic hyperplasia, normal prostate, no focal lesion",
+    "image_generation_notes": "Lesion focal en zona periferica con caracteristicas malignas en mp-MRI."
+  },
+  "base_probability": 0.65,
+  "urgency_level": "media",
+  "notes": "Cribado con PSA polemico. Biopsia guiada por mp-MRI es estandar actual. Gleason define agresividad.",
+  "_meta": {
+    "category": "oncologica",
+    "organ": "prostata"
+  }
+}

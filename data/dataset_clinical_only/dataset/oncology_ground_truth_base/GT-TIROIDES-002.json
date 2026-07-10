@@ -1,0 +1,63 @@
+{
+  "gt_id": "GT-TIROIDES-002",
+  "icd_10": "D34",
+  "icd_10_description": "Neoplasia benigna de la tiroides (nodulo coloide / adenoma)",
+  "objective_data": {
+    "biomarkers": {
+      "TSH": "habitualmente normal",
+      "tiroglobulina": "no util en diagnostico"
+    },
+    "clinical_findings": [
+      "nodulo tiroideo palpable",
+      "habitualmente unico o multiple en bocio multinodular"
+    ],
+    "risk_factors": [
+      "edad",
+      "deficit de yodo",
+      "sexo femenino"
+    ],
+    "prior_imaging_red_flags": [
+      "TI-RADS 1-2 en estudios previos"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "nodulo cervical",
+      "ausencia de sintomas compresivos",
+      "hallazgo incidental frecuente"
+    ],
+    "patient_reported_concerns": [
+      "le encontraron un nodulo en eco rutinaria"
+    ],
+    "onset_pattern": "estable o crecimiento muy lento."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "thyroid_ultrasound"
+    ],
+    "views_recommended": [
+      "ecografia tiroidea con TI-RADS"
+    ],
+    "imaging_location": {
+      "body_region": "cuello anterior",
+      "anatomical_landmarks": "lobulos tiroideos, istmo",
+      "bilateral_comparison_required": true,
+      "priority_zones": [
+        "nodulo focal",
+        "caracteristicas TI-RADS de benignidad"
+      ],
+      "positioning_notes": "Ecografia con TI-RADS. Si TI-RADS 1-2: seguimiento. TI-RADS 3 segun tamano y evolucion."
+    },
+    "expected_imaging_findings": "Nodulo solido isoecogenico o hiperecogenico, bordes lisos, mas ancho que alto, sin microcalcificaciones. Puede tener componente quistico.",
+    "meddiffusion_prompt": "Thyroid ultrasound, isoechoic solid nodule with smooth margins, wider than tall, no calcifications, TI-RADS 2 benign appearance, clinical medical imaging",
+    "meddiffusion_negative_prompt": "microcalcifications, irregular margins, taller than wide, hypoechoic",
+    "image_generation_notes": "Nodulo tiroideo TI-RADS 2 benigno. Patron habitual."
+  },
+  "base_probability": 0.22,
+  "urgency_level": "baja",
+  "notes": "TI-RADS guia la conducta. Benigno por imagen no requiere PAAF habitualmente. Seguimiento periodico.",
+  "_meta": {
+    "category": "benigna",
+    "organ": "tiroides"
+  }
+}

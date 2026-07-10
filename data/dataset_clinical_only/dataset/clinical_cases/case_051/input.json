@@ -1,0 +1,26 @@
+{
+  "patient_id": "PAT-00221",
+  "demographics": {
+    "age": 38,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "nodulo pulmonar calcificado 5 mm hallazgo incidental"
+  ],
+  "medical_history": [
+    {
+      "date": "2018",
+      "event": "TBC tratada y curada."
+    },
+    {
+      "date": "2025-09",
+      "event": "TC torax por consulta neurologica: nodulo calcificado estable."
+    }
+  ],
+  "current_labs": {
+    "CEA": 1.4,
+    "CYFRA_21_1": 1.2,
+    "hemograma": "normal"
+  }
+}

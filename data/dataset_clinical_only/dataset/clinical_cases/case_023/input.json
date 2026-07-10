@@ -1,0 +1,29 @@
+{
+  "patient_id": "PAT-00123",
+  "demographics": {
+    "age": 45,
+    "sex": "F",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "nodulo cervical 2 cm",
+    "crecimiento 6 meses",
+    "ganglio cervical lateral palpable"
+  ],
+  "medical_history": [
+    {
+      "date": "1985",
+      "event": "Radioterapia cervical en infancia."
+    },
+    {
+      "date": "2024-10",
+      "event": "Ecografia: nodulo TI-RADS 5 lobulo izquierdo."
+    }
+  ],
+  "current_labs": {
+    "TSH": 2.1,
+    "T4_libre": 1.2,
+    "tiroglobulina": 24.3,
+    "calcitonina": "< 2"
+  }
+}

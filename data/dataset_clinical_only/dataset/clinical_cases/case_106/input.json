@@ -1,0 +1,58 @@
+{
+  "patient_id": "PAT-00516",
+  "demographics": {
+    "age": 67,
+    "sex": "M",
+    "family_history": []
+  },
+  "current_symptoms": [
+    "disnea progresiva 6 meses",
+    "derrame pleural recurrente derecho",
+    "dolor toracico cronico",
+    "perdida peso 5 kg"
+  ],
+  "medical_history": [
+    {
+      "date": "1968-1990",
+      "event": "Operario en planta naval — exposicion asbesto."
+    },
+    {
+      "date": "1995",
+      "event": "Diagnostico placas pleurales benignas."
+    },
+    {
+      "date": "2005",
+      "event": "Asbestosis pulmonar leve."
+    },
+    {
+      "date": "2010-2020",
+      "event": "Seguimiento neumonologico anual."
+    },
+    {
+      "date": "2018",
+      "event": "TC torax: engrosamiento pleural localizado <3mm."
+    },
+    {
+      "date": "2023",
+      "event": "TC: engrosamiento pleural progresivo 5 mm."
+    },
+    {
+      "date": "2025-05",
+      "event": "Primer derrame pleural — toracocentesis citologia negativa."
+    },
+    {
+      "date": "2025-08",
+      "event": "Re-acumulacion derrame."
+    },
+    {
+      "date": "2025-11",
+      "event": "TC: engrosamiento pleural nodular circunferencial."
+    }
+  ],
+  "current_labs": {
+    "mesotelina": 6.4,
+    "CEA": 3.2,
+    "CYFRA_21_1": 4.1,
+    "hemograma": "anemia leve"
+  }
+}

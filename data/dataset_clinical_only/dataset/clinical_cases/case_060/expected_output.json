@@ -1,0 +1,11 @@
+{
+  "case_id": "case_060",
+  "correct_gt_ids": [],
+  "acceptable_secondary_gt_ids": [],
+  "imaging_needed_ground_truth": false,
+  "urgency_ground_truth": "ninguna",
+  "specialist_decision": "NO_DERIVAR",
+  "conclusive_ground_truth": true,
+  "difficulty": "facil",
+  "notes": "Polipo hiperplasico benigno. Re-screening en 5-10 anos."
+}
