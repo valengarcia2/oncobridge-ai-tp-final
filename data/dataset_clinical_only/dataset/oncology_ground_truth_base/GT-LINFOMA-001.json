@@ -42,7 +42,6 @@
   },
   "radiologist_guidance": {
     "modality_priority": [
-      "PET_CT",
       "neck_chest_abdomen_CT"
     ],
     "views_recommended": [
@@ -62,10 +61,10 @@
       ],
       "positioning_notes": "PET-TC es estandar para staging. TC con contraste para mediciones. Biopsia excisional > PAAF para diagnostico."
     },
-    "expected_imaging_findings": "Adenopatias coalescentes en multiples territorios. Captacion intensa en PET. Esplenomegalia con compromiso difuso o focal. Compromiso medular.",
-    "meddiffusion_prompt": "PET CT whole body, multiple FDG-avid lymph nodes cervical axillary mediastinal, splenomegaly, lymphoma staging, clinical medical imaging",
+    "expected_imaging_findings": "Adenopatias coalescentes en multiples territorios (cervical, mediastinal, retroperitoneal), homogeneas y de realce leve en TC con contraste. Esplenomegalia con compromiso difuso o focal.",
+    "meddiffusion_prompt": "Contrast-enhanced neck chest and abdominal CT, axial view, multiple enlarged homogeneous lymph nodes cervical mediastinal and retroperitoneal, conglomerate nodal masses, splenomegaly, non-Hodgkin lymphoma, clinical medical imaging",
     "meddiffusion_negative_prompt": "single isolated lymph node, normal study, reactive small nodes",
-    "image_generation_notes": "Adenopatias multiples avidas en PET. Compromiso multi-territorio caracteristico."
+    "image_generation_notes": "Generar TC con contraste mostrando adenopatias homogeneas coalescentes en multiples territorios y esplenomegalia. Compromiso multi-territorio caracteristico."
   },
   "base_probability": 0.61,
   "urgency_level": "alta",

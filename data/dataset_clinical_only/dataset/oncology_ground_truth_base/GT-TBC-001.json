@@ -45,7 +45,6 @@
   },
   "radiologist_guidance": {
     "modality_priority": [
-      "chest_xray",
       "chest_CT"
     ],
     "views_recommended": [
@@ -65,7 +64,7 @@
       "positioning_notes": "RX inicial. TC para caracterizar cavidades y descartar coinfeccion. Importante diferenciar de carcinoma cavitado."
     },
     "expected_imaging_findings": "Infiltrados nodulares en lobulos superiores con cavitacion. Adenopatias hiliares. Puede asociar derrame pleural o patron miliar.",
-    "meddiffusion_prompt": "Chest x-ray PA view, upper lobe cavitary infiltrate with surrounding consolidation, hilar lymphadenopathy, pulmonary tuberculosis, clinical medical imaging",
+    "meddiffusion_prompt": "Chest CT, axial view, upper lobe cavitary consolidation with tree-in-bud nodules and mediastinal lymphadenopathy, active pulmonary tuberculosis, clinical medical imaging",
     "meddiffusion_negative_prompt": "single peripheral nodule, smooth mass, normal lung",
     "image_generation_notes": "Infiltrado cavitado apical clasico. Imagen tipica de TBC reactivada."
   },

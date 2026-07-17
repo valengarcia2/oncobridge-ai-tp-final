@@ -1,28 +1,31 @@
 {
   "patient_id": "PAT-00216",
   "demographics": {
-    "age": 32,
+    "age": 34,
     "sex": "F",
     "family_history": []
   },
   "current_symptoms": [
-    "eritema y calor mama izq 4 dias",
-    "fiebre 38.4",
-    "amamantando"
+    "fiebre alta 38.9 con escalofrios 4 dias",
+    "dolor lumbar agudo con Giordano positivo",
+    "disuria y polaquiuria"
   ],
   "medical_history": [
     {
       "date": "2025-05",
-      "event": "Parto."
+      "event": "Infeccion urinaria baja tratada."
     },
     {
       "date": "2025-08",
-      "event": "Fisura pezon."
+      "event": "Litiasis renal derecha pequena."
     }
   ],
   "current_labs": {
-    "leucocitos": 14200,
-    "PCR": 64,
-    "CA_15_3": 22
+    "leucocitos": 16800,
+    "neutrofilia": "presente",
+    "PCR": 142,
+    "procalcitonina": 3.8,
+    "sedimento_urinario": "piuria y bacteriuria",
+    "urocultivo": "E. coli positivo"
   }
 }

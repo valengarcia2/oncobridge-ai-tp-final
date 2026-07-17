@@ -1,0 +1,78 @@
+{
+  "gt_id": "GT-GASTRIC-001",
+  "icd_10": "C16.9",
+  "icd_10_description": "Neoplasia maligna del estomago (adenocarcinoma infiltrante difuso, tipo linitis plastica)",
+  "objective_data": {
+    "biomarkers": {
+      "CEA": "> 5 ng/mL (elevado)",
+      "CA_19_9": "elevado",
+      "CA_72_4": "elevado",
+      "hemograma": "anemia ferropenica (sangrado cronico)"
+    },
+    "clinical_findings": [
+      "epigastralgia persistente",
+      "saciedad precoz",
+      "perdida de peso",
+      "masa epigastrica palpable en avanzados",
+      "ganglio de Virchow (supraclavicular izquierdo)"
+    ],
+    "risk_factors": [
+      "infeccion por Helicobacter pylori",
+      "gastritis atrofica o metaplasia intestinal",
+      "antecedente familiar de cancer gastrico",
+      "tabaquismo",
+      "dieta rica en ahumados y sal"
+    ],
+    "prior_imaging_red_flags": [
+      "engrosamiento parietal gastrico difuso en TC previa",
+      "perdida de distensibilidad gastrica"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "dolor epigastrico",
+      "saciedad precoz",
+      "nauseas o vomitos",
+      "perdida de peso no intencional",
+      "melena o anemia"
+    ],
+    "patient_reported_concerns": [
+      "me lleno enseguida al comer",
+      "baje mucho de peso sin querer",
+      "me duele la boca del estomago hace semanas"
+    ],
+    "onset_pattern": "aparicion progresiva en semanas a meses, sin resolucion espontanea"
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "abdominal_CT"
+    ],
+    "views_recommended": [
+      "TC abdomen con contraste y distension gastrica (agua como contraste neutro)",
+      "endoscopia digestiva alta con biopsia (procedimiento)"
+    ],
+    "imaging_location": {
+      "body_region": "abdomen superior, estomago",
+      "anatomical_landmarks": "pared gastrica (antro, cuerpo, curvaturas), ganglios perigastricos y del tronco celiaco, peritoneo",
+      "bilateral_comparison_required": false,
+      "priority_zones": [
+        "engrosamiento parietal gastrico",
+        "adenopatias perigastricas y celiacas",
+        "implantes peritoneales",
+        "ascitis"
+      ],
+      "positioning_notes": "TC de abdomen con contraste EV y distension gastrica. Evaluar espesor y realce de la pared, adenopatias regionales y peritoneo."
+    },
+    "expected_imaging_findings": "Engrosamiento parietal gastrico difuso e irregular con perdida de distensibilidad (linitis plastica), realce mural y adenopatias perigastricas. Posible carcinomatosis peritoneal y ascitis.",
+    "meddiffusion_prompt": "Contrast-enhanced abdominal CT, axial view, diffuse irregular gastric wall thickening, loss of gastric distensibility, linitis plastica pattern, perigastric lymph nodes, infiltrative gastric adenocarcinoma, clinical medical imaging",
+    "meddiffusion_negative_prompt": "normal thin gastric wall, focal benign ulcer, well-distended stomach, normal abdomen",
+    "image_generation_notes": "Generar corte axial de TC de abdomen con engrosamiento parietal gastrico difuso e irregular (patron de linitis plastica)."
+  },
+  "base_probability": 0.7,
+  "urgency_level": "alta",
+  "notes": "Patron infiltrativo difuso de baja conspicuidad, facil de subestimar. Confirmar con endoscopia y biopsia. Descartar carcinomatosis peritoneal.",
+  "_meta": {
+    "category": "oncologica",
+    "organ": "estomago"
+  }
+}

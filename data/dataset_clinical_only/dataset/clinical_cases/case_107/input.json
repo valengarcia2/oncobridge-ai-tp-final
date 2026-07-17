@@ -1,52 +1,52 @@
 {
   "patient_id": "PAT-00517",
   "demographics": {
-    "age": 58,
-    "sex": "F",
+    "age": 62,
+    "sex": "M",
     "family_history": []
   },
   "current_symptoms": [
-    "multiples nodulos hepaticos hallazgo en TC por dolor lumbar"
+    "masa renal derecha con multiples nodulos hepaticos hallados en TC por dolor lumbar"
   ],
   "medical_history": [
     {
       "date": "2010",
-      "event": "Ca mama izq estadio II — mastectomia + QT + RT + hormonoterapia 5 anos."
+      "event": "Hipertension arterial de larga data."
     },
     {
       "date": "2015",
-      "event": "Remision completa."
+      "event": "Tabaquismo 25 paquetes-ano."
     },
     {
       "date": "2018",
-      "event": "Vigilancia anual mamografia + RM mamaria."
+      "event": "Ecografia: rinon derecho con imagen dudosa, no seguida."
     },
     {
       "date": "2022",
-      "event": "Sin evidencia de recidiva."
+      "event": "Sin controles por imagen."
     },
     {
       "date": "2024",
-      "event": "Densitometria: osteopenia."
+      "event": "Perdida de peso no cuantificada."
     },
     {
       "date": "2025-08",
-      "event": "Lumbalgia que no cede con AINE."
+      "event": "Lumbalgia derecha que no cede con AINE."
     },
     {
       "date": "2025-10",
-      "event": "RM lumbar: lesion focal cuerpo vertebral L3 — biopsia: metastasis adenocarcinoma."
+      "event": "Ecografia: masa solida rinon derecho 7 cm con trombo en vena renal."
     },
     {
       "date": "2025-11",
-      "event": "TC torax-abdomen-pelvis: multiples nodulos hepaticos."
+      "event": "TC torax-abdomen-pelvis: masa renal derecha y multiples nodulos hepaticos."
     }
   ],
   "current_labs": {
-    "CA_15_3": 412,
-    "CEA": 28,
-    "FAL": 642,
+    "sedimento_urinario": "hematuria macroscopica",
+    "hemoglobina": 9.8,
+    "LDH": 640,
     "calcio": 11.4,
-    "hemograma": "anemia"
+    "creatinina": 1.6
   }
 }

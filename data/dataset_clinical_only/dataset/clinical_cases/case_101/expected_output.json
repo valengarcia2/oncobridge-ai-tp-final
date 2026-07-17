@@ -1,15 +1,15 @@
 {
   "case_id": "case_101",
   "correct_gt_ids": [
-    "GT-BRCA-001"
+    "GT-RENAL-001"
   ],
   "acceptable_secondary_gt_ids": [
-    "GT-BRCA-003"
+    "GT-RENAL-002"
   ],
   "imaging_needed_ground_truth": true,
   "urgency_ground_truth": "alta",
   "specialist_decision": "DERIVAR_A_IMAGEN",
   "conclusive_ground_truth": true,
   "difficulty": "moderado",
-  "notes": "Ca contralateral en paciente con historia de hiperplasia atipica y BRCA negativo. Vigilancia extendida."
+  "notes": "Masa en rinon contralateral en paciente con antecedente de cirugia renal benigna. Vigilancia extendida."
 }

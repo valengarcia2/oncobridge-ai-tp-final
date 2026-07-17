@@ -1,29 +1,29 @@
 {
   "patient_id": "PAT-00106",
   "demographics": {
-    "age": 49,
-    "sex": "F",
+    "age": 52,
+    "sex": "M",
     "family_history": [
-      "breast_cancer"
+      "carcinoma_renal"
     ]
   },
   "current_symptoms": [
-    "calcificaciones lineales segmentarias mama derecha",
-    "sin masa palpable"
+    "pequena masa renal solida 2.8 cm hallada incidentalmente en ecografia",
+    "asintomatico sin masa palpable"
   ],
   "medical_history": [
     {
       "date": "2025-08",
-      "event": "Hermana DCIS a los 51."
+      "event": "Hermano con carcinoma renal a los 55."
     },
     {
       "date": "2025-11",
-      "event": "Mamografia: calcificaciones segmentarias BI-RADS 5."
+      "event": "Ecografia abdominal por dolor inespecifico: nodulo solido rinon derecho 2.8 cm."
     }
   ],
   "current_labs": {
-    "CA_15_3": 26,
-    "CEA": 2.1,
-    "hemograma": "normal"
+    "sedimento_urinario": "normal",
+    "hemoglobina": 15.0,
+    "creatinina": 0.9
   }
 }

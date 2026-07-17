@@ -1,57 +1,58 @@
 {
   "patient_id": "PAT-00511",
   "demographics": {
-    "age": 49,
-    "sex": "F",
+    "age": 60,
+    "sex": "M",
     "family_history": [
-      "breast_cancer"
+      "carcinoma_renal"
     ]
   },
   "current_symptoms": [
-    "masa CSE mama derecha 3 cm 4 semanas",
-    "adenopatia axilar"
+    "hematuria macroscopica reciente",
+    "dolor en flanco izquierdo de 4 semanas"
   ],
   "medical_history": [
     {
       "date": "1995",
-      "event": "Ca mama izquierdo a los 19 anos en familiar de primer grado."
+      "event": "Padre con carcinoma renal a edad temprana."
     },
     {
       "date": "2000",
-      "event": "Test BRCA1 negativo."
+      "event": "Inicio de controles por imagen por antecedente familiar."
     },
     {
       "date": "2005",
-      "event": "Mama izquierda: biopsia — hiperplasia ductal atipica."
+      "event": "TC: quiste complejo rinon derecho — vigilancia."
     },
     {
       "date": "2008",
-      "event": "Lumpectomia con margenes negativos."
+      "event": "Nefrectomia parcial derecha por lesion Bosniak III benigna."
     },
     {
       "date": "2010",
-      "event": "Tamoxifeno 5 anos."
+      "event": "Controles anuales estables."
     },
     {
       "date": "2015",
-      "event": "Mamografia anual estable."
+      "event": "Ecografia anual sin cambios."
     },
     {
       "date": "2020",
-      "event": "Mamografia y RM anuales — estable."
+      "event": "TC anual — sin lesiones nuevas."
     },
     {
       "date": "2023",
-      "event": "Densitometria: osteopenia post tamoxifeno."
+      "event": "HTA en tratamiento, tabaquismo previo."
     },
     {
       "date": "2025-11",
-      "event": "Aparicion masa mama derecha (nunca antes)."
+      "event": "Aparicion de masa renal izquierda (rinon contralateral, nunca antes)."
     }
   ],
   "current_labs": {
-    "CA_15_3": 52,
-    "CEA": 8.4,
-    "hemograma": "normal"
+    "sedimento_urinario": "hematuria",
+    "hemoglobina": 11.8,
+    "LDH": 300,
+    "creatinina": 1.5
   }
 }

@@ -40,7 +40,6 @@
   "radiologist_guidance": {
     "modality_priority": [
       "chest_CT",
-      "PET_CT",
       "brain_MRI"
     ],
     "views_recommended": [

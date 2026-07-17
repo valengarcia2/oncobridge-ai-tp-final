@@ -1,15 +1,15 @@
 {
   "case_id": "case_062",
   "correct_gt_ids": [
-    "GT-MASTITIS-001"
+    "GT-PIELONEFRITIS-001"
   ],
   "acceptable_secondary_gt_ids": [
-    "GT-BRCA-004"
+    "GT-COLANGIO-001"
   ],
   "imaging_needed_ground_truth": true,
   "urgency_ground_truth": "media",
   "specialist_decision": "DERIVAR_A_IMAGEN",
   "conclusive_ground_truth": true,
   "difficulty": "dificil",
-  "notes": "Mastitis idiopatica vs ca inflamatorio. Imagen + biopsia para diferenciar."
+  "notes": "Pielonefritis atipica con dolor que irradia al hipocondrio derecho y subictericia, simula colangiocarcinoma. La leucocitosis con neutrofilia, PCR/procalcitonina altas, piuria y urocultivo positivo con CA_19_9 normal confirman origen infeccioso. Imagen para descartar absceso renal."
 }

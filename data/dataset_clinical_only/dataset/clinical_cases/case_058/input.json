@@ -6,21 +6,22 @@
     "family_history": []
   },
   "current_symptoms": [
-    "descarga bilateral lechosa por estimulacion mamaria"
+    "fatiga leve inespecifica",
+    "sin signos de alarma"
   ],
   "medical_history": [
     {
       "date": "2024-08",
-      "event": "ACO desde hace 1 ano."
+      "event": "Anticonceptivos orales desde hace 1 ano."
     },
     {
       "date": "2025-09",
-      "event": "Ecografia mamaria normal."
+      "event": "Ecografia abdominal de control normal."
     }
   ],
   "current_labs": {
-    "prolactina": 18,
     "TSH": 2.4,
-    "CA_15_3": 16
+    "hemograma": "normal",
+    "funcion_renal": "normal"
   }
 }

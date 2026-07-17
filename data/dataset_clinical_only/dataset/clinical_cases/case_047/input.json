@@ -1,26 +1,27 @@
 {
   "patient_id": "PAT-00217",
   "demographics": {
-    "age": 25,
+    "age": 41,
     "sex": "F",
     "family_history": []
   },
   "current_symptoms": [
-    "bulto movil 1.5 cm CSE mama derecha indoloro",
-    "consistencia gomosa"
+    "hallazgo incidental de lesion renal con grasa macroscopica conocida",
+    "asintomatica"
   ],
   "medical_history": [
     {
       "date": "2024-08",
-      "event": "Ecografia mamaria: lesion ovalada bordes lisos 1.5 cm — BI-RADS 3."
+      "event": "TC: lesion renal derecha 1.5 cm con grasa macroscopica — angiomiolipoma tipico."
     },
     {
       "date": "2025-06",
-      "event": "Control ecografico: lesion estable."
+      "event": "Ecografia de control: lesion estable sin cambios."
     }
   ],
   "current_labs": {
-    "CA_15_3": 14,
-    "hemograma": "normal"
+    "sedimento_urinario": "normal",
+    "hemoglobina": 13.6,
+    "creatinina": 0.8
   }
 }

@@ -1,15 +1,15 @@
 {
   "case_id": "case_074",
   "correct_gt_ids": [
-    "GT-PROST-002"
+    "GT-HNF-001"
   ],
   "acceptable_secondary_gt_ids": [
-    "GT-PROST-001"
+    "GT-ADRENAL-001"
   ],
   "imaging_needed_ground_truth": true,
   "urgency_ground_truth": "media",
   "specialist_decision": "DERIVAR_A_IMAGEN",
   "conclusive_ground_truth": true,
   "difficulty": "moderado",
-  "notes": "HPB con PSA en ascenso — descartar coexistencia con ca por mp-MRI."
+  "notes": "Nodulo hepatico con cicatriz central sugestivo de HNF; pequeno nodulo suprarrenal incidental genera duda. Caracterizar por imagen."
 }

@@ -6,18 +6,21 @@
     "family_history": []
   },
   "current_symptoms": [
-    "hematuria intermitente 6 meses",
-    "PSA dentro de limites"
+    "dolor abdominal vago en hipocondrio derecho 6 meses",
+    "hipertension de reciente aparicion",
+    "fatiga y leve aumento de peso central"
   ],
   "medical_history": [
     {
       "date": "2025-06",
-      "event": "Estudio urologico: HPB. Cistoscopia con lesion 1 cm en uretra prostatica."
+      "event": "Ecografia abdominal: masa suprarrenal derecha de 6 cm y nodulo hepatico incidental de 2 cm de significado incierto."
     }
   ],
   "current_labs": {
-    "PSA": 3.4,
-    "PSA_libre_ratio": "18%",
+    "cortisol": "levemente elevado",
+    "DHEA_S": "elevado",
+    "metanefrinas": "normales",
+    "AFP": "normal",
     "hemograma": "anemia leve"
   }
 }

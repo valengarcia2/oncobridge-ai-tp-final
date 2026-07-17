@@ -1,7 +1,7 @@
 {
   "case_id": "case_048",
   "correct_gt_ids": [
-    "GT-QUISTE-001"
+    "GT-QUISTERENAL-001"
   ],
   "acceptable_secondary_gt_ids": [],
   "imaging_needed_ground_truth": false,
@@ -9,5 +9,5 @@
   "specialist_decision": "NO_DERIVAR",
   "conclusive_ground_truth": true,
   "difficulty": "facil",
-  "notes": "Quiste simple. Seguimiento."
+  "notes": "Quiste renal simple Bosniak I. Seguimiento."
 }

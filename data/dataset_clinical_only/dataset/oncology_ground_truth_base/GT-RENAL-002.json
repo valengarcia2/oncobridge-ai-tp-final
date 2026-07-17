@@ -1,0 +1,75 @@
+{
+  "gt_id": "GT-RENAL-002",
+  "icd_10": "C64.9",
+  "icd_10_description": "Masa renal solida pequena (carcinoma renal temprano, hallazgo incidental)",
+  "objective_data": {
+    "biomarkers": {
+      "LDH": "normal",
+      "calcio_serico": "normal",
+      "funcion_renal": "conservada",
+      "sedimento_urinario": "hematuria microscopica ocasional"
+    },
+    "clinical_findings": [
+      "habitualmente asintomatico",
+      "hallazgo incidental en imagen por otra causa",
+      "sin masa palpable (lesion pequena)"
+    ],
+    "risk_factors": [
+      "tabaquismo",
+      "obesidad",
+      "hipertension arterial",
+      "enfermedad renal quistica adquirida",
+      "estudios de imagen abdominales frecuentes (deteccion incidental)",
+      "edad > 50 anos"
+    ],
+    "prior_imaging_red_flags": [
+      "nodulo renal solido < 3 cm de nueva aparicion",
+      "realce tenue en TC previa",
+      "Bosniak IIF en control"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "asintomatico",
+      "hallazgo incidental en un estudio por otro motivo"
+    ],
+    "patient_reported_concerns": [
+      "me encontraron algo en el rinon en una tomografia por otra cosa",
+      "no tengo sintomas pero me mandaron a control"
+    ],
+    "onset_pattern": "hallazgo incidental; crecimiento lento en meses a anos"
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "abdominal_CT",
+      "abdominal_MRI"
+    ],
+    "views_recommended": [
+      "TC abdomen trifasico para caracterizar realce",
+      "RM abdomen si duda diagnostica",
+      "seguimiento imagenologico"
+    ],
+    "imaging_location": {
+      "body_region": "abdomen con foco en rinon",
+      "anatomical_landmarks": "corteza renal, seno renal, grasa perirrenal",
+      "bilateral_comparison_required": false,
+      "priority_zones": [
+        "nodulo renal solido pequeno",
+        "patron y grado de realce",
+        "bordes y homogeneidad"
+      ],
+      "positioning_notes": "TC multifasico. Comparar con estudios previos para evaluar crecimiento. Caracterizar realce en fase nefrografica."
+    },
+    "expected_imaging_findings": "Nodulo renal solido pequeno (< 3 cm), de realce tenue, bordes bien definidos, sin trombo venoso ni adenopatias. Baja conspicuidad, facil de subestimar.",
+    "meddiffusion_prompt": "Contrast-enhanced abdominal CT, axial view, small subtle solid renal nodule under 3 cm, mild enhancement, well-defined margins, low conspicuity early renal cell carcinoma, clinical medical imaging",
+    "meddiffusion_negative_prompt": "large mass, venous thrombus, macroscopic fat, simple cyst, normal kidney",
+    "image_generation_notes": "Generar corte axial de TC de abdomen con nodulo renal solido pequeno de realce tenue y baja conspicuidad."
+  },
+  "base_probability": 0.6,
+  "urgency_level": "media",
+  "notes": "Lesion pequena de baja conspicuidad. Confirmar con TC multifasico y considerar biopsia percutanea o vigilancia activa segun tamano y realce.",
+  "_meta": {
+    "category": "oncologica",
+    "organ": "rinon"
+  }
+}

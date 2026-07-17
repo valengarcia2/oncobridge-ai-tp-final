@@ -1,28 +1,29 @@
 {
   "patient_id": "PAT-00401",
   "demographics": {
-    "age": 51,
-    "sex": "F",
+    "age": 57,
+    "sex": "M",
     "family_history": []
   },
   "current_symptoms": [
-    "pesadez mamaria izq sin masa palpable",
-    "engrosamiento sutil progresivo",
-    "asimetria leve"
+    "molestia epigastrica vaga e intermitente hace meses",
+    "sensacion de llenado precoz sin dolor definido",
+    "cansancio leve progresivo"
   ],
   "medical_history": [
     {
       "date": "2023-09",
-      "event": "Mamografia BI-RADS 2."
+      "event": "Endoscopia por dispepsia: gastritis cronica leve, sin lesiones."
     },
     {
       "date": "2025-04",
-      "event": "Ecografia: tejido denso sin lesiones focales."
+      "event": "Consulta por dispepsia persistente, tratada como funcional."
     }
   ],
   "current_labs": {
-    "CA_15_3": 29,
-    "CEA": 3.1,
-    "hemograma": "normal"
+    "Hb": 12.1,
+    "ferritina": 24,
+    "CEA": 4.6,
+    "CA_19_9": 33
   }
 }

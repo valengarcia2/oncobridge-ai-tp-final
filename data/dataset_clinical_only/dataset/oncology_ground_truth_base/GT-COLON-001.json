@@ -44,9 +44,7 @@
   },
   "radiologist_guidance": {
     "modality_priority": [
-      "colonoscopy",
-      "abdominal_CT",
-      "MRI_pelvis"
+      "abdominal_CT"
     ],
     "views_recommended": [
       "colonoscopia con biopsia",

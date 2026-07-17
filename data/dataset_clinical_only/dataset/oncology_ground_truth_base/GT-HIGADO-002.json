@@ -33,8 +33,7 @@
   "radiologist_guidance": {
     "modality_priority": [
       "abdominal_MRI",
-      "abdominal_CT",
-      "ultrasound_abdomen"
+      "abdominal_CT"
     ],
     "views_recommended": [
       "RM con contraste",

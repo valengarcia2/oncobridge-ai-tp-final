@@ -1,0 +1,75 @@
+{
+  "gt_id": "GT-ADRENAL-001",
+  "icd_10": "C74.0",
+  "icd_10_description": "Neoplasia maligna de la corteza suprarrenal (carcinoma adrenocortical)",
+  "objective_data": {
+    "biomarkers": {
+      "cortisol_androgenos": "elevados (tumor funcionante)",
+      "DHEA_S": "elevado",
+      "metanefrinas": "normales (descarta feocromocitoma)",
+      "LDH": "elevada"
+    },
+    "clinical_findings": [
+      "masa abdominal o en flanco palpable",
+      "signos de hipercortisolismo o virilizacion",
+      "hipertension arterial",
+      "perdida de peso"
+    ],
+    "risk_factors": [
+      "sindromes hereditarios (Li-Fraumeni, Beckwith-Wiedemann)",
+      "edad de distribucion bimodal"
+    ],
+    "prior_imaging_red_flags": [
+      "masa suprarrenal > 4 cm heterogenea en estudio previo",
+      "crecimiento rapido de la lesion"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "aumento de peso central y cambios cushingoides",
+      "hipertension de reciente aparicion",
+      "debilidad muscular",
+      "dolor abdominal",
+      "virilizacion (en mujeres)"
+    ],
+    "patient_reported_concerns": [
+      "engorde y me salieron estrias",
+      "me subio la presion de golpe",
+      "me palpo un bulto en el abdomen"
+    ],
+    "onset_pattern": "aparicion progresiva en semanas a meses; agresivo"
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "abdominal_CT",
+      "abdominal_MRI"
+    ],
+    "views_recommended": [
+      "TC abdomen con contraste y estudio de lavado",
+      "RM con chemical shift"
+    ],
+    "imaging_location": {
+      "body_region": "retroperitoneo, glandula suprarrenal",
+      "anatomical_landmarks": "glandula suprarrenal, vena cava inferior y vena renal, higado, ganglios retroperitoneales",
+      "bilateral_comparison_required": false,
+      "priority_zones": [
+        "masa suprarrenal grande heterogenea",
+        "invasion de cava o vena renal",
+        "metastasis hepaticas",
+        "adenopatias retroperitoneales"
+      ],
+      "positioning_notes": "TC de abdomen con contraste. Evaluar tamano, heterogeneidad, necrosis y lavado. Descartar invasion vascular y metastasis."
+    },
+    "expected_imaging_findings": "Masa suprarrenal grande (> 4-6 cm), heterogenea, con necrosis o hemorragia, realce irregular y lavado lento. Posible invasion de la cava y metastasis hepaticas.",
+    "meddiffusion_prompt": "Contrast-enhanced abdominal CT, axial view, large heterogeneous adrenal mass with necrosis, irregular enhancement, caval invasion, adrenocortical carcinoma, clinical medical imaging",
+    "meddiffusion_negative_prompt": "small homogeneous low-attenuation adenoma, rapid washout, benign",
+    "image_generation_notes": "Generar corte axial de TC de abdomen con masa suprarrenal grande, heterogenea, con necrosis y realce irregular."
+  },
+  "base_probability": 0.65,
+  "urgency_level": "media",
+  "notes": "Masa suprarrenal > 4 cm heterogenea es sospechosa de malignidad. Evaluar funcionalidad hormonal, estadificar y derivar a cirugia especializada.",
+  "_meta": {
+    "category": "oncologica",
+    "organ": "suprarrenal"
+  }
+}

@@ -44,7 +44,6 @@
   },
   "radiologist_guidance": {
     "modality_priority": [
-      "PET_CT",
       "neck_chest_abdomen_CT"
     ],
     "views_recommended": [
@@ -64,10 +63,10 @@
       ],
       "positioning_notes": "PET-TC es estandar para staging Ann Arbor y respuesta. Masa bulky modifica estrategia."
     },
-    "expected_imaging_findings": "Adenopatias coalescentes en territorios contiguos con avidez FDG. Masa mediastinal anterior (frecuente en jovenes). Compromiso esplenico focal o difuso.",
-    "meddiffusion_prompt": "PET CT, FDG-avid mediastinal mass with bilateral cervical lymphadenopathy, anterior mediastinum, Hodgkin lymphoma staging, clinical medical imaging",
+    "expected_imaging_findings": "Masa nodal bulky en mediastino anterior con adenopatias cervicales bilaterales, homogeneas en TC con contraste, sin necrosis significativa.",
+    "meddiffusion_prompt": "Contrast-enhanced chest CT, axial view, bulky homogeneous anterior mediastinal nodal mass with bilateral cervical lymphadenopathy, Hodgkin lymphoma, clinical medical imaging",
     "meddiffusion_negative_prompt": "single isolated node, reactive small nodes, normal mediastinum",
-    "image_generation_notes": "Masa mediastinal anterior con adenopatias cervicales. Patron supradiafragmatico clasico de Hodgkin."
+    "image_generation_notes": "Generar TC con contraste mostrando masa bulky homogenea en mediastino anterior con adenopatias cervicales bilaterales."
   },
   "base_probability": 0.58,
   "urgency_level": "alta",

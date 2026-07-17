@@ -39,7 +39,6 @@
   },
   "radiologist_guidance": {
     "modality_priority": [
-      "colonoscopy",
       "abdominal_CT"
     ],
     "views_recommended": [

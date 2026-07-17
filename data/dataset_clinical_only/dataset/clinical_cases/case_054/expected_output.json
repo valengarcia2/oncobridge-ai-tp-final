@@ -1,7 +1,7 @@
 {
   "case_id": "case_054",
   "correct_gt_ids": [
-    "GT-PROST-002"
+    "GT-HNF-001"
   ],
   "acceptable_secondary_gt_ids": [],
   "imaging_needed_ground_truth": false,
@@ -9,5 +9,5 @@
   "specialist_decision": "NO_DERIVAR",
   "conclusive_ground_truth": true,
   "difficulty": "facil",
-  "notes": "HPB conocida con PSA estable y ratio alto. Manejo conservador."
+  "notes": "HNF conocida ya caracterizada por RM y estable, asintomatica con labs normales. Manejo conservador, no requiere nueva derivacion a imagen."
 }

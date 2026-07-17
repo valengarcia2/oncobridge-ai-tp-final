@@ -6,18 +6,17 @@
     "family_history": []
   },
   "current_symptoms": [
-    "dolor mamario premenstrual ciclico",
-    "engrosamiento difuso bilateral",
-    "sin masa"
+    "dolor lumbar leve intermitente",
+    "sin signos de alarma"
   ],
   "medical_history": [
     {
       "date": "2024",
-      "event": "Cambios fibroquisticos en ecografias previas."
+      "event": "Lesion renal con densidad grasa (angiomiolipoma) estable en controles."
     }
   ],
   "current_labs": {
     "hemograma": "normal",
-    "CA_15_3": 18
+    "funcion_renal": "normal"
   }
 }

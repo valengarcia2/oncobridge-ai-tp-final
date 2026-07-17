@@ -7,12 +7,12 @@
   },
   "current_symptoms": [
     "control anual sin sintomas",
-    "PSA estable seguimiento"
+    "paciente asintomatico"
   ],
   "medical_history": [
     {
       "date": "2018-2025",
-      "event": "PSA entre 1.2 y 1.8."
+      "event": "Chequeos anuales de rutina normales."
     },
     {
       "date": "2024-04",
@@ -20,8 +20,8 @@
     }
   ],
   "current_labs": {
-    "PSA": 1.5,
     "hemograma": "normal",
-    "CEA": 1.1
+    "CEA": 1.1,
+    "funcion_renal": "normal"
   }
 }

@@ -1,15 +1,15 @@
 {
   "case_id": "case_063",
   "correct_gt_ids": [
-    "GT-MASTITIS-001"
+    "GT-PIELONEFRITIS-001"
   ],
   "acceptable_secondary_gt_ids": [
-    "GT-BRCA-004"
+    "GT-COLANGIO-001"
   ],
   "imaging_needed_ground_truth": true,
   "urgency_ground_truth": "alta",
   "specialist_decision": "DERIVAR_A_IMAGEN",
   "conclusive_ground_truth": true,
   "difficulty": "dificil",
-  "notes": "Mujer no lactante con persistencia post antibiotico — sospecha alta de ca inflamatorio. Biopsia cutanea."
+  "notes": "Pielonefritis complicada con sospecha de absceso renal: fiebre alta, dolor lumbar irradiado y recaida post antibiotico simulan colangiocarcinoma. Leucocitosis marcada con neutrofilia, procalcitonina muy alta, piuria y urocultivo positivo con CA_19_9 normal definen origen infeccioso. Imagen urgente."
 }

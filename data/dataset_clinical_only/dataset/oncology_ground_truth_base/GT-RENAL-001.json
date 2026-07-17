@@ -1,0 +1,81 @@
+{
+  "gt_id": "GT-RENAL-001",
+  "icd_10": "C64.9",
+  "icd_10_description": "Neoplasia maligna del rinon (carcinoma de celulas renales)",
+  "objective_data": {
+    "biomarkers": {
+      "LDH": "elevada",
+      "calcio_serico": "elevado (hipercalcemia paraneoplasica)",
+      "hemoglobina": "anormal (anemia o policitemia paraneoplasica)",
+      "VSG_PCR": "elevadas"
+    },
+    "clinical_findings": [
+      "masa palpable en flanco/hipocondrio",
+      "hematuria macroscopica",
+      "varicocele derecho de reciente aparicion",
+      "hipertension de reciente diagnostico"
+    ],
+    "risk_factors": [
+      "tabaquismo",
+      "obesidad",
+      "hipertension arterial",
+      "enfermedad renal quistica adquirida / dialisis cronica",
+      "sindrome de von Hippel-Lindau",
+      "edad > 50 anos"
+    ],
+    "prior_imaging_red_flags": [
+      "masa renal solida que realza con contraste en estudio previo",
+      "Bosniak III-IV en TC/RM previa",
+      "crecimiento de lesion renal respecto a control"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "hematuria (orina con sangre)",
+      "dolor lumbar o en flanco persistente",
+      "masa abdominal palpable",
+      "perdida de peso no intencional",
+      "fatiga"
+    ],
+    "patient_reported_concerns": [
+      "note sangre en la orina",
+      "me duele el costado hace semanas",
+      "me palpo un bulto en la panza"
+    ],
+    "onset_pattern": "aparicion progresiva en semanas a meses, sin resolucion espontanea"
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "abdominal_CT",
+      "abdominal_MRI"
+    ],
+    "views_recommended": [
+      "TC abdomen trifasico (sin contraste, nefrografico, excretor)",
+      "reconstruccion coronal",
+      "RM abdomen con contraste si funcion renal limitada"
+    ],
+    "imaging_location": {
+      "body_region": "abdomen con foco en rinon derecho",
+      "anatomical_landmarks": "rinon derecho (corteza y seno renal), vena renal y cava inferior, glandula suprarrenal ipsilateral, ganglios retroperitoneales",
+      "bilateral_comparison_required": false,
+      "priority_zones": [
+        "masa renal solida",
+        "trombo tumoral en vena renal o cava",
+        "ganglios retroperitoneales",
+        "glandula suprarrenal ipsilateral"
+      ],
+      "positioning_notes": "TC multifasico con contraste EV. Fase nefrografica para caracterizar el realce. Evaluar extension a vena renal y cava inferior. Reconstruccion coronal."
+    },
+    "expected_imaging_findings": "Masa renal solida heterogenea con realce tras contraste (lavado en carcinoma de celulas claras), bordes irregulares, con posible trombo tumoral en vena renal. Adenopatias retroperitoneales en enfermedad avanzada.",
+    "meddiffusion_prompt": "Contrast-enhanced abdominal CT, axial view, heterogeneous enhancing solid mass in right kidney, irregular margins, renal vein tumor thrombus, retroperitoneal lymph nodes, high suspicion renal cell carcinoma, clinical medical imaging",
+    "meddiffusion_negative_prompt": "simple cyst, homogeneous non-enhancing lesion, fat-containing angiomyolipoma, normal kidney",
+    "image_generation_notes": "Generar corte axial de TC de abdomen en fase nefrografica con masa renal derecha solida heterogenea que realza. Incluir evaluacion de la vena renal."
+  },
+  "base_probability": 0.78,
+  "urgency_level": "alta",
+  "notes": "Considerar derivacion urgente a urologia oncologica si match_probability > 0.75 y hay hematuria macroscopica o trombo venoso.",
+  "_meta": {
+    "category": "oncologica",
+    "organ": "rinon"
+  }
+}

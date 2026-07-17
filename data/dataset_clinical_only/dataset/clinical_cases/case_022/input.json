@@ -1,32 +1,30 @@
 {
   "patient_id": "PAT-00122",
   "demographics": {
-    "age": 72,
-    "sex": "M",
+    "age": 52,
+    "sex": "F",
     "family_history": []
   },
   "current_symptoms": [
-    "hematuria macroscopica",
-    "PSA en ascenso explosivo",
-    "dolor pelvico"
+    "aumento de peso central rapido con cara de luna y estrias violaceas",
+    "hipertension de reciente aparicion de dificil control",
+    "debilidad muscular proximal e hirsutismo progresivo"
   ],
   "medical_history": [
     {
-      "date": "2023",
-      "event": "PSA 3.1."
+      "date": "2025-06",
+      "event": "Hipertension de reciente aparicion, refractaria a dos farmacos."
     },
     {
-      "date": "2025-09",
-      "event": "PSA 28 — biopsia transrectal pendiente."
-    },
-    {
-      "date": "2025-12",
-      "event": "mp-MRI: lesion zona periferica PI-RADS 5 + extension extrapprostatica."
+      "date": "2025-10",
+      "event": "TC abdominal: masa suprarrenal derecha heterogenea de 8 cm con bordes irregulares."
     }
   ],
   "current_labs": {
-    "PSA": 28,
-    "PSA_libre_ratio": "5%",
-    "FAL": 312
+    "cortisol": "elevado",
+    "DHEA_S": "elevado",
+    "androgenos": "elevados",
+    "metanefrinas": "normales",
+    "LDH": 412
   }
 }

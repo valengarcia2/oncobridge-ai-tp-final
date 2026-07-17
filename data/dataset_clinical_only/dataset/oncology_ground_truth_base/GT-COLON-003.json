@@ -36,7 +36,6 @@
   "radiologist_guidance": {
     "modality_priority": [
       "abdominal_CT",
-      "octreoscan",
       "MRI_abdomen"
     ],
     "views_recommended": [

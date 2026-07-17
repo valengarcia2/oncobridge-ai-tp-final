@@ -35,7 +35,7 @@
   },
   "radiologist_guidance": {
     "modality_priority": [
-      "colonoscopy"
+      "abdominal_CT"
     ],
     "views_recommended": [
       "colonoscopia con polipectomia y biopsia"
@@ -52,7 +52,7 @@
       "positioning_notes": "Colonoscopia completa hasta ciego con preparacion adecuada. Polipectomia con biopsia."
     },
     "expected_imaging_findings": "Lesion polipoidea sesil o pediculada. Tamano > 10mm aumenta riesgo de displasia. Morfologia velloso o tubulovelloso es mas riesgosa.",
-    "meddiffusion_prompt": "Colonoscopy view, pedunculated polyp 12mm sigmoid colon, smooth surface, benign adenomatous appearance, premalignant lesion, clinical medical imaging",
+    "meddiffusion_prompt": "Abdominal CT colonography, axial view, small pedunculated polyp in sigmoid colon lumen, smooth surface, no transmural invasion, premalignant adenomatous polyp, clinical medical imaging",
     "meddiffusion_negative_prompt": "invasive cancer ulcerated mass, advanced malignancy",
     "image_generation_notes": "Polipo pediculado adenomatoso de tamano moderado. Lesion premaligna clasica."
   },

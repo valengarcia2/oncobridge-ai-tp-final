@@ -42,9 +42,7 @@
   },
   "radiologist_guidance": {
     "modality_priority": [
-      "chest_CT",
-      "chest_xray",
-      "bronchoscopy"
+      "chest_CT"
     ],
     "views_recommended": [
       "TC torax con contraste",

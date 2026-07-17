@@ -11,11 +11,10 @@
   "medical_history": [
     {
       "date": "2024",
-      "event": "Sin antecedentes."
+      "event": "Sin antecedentes de relevancia."
     }
   ],
   "current_labs": {
-    "PSA": 2.4,
     "hemograma": "normal",
     "CEA": 1.4,
     "sangre_oculta": "negativa"

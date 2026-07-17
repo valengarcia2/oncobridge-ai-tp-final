@@ -1,15 +1,15 @@
 {
   "case_id": "case_001",
   "correct_gt_ids": [
-    "GT-BRCA-001"
+    "GT-RENAL-001"
   ],
   "acceptable_secondary_gt_ids": [
-    "GT-FIBROA-001"
+    "GT-ANGIOMIOLIPOMA-001"
   ],
   "imaging_needed_ground_truth": true,
   "urgency_ground_truth": "alta",
   "specialist_decision": "DERIVAR_A_IMAGEN",
   "conclusive_ground_truth": true,
   "difficulty": "facil",
-  "notes": "Carcinoma ductal CSE clasico en alto riesgo."
+  "notes": "Carcinoma de celulas renales clasico con triada hematuria-dolor-masa en alto riesgo."
 }

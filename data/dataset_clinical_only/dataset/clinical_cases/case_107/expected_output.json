@@ -1,7 +1,7 @@
 {
   "case_id": "case_107",
   "correct_gt_ids": [
-    "GT-BRCA-001"
+    "GT-RENAL-001"
   ],
   "acceptable_secondary_gt_ids": [
     "GT-HIGADO-001"
@@ -11,5 +11,5 @@
   "specialist_decision": "DERIVAR_A_IMAGEN",
   "conclusive_ground_truth": true,
   "difficulty": "moderado",
-  "notes": "Recidiva metastasica de ca mama 15 anos despues. Caso de larga sobrevida con recaida."
+  "notes": "Carcinoma renal con nodulos hepaticos; HCC como diferencial secundario. Requiere caracterizacion por imagen."
 }

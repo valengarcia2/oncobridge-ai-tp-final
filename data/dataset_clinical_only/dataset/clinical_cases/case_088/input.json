@@ -6,23 +6,26 @@
     "family_history": []
   },
   "current_symptoms": [
-    "dolor oseo bilateral en pelvis y caderas 4 meses",
-    "PSA persistentemente bajo"
+    "dolor abdominal sordo en flanco derecho 4 meses",
+    "perdida de peso no intencional 7 kg",
+    "sin rasgos cushingoides evidentes"
   ],
   "medical_history": [
     {
       "date": "2020-2025",
-      "event": "PSA entre 1.4 y 2.1 — sin imagen."
+      "event": "Controles clinicos sin masa suprarrenal conocida ni estudios de imagen abdominal."
     },
     {
       "date": "2025-10",
-      "event": "Centellografia osea por dolor: multiples lesiones blasticas."
+      "event": "Ecografia por dolor en flanco: masa suprarrenal izquierda de 11 cm; TC confirma bordes irregulares y necrosis central."
     }
   ],
   "current_labs": {
-    "PSA": 1.8,
-    "FAL": 624,
-    "calcio": 10.8,
-    "fosfatasa_acida_prostatica": "elevada"
+    "cortisol": "levemente elevado",
+    "DHEA_S": "elevado",
+    "androgenos": "limite alto",
+    "metanefrinas": "normales",
+    "LDH": 638,
+    "calcio": 10.8
   }
 }

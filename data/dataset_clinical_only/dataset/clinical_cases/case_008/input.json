@@ -1,13 +1,14 @@
 {
   "patient_id": "PAT-00108",
   "demographics": {
-    "age": 73,
+    "age": 71,
     "sex": "F",
     "family_history": []
   },
   "current_symptoms": [
-    "masa retroareolar de 3 cm con retraccion del pezon",
-    "evolucion 4 meses"
+    "masa palpable en flanco derecho",
+    "hematuria macroscopica de 4 meses de evolucion",
+    "dolor lumbar derecho persistente"
   ],
   "medical_history": [
     {
@@ -16,12 +17,13 @@
     },
     {
       "date": "2024-08",
-      "event": "Mamografia: BI-RADS 0 — recomendacion estudios adicionales no realizados."
+      "event": "Ecografia: lesion renal derecha sospechosa — TC recomendada no realizada."
     }
   ],
   "current_labs": {
-    "CA_15_3": 64,
-    "CEA": 11.2,
-    "hemograma": "normal"
+    "sedimento_urinario": "hematuria macroscopica",
+    "hemoglobina": 10.5,
+    "LDH": 350,
+    "creatinina": 1.4
   }
 }

@@ -1,21 +1,22 @@
 {
   "patient_id": "PAT-00218",
   "demographics": {
-    "age": 35,
-    "sex": "F",
+    "age": 67,
+    "sex": "M",
     "family_history": []
   },
   "current_symptoms": [
-    "bulto blando que cambia con el ciclo",
-    "fluctuante"
+    "quiste renal simple conocido de contenido liquido y pared fina",
+    "asintomatico"
   ],
   "medical_history": [
     {
       "date": "2025-06",
-      "event": "Ecografia: quiste simple anecogenico 2 cm BI-RADS 2."
+      "event": "Ecografia: quiste renal simple anecogenico 2 cm pared fina — Bosniak I."
     }
   ],
   "current_labs": {
-    "hemograma": "normal"
+    "sedimento_urinario": "normal",
+    "creatinina": 0.9
   }
 }

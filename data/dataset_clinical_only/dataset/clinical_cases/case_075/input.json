@@ -1,24 +1,25 @@
 {
   "patient_id": "PAT-00315",
   "demographics": {
-    "age": 72,
-    "sex": "M",
+    "age": 34,
+    "sex": "F",
     "family_history": []
   },
   "current_symptoms": [
-    "LUTS estables",
-    "PSA 6.2 (subio de 4.8)",
-    "tacto rectal: prostata aumentada sin nodulos"
+    "hallazgo incidental de nodulo hepatico, asintomatica",
+    "molestia abdominal minima ocasional",
+    "uso de anticonceptivos orales"
   ],
   "medical_history": [
     {
       "date": "2023",
-      "event": "PSA 4.8 — biopsia transrectal negativa."
+      "event": "Ecografia abdominal por dispepsia: nodulo hepatico de 3 cm de aspecto indeterminado."
     }
   ],
   "current_labs": {
-    "PSA": 6.2,
-    "PSA_libre_ratio": "28%",
-    "creatinina": 1.0
+    "AFP": "normal",
+    "funcion_hepatica": "normal",
+    "marcadores_tumorales": "normales",
+    "cortisol": "normal"
   }
 }

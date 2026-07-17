@@ -1,28 +1,29 @@
 {
   "patient_id": "PAT-00314",
   "demographics": {
-    "age": 67,
-    "sex": "M",
+    "age": 38,
+    "sex": "F",
     "family_history": []
   },
   "current_symptoms": [
-    "LUTS progresivos 1 ano",
-    "PSA en ascenso 3.2 a 5.8",
-    "tacto rectal: prostata agrandada lisa"
+    "molestia vaga en hipocondrio derecho intermitente",
+    "sin perdida de peso ni rasgos cushingoides",
+    "uso prolongado de anticonceptivos orales"
   ],
   "medical_history": [
     {
       "date": "2020",
-      "event": "HPB diagnosticada."
+      "event": "Anticonceptivos orales desde hace anos, controles ginecologicos normales."
     },
     {
       "date": "2025-08",
-      "event": "Cambios LUTS, escalamiento medicamentoso."
+      "event": "Ecografia por molestia abdominal: nodulo hepatico de 4 cm con posible cicatriz central; se observa ademas nodulo suprarrenal pequeno de 1.5 cm."
     }
   ],
   "current_labs": {
-    "PSA": 5.8,
-    "PSA_libre_ratio": "22%",
-    "creatinina": 0.9
+    "AFP": "normal",
+    "funcion_hepatica": "normal",
+    "cortisol": "normal",
+    "metanefrinas": "normales"
   }
 }

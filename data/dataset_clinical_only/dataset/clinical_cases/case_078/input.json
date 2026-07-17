@@ -1,24 +1,29 @@
 {
   "patient_id": "PAT-00403",
   "demographics": {
-    "age": 58,
-    "sex": "F",
+    "age": 63,
+    "sex": "M",
     "family_history": []
   },
   "current_symptoms": [
-    "distorsion arquitectural focal hallada en mamografia screening",
-    "sin masa",
-    "asintomatica"
+    "dolor epigastrico sordo hace semanas",
+    "nauseas y saciedad precoz",
+    "perdida de peso de 4 kg"
   ],
   "medical_history": [
     {
+      "date": "2020",
+      "event": "Gastritis atrofica confirmada por endoscopia."
+    },
+    {
       "date": "2025-10",
-      "event": "Mamografia screening: distorsion CSE derecho — BI-RADS 4."
+      "event": "Endoscopia de control: lesion ulcerada en cuerpo gastrico, biopsia core tomada."
     }
   ],
   "current_labs": {
-    "CA_15_3": 22,
-    "CEA": 2.4,
-    "hemograma": "normal"
+    "Hb": 10.8,
+    "ferritina": 17,
+    "CEA": 6.9,
+    "CA_19_9": 52
   }
 }

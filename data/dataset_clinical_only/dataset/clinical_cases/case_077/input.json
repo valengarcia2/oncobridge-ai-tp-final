@@ -1,28 +1,29 @@
 {
   "patient_id": "PAT-00402",
   "demographics": {
-    "age": 64,
-    "sex": "F",
+    "age": 68,
+    "sex": "M",
     "family_history": []
   },
   "current_symptoms": [
-    "mama izq se ve diferente y mas pesada",
-    "ropa queda distinta de un lado",
-    "sin masa al examen"
+    "siente el estomago pesado y se llena enseguida al comer",
+    "come porciones mas chicas que antes sin querer",
+    "nauseas ocasionales sin vomitos"
   ],
   "medical_history": [
     {
       "date": "2024",
-      "event": "Terapia hormonal de reemplazo 10 anos."
+      "event": "Tabaquismo de larga data, 30 paquetes-ano."
     },
     {
       "date": "2025-07",
-      "event": "Mamografia: leve asimetria — BI-RADS 3, control en 6 meses."
+      "event": "Consulta por reflujo: mejoria parcial con inhibidor de bomba, control en 6 meses."
     }
   ],
   "current_labs": {
-    "CA_15_3": 34,
-    "CEA": 3.8,
-    "hemograma": "normal"
+    "Hb": 11.8,
+    "ferritina": 21,
+    "CEA": 5.1,
+    "CA_19_9": 37
   }
 }

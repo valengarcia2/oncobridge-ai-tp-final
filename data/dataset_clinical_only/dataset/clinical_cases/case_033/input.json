@@ -6,17 +6,17 @@
     "family_history": []
   },
   "current_symptoms": [
-    "control rutina por renovacion de seguro"
+    "control de rutina por renovacion de seguro"
   ],
   "medical_history": [
     {
       "date": "2025-04",
-      "event": "Mamografia screening BI-RADS 1."
+      "event": "Ecografia abdominal de control normal."
     }
   ],
   "current_labs": {
     "hemograma": "normal",
     "tiroides": "normal",
-    "CA_15_3": 18
+    "CEA": 1.1
   }
 }

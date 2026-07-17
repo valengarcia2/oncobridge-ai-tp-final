@@ -1,24 +1,25 @@
 {
   "patient_id": "PAT-00102",
   "demographics": {
-    "age": 47,
-    "sex": "F",
+    "age": 59,
+    "sex": "M",
     "family_history": []
   },
   "current_symptoms": [
-    "masa firme en CSE mama derecha 2.5 cm",
-    "ganglio axilar derecho palpable",
-    "dolor leve"
+    "hematuria macroscopica 2 semanas",
+    "dolor en flanco derecho persistente",
+    "fatiga y perdida de peso 4 kg"
   ],
   "medical_history": [
     {
       "date": "2024-09",
-      "event": "Mamografia: BI-RADS 4 mama derecha. Recomendacion biopsia, no concretada."
+      "event": "Ecografia abdominal: masa solida rinon derecho 5 cm. Recomendacion TC, no concretada."
     }
   ],
   "current_labs": {
-    "CA_15_3": 38.0,
-    "CEA": 4.8,
-    "hemograma": "normal"
+    "sedimento_urinario": "hematuria",
+    "hemoglobina": 11.2,
+    "LDH": 290,
+    "creatinina": 1.2
   }
 }

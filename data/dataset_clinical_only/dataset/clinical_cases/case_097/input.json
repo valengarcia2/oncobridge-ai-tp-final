@@ -2,35 +2,35 @@
   "patient_id": "PAT-00507",
   "demographics": {
     "age": 58,
-    "sex": "F",
+    "sex": "M",
     "family_history": [
-      "breast_cancer"
+      "carcinoma_renal"
     ]
   },
   "current_symptoms": [
-    "microcalcificaciones nuevas mama izquierda en screening",
-    "asintomatica"
+    "nodulo renal solido nuevo 2.5 cm hallado en TC de control por otra causa",
+    "asintomatico"
   ],
   "medical_history": [
     {
       "date": "2005",
-      "event": "Hiperplasia ductal atipica en biopsia mama izquierda."
+      "event": "Quiste renal simple izquierdo en ecografia — vigilancia."
     },
     {
       "date": "2008",
-      "event": "Anastrazol profilactico 5 anos."
+      "event": "HTA en tratamiento."
     },
     {
       "date": "2013",
-      "event": "Discontinuacion anastrazol — controles anuales."
+      "event": "Controles anuales por antecedente familiar."
     },
     {
       "date": "2015",
-      "event": "Mamografia: cluster benigno BI-RADS 3 — vigilancia."
+      "event": "Ecografia: quiste estable Bosniak I — vigilancia."
     },
     {
       "date": "2018",
-      "event": "Mamografia: estable BI-RADS 2."
+      "event": "Ecografia: sin cambios."
     },
     {
       "date": "2020",
@@ -38,20 +38,20 @@
     },
     {
       "date": "2022",
-      "event": "Mamografia: BI-RADS 2."
+      "event": "Ecografia: quiste estable."
     },
     {
       "date": "2024",
-      "event": "Mamografia: leve aumento de densidad — BI-RADS 0."
+      "event": "TC: leve realce cortical inespecifico — a controlar."
     },
     {
       "date": "2025-10",
-      "event": "Mamografia: cluster pleomorfico nuevo CSE izq — BI-RADS 4."
+      "event": "TC por dolor abdominal: nodulo solido nuevo rinon izquierdo 2.5 cm con realce."
     }
   ],
   "current_labs": {
-    "CA_15_3": 28,
-    "CEA": 2.4,
-    "hemograma": "normal"
+    "sedimento_urinario": "hematuria microscopica minima",
+    "hemoglobina": 14.5,
+    "creatinina": 1.1
   }
 }

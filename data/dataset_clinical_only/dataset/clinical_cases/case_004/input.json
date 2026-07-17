@@ -1,23 +1,32 @@
 {
   "patient_id": "PAT-00104",
   "demographics": {
-    "age": 53,
-    "sex": "F",
-    "family_history": []
+    "age": 61,
+    "sex": "M",
+    "family_history": [
+      "padre con cancer de estomago"
+    ]
   },
   "current_symptoms": [
-    "descarga sanguinolenta unilateral pezon derecho",
-    "asimetria nueva en mamografia"
+    "dolor epigastrico persistente hace 3 meses",
+    "saciedad precoz con comidas pequenas",
+    "perdida de peso de 6 kg no intencional",
+    "un episodio de melena la semana pasada"
   ],
   "medical_history": [
     {
+      "date": "2022-04",
+      "event": "Infeccion por H. pylori tratada de forma incompleta."
+    },
+    {
       "date": "2025-09",
-      "event": "Mamografia screening: asimetria focal CSE derecho — BI-RADS 4."
+      "event": "Endoscopia: gastritis atrofica con pliegue engrosado en antro, biopsia pendiente."
     }
   ],
   "current_labs": {
-    "CA_15_3": 31,
-    "CEA": 3.4,
-    "hemograma": "normal"
+    "Hb": 10.4,
+    "ferritina": 15,
+    "CEA": 7.6,
+    "CA_19_9": 58
   }
 }

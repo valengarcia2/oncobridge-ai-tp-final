@@ -1,0 +1,63 @@
+{
+  "gt_id": "GT-QUISTERENAL-001",
+  "icd_10": "N28.1",
+  "icd_10_description": "Quiste renal simple (Bosniak I, diferencial benigno)",
+  "objective_data": {
+    "biomarkers": {
+      "funcion_renal": "conservada",
+      "marcadores_tumorales": "normales"
+    },
+    "clinical_findings": [
+      "asintomatico",
+      "hallazgo incidental",
+      "sin masa solida palpable"
+    ],
+    "risk_factors": [
+      "edad avanzada",
+      "hallazgo incidental en imagen"
+    ],
+    "prior_imaging_red_flags": []
+  },
+  "subjective_data": {
+    "symptoms": [
+      "asintomatico",
+      "dolor en flanco raro si el quiste es grande"
+    ],
+    "patient_reported_concerns": [
+      "me vieron un quiste en el rinon en una ecografia o tomografia",
+      "me dijeron que es un quiste simple"
+    ],
+    "onset_pattern": "estable; comportamiento benigno"
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "abdominal_CT",
+      "abdominal_MRI"
+    ],
+    "views_recommended": [
+      "TC o RM abdomen: contenido liquido, pared fina, sin realce"
+    ],
+    "imaging_location": {
+      "body_region": "abdomen, rinon",
+      "anatomical_landmarks": "corteza renal, pared del quiste",
+      "bilateral_comparison_required": false,
+      "priority_zones": [
+        "lesion de contenido liquido",
+        "pared y septos",
+        "ausencia de realce"
+      ],
+      "positioning_notes": "TC o RM de abdomen. Confirmar densidad liquida (0-20 UH), pared fina y ausencia de realce (Bosniak I)."
+    },
+    "expected_imaging_findings": "Lesion renal de contenido liquido, pared fina, sin septos ni realce (densidad agua, 0-20 UH). Bosniak I, benigno.",
+    "meddiffusion_prompt": "Abdominal CT, axial view, well-defined thin-walled fluid-density renal cyst, no septa, no enhancement, Bosniak I simple cyst, clinical medical imaging",
+    "meddiffusion_negative_prompt": "solid enhancing component, thick septa, mural nodule, malignant",
+    "image_generation_notes": "Generar corte axial de TC de abdomen con quiste renal simple de pared fina y densidad liquida, sin realce."
+  },
+  "base_probability": 0.35,
+  "urgency_level": "baja",
+  "notes": "Quiste simple Bosniak I no requiere seguimiento. Reclasificar si aparecen septos o realce (Bosniak >= IIF).",
+  "_meta": {
+    "category": "diferencial_benigno",
+    "organ": "rinon"
+  }
+}

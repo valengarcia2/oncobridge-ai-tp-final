@@ -1,7 +1,7 @@
 {
   "case_id": "case_022",
   "correct_gt_ids": [
-    "GT-PROST-001"
+    "GT-ADRENAL-001"
   ],
   "acceptable_secondary_gt_ids": [],
   "imaging_needed_ground_truth": true,
@@ -9,5 +9,5 @@
   "specialist_decision": "DERIVAR_A_IMAGEN",
   "conclusive_ground_truth": true,
   "difficulty": "facil",
-  "notes": "Ca prostata avanzado con extension. Centellografia osea."
+  "notes": "Carcinoma adrenocortical funcionante clasico: masa suprarrenal grande y sindrome de Cushing con virilizacion. Derivar a imagen."
 }

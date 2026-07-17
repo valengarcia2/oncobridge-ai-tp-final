@@ -1,15 +1,15 @@
 {
   "case_id": "case_097",
   "correct_gt_ids": [
-    "GT-BRCA-003"
+    "GT-RENAL-002"
   ],
   "acceptable_secondary_gt_ids": [
-    "GT-BRCA-001"
+    "GT-RENAL-001"
   ],
   "imaging_needed_ground_truth": true,
   "urgency_ground_truth": "media",
   "specialist_decision": "DERIVAR_A_IMAGEN",
   "conclusive_ground_truth": true,
   "difficulty": "moderado",
-  "notes": "DCIS sobre alto riesgo previo. Trayectoria de vigilancia."
+  "notes": "Masa renal pequena nueva sobre trayectoria de vigilancia por lesion previa. Caracterizacion por imagen."
 }

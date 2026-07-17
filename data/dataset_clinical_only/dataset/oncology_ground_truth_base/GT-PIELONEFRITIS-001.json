@@ -1,0 +1,75 @@
+{
+  "gt_id": "GT-PIELONEFRITIS-001",
+  "icd_10": "N10",
+  "icd_10_description": "Nefritis tubulointersticial aguda / pielonefritis aguda (diferencial benigno)",
+  "objective_data": {
+    "biomarkers": {
+      "leucocitos": "elevados (leucocitosis con neutrofilia)",
+      "PCR": "elevada",
+      "procalcitonina": "elevada",
+      "sedimento_urinario": "piuria y bacteriuria",
+      "urocultivo": "positivo",
+      "marcadores_tumorales": "normales"
+    },
+    "clinical_findings": [
+      "fiebre alta con escalofrios",
+      "dolor lumbar con punopercusion positiva (Giordano)",
+      "disuria y polaquiuria",
+      "sin masa dura palpable"
+    ],
+    "risk_factors": [
+      "infeccion urinaria reciente",
+      "reflujo vesicoureteral o litiasis",
+      "diabetes",
+      "inmunosupresion",
+      "sonda vesical"
+    ],
+    "prior_imaging_red_flags": []
+  },
+  "subjective_data": {
+    "symptoms": [
+      "fiebre con escalofrios",
+      "dolor lumbar de aparicion aguda",
+      "ardor al orinar",
+      "orinar con frecuencia",
+      "malestar general"
+    ],
+    "patient_reported_concerns": [
+      "empece de golpe con fiebre y dolor en la espalda baja",
+      "me arde al orinar",
+      "tengo escalofrios desde ayer"
+    ],
+    "onset_pattern": "aparicion aguda en dias, asociada a infeccion urinaria. Responde a antibioticos en 48-72 hs."
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "abdominal_CT"
+    ],
+    "views_recommended": [
+      "TC abdomen con contraste si no hay respuesta o se sospecha absceso",
+      "ecografia renal como primera linea clinica"
+    ],
+    "imaging_location": {
+      "body_region": "rinon afectado (dolor lumbar referido)",
+      "anatomical_landmarks": "parenquima renal, sistema colector, espacio perirrenal",
+      "bilateral_comparison_required": false,
+      "priority_zones": [
+        "areas de nefritis focal (nefrograma estriado)",
+        "coleccion o absceso perirrenal",
+        "litiasis obstructiva asociada"
+      ],
+      "positioning_notes": "TC de abdomen con contraste. Buscar nefrograma estriado, areas cuneiformes de hiporrealce y trabeculacion de la grasa perirrenal. Descartar absceso."
+    },
+    "expected_imaging_findings": "Nefrograma estriado con areas cuneiformes de hiporrealce (nefritis focal), aumento de tamano renal y trabeculacion de la grasa perirrenal. En absceso: coleccion hipodensa con realce periferico. Sin masa solida.",
+    "meddiffusion_prompt": "Contrast-enhanced abdominal CT, axial view, striated nephrogram with wedge-shaped hypoperfused areas, perinephric fat stranding, acute pyelonephritis pattern, no solid mass, clinical medical imaging",
+    "meddiffusion_negative_prompt": "solid enhancing mass, spiculated lesion, venous thrombus, malignant",
+    "image_generation_notes": "Generar corte axial de TC de abdomen con nefrograma estriado y trabeculacion de la grasa perirrenal, sin masa solida."
+  },
+  "base_probability": 0.4,
+  "urgency_level": "media",
+  "notes": "Si no mejora con antibioticos en 72 hs o hay coleccion, drenar el absceso. Considerar carcinoma renal quistico infectado si queda masa residual post-tratamiento (GT-RENAL-001).",
+  "_meta": {
+    "category": "oncologica",
+    "organ": "rinon"
+  }
+}

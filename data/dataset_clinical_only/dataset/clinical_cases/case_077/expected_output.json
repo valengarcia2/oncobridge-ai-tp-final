@@ -1,7 +1,7 @@
 {
   "case_id": "case_077",
   "correct_gt_ids": [
-    "GT-BRCA-002"
+    "GT-GASTRIC-001"
   ],
   "acceptable_secondary_gt_ids": [],
   "imaging_needed_ground_truth": true,
@@ -9,5 +9,5 @@
   "specialist_decision": "DERIVAR_A_IMAGEN",
   "conclusive_ground_truth": true,
   "difficulty": "dificil",
-  "notes": "Ca lobulillar subdiagnosticado. THR + asimetria + queja subjetiva. RM con contraste."
+  "notes": "Adenocarcinoma gastrico subdiagnosticado: saciedad precoz y queja subjetiva atribuidas a reflujo, con labs limitrofes y tabaquismo. Presentacion sutil que enmascara la malignidad. Endoscopia con biopsia e imagen con contraste."
 }

@@ -1,34 +1,35 @@
 {
   "patient_id": "PAT-00107",
   "demographics": {
-    "age": 39,
+    "age": 62,
     "sex": "F",
     "family_history": []
   },
   "current_symptoms": [
-    "eritema mamario difuso 1/3 mama derecha de 5 semanas",
-    "edema piel de naranja",
-    "aumento rapido de tamano",
-    "sin fiebre, sin respuesta a 2 cursos antibiotico"
+    "ictericia de piel y ojos amarillos hace 3 semanas",
+    "prurito generalizado intenso",
+    "coluria y materia fecal palida (acolia)",
+    "dolor en hipocondrio derecho y perdida de peso"
   ],
   "medical_history": [
     {
-      "date": "2025-06",
-      "event": "Parto a termino."
+      "date": "2021-03",
+      "event": "Colangitis esclerosante primaria en seguimiento."
     },
     {
       "date": "2025-10",
-      "event": "Diagnostico de mastitis post-lactancia. Antibioticos sin mejoria."
+      "event": "Consulta por dolor abdominal alto, atribuido a colelitiasis."
     },
     {
       "date": "2025-12",
-      "event": "Segundo curso antibiotico — sin respuesta."
+      "event": "Ictericia progresiva con prurito, sin fiebre ni respuesta a sintomaticos."
     }
   ],
   "current_labs": {
-    "CA_15_3": 58,
-    "CEA": 9.2,
-    "leucocitos": 9200,
-    "PCR": 18
+    "bilirrubina_total": 8.4,
+    "fosfatasa_alcalina": 410,
+    "GGT": 520,
+    "CA_19_9": 480,
+    "CEA": 9.1
   }
 }

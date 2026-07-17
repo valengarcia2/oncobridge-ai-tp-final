@@ -1,31 +1,32 @@
 {
   "patient_id": "PAT-00103",
   "demographics": {
-    "age": 66,
-    "sex": "F",
+    "age": 68,
+    "sex": "M",
     "family_history": [
-      "breast_cancer"
+      "carcinoma_renal"
     ]
   },
   "current_symptoms": [
-    "masa de 4 cm en cuadrante inferior interno mama izquierda",
-    "perdida de peso 3 kg",
-    "ganglio supraclavicular palpable"
+    "masa palpable en flanco izquierdo de gran tamano",
+    "hematuria macroscopica con coagulos",
+    "perdida de peso 6 kg y dolor lumbar persistente"
   ],
   "medical_history": [
     {
       "date": "2018",
-      "event": "Hermana fallecida por cancer de mama metastasico."
+      "event": "Hermano con carcinoma renal metastasico."
     },
     {
       "date": "2024-12",
-      "event": "Sin controles mamarios desde hace 5 anos."
+      "event": "Tabaquismo activo, HTA de larga data sin controles recientes."
     }
   ],
   "current_labs": {
-    "CA_15_3": 84.3,
-    "CEA": 18.4,
-    "FAL": 230,
-    "hemograma": "anemia leve"
+    "sedimento_urinario": "hematuria macroscopica",
+    "hemoglobina": 10.1,
+    "LDH": 480,
+    "calcio": 11.6,
+    "creatinina": 1.5
   }
 }

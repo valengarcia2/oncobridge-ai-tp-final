@@ -1,0 +1,65 @@
+{
+  "gt_id": "GT-ADENOMASR-001",
+  "icd_10": "D35.0",
+  "icd_10_description": "Neoplasia benigna de la glandula suprarrenal (adenoma, incidentaloma)",
+  "objective_data": {
+    "biomarkers": {
+      "cortisol": "normal (o elevado si funcionante)",
+      "aldosterona": "normal (o elevada si funcionante)",
+      "metanefrinas": "normales (descarta feocromocitoma)"
+    },
+    "clinical_findings": [
+      "habitualmente asintomatico",
+      "hallazgo incidental en imagen",
+      "raramente signos de hiperfuncion (Cushing o Conn)"
+    ],
+    "risk_factors": [
+      "hallazgo incidental en imagen",
+      "hipertension arterial (si funcionante)"
+    ],
+    "prior_imaging_red_flags": []
+  },
+  "subjective_data": {
+    "symptoms": [
+      "asintomatico",
+      "hallazgo incidental en un estudio por otro motivo"
+    ],
+    "patient_reported_concerns": [
+      "me encontraron un nodulo en la glandula suprarrenal en una tomografia",
+      "no tengo sintomas"
+    ],
+    "onset_pattern": "estable; comportamiento benigno"
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "abdominal_CT",
+      "abdominal_MRI"
+    ],
+    "views_recommended": [
+      "TC abdomen sin contraste (densidad < 10 UH)",
+      "RM con chemical shift (caida de senal)"
+    ],
+    "imaging_location": {
+      "body_region": "retroperitoneo, glandula suprarrenal",
+      "anatomical_landmarks": "glandula suprarrenal, rinon ipsilateral",
+      "bilateral_comparison_required": false,
+      "priority_zones": [
+        "nodulo suprarrenal",
+        "densidad y lavado de contraste",
+        "tamano y homogeneidad"
+      ],
+      "positioning_notes": "TC de abdomen sin contraste (medir densidad) y con lavado. RM con chemical shift para confirmar contenido lipidico."
+    },
+    "expected_imaging_findings": "Nodulo suprarrenal homogeneo, bien delimitado, de baja densidad (< 10 UH) con lavado rapido de contraste. Aspecto benigno; sin invasion ni adenopatias.",
+    "meddiffusion_prompt": "Non-contrast abdominal CT, axial view, small homogeneous well-defined adrenal nodule with low attenuation, benign adrenal adenoma, clinical medical imaging",
+    "meddiffusion_negative_prompt": "large heterogeneous adrenal mass, irregular margins, necrosis, malignant",
+    "image_generation_notes": "Generar corte axial de TC de abdomen con nodulo suprarrenal pequeno, homogeneo y de baja densidad."
+  },
+  "base_probability": 0.38,
+  "urgency_level": "baja",
+  "notes": "Densidad < 10 UH o lavado rapido confirma adenoma benigno. Descartar funcionalidad con laboratorio hormonal.",
+  "_meta": {
+    "category": "oncologica",
+    "organ": "suprarrenal"
+  }
+}

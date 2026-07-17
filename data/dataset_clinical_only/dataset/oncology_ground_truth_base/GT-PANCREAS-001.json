@@ -44,7 +44,6 @@
   "radiologist_guidance": {
     "modality_priority": [
       "abdominal_CT",
-      "endoscopic_ultrasound",
       "MRCP"
     ],
     "views_recommended": [

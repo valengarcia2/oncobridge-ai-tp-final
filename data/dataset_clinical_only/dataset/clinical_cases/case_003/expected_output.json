@@ -1,7 +1,7 @@
 {
   "case_id": "case_003",
   "correct_gt_ids": [
-    "GT-BRCA-001"
+    "GT-RENAL-001"
   ],
   "acceptable_secondary_gt_ids": [],
   "imaging_needed_ground_truth": true,
@@ -9,5 +9,5 @@
   "specialist_decision": "DERIVAR_A_IMAGEN",
   "conclusive_ground_truth": true,
   "difficulty": "facil",
-  "notes": "Cancer de mama avanzado con probable metastasis. Staging completo."
+  "notes": "Carcinoma renal avanzado con probable diseminacion. Staging completo."
 }

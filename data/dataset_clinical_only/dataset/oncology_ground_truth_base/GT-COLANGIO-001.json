@@ -1,0 +1,79 @@
+{
+  "gt_id": "GT-COLANGIO-001",
+  "icd_10": "C22.1",
+  "icd_10_description": "Neoplasia maligna de las vias biliares intrahepaticas (colangiocarcinoma, forma agresiva)",
+  "objective_data": {
+    "biomarkers": {
+      "CA_19_9": "muy elevado",
+      "CEA": "elevado",
+      "fosfatasa_alcalina_GGT": "elevadas (colestasis)",
+      "bilirrubina": "elevada"
+    },
+    "clinical_findings": [
+      "ictericia",
+      "hepatomegalia",
+      "dolor en hipocondrio derecho",
+      "perdida de peso",
+      "prurito"
+    ],
+    "risk_factors": [
+      "colangitis esclerosante primaria",
+      "litiasis intrahepatica",
+      "quistes de coledoco",
+      "infeccion por parasitos hepatobiliares",
+      "cirrosis"
+    ],
+    "prior_imaging_red_flags": [
+      "masa hepatica con retraccion capsular en estudio previo",
+      "dilatacion de la via biliar periferica"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "ictericia (piel y ojos amarillos)",
+      "dolor en hipocondrio derecho",
+      "prurito generalizado",
+      "coluria y acolia",
+      "perdida de peso"
+    ],
+    "patient_reported_concerns": [
+      "me puse amarillo",
+      "me pica todo el cuerpo",
+      "la orina me salio muy oscura"
+    ],
+    "onset_pattern": "aparicion progresiva en semanas a meses; agresiva, de rapido crecimiento"
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "abdominal_MRI",
+      "abdominal_CT"
+    ],
+    "views_recommended": [
+      "RM abdomen con colangio-RM (MRCP)",
+      "TC abdomen trifasico"
+    ],
+    "imaging_location": {
+      "body_region": "higado (vias biliares intrahepaticas)",
+      "anatomical_landmarks": "parenquima hepatico, arbol biliar intrahepatico, hilio hepatico, ganglios regionales",
+      "bilateral_comparison_required": false,
+      "priority_zones": [
+        "masa hepatica con realce periferico progresivo",
+        "dilatacion biliar periferica",
+        "retraccion capsular",
+        "adenopatias hiliares"
+      ],
+      "positioning_notes": "RM de abdomen con contraste y colangio-RM. Evaluar realce dinamico (captacion tardia por fibrosis) y mapa biliar."
+    },
+    "expected_imaging_findings": "Masa hepatica infiltrante con realce periferico progresivo y captacion tardia (fibrosis), retraccion capsular y dilatacion de la via biliar periferica. Agresiva, de rapido crecimiento.",
+    "meddiffusion_prompt": "Contrast-enhanced abdominal MRI, axial view, infiltrative hepatic mass with progressive peripheral enhancement, capsular retraction, peripheral biliary duct dilation, intrahepatic cholangiocarcinoma, clinical medical imaging",
+    "meddiffusion_negative_prompt": "hemangioma, simple cyst, homogeneous benign lesion, normal liver",
+    "image_generation_notes": "Generar corte axial de RM de abdomen con masa hepatica infiltrante, realce periferico progresivo y retraccion capsular."
+  },
+  "base_probability": 0.72,
+  "urgency_level": "alta",
+  "notes": "Forma agresiva de rapida progresion. Colangio-RM para el mapa biliar. Confirmar con biopsia y estadificar precozmente.",
+  "_meta": {
+    "category": "oncologica",
+    "organ": "higado"
+  }
+}

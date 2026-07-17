@@ -1,29 +1,31 @@
 {
   "patient_id": "PAT-00301",
   "demographics": {
-    "age": 32,
+    "age": 34,
     "sex": "F",
     "family_history": []
   },
   "current_symptoms": [
-    "eritema y calor mama izquierda 5 dias",
-    "masa blanda dolorosa",
-    "fiebre 38.4"
+    "fiebre 38.9 con escalofrios hace 3 dias",
+    "dolor lumbar derecho agudo con punopercusion positiva (Giordano)",
+    "disuria y polaquiuria"
   ],
   "medical_history": [
     {
       "date": "2025-05",
-      "event": "Parto normal."
+      "event": "Infeccion urinaria baja tratada con antibiotico."
     },
     {
       "date": "2025-08",
-      "event": "Fisura pezon."
+      "event": "Episodio de litiasis renal derecha."
     }
   ],
   "current_labs": {
-    "leucocitos": 14200,
-    "PCR": 64,
-    "CA_15_3": 22,
-    "CEA": 1.4
+    "leucocitos": 15200,
+    "neutrofilos_pct": 86,
+    "PCR": 78,
+    "procalcitonina": 2.1,
+    "sedimento_urinario": "piuria y bacteriuria",
+    "urocultivo": "E. coli >100000 UFC"
   }
 }

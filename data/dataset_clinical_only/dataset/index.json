@@ -15,7 +15,7 @@
       "category": "TP",
       "patient_id": "PAT-00101",
       "correct_gt_ids": [
-        "GT-BRCA-001"
+        "GT-RENAL-001"
       ],
       "difficulty": "facil"
     },
@@ -24,7 +24,7 @@
       "category": "TP",
       "patient_id": "PAT-00102",
       "correct_gt_ids": [
-        "GT-BRCA-001"
+        "GT-RENAL-001"
       ],
       "difficulty": "facil"
     },
@@ -33,7 +33,7 @@
       "category": "TP",
       "patient_id": "PAT-00103",
       "correct_gt_ids": [
-        "GT-BRCA-001"
+        "GT-RENAL-001"
       ],
       "difficulty": "facil"
     },
@@ -42,7 +42,7 @@
       "category": "TP",
       "patient_id": "PAT-00104",
       "correct_gt_ids": [
-        "GT-BRCA-002"
+        "GT-GASTRIC-001"
       ],
       "difficulty": "moderado"
     },
@@ -51,7 +51,7 @@
       "category": "TP",
       "patient_id": "PAT-00105",
       "correct_gt_ids": [
-        "GT-BRCA-003"
+        "GT-RENAL-002"
       ],
       "difficulty": "moderado"
     },
@@ -60,7 +60,7 @@
       "category": "TP",
       "patient_id": "PAT-00106",
       "correct_gt_ids": [
-        "GT-BRCA-003"
+        "GT-RENAL-002"
       ],
       "difficulty": "moderado"
     },
@@ -69,7 +69,7 @@
       "category": "TP",
       "patient_id": "PAT-00107",
       "correct_gt_ids": [
-        "GT-BRCA-004"
+        "GT-COLANGIO-001"
       ],
       "difficulty": "moderado"
     },
@@ -78,7 +78,7 @@
       "category": "TP",
       "patient_id": "PAT-00108",
       "correct_gt_ids": [
-        "GT-BRCA-001"
+        "GT-RENAL-001"
       ],
       "difficulty": "facil"
     },
@@ -195,7 +195,7 @@
       "category": "TP",
       "patient_id": "PAT-00121",
       "correct_gt_ids": [
-        "GT-PROST-001"
+        "GT-ADRENAL-001"
       ],
       "difficulty": "moderado"
     },
@@ -204,7 +204,7 @@
       "category": "TP",
       "patient_id": "PAT-00122",
       "correct_gt_ids": [
-        "GT-PROST-001"
+        "GT-ADRENAL-001"
       ],
       "difficulty": "facil"
     },
@@ -390,7 +390,7 @@
       "category": "TN",
       "patient_id": "PAT-00216",
       "correct_gt_ids": [
-        "GT-MASTITIS-001"
+        "GT-PIELONEFRITIS-001"
       ],
       "difficulty": "facil"
     },
@@ -399,7 +399,7 @@
       "category": "TN",
       "patient_id": "PAT-00217",
       "correct_gt_ids": [
-        "GT-FIBROA-001"
+        "GT-ANGIOMIOLIPOMA-001"
       ],
       "difficulty": "facil"
     },
@@ -408,7 +408,7 @@
       "category": "TN",
       "patient_id": "PAT-00218",
       "correct_gt_ids": [
-        "GT-QUISTE-001"
+        "GT-QUISTERENAL-001"
       ],
       "difficulty": "facil"
     },
@@ -460,7 +460,7 @@
       "category": "TN",
       "patient_id": "PAT-00224",
       "correct_gt_ids": [
-        "GT-PROST-002"
+        "GT-HNF-001"
       ],
       "difficulty": "facil"
     },
@@ -517,7 +517,7 @@
       "category": "FP",
       "patient_id": "PAT-00301",
       "correct_gt_ids": [
-        "GT-MASTITIS-001"
+        "GT-PIELONEFRITIS-001"
       ],
       "difficulty": "moderado"
     },
@@ -526,7 +526,7 @@
       "category": "FP",
       "patient_id": "PAT-00302",
       "correct_gt_ids": [
-        "GT-MASTITIS-001"
+        "GT-PIELONEFRITIS-001"
       ],
       "difficulty": "dificil"
     },
@@ -535,7 +535,7 @@
       "category": "FP",
       "patient_id": "PAT-00303",
       "correct_gt_ids": [
-        "GT-MASTITIS-001"
+        "GT-PIELONEFRITIS-001"
       ],
       "difficulty": "dificil"
     },
@@ -632,7 +632,7 @@
       "category": "FP",
       "patient_id": "PAT-00314",
       "correct_gt_ids": [
-        "GT-PROST-002"
+        "GT-HNF-001"
       ],
       "difficulty": "moderado"
     },
@@ -641,7 +641,7 @@
       "category": "FP",
       "patient_id": "PAT-00315",
       "correct_gt_ids": [
-        "GT-PROST-002"
+        "GT-HNF-001"
       ],
       "difficulty": "dificil"
     },
@@ -650,7 +650,7 @@
       "category": "FN",
       "patient_id": "PAT-00401",
       "correct_gt_ids": [
-        "GT-BRCA-002"
+        "GT-GASTRIC-001"
       ],
       "difficulty": "dificil"
     },
@@ -659,7 +659,7 @@
       "category": "FN",
       "patient_id": "PAT-00402",
       "correct_gt_ids": [
-        "GT-BRCA-002"
+        "GT-GASTRIC-001"
       ],
       "difficulty": "dificil"
     },
@@ -668,7 +668,7 @@
       "category": "FN",
       "patient_id": "PAT-00403",
       "correct_gt_ids": [
-        "GT-BRCA-002"
+        "GT-GASTRIC-001"
       ],
       "difficulty": "moderado"
     },
@@ -758,7 +758,7 @@
       "category": "FN",
       "patient_id": "PAT-00413",
       "correct_gt_ids": [
-        "GT-PROST-001"
+        "GT-ADRENAL-001"
       ],
       "difficulty": "dificil"
     },
@@ -767,7 +767,7 @@
       "category": "FN",
       "patient_id": "PAT-00414",
       "correct_gt_ids": [
-        "GT-PROST-001"
+        "GT-ADRENAL-001"
       ],
       "difficulty": "dificil"
     },
@@ -785,7 +785,7 @@
       "category": "COMPLEX",
       "patient_id": "PAT-00501",
       "correct_gt_ids": [
-        "GT-BRCA-001"
+        "GT-RENAL-001"
       ],
       "difficulty": "moderado"
     },
@@ -812,7 +812,7 @@
       "category": "COMPLEX",
       "patient_id": "PAT-00504",
       "correct_gt_ids": [
-        "GT-PROST-001"
+        "GT-ADRENAL-001"
       ],
       "difficulty": "moderado"
     },
@@ -839,7 +839,7 @@
       "category": "COMPLEX",
       "patient_id": "PAT-00507",
       "correct_gt_ids": [
-        "GT-BRCA-003"
+        "GT-RENAL-002"
       ],
       "difficulty": "moderado"
     },
@@ -875,7 +875,7 @@
       "category": "COMPLEX",
       "patient_id": "PAT-00511",
       "correct_gt_ids": [
-        "GT-BRCA-001"
+        "GT-RENAL-001"
       ],
       "difficulty": "moderado"
     },
@@ -929,7 +929,7 @@
       "category": "COMPLEX",
       "patient_id": "PAT-00517",
       "correct_gt_ids": [
-        "GT-BRCA-001"
+        "GT-RENAL-001"
       ],
       "difficulty": "moderado"
     },

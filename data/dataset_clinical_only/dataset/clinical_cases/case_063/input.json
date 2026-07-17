@@ -1,29 +1,34 @@
 {
   "patient_id": "PAT-00303",
   "demographics": {
-    "age": 54,
+    "age": 64,
     "sex": "F",
     "family_history": []
   },
   "current_symptoms": [
-    "eritema cutaneo mama izquierda + edema 3 semanas",
-    "respuesta parcial a antibiotico",
-    "sin masa palpable"
+    "fiebre alta 39.2 con escalofrios y compromiso del estado general",
+    "dolor lumbar derecho intenso irradiado al hipocondrio derecho",
+    "nauseas y leve tinte icterico",
+    "disuria de aparicion reciente"
   ],
   "medical_history": [
     {
       "date": "2025-08",
-      "event": "Sin antecedentes ginecologicos."
+      "event": "Reflujo vesicoureteral conocido con infecciones urinarias a repeticion."
     },
     {
       "date": "2025-12",
-      "event": "Primer ciclo antibiotico — mejoria parcial."
+      "event": "Primer ciclo antibiotico ambulatorio con mejoria parcial y recaida febril."
     }
   ],
   "current_labs": {
-    "leucocitos": 9200,
-    "PCR": 32,
-    "CA_15_3": 31,
-    "CEA": 4.2
+    "leucocitos": 18600,
+    "neutrofilos_pct": 89,
+    "PCR": 145,
+    "procalcitonina": 4.8,
+    "bilirrubina_total": 1.5,
+    "CA_19_9": 30,
+    "sedimento_urinario": "piuria franca y bacteriuria",
+    "urocultivo": "Klebsiella pneumoniae >100000 UFC"
   }
 }

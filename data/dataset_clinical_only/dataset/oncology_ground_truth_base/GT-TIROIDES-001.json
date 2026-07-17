@@ -38,9 +38,7 @@
   },
   "radiologist_guidance": {
     "modality_priority": [
-      "thyroid_ultrasound",
-      "cervical_CT",
-      "fine_needle_aspiration"
+      "cervical_CT"
     ],
     "views_recommended": [
       "ecografia tiroidea con TI-RADS",
@@ -59,7 +57,7 @@
       "positioning_notes": "Ecografia alta frecuencia con transductor lineal. Reportar TI-RADS. PAAF si TI-RADS 4-5 segun tamano."
     },
     "expected_imaging_findings": "Nodulo solido hipoecoico, mas alto que ancho, con microcalcificaciones y bordes irregulares. Adenopatias cervicales con quistificacion o microcalcificaciones.",
-    "meddiffusion_prompt": "Thyroid ultrasound, hypoechoic solid nodule with microcalcifications, taller than wide, irregular margins, TI-RADS 5, papillary thyroid carcinoma, clinical medical imaging",
+    "meddiffusion_prompt": "Contrast-enhanced neck CT, axial view, hypodense solid thyroid nodule with microcalcifications, irregular margins, cervical lymphadenopathy, suspicious for thyroid carcinoma, clinical medical imaging",
     "meddiffusion_negative_prompt": "isoechoic nodule, well-defined, no calcifications, benign goiter",
     "image_generation_notes": "Nodulo tiroideo con caracteristicas TI-RADS 5. Microcalcificaciones visibles."
   },

@@ -1,7 +1,7 @@
 {
   "case_id": "case_020",
   "correct_gt_ids": [
-    "GT-COLON-001"
+    "GT-GASTRIC-001"
   ],
   "acceptable_secondary_gt_ids": [],
   "imaging_needed_ground_truth": true,
@@ -9,5 +9,5 @@
   "specialist_decision": "DERIVAR_A_IMAGEN",
   "conclusive_ground_truth": true,
   "difficulty": "moderado",
-  "notes": "Adenocarcinoma gastrico — los GT no cubren gastrico estricto, el sistema deberia matchear lo mas cercano (COLON-001 como surrogate) o devolver NO MATCH si esta calibrado. Caso de borde."
+  "notes": "Adenocarcinoma gastrico infiltrante con melena y anemia; ahora la base cubre gastrico (GT-GASTRIC-001)."
 }

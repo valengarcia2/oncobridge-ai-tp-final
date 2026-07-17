@@ -1,15 +1,15 @@
 {
   "case_id": "case_075",
   "correct_gt_ids": [
-    "GT-PROST-002"
+    "GT-HNF-001"
   ],
   "acceptable_secondary_gt_ids": [
-    "GT-PROST-001"
+    "GT-ADRENAL-001"
   ],
   "imaging_needed_ground_truth": true,
   "urgency_ground_truth": "media",
   "specialist_decision": "DERIVAR_A_IMAGEN",
   "conclusive_ground_truth": true,
   "difficulty": "dificil",
-  "notes": "PSA en ascenso lento con biopsia previa negativa — mp-MRI con fusion."
+  "notes": "Nodulo hepatico indeterminado en mujer joven con ACO; cicatriz central no concluyente por ecografia. Caracterizar con RM/TC dinamica para confirmar HNF."
 }

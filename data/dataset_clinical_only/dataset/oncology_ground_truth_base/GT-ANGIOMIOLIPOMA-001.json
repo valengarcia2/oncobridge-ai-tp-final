@@ -1,0 +1,69 @@
+{
+  "gt_id": "GT-ANGIOMIOLIPOMA-001",
+  "icd_10": "D30.0",
+  "icd_10_description": "Neoplasia benigna del rinon (angiomiolipoma)",
+  "objective_data": {
+    "biomarkers": {
+      "LDH": "normal",
+      "funcion_renal": "conservada",
+      "marcadores_tumorales": "normales"
+    },
+    "clinical_findings": [
+      "habitualmente asintomatico",
+      "hallazgo incidental en imagen",
+      "dolor en flanco si hay sangrado",
+      "asociacion con esclerosis tuberosa"
+    ],
+    "risk_factors": [
+      "esclerosis tuberosa",
+      "sexo femenino",
+      "hallazgo incidental en imagen"
+    ],
+    "prior_imaging_red_flags": [
+      "lesion con densidad grasa macroscopica estable en control"
+    ]
+  },
+  "subjective_data": {
+    "symptoms": [
+      "asintomatico",
+      "dolor en flanco ocasional (si hemorragia)"
+    ],
+    "patient_reported_concerns": [
+      "me encontraron un tumorcito en el rinon de casualidad",
+      "a veces me molesta el costado"
+    ],
+    "onset_pattern": "estable, crecimiento lento; comportamiento benigno"
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "abdominal_CT",
+      "abdominal_MRI"
+    ],
+    "views_recommended": [
+      "TC abdomen sin contraste (medir densidad grasa)",
+      "RM con secuencias de supresion grasa"
+    ],
+    "imaging_location": {
+      "body_region": "abdomen, rinon",
+      "anatomical_landmarks": "corteza renal, grasa del componente lesional",
+      "bilateral_comparison_required": false,
+      "priority_zones": [
+        "lesion renal con densidad grasa macroscopica",
+        "homogeneidad y bordes",
+        "ausencia de trombo venoso"
+      ],
+      "positioning_notes": "TC de abdomen sin contraste para medir densidad grasa (< -10 UH). RM con supresion grasa confirma el componente adiposo."
+    },
+    "expected_imaging_findings": "Lesion renal bien delimitada con densidad grasa macroscopica (< -10 UH), homogenea, sin realce agresivo ni trombo venoso. Aspecto benigno.",
+    "meddiffusion_prompt": "Non-contrast abdominal CT, axial view, well-circumscribed renal lesion with macroscopic fat density, homogeneous, benign angiomyolipoma appearance, clinical medical imaging",
+    "meddiffusion_negative_prompt": "heterogeneous solid enhancing mass, irregular margins, venous thrombus, malignant",
+    "image_generation_notes": "Generar corte axial de TC de abdomen sin contraste con lesion renal de densidad grasa macroscopica homogenea."
+  },
+  "base_probability": 0.4,
+  "urgency_level": "baja",
+  "notes": "La grasa macroscopica en TC es practicamente diagnostica de benignidad. Vigilancia; embolizacion si > 4 cm o sangrado.",
+  "_meta": {
+    "category": "oncologica",
+    "organ": "rinon"
+  }
+}

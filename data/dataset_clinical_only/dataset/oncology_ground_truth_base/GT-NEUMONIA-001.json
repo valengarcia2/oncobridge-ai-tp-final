@@ -40,7 +40,6 @@
   },
   "radiologist_guidance": {
     "modality_priority": [
-      "chest_xray",
       "chest_CT"
     ],
     "views_recommended": [
@@ -59,7 +58,7 @@
       "positioning_notes": "RX inicial es suficiente en mayoria de casos. TC solo si no resuelve clinicamente en 4-6 semanas para descartar neoplasia subyacente."
     },
     "expected_imaging_findings": "Consolidacion lobar o segmentaria con broncograma aereo. Bordes mal definidos. Posible derrame pleural reactivo. Resolucion progresiva con tratamiento.",
-    "meddiffusion_prompt": "Chest x-ray PA view, lobar consolidation right lower lobe, air bronchograms, pneumonia infiltrate, well-defined inflammatory pattern, clinical medical imaging",
+    "meddiffusion_prompt": "Contrast-enhanced chest CT, axial view, lobar air-space consolidation right lower lobe with air bronchogram, patent bronchi, no spiculated mass, community-acquired pneumonia, clinical medical imaging",
     "meddiffusion_negative_prompt": "discrete mass, spiculated nodule, cavitation, calcified lesion, normal lung",
     "image_generation_notes": "Consolidacion lobar con broncograma aereo. Patron alveolar inflamatorio."
   },

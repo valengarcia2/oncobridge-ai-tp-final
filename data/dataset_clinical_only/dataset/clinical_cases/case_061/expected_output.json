@@ -1,15 +1,15 @@
 {
   "case_id": "case_061",
   "correct_gt_ids": [
-    "GT-MASTITIS-001"
+    "GT-PIELONEFRITIS-001"
   ],
   "acceptable_secondary_gt_ids": [
-    "GT-BRCA-004"
+    "GT-COLANGIO-001"
   ],
   "imaging_needed_ground_truth": true,
   "urgency_ground_truth": "media",
   "specialist_decision": "DERIVAR_A_IMAGEN",
   "conclusive_ground_truth": true,
   "difficulty": "moderado",
-  "notes": "Mastitis aguda lactacional. Diferencial critico con ca inflamatorio — la fiebre y leucocitosis orientan a benigno."
+  "notes": "Pielonefritis aguda: fiebre con escalofrios, Giordano positivo, disuria y urocultivo positivo. Cuadro infeccioso agudo benigno; la leucocitosis con neutrofilia y bacteriuria orientan a infeccion. Imagen para descartar absceso."
 }

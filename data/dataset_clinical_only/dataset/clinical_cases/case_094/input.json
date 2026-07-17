@@ -2,56 +2,57 @@
   "patient_id": "PAT-00504",
   "demographics": {
     "age": 64,
-    "sex": "M",
+    "sex": "F",
     "family_history": []
   },
   "current_symptoms": [
-    "PSA en ascenso 4.2 a 12.8 en 18 meses",
-    "molestia perineal",
-    "dolor lumbar"
+    "masa suprarrenal en crecimiento en controles seriados",
+    "hipertension progresiva de reciente aparicion",
+    "aumento de peso central y dolor lumbar"
   ],
   "medical_history": [
     {
       "date": "2018-04",
-      "event": "PSA basal 2.1."
+      "event": "TC incidental: nodulo suprarrenal derecho de 2 cm, seguimiento."
     },
     {
       "date": "2020",
-      "event": "Vigilancia activa por PSA bajo."
+      "event": "Control de imagen: nodulo estable de 2.3 cm."
     },
     {
       "date": "2022",
-      "event": "PSA 4.2 — biopsia TR negativa 12 cilindros."
+      "event": "TC: nodulo suprarrenal de 3.1 cm, sin sintomas hormonales."
     },
     {
       "date": "2023",
-      "event": "PSA 5.6."
+      "event": "Aparicion de hipertension leve, nodulo de 3.6 cm."
     },
     {
       "date": "2024-03",
-      "event": "PSA 6.8 — mp-MRI PI-RADS 3."
+      "event": "TC: masa de 4.5 cm con densidad heterogenea."
     },
     {
       "date": "2024-09",
-      "event": "PSA 8.4 — mp-MRI PI-RADS 4."
+      "event": "Masa de 5.4 cm; DHEA_S en ascenso."
     },
     {
       "date": "2025-04",
-      "event": "Biopsia fusion: ASAP (atypical small acinar proliferation)."
+      "event": "Aumento de peso central y estrias incipientes."
     },
     {
       "date": "2025-08",
-      "event": "PSA 12.8 — re-mp-MRI: crecimiento lesion."
+      "event": "TC: masa suprarrenal de 7 cm, bordes irregulares."
     },
     {
       "date": "2025-11",
-      "event": "Aparicion dolor lumbar."
+      "event": "Aparicion de dolor lumbar."
     }
   ],
   "current_labs": {
-    "PSA": 12.8,
-    "PSA_libre_ratio": "6%",
-    "PCA3": "elevado",
-    "FAL": 142
+    "cortisol": "elevado",
+    "DHEA_S": "elevado",
+    "androgenos": "limite alto",
+    "metanefrinas": "normales",
+    "LDH": 298
   }
 }

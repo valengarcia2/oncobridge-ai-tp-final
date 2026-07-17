@@ -1,0 +1,66 @@
+{
+  "gt_id": "GT-HNF-001",
+  "icd_10": "D13.4",
+  "icd_10_description": "Neoplasia benigna del higado (hiperplasia nodular focal)",
+  "objective_data": {
+    "biomarkers": {
+      "AFP": "normal",
+      "funcion_hepatica": "normal",
+      "marcadores_tumorales": "normales"
+    },
+    "clinical_findings": [
+      "asintomatico",
+      "hallazgo incidental en imagen",
+      "sin hepatomegalia significativa"
+    ],
+    "risk_factors": [
+      "sexo femenino",
+      "uso de anticonceptivos orales",
+      "hallazgo incidental en imagen"
+    ],
+    "prior_imaging_red_flags": []
+  },
+  "subjective_data": {
+    "symptoms": [
+      "asintomatico",
+      "molestia vaga en hipocondrio derecho ocasional"
+    ],
+    "patient_reported_concerns": [
+      "me encontraron un nodulo en el higado en un control",
+      "me dijeron que probablemente sea benigno"
+    ],
+    "onset_pattern": "estable; comportamiento benigno"
+  },
+  "radiologist_guidance": {
+    "modality_priority": [
+      "abdominal_MRI",
+      "abdominal_CT"
+    ],
+    "views_recommended": [
+      "RM abdomen con contraste hepatoespecifico (retencion en fase hepatobiliar)",
+      "TC trifasico"
+    ],
+    "imaging_location": {
+      "body_region": "higado",
+      "anatomical_landmarks": "parenquima hepatico, cicatriz central de la lesion",
+      "bilateral_comparison_required": false,
+      "priority_zones": [
+        "nodulo con cicatriz central",
+        "realce arterial homogeneo",
+        "retencion de contraste hepatoespecifico"
+      ],
+      "positioning_notes": "RM de abdomen con contraste hepatoespecifico. Buscar realce arterial homogeneo, cicatriz central y retencion en fase hepatobiliar."
+    },
+    "expected_imaging_findings": "Nodulo hepatico homogeneo con realce arterial intenso y cicatriz central que realza tardiamente. Isointenso al parenquima en fases tardias y retiene contraste hepatoespecifico. Benigno.",
+    "meddiffusion_prompt": "Contrast-enhanced abdominal MRI, axial view, homogeneous liver nodule with central scar, intense arterial enhancement, retention of hepatobiliary contrast, focal nodular hyperplasia, clinical medical imaging",
+    "meddiffusion_negative_prompt": "washout lesion, capsular retraction, heterogeneous mass, malignant",
+    "image_generation_notes": "Generar corte axial de RM de abdomen con nodulo hepatico homogeneo y cicatriz central, con realce arterial."
+  },
+  "base_probability": 0.4,
+  "urgency_level": "baja",
+  "notes": "Cicatriz central, realce tipico y retencion de contraste hepatoespecifico confirman FNH benigna. No requiere reseccion salvo duda diagnostica.",
+  "_meta": {
+    "category": "oncologica",
+    "organ": "higado"
+  }
+}

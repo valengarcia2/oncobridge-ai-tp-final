@@ -1,15 +1,15 @@
 {
   "case_id": "case_078",
   "correct_gt_ids": [
-    "GT-BRCA-002"
+    "GT-GASTRIC-001"
   ],
   "acceptable_secondary_gt_ids": [
-    "GT-BRCA-001"
+    "GT-RENAL-001"
   ],
   "imaging_needed_ground_truth": true,
   "urgency_ground_truth": "media",
   "specialist_decision": "DERIVAR_A_IMAGEN",
   "conclusive_ground_truth": true,
   "difficulty": "moderado",
-  "notes": "Distorsion sin masa — patron tipico lobulillar. Biopsia core."
+  "notes": "Adenocarcinoma gastrico sobre gastritis atrofica: lesion ulcerada con anemia ferropenica y marcadores elevados. Biopsia core e imagen de estadificacion."
 }

@@ -2,12 +2,12 @@
   "case_id": "case_064",
   "correct_gt_ids": [],
   "acceptable_secondary_gt_ids": [
-    "GT-FIBROA-001"
+    "GT-ANGIOMIOLIPOMA-001"
   ],
   "imaging_needed_ground_truth": false,
   "urgency_ground_truth": "ninguna",
   "specialist_decision": "NO_DERIVAR",
   "conclusive_ground_truth": true,
   "difficulty": "facil",
-  "notes": "Mastalgia ciclica fisiologica. Sin derivacion oncologica."
+  "notes": "Angiomiolipoma renal benigno conocido y estable; no requiere nueva imagen."
 }

@@ -1,27 +1,27 @@
 {
   "patient_id": "PAT-00224",
   "demographics": {
-    "age": 62,
-    "sex": "M",
+    "age": 41,
+    "sex": "F",
     "family_history": []
   },
   "current_symptoms": [
-    "nicturia 2x, chorro debil leve",
-    "sin dolor"
+    "asintomatica",
+    "sin dolor abdominal ni perdida de peso"
   ],
   "medical_history": [
     {
       "date": "2020",
-      "event": "HPB sintomatica."
+      "event": "Hiperplasia nodular focal hepatica de 3 cm confirmada por RM con contraste hepatoespecifico, patron tipico con cicatriz central."
     },
     {
       "date": "2025-09",
-      "event": "PSA 2.8, ecografia transrectal: prostata aumentada zona transicional."
+      "event": "RM de control: nodulo estable de 3 cm, sin cambios; funcion hepatica normal."
     }
   ],
   "current_labs": {
-    "PSA": 2.8,
-    "PSA_libre_ratio": "32%",
-    "creatinina": 0.9
+    "AFP": "normal",
+    "funcion_hepatica": "normal",
+    "marcadores_tumorales": "normales"
   }
 }

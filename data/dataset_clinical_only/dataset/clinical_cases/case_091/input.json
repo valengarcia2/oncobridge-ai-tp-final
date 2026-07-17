@@ -1,65 +1,65 @@
 {
   "patient_id": "PAT-00501",
   "demographics": {
-    "age": 62,
-    "sex": "F",
+    "age": 64,
+    "sex": "M",
     "family_history": [
-      "breast_cancer",
-      "ovarian_cancer",
-      "BRCA2"
+      "carcinoma_renal",
+      "hipertension"
     ]
   },
   "current_symptoms": [
-    "masa palpable 2.5 cm CSE mama derecha",
-    "retraccion pezon ipsilateral",
-    "adenopatia axilar derecha"
+    "hematuria macroscopica reciente",
+    "dolor sordo en flanco izquierdo",
+    "fatiga progresiva"
   ],
   "medical_history": [
     {
       "date": "2018-03",
-      "event": "Mutacion BRCA2 confirmada."
+      "event": "Padre con carcinoma renal — inicio de controles por imagen."
     },
     {
       "date": "2018-09",
-      "event": "Ooforectomia profilactica."
+      "event": "Nefrectomia parcial derecha por angiomiolipoma sintomatico."
     },
     {
       "date": "2019-2020",
-      "event": "Vigilancia RM mamaria anual sin hallazgos."
+      "event": "Vigilancia anual con ecografia renal sin cambios."
     },
     {
       "date": "2021",
-      "event": "RM: foco realce CSE derecho — BI-RADS 3 vigilancia."
+      "event": "TC: nodulo solido cortical izquierdo 1.5 cm — vigilancia activa."
     },
     {
       "date": "2022",
-      "event": "Mamografia + RM: estable, BI-RADS 3."
+      "event": "TC de control: nodulo estable, sin realce nuevo."
     },
     {
       "date": "2023",
-      "event": "RM: realce focal aumento sutil — biopsia core: hiperplasia atipica."
+      "event": "TC: leve aumento del nodulo — biopsia renal: RCC de bajo grado."
     },
     {
       "date": "2024",
-      "event": "Tamoxifeno profilactico iniciado."
+      "event": "Vigilancia activa continuada por comorbilidad."
     },
     {
       "date": "2025-04",
-      "event": "Madre fallecida por ca mama bilateral."
+      "event": "HTA de dificil control."
     },
     {
       "date": "2025-08",
-      "event": "Hermana DCIS a los 48."
+      "event": "Aumento de tamano de la lesion en ecografia."
     },
     {
       "date": "2025-11",
-      "event": "RM mamaria: realce nuevo CSE derecho — BI-RADS 4."
+      "event": "TC: masa renal izquierda 4 cm con realce heterogeneo — sospecha de progresion."
     }
   ],
   "current_labs": {
-    "CA_15_3": 48.2,
-    "CEA": 7.1,
-    "hemograma": "normal",
-    "VSG": 22
+    "sedimento_urinario": "hematuria",
+    "hemoglobina": 11.5,
+    "LDH": 310,
+    "creatinina": 1.4,
+    "calcio": 10.6
   }
 }

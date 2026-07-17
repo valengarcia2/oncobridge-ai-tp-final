@@ -33,7 +33,7 @@
   },
   "radiologist_guidance": {
     "modality_priority": [
-      "thyroid_ultrasound"
+      "cervical_CT"
     ],
     "views_recommended": [
       "ecografia tiroidea con TI-RADS"
@@ -49,7 +49,7 @@
       "positioning_notes": "Ecografia con TI-RADS. Si TI-RADS 1-2: seguimiento. TI-RADS 3 segun tamano y evolucion."
     },
     "expected_imaging_findings": "Nodulo solido isoecogenico o hiperecogenico, bordes lisos, mas ancho que alto, sin microcalcificaciones. Puede tener componente quistico.",
-    "meddiffusion_prompt": "Thyroid ultrasound, isoechoic solid nodule with smooth margins, wider than tall, no calcifications, TI-RADS 2 benign appearance, clinical medical imaging",
+    "meddiffusion_prompt": "Contrast-enhanced neck CT, axial view, well-defined homogeneous thyroid nodule, smooth margins, no invasion, benign thyroid nodule, clinical medical imaging",
     "meddiffusion_negative_prompt": "microcalcifications, irregular margins, taller than wide, hypoechoic",
     "image_generation_notes": "Nodulo tiroideo TI-RADS 2 benigno. Patron habitual."
   },

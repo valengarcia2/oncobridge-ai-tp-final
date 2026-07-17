@@ -3,59 +3,34 @@
   "demographics": {
     "age": 41,
     "sex": "F",
-    "family_history": [
-      "breast_cancer",
-      "ovarian_cancer",
-      "BRCA1"
-    ]
+    "family_history": []
   },
   "current_symptoms": [
-    "dolor pelvico cronico",
+    "dolor abdominal cronico",
     "distension abdominal",
     "perdida peso 5 kg"
   ],
   "medical_history": [
     {
-      "date": "2010",
-      "event": "BRCA1 positivo."
-    },
-    {
-      "date": "2012",
-      "event": "Mastectomia bilateral profilactica con reconstruccion."
-    },
-    {
       "date": "2015",
-      "event": "Vigilancia ginecologica intensiva — sin patologia."
-    },
-    {
-      "date": "2018",
-      "event": "Anticonceptivos orales (reductor riesgo ovarico)."
-    },
-    {
-      "date": "2020",
-      "event": "Discusion de ooforectomia profilactica — pendiente."
+      "event": "Controles clinicos sin patologia."
     },
     {
       "date": "2023",
-      "event": "Ecografia transvaginal: ovarios normales."
-    },
-    {
-      "date": "2024",
-      "event": "Hermana ca mama bilateral a los 38."
+      "event": "TC de abdomen previa normal."
     },
     {
       "date": "2025-08",
-      "event": "Ecografia: masa anexial derecha 4 cm — solida."
+      "event": "TC: masa retroperitoneal derecha de 8 cm de origen incierto."
     },
     {
       "date": "2025-10",
-      "event": "CA-125: 412 (elevado)."
+      "event": "LDH elevada en control."
     }
   ],
   "current_labs": {
-    "CA_125": 412,
+    "LDH": 412,
     "CEA": 4.2,
-    "HE4": 184,
     "hemograma": "normal"
   }
 }

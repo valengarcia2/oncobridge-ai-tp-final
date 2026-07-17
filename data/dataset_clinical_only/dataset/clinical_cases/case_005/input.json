@@ -1,27 +1,27 @@
 {
   "patient_id": "PAT-00105",
   "demographics": {
-    "age": 60,
-    "sex": "F",
+    "age": 61,
+    "sex": "M",
     "family_history": []
   },
   "current_symptoms": [
-    "microcalcificaciones en cluster mama izquierda detectadas en screening",
-    "asintomatica"
+    "nodulo renal solido 2.4 cm hallado de casualidad en TC pedida por otra causa",
+    "asintomatico"
   ],
   "medical_history": [
     {
       "date": "2025-10",
-      "event": "Mamografia screening: cluster pleomorfico CSE izquierdo — BI-RADS 4."
+      "event": "TC abdominal por colico renal: nodulo solido cortical rinon izquierdo 2.4 cm con leve realce."
     },
     {
       "date": "2022",
-      "event": "Mamografia previa: BI-RADS 2."
+      "event": "Ecografia abdominal previa sin lesiones renales."
     }
   ],
   "current_labs": {
-    "CA_15_3": 22,
-    "CEA": 1.8,
-    "hemograma": "normal"
+    "sedimento_urinario": "hematuria microscopica minima",
+    "hemoglobina": 14.2,
+    "creatinina": 1.0
   }
 }

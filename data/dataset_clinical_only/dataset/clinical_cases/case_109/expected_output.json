@@ -7,5 +7,5 @@
   "specialist_decision": "DERIVAR_A_IMAGEN",
   "conclusive_ground_truth": true,
   "difficulty": "dificil",
-  "notes": "Ca ovario BRCA1 — el GT base no cubre estricto ovario, caso de borde para evaluar comportamiento SIN_ELEMENTOS o no."
+  "notes": "Masa retroperitoneal de origen incierto; el GT base no cubre sarcoma retroperitoneal. Caso de borde para evaluar comportamiento ante hallazgo sin match especifico."
 }

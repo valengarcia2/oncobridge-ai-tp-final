@@ -41,8 +41,7 @@
   "radiologist_guidance": {
     "modality_priority": [
       "chest_CT",
-      "chest_MRI",
-      "PET_CT"
+      "chest_MRI"
     ],
     "views_recommended": [
       "TC torax con contraste",

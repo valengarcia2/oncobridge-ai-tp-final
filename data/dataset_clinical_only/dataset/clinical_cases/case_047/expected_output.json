@@ -1,7 +1,7 @@
 {
   "case_id": "case_047",
   "correct_gt_ids": [
-    "GT-FIBROA-001"
+    "GT-ANGIOMIOLIPOMA-001"
   ],
   "acceptable_secondary_gt_ids": [],
   "imaging_needed_ground_truth": false,
@@ -9,5 +9,5 @@
   "specialist_decision": "NO_DERIVAR",
   "conclusive_ground_truth": true,
   "difficulty": "facil",
-  "notes": "Fibroadenoma BI-RADS 3 estable. Continuar seguimiento."
+  "notes": "Angiomiolipoma renal benigno estable. Continuar seguimiento."
 }

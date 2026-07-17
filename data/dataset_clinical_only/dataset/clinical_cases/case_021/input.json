@@ -1,35 +1,36 @@
 {
   "patient_id": "PAT-00121",
   "demographics": {
-    "age": 68,
-    "sex": "M",
+    "age": 48,
+    "sex": "F",
     "family_history": [
-      "prostate_cancer"
+      "sindrome de Li-Fraumeni"
     ]
   },
   "current_symptoms": [
-    "nicturia 4x",
-    "chorro debil progresivo",
+    "aumento de peso central y cara de luna",
+    "hipertension de reciente aparicion",
     "dolor lumbar bajo persistente",
-    "perdida peso 4 kg"
+    "perdida de peso reciente 4 kg"
   ],
   "medical_history": [
     {
       "date": "2022-04",
-      "event": "PSA 4.8."
+      "event": "TC: nodulo suprarrenal izquierdo de 3 cm."
     },
     {
       "date": "2024-09",
-      "event": "PSA 9.2 — duplico en 2 anos."
+      "event": "Masa suprarrenal de 6 cm, duplico su tamano en 2 anos."
     },
     {
       "date": "2025-12",
-      "event": "Padre y tio paternos con ca prostata."
+      "event": "Antecedente familiar de sindrome de Li-Fraumeni."
     }
   ],
   "current_labs": {
-    "PSA": 12.4,
-    "PSA_libre_ratio": "8%",
-    "FAL": 198
+    "cortisol": "elevado",
+    "DHEA_S": "elevado",
+    "metanefrinas": "normales",
+    "LDH": 224
   }
 }
