@@ -3,13 +3,20 @@
 Componente 2 pasan por acá.
 
 Usa "salida estructurada" (response_schema con un modelo Pydantic): la API
-de Gemini garantiza que la respuesta cumple el schema exacto que le pasamos,
-en vez de pedirle "devolvé JSON" en texto libre (más frágil).
+de Gemini garantiza que la respuesta cumple el schema exacto que le pasamos.
+
+Incluye reintento automático con backoff exponencial para errores
+TRANSITORIOS del servidor (503 "sobrecargado", 429 "demasiadas requests").
+Esto es necesario en la práctica: la API pública de Gemini tiene picos de
+demanda frecuentes, y sin esto cualquier corrida batch sobre los 110 casos
+del dataset (Paso 16) fallaría espuriamente cada tanto.
 """
 
+import time
 from typing import TypeVar
 from google import genai
 from google.genai import types
+from google.genai.errors import ServerError, ClientError
 from pydantic import BaseModel
 
 from oncobridge import config
@@ -17,6 +24,11 @@ from oncobridge.llm.token_tracker import extract_token_usage
 from oncobridge.schemas.component1_io import TokenUsage
 
 T = TypeVar("T", bound=BaseModel)
+
+# Códigos de error que consideramos transitorios (vale la pena reintentar).
+_RETRYABLE_STATUS_CODES = {429, 503}
+_MAX_RETRIES = 3
+_BASE_BACKOFF_SECONDS = 1.0
 
 
 class LLMClient:
@@ -34,21 +46,49 @@ class LLMClient:
         """
         Llama al modelo pidiendo que la respuesta cumpla exactamente
         `response_schema`. Devuelve (objeto parseado, uso de tokens).
-
-        temperature baja (0.2) por default: en un CDSS preferimos
-        respuestas consistentes antes que creativas.
         """
-        response = self._client.models.generate_content(
+        response = self._generate_with_retry(
             model=model,
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                system_instruction=system_instruction,
-                response_mime_type="application/json",
-                response_schema=response_schema,
-                temperature=temperature,
-            ),
+            prompt=prompt,
+            system_instruction=system_instruction,
+            response_schema=response_schema,
+            temperature=temperature,
         )
 
         parsed: T = response.parsed
         token_usage = extract_token_usage(response, model=model)
         return parsed, token_usage
+
+    def _generate_with_retry(self, model, prompt, system_instruction, response_schema, temperature):
+        """
+        Reintenta hasta _MAX_RETRIES veces si el error es transitorio
+        (503/429), con espera creciente entre intento e intento (backoff
+        exponencial: 1s, 2s, 4s). Cualquier otro tipo de error se propaga
+        inmediatamente, porque reintentar no lo va a arreglar.
+        """
+        last_error = None
+        for attempt in range(_MAX_RETRIES):
+            try:
+                return self._client.models.generate_content(
+                    model=model,
+                    contents=prompt,
+                    config=types.GenerateContentConfig(
+                        system_instruction=system_instruction,
+                        response_mime_type="application/json",
+                        response_schema=response_schema,
+                        temperature=temperature,
+                    ),
+                )
+            except (ServerError, ClientError) as e:
+                status_code = getattr(e, "code", None)
+                is_retryable = status_code in _RETRYABLE_STATUS_CODES
+                last_error = e
+                if not is_retryable or attempt == _MAX_RETRIES - 1:
+                    raise
+                wait_time = _BASE_BACKOFF_SECONDS * (2 ** attempt)
+                print(
+                    f"[LLMClient] Error transitorio ({status_code}) en intento "
+                    f"{attempt + 1}/{_MAX_RETRIES}. Reintentando en {wait_time}s..."
+                )
+                time.sleep(wait_time)
+        raise RuntimeError("No se pudo completar la llamada al LLM tras los reintentos") from last_error
