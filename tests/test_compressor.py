@@ -3,7 +3,8 @@ Mide, con números reales, cuánto reduce el compressor el tamaño en tokens
 de una entrada GT antes de mandarla al LLM.
 
 Nota: usamos tiktoken como PROXY de conteo de tokens. Gemini no usa
-exactamente el mismo tokenizador, pero tiktoken es el estándar para estimar "aproximadamente cuántos tokens", y sirve para medir la
+exactamente el mismo tokenizador, pero tiktoken es el estándar para estimar 
+"aproximadamente cuántos tokens", y sirve para medir la
 REDUCCIÓN RELATIVA (completo vs. comprimido), que es lo que nos importa.
 """
 
