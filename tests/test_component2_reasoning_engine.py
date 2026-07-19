@@ -30,7 +30,12 @@ def test_structure_findings_returns_valid_schema_and_token_usage():
     assert c1_output.matched_ground_truths, "case_002 debería matchear al menos una hipótesis"
 
     top_hypothesis = c1_output.matched_ground_truths[0]
-    structured, token_usage = structure_findings(top_hypothesis)
+    entry = next(e for e in entries if e.gt_id == top_hypothesis.gt_id)
+
+    structured, token_usage = structure_findings(
+        top_hypothesis,
+        expected_imaging_findings=entry.radiologist_guidance.expected_imaging_findings,
+    )
 
     assert structured.findings
     assert structured.final_recommendation

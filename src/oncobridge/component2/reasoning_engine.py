@@ -35,6 +35,7 @@ class C2StructuredFindings(BaseModel):
 
 def structure_findings(
     hypothesis: MatchedHypothesis,
+    expected_imaging_findings: str,
     llm_client: LLMClient | None = None,
     model: str = config.LLM_MODEL_VISION,
 ) -> tuple[C2StructuredFindings, TokenUsage]:
@@ -45,9 +46,13 @@ def structure_findings(
         f"Zona anatómica: {ri.imaging_location.body_region} — "
         f"{ri.imaging_location.anatomical_landmarks}.\n"
         f"Zonas prioritarias: {', '.join(ri.imaging_location.priority_zones)}.\n"
-        f"Hallazgos esperados: {ri.clinical_context_for_radiologist}.\n\n"
+        f"Contexto clínico del match: {ri.clinical_context_for_radiologist}.\n"
+        f"Hallazgos esperados en la imagen: {expected_imaging_findings}.\n\n"
         "Armá la segmentación (regiones de interés esperadas), los hallazgos, "
-        "la recomendación final y los próximos pasos sugeridos."
+        "la recomendación final y los próximos pasos sugeridos. Si el tamaño, "
+        "forma o márgenes exactos no están especificados en el texto, estimalos "
+        "de forma ilustrativa y razonable para este tipo de hallazgo, dejándolo "
+        "claro como una referencia orientativa y no una medición real."
     )
     return client.complete_structured(
         prompt=prompt,

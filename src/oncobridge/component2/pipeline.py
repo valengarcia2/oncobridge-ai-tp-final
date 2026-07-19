@@ -67,7 +67,11 @@ def run_component2(
     generate_reference_image(entry)
 
     client = llm_client or LLMClient()
-    structured, token_usage = structure_findings(top_hypothesis, llm_client=client)
+    structured, token_usage = structure_findings(
+        top_hypothesis,
+        expected_imaging_findings=entry.radiologist_guidance.expected_imaging_findings,
+        llm_client=client,
+    )
 
     return Component2Output(
         patient_id=c1_output.patient_id,
