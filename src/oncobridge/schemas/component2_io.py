@@ -1,5 +1,12 @@
 """
-Schema de input/output del Componente 2 
+Schema de input/output del Componente 2
+
+Componente 2 no recibe ningún estudio de imagen real del paciente (el
+dataset es "clinical-only", acordado así con la cátedra): el input es
+únicamente el output de Componente 1. C2 genera una imagen de referencia
+ilustrativa a partir de la hipótesis de mayor match_probability y arma el
+reporte para el radiólogo a partir del ground truth ya matcheado, sin
+comparar contra ningún estudio real.
 """
 
 from typing import Literal
@@ -8,16 +15,8 @@ from pydantic import BaseModel, Field
 from oncobridge.schemas.component1_io import Component1Output, TokenUsage
 
 
-class ImagingStudy(BaseModel):
-    modality: str
-    view: str
-    image_path: str
-    acquisition_date: str
-
-
 class Component2Input(BaseModel):
     component_1_output: Component1Output
-    imaging_study: ImagingStudy
 
 
 class RegionOfInterest(BaseModel):

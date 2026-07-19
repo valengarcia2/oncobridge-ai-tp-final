@@ -36,3 +36,13 @@ URGENCY_WEIGHTS = {
 # --- Umbrales de decisión ---
 DERIVAR_THRESHOLD = float(os.getenv("DERIVAR_THRESHOLD", "0.6"))
 SEGUIMIENTO_THRESHOLD = float(os.getenv("SEGUIMIENTO_THRESHOLD", "0.3"))
+
+# --- Componente 2: imagen de referencia ilustrativa (Stable Diffusion) ---
+# No hay imagen real de paciente en el dataset ni comparación contra ella
+# (acordado con la cátedra) -- esto genera una imagen ilustrativa a partir
+# del meddiffusion_prompt del GT matcheado, cacheada por gt_id.
+# Nihirc/Prompt2MedImage: Stable Diffusion afinado con imágenes médicas
+# reales (dataset ROCO) -- mismo formato/API que SD estándar, pero da
+# resultados mucho más realistas para este dominio.
+STABLE_DIFFUSION_MODEL = os.getenv("STABLE_DIFFUSION_MODEL", "Nihirc/Prompt2MedImage")
+REFERENCE_IMAGES_DIR = PROJECT_ROOT / os.getenv("REFERENCE_IMAGES_DIR", "data/generated/reference_images")

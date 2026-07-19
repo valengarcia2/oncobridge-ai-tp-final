@@ -2,7 +2,7 @@
 CLI para correr Componente 1 sobre un caso clínico del dataset, de punta a
 punta. Requiere GEMINI_API_KEY configurada en .env.
 
-Uso: python scripts/run_case.py --case case_001
+Uso: python scripts/run_component1.py --case case_001
 """
 
 import argparse

@@ -63,3 +63,46 @@ def test_probability_is_bounded_between_0_and_1():
     hyps = [HypothesisForProbability(match_probability=1.0, urgency_level="alta")]
     prob, _, _ = compute_imaging_needed_probability(hyps, conclusive=True)
     assert 0.0 <= prob <= 1.0
+
+
+def test_no_hypotheses_conclusive_and_imaging_needed_without_match_derives():
+    """
+    Caso tipo case_109: sin ninguna hipótesis matcheada, pero el LLM
+    determinó que igual amerita derivar a imagen (hallazgo preocupante
+    sin diagnóstico específico en la base).
+    """
+    prob, recommendation, urgency = compute_imaging_needed_probability(
+        [], conclusive=True, imaging_needed_without_match=True, no_match_urgency="alta"
+    )
+    assert recommendation == "DERIVAR_A_IMAGEN"
+    assert urgency == "alta"
+    assert prob == pytest.approx(1.0, abs=0.01)
+
+
+def test_imaging_needed_without_match_defaults_to_media_urgency_if_not_given():
+    prob, recommendation, urgency = compute_imaging_needed_probability(
+        [], conclusive=True, imaging_needed_without_match=True, no_match_urgency=None
+    )
+    assert recommendation == "DERIVAR_A_IMAGEN"
+    assert urgency == "media"
+
+
+def test_imaging_needed_without_match_with_low_urgency_can_fall_to_seguimiento():
+    """
+    Si el LLM estima urgencia baja aun necesitando imagen, el umbral puede
+    bajarlo a SEGUIMIENTO_CLINICO en vez de forzar DERIVAR_A_IMAGEN -- se
+    mantiene la misma lógica de umbrales que el resto de la función.
+    """
+    prob, recommendation, urgency = compute_imaging_needed_probability(
+        [], conclusive=True, imaging_needed_without_match=True, no_match_urgency="baja"
+    )
+    assert prob == pytest.approx(0.5, abs=0.01)
+    assert recommendation == "SEGUIMIENTO_CLINICO"
+
+
+def test_imaging_needed_without_match_ignored_when_not_conclusive():
+    """imaging_needed_without_match no tiene efecto si conclusive=False."""
+    prob, recommendation, urgency = compute_imaging_needed_probability(
+        [], conclusive=False, imaging_needed_without_match=True, no_match_urgency="alta"
+    )
+    assert recommendation == "SIN_ELEMENTOS_PARA_EVALUAR"

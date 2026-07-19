@@ -31,19 +31,37 @@ class HypothesisForProbability:
 def compute_imaging_needed_probability(
     hypotheses: list[HypothesisForProbability],
     conclusive: bool,
+    imaging_needed_without_match: bool = False,
+    no_match_urgency: str | None = None,
 ) -> tuple[float, Recommendation, Urgency]:
     """
     Devuelve (imaging_needed_probability, recommendation, urgency).
 
     1. Sin hipótesis + conclusive=False -> SIN_ELEMENTOS_PARA_EVALUAR.
-    2. Sin hipótesis + conclusive=True -> NO_DERIVAR, probabilidad 0
-       (ej. cuadro benigno-fisiológico).
-    3. Con hipótesis -> se aplica la fórmula y los umbrales configurados.
+    2. Sin hipótesis + conclusive=True + imaging_needed_without_match=False
+       -> NO_DERIVAR, probabilidad 0 (cuadro benigno-fisiológico).
+    3. Sin hipótesis + conclusive=True + imaging_needed_without_match=True
+       (ej. case_109: hallazgo preocupante sin ninguna entrada de la base
+       que matchee) -> se trata como una hipótesis "sintética" con
+       match_probability=1.0 (el LLM lo afirma directamente, no es una
+       probabilidad de match contra un GT) y la urgencia estimada, y pasa
+       por la MISMA fórmula/umbrales del punto 4 -- no se hardcodea la
+       recomendación, para no romper la consistencia entre probabilidad y
+       recomendación que exige el resto de esta función.
+    4. Con hipótesis -> se aplica la fórmula y los umbrales configurados.
     """
     if not hypotheses:
-        if conclusive:
+        if conclusive and imaging_needed_without_match:
+            hypotheses = [
+                HypothesisForProbability(
+                    match_probability=1.0,
+                    urgency_level=no_match_urgency or "media",
+                )
+            ]
+        elif conclusive:
             return 0.0, "NO_DERIVAR", "ninguna"
-        return 0.0, "SIN_ELEMENTOS_PARA_EVALUAR", "ninguna"
+        else:
+            return 0.0, "SIN_ELEMENTOS_PARA_EVALUAR", "ninguna"
 
     weighted_scores = [
         (h.match_probability * config.URGENCY_WEIGHTS[h.urgency_level], h.urgency_level)

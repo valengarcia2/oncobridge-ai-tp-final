@@ -18,3 +18,8 @@ __pycache__/
 .DS_Store
 
 *.egg-info/
+
+# Las 30 imagenes de referencia de Componente 2 (data/generated/reference_images/)
+# SI se versionan a proposito: sin ellas, correr el proyecto desde cero
+# requeriria Stable Diffusion + GPU solo para generarlas, rompiendo el
+# requisito de la consigna de poder correr todo en <10 minutos.

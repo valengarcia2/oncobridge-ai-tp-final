@@ -99,7 +99,10 @@ def run_component1(
         for h in raw_output.matched_hypotheses
     ]
     imaging_needed_probability, recommendation, urgency = compute_imaging_needed_probability(
-        hypotheses_for_probability, conclusive=raw_output.conclusive
+        hypotheses_for_probability,
+        conclusive=raw_output.conclusive,
+        imaging_needed_without_match=raw_output.imaging_needed_without_match,
+        no_match_urgency=raw_output.no_match_urgency,
     )
 
     matched_ground_truths = [
