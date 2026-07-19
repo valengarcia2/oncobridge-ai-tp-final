@@ -6,7 +6,7 @@ automatizable). Separado a propósito de "collect": este módulo solo
 guarda/lee el archivo JSON, no le pregunta nada a nadie -- eso lo hace
 scripts/collect_specialist_feedback.py.
 
-El reporte batch (Paso 16) lee read_specialist_feedback_summary() y, si
+El reporte batch lee read_specialist_feedback_summary() y, si
 todavía no hay ninguna respuesta guardada, debe mostrarlo honestamente
 ("Sin evaluaciones registradas aún") en vez de inventar un promedio.
 """

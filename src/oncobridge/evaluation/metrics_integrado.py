@@ -72,7 +72,7 @@ def time_call(fn, *args, **kwargs):
     """
     Cronometra una llamada real (ej. run_component1 sobre un caso) y
     devuelve (resultado, segundos_transcurridos). Pensado para usarse en
-    el runner batch (Paso 16), acumulando los tiempos de los 110 casos
+    el runner batch, acumulando los tiempos de los 110 casos
     para pasárselos a compute_triage_time_reduction().
     """
     start = time.perf_counter()

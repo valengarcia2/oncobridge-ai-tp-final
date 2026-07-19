@@ -17,9 +17,9 @@ INDEX_JSON_PATH = DATASET_ROOT / "index.json"
 
 # --- Modelos por tarea ---
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-LLM_MODEL_REASONING = os.getenv("LLM_MODEL_REASONING", "gemini-2.5-flash-lite")
+LLM_MODEL_REASONING = os.getenv("LLM_MODEL_REASONING", "gemini-2.5-flash")
 LLM_MODEL_SUMMARIZATION = os.getenv("LLM_MODEL_SUMMARIZATION", "gemini-2.5-flash-lite")
-LLM_MODEL_VISION = os.getenv("LLM_MODEL_VISION", "gemini-2.5-flash-lite")
+LLM_MODEL_VISION = os.getenv("LLM_MODEL_VISION", "gemini-2.5-flash")
 
 # --- Umbrales de eficiencia de contexto ---
 COMPLEX_HISTORY_THRESHOLD = int(os.getenv("COMPLEX_HISTORY_THRESHOLD", "5"))
