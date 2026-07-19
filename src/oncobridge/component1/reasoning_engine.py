@@ -6,6 +6,8 @@ Devuelve un resultado "crudo" que el pipeline va a
 combinar con la fórmula de probabilidad.
 """
 
+from typing import Literal
+
 from pydantic import BaseModel, Field
 
 from oncobridge import config
@@ -30,6 +32,24 @@ class RawReasoningOutput(BaseModel):
         )
     )
     matched_hypotheses: list[RawMatchedHypothesis] = Field(default_factory=list)
+    imaging_needed_without_match: bool = Field(
+        default=False,
+        description=(
+            "Solo relevante cuando matched_hypotheses queda vacío y conclusive=true. "
+            "true si, aunque ninguna entrada de la base de conocimiento matchea, el "
+            "cuadro clínico amerita derivar a imagen igual (hallazgo preocupante sin "
+            "diagnóstico específico en la base -- ej. una masa con factores de riesgo "
+            "claros pero sin ninguna condición conocida que la explique). false si el "
+            "cuadro es benigno/fisiológico y no amerita imagen."
+        ),
+    )
+    no_match_urgency: Literal["alta", "media", "baja"] | None = Field(
+        default=None,
+        description=(
+            "Urgencia clínica estimada SOLO si imaging_needed_without_match es true. "
+            "None en cualquier otro caso."
+        ),
+    )
 
 
 REASONING_SYSTEM_PROMPT = """\
@@ -57,6 +77,13 @@ Tu tarea:
    para cualquier conclusión razonable.
 4. NUNCA falsees certeza: si la evidencia es débil, reflejalo con una
    match_probability baja, no la omitas ni la inflés.
+5. Si matched_hypotheses queda vacío pero conclusive=true, evaluá
+   explícitamente si el cuadro amerita derivar a imagen IGUAL (hallazgo
+   preocupante que no coincide con ninguna condición conocida de la base)
+   o si es genuinamente benigno/fisiológico. Reflejalo en
+   `imaging_needed_without_match` y, si es true, estimá `no_match_urgency`.
+   No dejes esto en false por default sin pensarlo: es la diferencia entre
+   dos escenarios clínicamente muy distintos.
 
 No tomes ninguna decisión de derivación a imagen ni de urgencia — eso lo
 calcula un componente separado a partir de tus probabilidades.
