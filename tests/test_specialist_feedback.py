@@ -1,7 +1,7 @@
 """
 Tests del módulo de persistencia de feedback de especialistas. No prueba
 el script interactivo (scripts/collect_specialist_feedback.py) -- eso
-necesita un humano tipeando de verdad, igual que run_case.py/run_e2e.py
+necesita un humano tipeando de verdad, igual que run_component1.py/run_e2e.py
 no tienen test propio. Acá solo se prueba guardar/leer el JSON.
 """
 
