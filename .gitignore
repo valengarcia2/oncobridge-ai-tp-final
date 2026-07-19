@@ -18,3 +18,6 @@ __pycache__/
 .DS_Store
 
 *.egg-info/
+
+# Imagenes de referencia generadas por Componente 2 (regenerables, pesadas)
+data/generated/

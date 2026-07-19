@@ -4,6 +4,8 @@ validada contra las 30 entradas reales del ground truth. Sin LLM, sin
 Stable Diffusion -- corre siempre, instantáneo.
 """
 
+import pytest
+
 from oncobridge import config
 from oncobridge.component2.pipeline import classify_from_icd10
 from oncobridge.ingestion.gt_loader import load_ground_truth_base
@@ -31,8 +33,18 @@ def test_uncertain_behavior_d_code_in_37_48_range_is_no_concluyente():
     assert classify_from_icd10("D38.1") == "no_concluyente"
 
 
-def test_unknown_prefix_raises():
-    import pytest
+def test_non_neoplasm_differential_codes_are_benigno():
+    """
+    Diferenciales no oncológicos de la base (colitis, neumonía,
+    pielonefritis, TBC, quiste renal) no usan capítulo C/D -- deben
+    clasificarse como benigno, no tirar error.
+    """
+    assert classify_from_icd10("K51.9") == "benigno"  # GT-COLITIS-001
+    assert classify_from_icd10("J18.9") == "benigno"  # GT-NEUMONIA-001
+    assert classify_from_icd10("N10") == "benigno"  # GT-PIELONEFRITIS-001
+    assert classify_from_icd10("A15.0") == "benigno"  # GT-TBC-001
 
+
+def test_d_code_outside_known_neoplasm_range_raises():
     with pytest.raises(ValueError):
-        classify_from_icd10("J18.1")
+        classify_from_icd10("D50.0")

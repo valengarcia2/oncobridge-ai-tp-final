@@ -7,10 +7,13 @@ Se cachea en disco por gt_id (no por caso clínico): la imagen depende
 únicamente del GT matcheado, así que si el mismo gt_id es la hipótesis
 principal en varios de los 110 casos, se genera una sola vez y se reusa.
 
-Limitación honesta a documentar en el README: Stable Diffusion no fue
-entrenado específicamente en imágenes médicas -- la imagen generada es una
-guía visual ilustrativa para el radiólogo, no un estudio real ni una
-simulación clínicamente validada.
+Usa Nihirc/Prompt2MedImage (Stable Diffusion afinado con imágenes médicas
+reales del dataset ROCO), no Stable Diffusion genérico -- da resultados
+mucho más realistas para este dominio con el mismo prompt.
+
+Limitación honesta a documentar en el README: aun afinado en ROCO, la
+imagen generada es una guía visual ilustrativa para el radiólogo, no un
+estudio real de este paciente ni una simulación clínicamente validada.
 """
 
 from pathlib import Path
