@@ -1,5 +1,5 @@
 """
-Métricas de evaluación de Componente 2 (§5.2 de la consigna, tabla de C2),
+Métricas de evaluación de Componente 2,
 calculadas a partir de (Component2Output real, ExpectedOutput, la base GT).
 Sin LLM: funciones puras sobre outputs ya generados.
 
@@ -128,8 +128,8 @@ def aggregate_component2_metrics(
 ) -> Component2MetricsReport:
     """
     Agrega las métricas de la tabla de C2 sobre una lista de casos que
-    efectivamente llegaron a Componente 2 (ya filtrados por DERIVAR_A_IMAGEN
-    en Paso 16) -- pensado para que el runner batch le pase los ~78 casos
+    efectivamente llegaron a Componente 2 (ya filtrados por DERIVAR_A_IMAGEN)
+    -- pensado para que el runner batch le pase los ~78 casos
     que activan C2, junto con el índice completo de la base GT.
     """
     n_cases = len(cases)

@@ -1,20 +1,19 @@
 """
-Métricas de "Sistema Integrado" (§5.2 de la consigna, tabla de Sistema
-Integrado) -- evalúan el comportamiento del sistema completo, no un
+Métricas de "Sistema Integrado" -- evalúan el comportamiento del sistema completo, no un
 componente aislado. Viven en su propio módulo, separado de
 metrics_component1.py/metrics_component2.py, aunque reutilicen funciones
 de ahí -- son una lectura distinta de los mismos datos, no una propiedad
 de Componente 1 en particular.
 
 De las 3 métricas de esa tabla:
-- Tasa de Imagen Innecesaria: SÍ se puede calcular con este dataset (ver
+- Tasa de Imagen Innecesaria: sí se puede calcular con este dataset (ver
   tasa_imagen_innecesaria() abajo) -- se deriva de los mismos TP/FP de
   derivación a imagen que ya calcula metrics_component1.
 - Reducción de Tiempo de Triage: se mide el "tiempo con sistema" de verdad
   (cronometrando run_component1/run_component2 sobre casos reales, ver
-  time_call()) y se compara contra una referencia CITADA de la literatura
+  time_call()) y se compara contra una referencia citada de la literatura
   para "tiempo sin sistema" (ver compute_triage_time_reduction()) -- la
-  consigna misma aclara "(benchmark de referencia)", no un ensayo clínico
+  consigna aclara "(benchmark de referencia)", no un ensayo clínico
   propio con los mismos pacientes.
 - Satisfacción del Especialista: encuesta real (NPS), no automatizable --
   ver oncobridge.evaluation.specialist_feedback y

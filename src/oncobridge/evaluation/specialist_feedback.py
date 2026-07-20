@@ -43,8 +43,7 @@ def save_response(response: dict, path: Path | None = None) -> None:
 def read_specialist_feedback_summary(path: Path | None = None) -> dict | None:
     """
     Devuelve un resumen promediado de las respuestas guardadas, o None si
-    todavía no hay ninguna -- el llamador (el reporte de Paso 16) es quien
-    decide cómo mostrar honestamente la ausencia de datos.
+    todavía no hay ninguna 
     """
     path = path or FEEDBACK_PATH
     if not path.exists():

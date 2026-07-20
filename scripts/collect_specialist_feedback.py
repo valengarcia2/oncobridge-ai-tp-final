@@ -4,7 +4,7 @@ evaluación de calidad del informe/razonamiento). Corré esto cada vez que
 un médico prueba el sistema -- las respuestas se van acumulando en
 evaluation/results/specialist_feedback.json.
 
-Separado a propósito del script de evaluación batch (Paso 16): ese corre
+Separado a propósito del script de evaluación batch: ese corre
 solo, sobre los 110 casos, sin nadie mirando -- no tiene sentido pedirle a
 un médico que responda una encuesta ahí. Esta es la única parte del
 proyecto que necesita que un humano se siente a tipear honestamente.

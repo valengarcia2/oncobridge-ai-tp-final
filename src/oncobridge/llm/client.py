@@ -6,10 +6,10 @@ Usa "salida estructurada" (response_schema con un modelo Pydantic): la API
 de Gemini garantiza que la respuesta cumple el schema exacto que le pasamos.
 
 Incluye reintento automático con backoff exponencial para errores
-TRANSITORIOS del servidor (503 "sobrecargado", 429 "demasiadas requests").
+transitorios del servidor (503 "sobrecargado", 429 "demasiadas requests").
 Esto es necesario en la práctica: la API pública de Gemini tiene picos de
 demanda frecuentes, y sin esto cualquier corrida batch sobre los 110 casos
-del dataset (Paso 16) fallaría espuriamente cada tanto.
+del dataset fallaría espuriamente cada tanto.
 """
 
 import time

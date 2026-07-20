@@ -1,7 +1,7 @@
 """
 Pre-genera la imagen de referencia de las 30 entradas del ground truth con
 Stable Diffusion, para no pagar el costo de generación durante la demo ni
-durante la corrida de evaluación batch (Paso 16).
+durante la corrida de evaluación batch.
 
 Uso: python scripts/generate_reference_images.py
 """

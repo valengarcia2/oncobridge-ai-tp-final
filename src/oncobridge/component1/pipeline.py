@@ -67,7 +67,7 @@ def run_component1(
     Corre el flujo completo de Componente 1 sobre un paciente.
     gt_entries y retriever son opcionales para permitir pasarlos ya
     construidos (evita recargar/reindexar en cada llamada, útil para la
-    evaluación batch del Paso 16 sobre 110 casos).
+    evaluación batch sobre 110 casos).
     """
     if gt_entries is None:
         gt_entries = load_ground_truth_base(config.GT_BASE_DIR)

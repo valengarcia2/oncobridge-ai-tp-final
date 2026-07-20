@@ -1,5 +1,5 @@
 """
-Métricas de evaluación de Componente 1 (§5.2 de la consigna), calculadas a
+Métricas de evaluación de Componente 1, calculadas a
 partir de pares (Component1Output real, ExpectedOutput del dataset). Sin
 LLM: son funciones puras sobre los outputs ya generados.
 
@@ -67,7 +67,7 @@ def imaging_confusion_bucket(output: Component1Output, expected: ExpectedOutput)
     """
     Compara `imaging_needed_ground_truth` (bool) contra si el sistema
     recomendó derivar (recommendation == DERIVAR_A_IMAGEN). Agregando esto
-    sobre muchos casos (Paso 16) se calculan sensibilidad y especificidad.
+    sobre muchos casos se calculan sensibilidad y especificidad.
     """
     needed = expected.imaging_needed_ground_truth
     derived = output.recommendation == "DERIVAR_A_IMAGEN"
@@ -98,9 +98,7 @@ def aggregate_component1_metrics(
     pairs: list[tuple[Component1Output, ExpectedOutput]],
 ) -> Component1MetricsReport:
     """
-    Agrega las métricas de §5.2 sobre una lista de (output real, expected)
-    -- pensado para que Paso 16 le pase los 110 pares luego de correr C1
-    sobre todo el dataset.
+    Agrega las métricas sobre una lista de (output real, expected)
     """
     n_cases = len(pairs)
     if n_cases == 0:

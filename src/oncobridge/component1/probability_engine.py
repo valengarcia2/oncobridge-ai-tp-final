@@ -1,12 +1,12 @@
 """
 Motor de probabilidad de Componente 1: calcula `imaging_needed_probability`,
-`recommendation` y `urgency` de forma DETERMINÍSTICA (sin LLM), a partir de
+`recommendation` y `urgency` de forma determinística (sin LLM), a partir de
 las hipótesis ya evaluadas por el reasoning_engine.
 
 Fórmula:
     imaging_needed_probability = max_i( match_probability_i * urgency_weight_i )
 
-Se toma el MÁXIMO entre hipótesis, no el promedio: una sola hipótesis
+Se toma el máximo entre hipótesis, no el promedio: una sola hipótesis
 urgente y probable debería alcanzar para recomendar derivación, aunque
 haya otras hipótesis secundarias de baja probabilidad.
 """
@@ -22,7 +22,7 @@ class HypothesisForProbability:
     """
     Insumo mínimo que necesita este motor por cada hipótesis: su
     match_probability (del reasoning_engine) y su urgency_level (del GT
-    original — el pipeline del Paso 9 es quien junta ambas cosas).
+    original — el pipeline junta ambas cosas).
     """
     match_probability: float
     urgency_level: str  # "alta" | "media" | "baja"
@@ -41,11 +41,11 @@ def compute_imaging_needed_probability(
     2. Sin hipótesis + conclusive=True + imaging_needed_without_match=False
        -> NO_DERIVAR, probabilidad 0 (cuadro benigno-fisiológico).
     3. Sin hipótesis + conclusive=True + imaging_needed_without_match=True
-       (ej. case_109: hallazgo preocupante sin ninguna entrada de la base
+       (ej. case_109: hallazgo sin ninguna entrada de la base
        que matchee) -> se trata como una hipótesis "sintética" con
        match_probability=1.0 (el LLM lo afirma directamente, no es una
        probabilidad de match contra un GT) y la urgencia estimada, y pasa
-       por la MISMA fórmula/umbrales del punto 4 -- no se hardcodea la
+       por la misma fórmula/umbrales -- no se hardcodea la
        recomendación, para no romper la consistencia entre probabilidad y
        recomendación que exige el resto de esta función.
     4. Con hipótesis -> se aplica la fórmula y los umbrales configurados.
