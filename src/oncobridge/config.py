@@ -26,7 +26,7 @@ COMPLEX_HISTORY_THRESHOLD = int(os.getenv("COMPLEX_HISTORY_THRESHOLD", "5"))
 RETRIEVER_TOP_K = int(os.getenv("RETRIEVER_TOP_K", "5"))
 RETRIEVER_MIN_SCORE = float(os.getenv("RETRIEVER_MIN_SCORE", "0.15"))
 
-# --- Pesos de la fórmula de imaging_needed_probability (Paso 8) ---
+# --- Pesos de la fórmula de imaging_needed_probability ---
 URGENCY_WEIGHTS = {
     "alta": 1.0,
     "media": 0.75,
