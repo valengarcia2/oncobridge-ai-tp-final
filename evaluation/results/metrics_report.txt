@@ -5,29 +5,34 @@
 Casos resueltos: 110/110
 
 --- Componente 1 (N=110) ---
-Accuracy de derivación:       70.9%
-Sensibilidad:                 93.6%
+Accuracy de derivación:       72.7%
+Sensibilidad:                 94.9%
 Especificidad:                84.4%
-Precisión de GT match:        91.0% (sobre 89/110 casos aplicables)
-Calibración (prob. vs acierto): 0.39
-Tokens promedio por caso:     2934
+Precisión de GT match:        89.9% (sobre 89/110 casos aplicables)
+Calibración (prob. vs acierto): 0.47
+Tokens promedio por caso:     2186
 Coherencia del Razonamiento:  ver sección de feedback de especialistas, abajo
 
 --- Componente 2 (N=78) ---
 Sensibilidad de hallazgos:    100.0%
 Especificidad de hallazgos:   100.0%
-Precisión de Segmentación (IoU proxy): 0.18
+Precisión de Segmentación (IoU proxy): 0.17
 Concordancia clínica:        sin datos suficientes
 Calidad del Informe:          ver sección de feedback de especialistas, abajo
 
 --- Sistema Integrado ---
-Tasa de Imagen Innecesaria:   6.4%
+Tasa de Imagen Innecesaria:   6.3%
 Reducción de Tiempo de Triage (estimada):
-  Tiempo con sistema (medido):    4.05 seg/caso promedio (N=110)
+  Tiempo con sistema (medido):    5.88 seg/caso promedio (N=110)
   Tiempo sin sistema (referencia): 5.36 min
     Fuente: Overhage JM, McCallie D Jr. Physician Time Spent Using the Electronic Health Record During Outpatient Encounters: A Descriptive Study. Annals of Internal Medicine. 2020;172:169-174. Revision de historial clinico = 33% de 16 min 14 seg promedio por consulta ambulatoria (155.000 medicos en EE.UU., EHR Cerner Millennium).
-  Reducción estimada:              ~98.7%
+  Reducción estimada:              ~98.2%
   Limitación: la referencia mide revisión de historial en general, no específica de oncología, y no es un experimento propio con estos pacientes.
 
 Satisfacción del Especialista / Calidad del Informe / Coherencia del Razonamiento:
-  Sin evaluaciones de especialistas registradas aún -- correr scripts/collect_specialist_feedback.py
+  Basado en 2 respuesta(s):
+  NPS promedio:                    5.0 / 5
+  Coherencia del razonamiento (C1): 4.0 / 5
+  Completitud del informe (C2):     5.0 / 5
+  Precisión del informe (C2):       4.0 / 5
+  Claridad del informe (C2):        5.0 / 5

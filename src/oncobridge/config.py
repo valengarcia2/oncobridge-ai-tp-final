@@ -28,7 +28,7 @@ LLM_MODEL_VISION = os.getenv("LLM_MODEL_VISION", "gemini-flash-latest")
 
 # --- Umbrales de eficiencia de contexto ---
 COMPLEX_HISTORY_THRESHOLD = int(os.getenv("COMPLEX_HISTORY_THRESHOLD", "5"))
-RETRIEVER_TOP_K = int(os.getenv("RETRIEVER_TOP_K", "5"))
+RETRIEVER_TOP_K = int(os.getenv("RETRIEVER_TOP_K", "3"))
 RETRIEVER_MIN_SCORE = float(os.getenv("RETRIEVER_MIN_SCORE", "0.15"))
 
 # --- Thinking budget (Gemini 2.5 es un modelo de "razonamiento híbrido":
@@ -41,7 +41,7 @@ RETRIEVER_MIN_SCORE = float(os.getenv("RETRIEVER_MIN_SCORE", "0.15"))
 # poco", no apagarlo) -- hay que medir el impacto real en tiempo/tokens/
 # aciertos con scripts/run_evaluation.py antes de la entrega y ajustar
 # este número si hace falta.
-LLM_THINKING_BUDGET = int(os.getenv("LLM_THINKING_BUDGET", "512"))
+LLM_THINKING_BUDGET = int(os.getenv("LLM_THINKING_BUDGET", "256"))
 
 # --- Pesos de la fórmula de imaging_needed_probability ---
 URGENCY_WEIGHTS = {

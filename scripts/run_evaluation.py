@@ -1,33 +1,23 @@
 """
 Corre Componente 1 (y Componente 2 cuando corresponde) sobre los casos
-clínicos reales del dataset, guarda los resultados incrementalmente en
-evaluation/results/batch_results.json, y al final imprime el reporte
-completo (métricas de C1, C2, y Sistema Integrado).
+clínicos reales del dataset, SIEMPRE desde cero (ignora por completo
+cualquier resultado guardado de una corrida anterior, no saltea ningún
+caso), y al final imprime (y guarda en evaluation/results/metrics_report.txt)
+el reporte completo de métricas (C1, C2 y Sistema Integrado).
 
-Reanudable a propósito: el free tier de Gemini limita las llamadas por
-día, POR MODELO (confirmamos 20/día tanto para gemini-2.5-flash-lite como
-para gemini-2.5-flash -- el límite parece ser el mismo en esta cuenta,
-aunque no hay garantía de que no cambie). El script guarda cada resultado
-apenas lo procesa y la próxima corrida SALTEA los casos ya resueltos --
-así nunca se pierde progreso si la cuota se corta a mitad de camino.
+Guarda cada resultado en evaluation/results/batch_results.json a medida
+que lo procesa (para poder revisar token_usage caso por caso), pero el
+archivo queda sobrescrito con SOLO los casos de esta corrida.
 
-Además, apenas detecta que la cuota DIARIA se agotó (no un error 429
+Si la cuota DIARIA de la API se agota a mitad de camino (no un error 429
 transitorio cualquiera, sino específicamente "se acabaron las llamadas de
-hoy"), CORTA la corrida ahí mismo en vez de seguir intentando el resto de
-los casos uno por uno -- todos fallarían igual hasta que se resetee, y
-seguir probando solo desperdicia tiempo real (cada intento fallido tarda
-varios segundos en los 3 reintentos con backoff).
+hoy"), la corrida corta ahí mismo y reporta las métricas sobre los casos
+ya procesados hasta ese punto -- lo ya guardado en el json no se pierde.
 
 Uso:
-    python scripts/run_evaluation.py                # procesa casos pendientes (sin limite)
-    python scripts/run_evaluation.py --limit 15      # procesa como maximo 15 casos NUEVOS esta corrida
+    python scripts/run_evaluation.py                # corre los 110 casos desde cero
+    python scripts/run_evaluation.py --limit 10      # corre solo los primeros 10 casos, para probar rápido
     python scripts/run_evaluation.py --report-only   # no llama al LLM, solo reporta con lo ya guardado
-    python scripts/run_evaluation.py --corrector-run # corre los 110 casos SIEMPRE desde cero (ignora
-                                                      # batch_results.json de corridas anteriores, no
-                                                      # saltea nada) y sobrescribe ese archivo solo con
-                                                      # los resultados de esta corrida -- para revisar
-                                                      # token_usage caso por caso sin arrastrar datos
-                                                      # de corridas viejas.
 """
 
 import argparse
@@ -113,28 +103,6 @@ def _is_daily_quota_exhausted(exc: Exception) -> bool:
     return _message_indicates_daily_quota_exhaustion(str(exc))
 
 
-def _purge_quota_exhaustion_errors(results: dict) -> dict:
-    """
-    Corridas viejas (antes de que este script detectara la cuota diaria a
-    tiempo) pueden haber guardado casos como "error" cuando en realidad
-    fue la cuota agotada, no una falla real de ESE caso puntual. Los saca
-    de los resultados guardados para que se reintenten como si nunca se
-    hubieran corrido, en vez de quedar excluidos para siempre.
-    """
-    limpio = {
-        case_id: entry
-        for case_id, entry in results.items()
-        if not (entry.get("error") and _message_indicates_daily_quota_exhaustion(entry["error"]))
-    }
-    if len(limpio) != len(results):
-        removidos = len(results) - len(limpio)
-        print(
-            f"({removidos} caso(s) marcados por error de cuota diaria en una corrida "
-            "anterior -- se sacan de los resultados para reintentarlos.)"
-        )
-    return limpio
-
-
 def _print_timing_summary(
     tiempos_por_caso: list[float],
     tiempo_total: float,
@@ -165,79 +133,19 @@ def _print_timing_summary(
     print("-" * 50)
 
 
-def _run_pending_cases(limit: int | None) -> None:
-    results = _purge_quota_exhaustion_errors(_load_results())
-    _save_results(results)  # persiste la limpieza ya mismo, no solo en memoria
-
-    gt_entries = load_ground_truth_base(config.GT_BASE_DIR)
-    retriever = HybridRetriever()
-    retriever.build(gt_entries)
-    client = LLMClient()
-
-    case_dirs = sorted(config.CLINICAL_CASES_DIR.glob("case_*"))
-    pending = [d for d in case_dirs if d.name not in results]
-
-    print(f"{len(results)}/{len(case_dirs)} casos ya resueltos. Pendientes: {len(pending)}.")
-
-    to_process = pending[:limit] if limit else pending
-    if not to_process:
-        print("Nada para procesar esta corrida.")
-        return
-
-    tiempos_por_caso: list[float] = []
-    inicio_corrida = time.perf_counter()
-
-    for i, case_dir in enumerate(to_process, start=1):
-        case_id = case_dir.name
-        inicio_caso = time.perf_counter()
-        try:
-            results[case_id] = _process_case(case_dir, gt_entries, retriever, client)
-            _save_results(results)
-            elapsed_caso = time.perf_counter() - inicio_caso
-            tiempos_por_caso.append(elapsed_caso)
-            print(f"[{i}/{len(to_process)}] {case_id} OK ({elapsed_caso:.1f}s)")
-        except Exception as exc:
-            elapsed_caso = time.perf_counter() - inicio_caso
-            if _is_daily_quota_exhausted(exc):
-                print(
-                    f"\nCuota diaria de la API agotada en {case_id} (tras {elapsed_caso:.1f}s) -- "
-                    "cortando acá para no perder tiempo con casos que van a fallar igual. Volvé a "
-                    "correr este mismo comando más tarde (o mañana) para seguir donde quedó -- "
-                    "este caso NO se marca como error, se reintenta desde cero la próxima vez."
-                )
-                break
-
-            tiempos_por_caso.append(elapsed_caso)
-            print(f"[{i}/{len(to_process)}] {case_id} ERROR ({elapsed_caso:.1f}s): {exc}")
-            results[case_id] = {
-                "c1_output": None,
-                "c1_elapsed_seconds": None,
-                "c2_output": None,
-                "c2_elapsed_seconds": None,
-                "error": str(exc),
-            }
-            _save_results(results)
-
-    _print_timing_summary(
-        tiempos_por_caso,
-        tiempo_total=time.perf_counter() - inicio_corrida,
-        procesados_esta_corrida=len(tiempos_por_caso),
-        total_esperados_esta_corrida=len(to_process),
-        total_casos_dataset=len(case_dirs),
-        total_resueltos_acumulado=len(results),
-    )
-
-
-def _run_corrector_evaluation() -> None:
+def _run_evaluation(limit: int | None = None) -> None:
     """
-    Corre el pipeline completo sobre los 110 casos de una sola vez, SIEMPRE
-    desde cero (ignora por completo lo que haya en batch_results.json de
-    una corrida anterior -- no saltea ningún caso por estar ya resuelto).
+    Corre el pipeline completo sobre los casos del dataset, SIEMPRE desde
+    cero (ignora por completo lo que haya en batch_results.json de una
+    corrida anterior -- no saltea ningún caso por estar ya resuelto).
 
-    Sí guarda cada resultado en batch_results.json a medida que lo procesa
+    Guarda cada resultado en batch_results.json a medida que lo procesa
     (para poder revisar token_usage caso por caso), pero el archivo queda
-    sobrescrito con SOLO los casos de esta corrida -- no es acumulativo
-    entre corridas como _run_pending_cases.
+    sobrescrito con SOLO los casos de esta corrida.
+
+    limit: si se pasa, corta a los primeros N casos -- para probar rápido
+    el impacto de un cambio de config sobre una muestra chica, sin esperar
+    la corrida completa de los 110.
 
     Si la cuota diaria se agota a mitad de camino, corta ahí y reporta las
     métricas sobre los casos ya procesados hasta ese punto (lo ya guardado
@@ -249,6 +157,8 @@ def _run_corrector_evaluation() -> None:
     client = LLMClient()
 
     case_dirs = sorted(config.CLINICAL_CASES_DIR.glob("case_*"))
+    if limit:
+        case_dirs = case_dirs[:limit]
     results: dict = {}
     tiempos_por_caso: list[float] = []
     inicio_corrida = time.perf_counter()
@@ -301,12 +211,12 @@ def _load_expected(case_id: str) -> ExpectedOutput:
 
 def _print_report(results: dict | None = None) -> None:
     """
-    Si no se pasa `results`, lo carga de batch_results.json (uso normal del
-    equipo). Si se pasa (uso de --corrector-run), reporta directamente
-    sobre ese dict en memoria, sin tocar el archivo en disco.
+    Si no se pasa `results` (uso de --report-only), lo carga de
+    batch_results.json. Si se pasa (uso normal, después de correr los
+    casos), reporta directamente sobre ese dict en memoria.
     """
     if results is None:
-        results = _purge_quota_exhaustion_errors(_load_results())
+        results = _load_results()
     total_cases = len(list(config.CLINICAL_CASES_DIR.glob("case_*")))
     gt_entries = load_ground_truth_base(config.GT_BASE_DIR)
     gt_index = {e.gt_id: e for e in gt_entries}
@@ -319,7 +229,7 @@ def _print_report(results: dict | None = None) -> None:
     print("=" * 50)
     print(f"Casos resueltos: {len(results)}/{total_cases}", end="")
     if len(results) < total_cases:
-        print(" (quedan pendientes -- volvé a correr el script más tarde para completar)")
+        print(" (corrida incompleta -- se cortó antes de terminar, ver el motivo más arriba)")
     else:
         print()
     if errored:
@@ -426,29 +336,18 @@ def _print_and_save_report(results: dict | None = None) -> None:
 def main():
     parser = argparse.ArgumentParser(description="Evaluación batch de OncoBridge AI")
     parser.add_argument(
-        "--limit", type=int, default=None, help="Máximo de casos NUEVOS a procesar en esta corrida"
+        "--limit", type=int, default=None, help="Máximo de casos a procesar (para probar rápido, ej. 10)"
     )
     parser.add_argument(
         "--report-only", action="store_true", help="No llama al LLM, solo reporta con lo ya guardado"
     )
-    parser.add_argument(
-        "--corrector-run",
-        action="store_true",
-        help=(
-            "Corre los 110 casos SIEMPRE desde cero (ignora resultados previos, no saltea "
-            "nada) y sobrescribe batch_results.json solo con los de esta corrida."
-        ),
-    )
     args = parser.parse_args()
 
-    if args.corrector_run:
-        _run_corrector_evaluation()
+    if args.report_only:
+        _print_and_save_report()
         return
 
-    if not args.report_only:
-        _run_pending_cases(args.limit)
-
-    _print_and_save_report()
+    _run_evaluation(limit=args.limit)
 
 
 if __name__ == "__main__":
