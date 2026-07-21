@@ -1,38 +1,66 @@
 # OncoBridge AI
 
-Sistema de apoyo a la decisión clínica (CDSS) para oncología. **Asiste, no reemplaza**: la decisión diagnóstica y terapéutica final es siempre del médico especialista.
+Sistema de apoyo a la decisión clínica (CDSS) para oncología, desarrollado como trabajo final de *IA Generativa aplicada a Biomedicina* (Universidad Austral).
 
-Trabajo final — *IA Generativa para Biomedicina*, Universidad Austral.
-
----
-
-## 1. Descripción del proyecto y objetivos
-
-OncoBridge resuelve un problema concreto: una empresa de salud digital tiene una base de conocimiento oncológico curada (biomarcadores, presentaciones clínicas, guías de imagen) que ningún médico puede revisar manualmente en el tiempo real de una consulta. El sistema consulta automáticamente esa base y entrega, en el momento de la consulta, la información correcta al oncólogo y al especialista en imágenes.
-
-El sistema tiene dos componentes secuenciales:
-
-- **Componente 1 (análisis clínico):** recibe los datos de un paciente (síntomas, historial, laboratorio), recupera por RAG las entradas más relevantes de la base de ground truth oncológico, y devuelve hipótesis diagnósticas rankeadas con una recomendación de derivación a estudio de imagen. La `imaging_needed_probability` sale de una **fórmula determinística**, no de un número libre del LLM.
-- **Componente 2 (asistencia radiológica):** recibe el output de Componente 1 y genera, para la hipótesis de mayor probabilidad, una **imagen de referencia ilustrativa** (no hay estudio de imagen real de ningún paciente en el dataset — ver Limitaciones) más un informe estructurado de qué debería buscar el radiólogo.
-
-Además del pipeline, el proyecto incluye una **interfaz Streamlit** (§5.7) que corre el sistema real de punta a punta en un flujo secuencial de un solo caso (consulta oncológica → derivación explícita → informe de imágenes), pensada para que cualquiera (no técnico) pueda ver el sistema funcionando sin tocar la terminal.
-
-Objetivo de aprendizaje: aplicar RAG, gestión de contexto bajo restricción de tokens, structured output, y evaluación crítica de un sistema de IA generativa en un dominio de alto riesgo clínico.
+**Asiste, no reemplaza.** Todo lo que devuelve el sistema es una recomendación para que el oncólogo y el especialista en imágenes revisen — la decisión diagnóstica y terapéutica sigue siendo siempre del médico.
 
 ---
 
-## 2. Arquitectura
+## Introducción
+
+Partimos de un problema bastante concreto: un centro de salud tiene una base de conocimiento oncológico curada por especialistas (biomarcadores, presentaciones clínicas típicas, guías de qué buscar en una imagen para cada diagnóstico), pero ningún médico tiene tiempo, en el momento de una consulta, de revisarla entera para ver si el caso que tiene enfrente encaja con alguna de esas entradas. OncoBridge AI hace ese cruce automáticamente: toma los datos de un paciente, busca en la base cuáles son las hipótesis diagnósticas más compatibles, y arma una recomendación de si conviene o no derivar a un estudio de imagen — y si conviene, le da al especialista en imágenes una guía concreta de qué esperar encontrar.
+
+El sistema está pensado como dos pasos secuenciales, imitando el flujo real de una consulta: primero pasa por el oncólogo (análisis clínico), y solo si el oncólogo decide derivar, pasa por el especialista en imágenes (asistencia radiológica). Nunca al revés, y nunca automático — la derivación es siempre una decisión explícita.
+
+Para construirlo usamos, entre otras cosas: **RAG** (retrieval-augmented generation) con un retriever propio combinando búsqueda léxica y semántica, la **API de Gemini** con salida estructurada (structured outputs) para que el modelo devuelva siempre un JSON válido y predecible, y **Stable Diffusion** para generar una imagen de referencia ilustrativa cuando hace falta. Todo el pipeline se puede correr por línea de comandos o desde una interfaz en Streamlit.
+
+## Objetivos
+
+- Aplicar RAG sobre una base de conocimiento chica pero especializada, priorizando poder auditar exactamente qué información llega al modelo y por qué.
+- Diseñar un pipeline de razonamiento clínico donde las decisiones críticas (si hace falta imagen, con qué urgencia, qué tan probable es cada hipótesis) salgan de fórmulas determinísticas y no de texto libre generado por el LLM.
+- Manejar el contexto de forma eficiente: medir cuántos tokens se ahorran comprimiendo y filtrando lo que se le manda al modelo, en vez de asumir que "más contexto es mejor".
+- Evaluar el sistema de punta a punta contra un dataset de 110 casos clínicos, con métricas automáticas donde se puede medir objetivamente, y encuestas a especialistas donde no.
+- Entregar un sistema que cualquier persona con Python pueda instalar y correr desde cero, sin depender de que hayamos dejado algo funcionando "de casualidad" en nuestras máquinas.
+
+## Arquitectura general
+
+El sistema tiene una fase que se corre una única vez (cargar y preparar la base de conocimiento) y dos componentes que se corren por cada paciente: Componente 1 hace el análisis clínico y decide si hace falta imagen; Componente 2, si corresponde, arma la asistencia para el especialista en imágenes. Alrededor de esos dos componentes hay un script de evaluación batch (que corre los 110 casos del dataset y calcula métricas) y una interfaz en Streamlit para usar el sistema sin tocar la terminal.
+
+## Decisiones de diseño
+
+**Elegimos RAG en vez de meter todo el conocimiento en el prompt o depender de que el modelo "ya sepa" oncología.** La base de conocimiento tiene 30 entradas curadas, cada una con biomarcadores, síntomas típicos y guías de imagen específicas. Mandarlas todas en cada llamada sería carísimo en tokens y le daría al modelo un montón de información irrelevante para el paciente puntual que se está evaluando. Con RAG, el modelo solo ve las entradas que realmente compiten como diagnóstico para ese paciente.
+
+**Implementamos un retriever híbrido (BM25 + embeddings) en vez de usar solo uno de los dos.** BM25 es fuerte para encontrar coincidencias léxicas exactas (un síntoma o biomarcador mencionado con las mismas palabras), pero se pierde las coincidencias semánticas (dos formas distintas de describir lo mismo). Los embeddings capturan esa semántica pero pueden fallar en textos técnicos cortos. Combinar los dos scores nos da una recuperación más robusta que cualquiera de los dos por separado.
+
+**Decidimos no usar FAISS ni un framework tipo LangChain para el RAG.** Con 30 entradas, un índice vectorial aproximado es más complejidad de la que el problema necesita — construir el retriever a mano nos permite auditar exactamente qué se compara, qué score se le asigna a cada candidato y por qué se descarta uno, algo que se vuelve más opaco atrás de una librería de alto nivel.
+
+**Agregamos un compressor de contexto (`compressor.py`) que recorta cada entrada de la base antes de mandarla al modelo.** Cada entrada del ground truth tiene campos que sirven para armar el reporte final (por ejemplo, el prompt para generar la imagen) pero que no le aportan nada al modelo a la hora de decidir si el paciente matchea ese diagnóstico. Sacarlos del prompt de razonamiento reduce el consumo de tokens sin perder información relevante para la decisión.
+
+**Usamos salida estructurada (Structured Outputs) en cada llamada al modelo en vez de parsear texto libre.** Le pasamos a la API un schema de Pydantic y la API garantiza que la respuesta lo cumple exactamente. Esto nos saca de encima todo el trabajo (y toda la fragilidad) de tener que parsear con regex una respuesta en lenguaje natural, y nos deja construir el resto del pipeline sobre un contrato de datos confiable.
+
+**Componente 2 solo genera la imagen de referencia de la hipótesis con mayor `match_probability`, no de todas.** Generar una imagen por cada hipótesis matcheada multiplicaría el tiempo y el costo sin aportar demasiado — clínicamente, lo primero que necesita el especialista en imágenes es orientación sobre el diagnóstico más probable, no un catálogo de todas las posibilidades.
+
+**Adaptamos por completo el diseño de Componente 2 porque el dataset no tiene ninguna imagen real de paciente.** Es un dataset "solo clínico": los datos de laboratorio, síntomas e historial son reales, pero no hay estudios de imagen para comparar. En vez de simular una comparación contra una imagen que no existe (lo cual hubiera sido metodológicamente cuestionable), Componente 2 genera una imagen ilustrativa a partir de las guías de imagen ya definidas en el ground truth, y arma un informe de qué debería buscar el especialista — dejando explícito en todo momento que es una referencia, no un estudio real.
+
+**Separamos el sistema en dos componentes secuenciales en vez de un único agente que haga todo.** Refleja el flujo real de una consulta: un oncólogo evalúa primero al paciente y decide si hace falta imagen; recién ahí entra el especialista en imágenes. Mantener esa secuencia como dos pasos explícitos (con una derivación que el usuario tiene que confirmar, nunca automática) hace que el sistema sea más fácil de auditar componente por componente, y refuerza la idea de que el sistema asiste pero no decide solo.
+
+### Así se arma todo junto
 
 ```mermaid
 flowchart TD
+    subgraph OFFLINE["Fase offline (se corre una sola vez)"]
+        GTFILES[("30 archivos JSON\noncology_ground_truth_base/")] --> LOADER["gt_loader.py\nvalida contra el schema"]
+        LOADER --> BUILD["HybridRetriever.build()\nBM25 + embeddings\n(se indexa una sola vez,\nno en cada consulta)"]
+    end
+
     subgraph C1["Componente 1 — Análisis Clínico"]
         IN1[["input.json (paciente)"]] --> HIST{"¿historial\nCOMPLEX?"}
         HIST -- "sí" --> SUM["history_summarizer.py\n(LLM, gemini-flash-latest)"]
         HIST -- "no" --> RET
-        SUM --> RET["retriever.py\nBM25 + embeddings\n(top-k, filtrado por\nRETRIEVER_MIN_SCORE)"]
-        GT[("30 entradas GT\noncology_ground_truth_base/")] -.-> RET
+        SUM --> RET["retriever.py\ntop-k, filtrado por\nRETRIEVER_MIN_SCORE"]
+        BUILD -.-> RET
         RET --> COMP["compressor.py\nrecorta campos no\nnecesarios para razonar"]
-        COMP --> REASON["reasoning_engine.py\nLLM structured output\n(gemini-flash-latest,\nthinking_budget configurable)"]
+        COMP --> REASON["reasoning_engine.py\nLLM, structured output\n(gemini-flash-latest)"]
         REASON --> PROB["probability_engine.py\nfórmula determinística\n(sin LLM)"]
         PROB --> OUT1[["Component1Output"]]
     end
@@ -40,15 +68,15 @@ flowchart TD
     subgraph C2["Componente 2 — Asistencia Radiológica"]
         OUT1 --> TOP["pipeline.py: toma la\nhipótesis de mayor\nmatch_probability"]
         TOP --> IMG["image_synthesizer.py\nPrompt2MedImage (SD)\ncacheado por gt_id"]
-        TOP --> C2REASON["reasoning_engine.py\nLLM estructura\nexpected_imaging_findings\n(gemini-flash-latest)"]
-        TOP --> ICD["classify_from_icd10()\ndeterministico, sin LLM"]
+        TOP --> C2REASON["reasoning_engine.py\nLLM estructura\nexpected_imaging_findings"]
+        TOP --> ICD["classify_from_icd10()\ndeterminístico, sin LLM"]
         IMG --> OUT2[["Component2Output"]]
         C2REASON --> OUT2
         ICD --> OUT2
     end
 
     subgraph EVAL["Evaluación batch"]
-        CASES[("110 clinical_cases/")] --> RUNEVAL["run_evaluation.py\nreanudable, o\n--corrector-run\n(siempre desde cero)"]
+        CASES[("110 clinical_cases/")] --> RUNEVAL["run_evaluation.py\n(siempre corre desde cero)"]
         RUNEVAL --> C1
         OUT1 --> RUNEVAL
         OUT2 --> RUNEVAL
@@ -57,84 +85,93 @@ flowchart TD
     end
 
     subgraph UI["Interfaz Streamlit (app.py)"]
-        OUT1 --> UIONC["Vista Oncólogo\n(session_state.view)"]
-        UIONC -- "botón explícito\nde derivación" --> UIRAD["Vista Radiólogo\n(session_state.view)"]
+        OUT1 --> UIONC["Vista Oncólogo"]
+        UIONC -- "botón explícito\nde derivación" --> UIRAD["Vista Radiólogo"]
         OUT2 --> UIRAD
+        UIONC --> UIENC["Vista Encuesta"]
+        UIRAD --> UIENC
     end
 ```
 
-**Decisiones clave y por qué:**
+## Componentes del sistema
 
-- **RAG (BM25 + embeddings), sin FAISS/LangChain:** con 30 entradas, un índice aproximado es sobre-ingeniería; código propio y auditable permite justificar exactamente qué se comprime y qué se cachea (criterio de evaluación explícito de la consigna).
-- **`imaging_needed_probability` es una fórmula, no un output libre del LLM:** `max(match_probability × urgency_weight)` sobre las hipótesis matcheadas — toma el máximo, no el promedio, porque una sola hipótesis urgente y probable alcanza para recomendar derivación.
-- **Compresión de contexto por etapas:** cada entrada GT candidata se recorta (`compressor.py`) a solo los campos clínicos relevantes antes de entrar al prompt de razonamiento — mide ~50% de reducción de tokens (30 GT reales: 21.571 → 10.654 tokens, `cl100k_base`). Además, `RETRIEVER_MIN_SCORE` descarta candidatos con score combinado (BM25 + embeddings) por debajo de un umbral **antes** de tomar el top-k, para no gastar tokens de prompt en candidatos irrelevantes que solo rellenaban la lista.
-- **`thinking_budget` configurable (`LLM_THINKING_BUDGET`):** Gemini 2.5+ son modelos de "razonamiento híbrido" — gastan tokens de pensamiento interno antes de responder, que no se ven en el output pero sí consumen tiempo. Medimos el impacto real de bajarlo (de dinámico a un valor fijo chico) y **no encontramos una reducción de latencia significativa** en este caso de uso — la latencia dominante resultó ser la generación del output estructurado en sí (varios campos de texto libre), no el razonamiento interno. Se documenta como hallazgo, no como optimización efectiva.
-- **Un solo modelo para las tres tareas (`gemini-flash-latest`):** originalmente usábamos `gemini-2.5-flash-lite` para el resumen de historial (más económico) y `gemini-2.5-flash` para razonamiento/visión. Este año Google dejó de dar acceso a versiones puntuales de Gemini 2.5 para API keys nuevas (confirmado en el foro de desarrolladores de Google), lo que rompió la corrida con una key recién emitida. Se migró todo a `gemini-flash-latest`, el alias que Google mantiene apuntando al modelo flash vigente — evita que este problema se repita y simplifica el manejo de cuota (un solo modelo, no dos límites distintos que trackear).
-- **Reintento consciente del límite por minuto:** el free tier de Gemini tiene, además del límite diario, un límite de **solicitudes por minuto** (5 req/min observado en la práctica) que devuelve el mismo código 429 que la cuota diaria pero con una `quotaId` distinta. `llm/client.py` distingue ambos casos: la cuota diaria corta toda la corrida (no vale la pena reintentar), el límite por minuto espera el tiempo que la propia API sugiere (`retryDelay`) y reintenta el mismo caso.
-- **Componente 2 sin imagen real de paciente:** el dataset es "clinical-only". En vez de simular una comparación metodológicamente cuestionable, C2 genera una imagen **ilustrativa** de referencia (a partir de los prompts ya definidos en el ground truth) y un informe que describe qué debería ver el radiólogo — sin comparar contra ningún estudio real.
-- **`classification` y `confidence` en C2 son determinísticos:** `classification` sale de la regla de código ICD-10 (`C` = maligno, `D00-D36` = benigno, `D37-D48` = comportamiento incierto, validada contra los 30 códigos reales); `confidence` es directamente el `match_probability` que ya calculó C1 — C2 no inventa un número nuevo.
+### Fase offline
 
----
+Antes de poder analizar a un solo paciente, el sistema necesita preparar la base de conocimiento. Esto pasa una única vez por ejecución (no en cada consulta): `gt_loader.py` lee los 30 archivos JSON de la base de ground truth y los valida contra un schema de Pydantic, y después `HybridRetriever.build()` construye el índice BM25 y calcula los embeddings de las 30 entradas. Separar esta construcción del momento de la consulta importa porque calcular embeddings tiene un costo (carga un modelo de `sentence-transformers`) que no tiene sentido pagar por cada paciente — se paga una vez, y después cada consulta solo hace una comparación contra ese índice ya armado.
 
-## 3. Limitaciones conocidas y trabajo futuro
+### Componente 1 — Análisis Clínico
 
-- **No hay imagen real de ningún paciente.** El dataset provisto es "clinical-only". La imagen que genera Componente 2 es una referencia ilustrativa (Stable Diffusion afinado en radiología — `Nihirc/Prompt2MedImage`), cacheada **por diagnóstico** (`gt_id`), no por paciente: dos pacientes con la misma hipótesis principal ven la misma imagen. No es una simulación clínicamente validada.
-- **La "segmentación" de C2 es semántica, no algorítmica.** No hay máscaras de píxeles reales ni anotaciones para entrenarlas o validarlas: `segmentation.regions_of_interest` lo redacta un LLM a partir de las zonas descriptas en el ground truth, con tamaños/formas marcados explícitamente como "referencia orientativa, no medición real".
-- **Las métricas de C2 son proxies honestos, no la métrica literal de la consigna** (no automatizables sin imagen real anotada):
-  - *Precisión de Segmentación (IoU)* → IoU de **texto** (Jaccard de palabras entre zonas reportadas y zonas reales), no de píxeles. El valor bajo obtenido (0.18, ver §4) probablemente refleja esta limitación del proxy —el LLM redacta las zonas en lenguaje clínico libre, mientras que el ground truth usa términos fijos— más que un fallo real de localización.
-  - *Sensibilidad/Especificidad de Hallazgos (100%/100%, ver §4)*: esta métrica **hay que leerla con cuidado**. `classification` en C2 sale de la misma función determinística (`classify_from_icd10`) aplicada al mismo `gt_id` que ya identificó Componente 1 como hipótesis principal. Por diseño, esto hace que el número esté midiendo casi lo mismo que la "Precisión de GT Match" de C1 (91.0%, sobre los casos donde C2 corrió), no una capacidad independiente de Componente 2 de detectar hallazgos en una imagen real. Se documenta así explícitamente para no sobrevender el resultado.
-- **Calibración débil (0.39, ver §4).** La correlación entre `match_probability` (la confianza que reporta el LLM) y si esa hipótesis efectivamente era la correcta es baja — el sistema no está mal calibrado en el sentido de "siempre equivocado", pero su número de confianza no es un predictor fuerte de acierto. Limitación conocida de confianza reportada por LLMs, no corregida en esta versión.
-- **3 métricas de la consigna son evaluación humana, no automatizable:** Coherencia del Razonamiento (C1), Calidad del Informe (C2), y Satisfacción del Especialista (Sistema Integrado). Se recolectan con `scripts/collect_specialist_feedback.py` y se promedian automáticamente en el reporte batch — **pendientes hasta que especialistas reales prueben la demo**.
-- **"Reducción de Tiempo de Triage" compara contra literatura, no un ensayo propio.** El "tiempo con sistema" se mide de verdad (cronometrado, sumando Componente 1 y, cuando corresponde, Componente 2); el "tiempo sin sistema" cita Overhage & McCallie (*Annals of Internal Medicine*, 2020;172:169-174: revisión de historial = 33% de 16 min 14 seg promedio por consulta, 155.000 médicos en EE.UU.) — no es un experimento controlado con estos mismos pacientes, y esa referencia mide revisión de historial en general, no específica de oncología.
-- **6 de 110 casos del dataset no tienen `correct_gt_ids`** (5 benigno-fisiológicos + un caso de sarcoma retroperitoneal que la base GT no cubre). La métrica de "Precisión de GT Match" los excluye de su denominador (se calcula sobre 89/110 — ver §4 — el resto son casos donde además Componente 1 no matcheó ninguna hipótesis) porque no existe ningún `gt_id` correcto contra el cual comparar — el resto de las métricas (accuracy de derivación, sensibilidad, especificidad, `conclusive`) sí los incluye, porque para esas sí hay una respuesta correcta bien definida.
-- **El free tier de Gemini tiene dos límites de cuota distintos**, no solo uno: ~20 llamadas/día por modelo, **y además un límite de solicitudes por minuto (5 req/min observado)**. Este segundo límite es, en la práctica, la restricción más dura: con ~200 llamadas necesarias para los 110 casos, el piso teórico de tiempo (aun con todo funcionando perfecto) puede superar ampliamente los 10 minutos si la API key usada es de free tier — ver la nota en §5.6 sobre cómo esto afecta la guía de ejecución.
-- **Trabajo futuro:** explorar segmentación real si en el futuro se dispone de imágenes anotadas; ampliar la base GT más allá de 30 entradas y confirmar que el retriever escala; paralelizar la evaluación batch (llamadas concurrentes) si se dispone de una API key con mayor límite de RPM, para acortar el tiempo total de la corrida completa.
+Acá pasa la mayor parte del razonamiento del sistema. La idea del pipeline, paso por paso:
 
----
+1. **Si el historial clínico del paciente es largo** (más de `COMPLEX_HISTORY_THRESHOLD` eventos), se resume primero con una llamada al LLM. Para la mayoría de los casos del dataset esto ni siquiera hace falta — es un paso condicional, no gasta una llamada si el historial ya es corto.
+2. **El retriever busca, entre las 30 entradas de la base, cuáles son candidatas** a ser el diagnóstico del paciente. No le mandamos las 30 al modelo: el retriever combina el score de BM25 (coincidencia de palabras) con el de embeddings (similitud semántica), y se queda con el top-k de mayor score combinado — descartando además cualquier candidato que quede por debajo de `RETRIEVER_MIN_SCORE`, aunque entre en el top-k, porque no tiene sentido gastarle tokens al modelo en una entrada que ni siquiera se parece al caso.
+3. **El compressor recorta cada candidato** que sobrevivió el filtro anterior, dejando solo los campos que sirven para decidir si matchea (síntomas, biomarcadores, factores de riesgo) y sacando los que solo sirven para el reporte final (como el prompt de generación de imagen).
+4. **El LLM recibe los datos del paciente más esos candidatos ya comprimidos**, y devuelve, con salida estructurada, un resumen clínico, las hipótesis que realmente matchean (con su probabilidad y una justificación), y si el cuadro es concluyente o no.
+5. **La probabilidad de necesitar imagen y la recomendación final no las decide el LLM**: salen de una fórmula determinística (`probability_engine.py`) que toma el máximo entre `match_probability × peso_de_urgencia` de las hipótesis matcheadas. Usamos el máximo y no el promedio porque una sola hipótesis urgente y probable ya alcanza para recomendar derivar, aunque el resto de las hipótesis matcheadas sean poco probables.
 
-## 4. Dataset de evaluación y resultados obtenidos
+El resultado es un `Component1Output` con el resumen clínico, las hipótesis rankeadas, la probabilidad de necesitar imagen, la urgencia, y la recomendación (derivar a imagen, seguimiento clínico, no derivar, o datos insuficientes).
 
-**Base de ground truth:** 30 entradas (`data/dataset_clinical_only/dataset/oncology_ground_truth_base/`) — neoplasias malignas (pulmón, colon, riñón, hígado, páncreas, tiroides, linfoma, etc.) y diferenciales no oncológicos (neumonía, colitis, pielonefritis, TBC) usados para descartar cáncer activamente.
+### Componente 2 — Asistencia Radiológica
 
-**Casos clínicos:** 110 (`data/dataset_clinical_only/dataset/clinical_cases/`), con la composición mínima que exige la consigna (TP/TN/FP/FN/multimodales).
+Solo se ejecuta cuando Componente 1 recomienda derivar a imagen y matcheó al menos una hipótesis. Toma la hipótesis de mayor probabilidad y arma tres cosas:
 
-**Resultados obtenidos — corrida completa de los 110/110 casos** (`python scripts/run_evaluation.py --corrector-run`, reporte completo versionado en `evaluation/results/metrics_report.txt`):
+- **Una imagen de referencia ilustrativa**, generada con Stable Diffusion (`Nihirc/Prompt2MedImage`, un checkpoint afinado con imágenes médicas reales) a partir del prompt ya definido en el ground truth para esa condición. Se cachea por diagnóstico (`gt_id`), no por paciente — si dos pacientes distintos matchean la misma hipótesis principal, la imagen no se regenera.
+- **Un informe estructurado** (hallazgos esperados, regiones de interés, recomendación final y próximos pasos), armado por un LLM a partir de la guía de imagen que ya trae el ground truth — acá el modelo estructura y redacta, no inventa un diagnóstico nuevo.
+- **Una clasificación y una confianza, calculadas sin LLM.** La clasificación sale de una regla determinística sobre el código ICD-10 (códigos que empiezan con `C` son malignos, `D00-D36` benignos, `D37-D48` de comportamiento incierto), y la confianza es directamente la `match_probability` que ya calculó Componente 1. Lo hicimos así para que Componente 2 no pueda, por las dudas, contradecir un dato del que el sistema ya tenía certeza.
+
+### Optimizaciones aplicadas
+
+| Optimización | Objetivo |
+|---|---|
+| Retriever híbrido (BM25 + embeddings) | Combinar coincidencia léxica y semántica al buscar candidatos |
+| `RETRIEVER_MIN_SCORE` | Descartar candidatos irrelevantes antes de armar el prompt, aunque entren en el top-k |
+| Compressor de contexto | Recortar cada candidato a los campos clínicamente relevantes, reduciendo tokens |
+| History summarizer condicional | Resumir historiales largos solo cuando hace falta, sin gastar una llamada de más en el resto |
+| Structured Outputs (Pydantic + `response_schema`) | Garantizar que cada respuesta del modelo cumpla el contrato de datos, sin parsear texto libre |
+| `LLM_THINKING_BUDGET` configurable | Poder ajustar cuánto "piensa" el modelo antes de responder |
+| Reintento consciente del límite por minuto | Distinguir un límite de cuota recuperable (esperar y reintentar) de uno que corta la corrida (cuota diaria agotada) |
+| Caché de imágenes por `gt_id` | Evitar regenerar la misma imagen si distintos pacientes matchean el mismo diagnóstico |
+
+## Tecnologías utilizadas
+
+| Tecnología | Uso en el proyecto |
+|---|---|
+| Python 3.10+ | Lenguaje del proyecto |
+| Pydantic | Validación y contratos de datos entre componentes |
+| `google-genai` (Gemini API) | LLM para razonamiento clínico y redacción de informes, con salida estructurada |
+| `rank-bm25` | Búsqueda léxica del retriever híbrido |
+| `sentence-transformers` | Embeddings semánticos para el retriever híbrido |
+| `tiktoken` | Conteo de tokens para medir la eficiencia del compressor |
+| `diffusers` + `torch` | Generación de la imagen de referencia (Stable Diffusion) |
+| Streamlit | Interfaz gráfica del sistema |
+| `pytest` | Tests automatizados |
+| `pandas` | Tablas editables en el formulario de paciente nuevo de la interfaz |
+
+## Organización del repositorio
 
 ```
---- Componente 1 (N=110) ---
-Accuracy de derivación:       70.9%
-Sensibilidad:                 93.6%
-Especificidad:                84.4%
-Precisión de GT match:        91.0% (sobre 89/110 casos aplicables)
-Calibración (prob. vs acierto): 0.39
-Tokens promedio por caso:     2934
+src/oncobridge/
+├── ingestion/       # Carga y validación de la base de ground truth
+├── rag/              # Retriever híbrido y compressor de contexto
+├── llm/              # Cliente único de Gemini (reintentos, thinking budget)
+├── component1/       # Pipeline de análisis clínico
+├── component2/       # Pipeline de asistencia radiológica + generación de imagen
+├── evaluation/       # Métricas de C1, C2, Sistema Integrado, y feedback de especialistas
+├── schemas/          # Contratos de datos (Pydantic) de cada componente
+└── ui/                # Interfaz Streamlit (oncólogo, radiólogo, encuesta)
 
---- Componente 2 (N=78) ---
-Sensibilidad de hallazgos:    100.0%
-Especificidad de hallazgos:   100.0%
-Precisión de Segmentación (IoU proxy): 0.18
-Concordancia clínica:        sin datos suficientes
-
---- Sistema Integrado ---
-Tasa de Imagen Innecesaria:   6.4%
-Tiempo con sistema (medido, C1 + C2 cuando corresponde): [pendiente de refrescar tras
-  corregir la métrica para que sume C2 en los casos derivados -- correr
-  `python scripts/run_evaluation.py --corrector-run` una vez más y actualizar
-  este número antes de la entrega final]
-Reducción estimada vs. referencia citada: [ídem]
+scripts/              # CLIs: correr un componente, el flujo completo, o la evaluación batch
+data/                 # Dataset (base de ground truth + 110 casos clínicos)
+evaluation/results/   # Resultados guardados de la evaluación batch
+tests/                # Tests automatizados
+colab/                # Notebook para generar las imágenes de referencia con GPU
 ```
 
-> ⚠️ La línea de "Tiempo con sistema" quedó desactualizada por un fix aplicado sobre la marcha (antes solo sumaba el tiempo de Componente 1; ahora suma también Componente 2 en los casos que efectivamente derivan a imagen). El resto de los números de esta tabla son los reales de la última corrida completa. Correr `--corrector-run` una vez más para tener el número corregido y reemplazar este placeholder antes de entregar.
-
-**Lectura honesta de estos números** (ver también §3): sensibilidad y especificidad de derivación son sólidas (93.6% / 84.4%), y la precisión de GT match (91%) muestra que el retriever + razonamiento identifican bien la hipótesis correcta. La accuracy de derivación (70.9%) es más baja porque exige un match exacto entre 4 categorías posibles, no solo el binario "necesita imagen sí/no". La sensibilidad/especificidad de Componente 2 al 100% debe leerse con la salvedad de arriba (§3) — no es una medición independiente de C2. Las 3 métricas de evaluación humana quedan pendientes de una corrida de `scripts/collect_specialist_feedback.py` con especialistas reales.
-
----
-
-## 5. Guía de ejecución
+## Instalación
 
 Con Python 3.10+ instalado, seguí estos pasos en orden.
 
-### 5.1 Instalación de dependencias
+### Instalación de dependencias
 
 ```bash
 python -m venv venv
@@ -145,7 +182,7 @@ pip install -r requirements.txt
 
 > Primera vez: `torch`/`diffusers`/`sentence-transformers` son librerías pesadas — la instalación puede tardar varios minutos según tu conexión.
 
-### 5.2 Configuración de variables de entorno
+## Configuración
 
 ```bash
 cp .env.example .env
@@ -153,11 +190,14 @@ cp .env.example .env
 
 Editá `.env` y completá `GEMINI_API_KEY` con tu propia key de [Google AI Studio](https://aistudio.google.com/apikey). El resto de las variables ya tienen valores por defecto razonables — no hace falta tocarlas para correr el sistema:
 
-- `LLM_MODEL_REASONING` / `LLM_MODEL_SUMMARIZATION` / `LLM_MODEL_VISION` → `gemini-flash-latest` (alias de Google al modelo flash vigente; ver §2 sobre por qué no fijamos una versión puntual).
+- `LLM_MODEL_REASONING` / `LLM_MODEL_SUMMARIZATION` / `LLM_MODEL_VISION` → `gemini-flash-latest` (el alias que Google mantiene apuntando al modelo flash vigente, en vez de fijar una versión puntual que en algún momento puede dejar de estar disponible).
+- `RETRIEVER_TOP_K` (default `3`) → cuántos candidatos como máximo le llegan al modelo por consulta.
 - `RETRIEVER_MIN_SCORE` (default `0.15`) → filtra candidatos irrelevantes del retriever antes de armar el prompt.
-- `LLM_THINKING_BUDGET` (default `512`) → tokens de razonamiento interno del modelo antes de responder; `-1` = dinámico (comportamiento sin este knob), `0` = lo apaga del todo.
+- `LLM_THINKING_BUDGET` (default `256`) → tokens de razonamiento interno del modelo antes de responder; `-1` significa dinámico (el modelo decide solo), `0` lo apaga del todo.
 
-### 5.3 Cómo correr el Componente 1
+## Ejecución
+
+### Cómo correr el Componente 1
 
 ```bash
 python scripts/run_component1.py --case case_001
@@ -169,27 +209,27 @@ python scripts/run_component1.py --case case_001
 ```json
 {
   "patient_id": "PAT-00101",
-  "clinical_summary": "Paciente masculino de 63 años con antecedentes de tabaquismo (30 paquetes-año), hipertensión arterial y antecedente familiar de carcinoma renal (padre). Presenta la tríada clásica de hematuria macroscópica intermitente de 3 semanas, dolor lumbar izquierdo persistente y masa palpable en flanco izquierdo...",
+  "clinical_summary": "Paciente masculino de 63 años, fumador (30 paquetes-año), hipertenso y con antecedente familiar de carcinoma renal (padre). Presenta la tríada clásica de carcinoma de células renales: hematuria macroscópica intermitente de 3 semanas, dolor lumbar izquierdo persistente y masa palpable en flanco izquierdo...",
   "matched_ground_truths": [
     {
       "gt_id": "GT-RENAL-001",
       "icd_10": "C64.9",
       "icd_10_description": "Neoplasia maligna del rinon (carcinoma de celulas renales)",
       "match_probability": 0.95,
-      "match_rationale": "El paciente presenta la tríada clásica completa (hematuria macroscópica, dolor lumbar y masa palpable en flanco), junto con factores de riesgo mayores (tabaquismo, hipertensión, edad y antecedente familiar de carcinoma renal)..."
+      "match_rationale": "El paciente cumple con la tríada sintomática clásica (hematuria macroscópica, dolor lumbar y masa palpable en flanco), presenta factores de riesgo clave (edad, tabaquismo, hipertensión y antecedente familiar de primer grado)..."
     }
   ],
   "imaging_needed_probability": 0.95,
   "recommendation": "DERIVAR_A_IMAGEN",
   "urgency": "alta",
   "conclusive": true,
-  "token_usage": { "prompt_tokens": 2254, "completion_tokens": 610, "total_tokens": 2864, "model": "gemini-flash-latest", "retrieved_gt_entries": 5, "gt_entries_in_context": 5 }
+  "token_usage": { "prompt_tokens": 1712, "completion_tokens": 599, "total_tokens": 2311, "model": "gemini-flash-latest", "retrieved_gt_entries": 3, "gt_entries_in_context": 3 }
 }
 ```
 
-### 5.4 Cómo correr el Componente 2
+### Cómo correr el Componente 2
 
-Componente 2 recibe el output de Componente 1 como input (no hay estudio de imagen real de paciente en el dataset — ver §3). Este comando corre C1 internamente para producir ese input, e imprime el output de C2:
+Componente 2 recibe el output de Componente 1 como input (no hay estudio de imagen real de paciente en el dataset — ver Limitaciones). Este comando corre C1 internamente para producir ese input, e imprime el output de C2:
 
 ```bash
 python scripts/run_component2.py --case case_001
@@ -201,20 +241,21 @@ python scripts/run_component2.py --case case_001
   "patient_id": "PAT-00101",
   "segmentation": {
     "regions_of_interest": [
-      { "id": "ROI_01", "location": "Corteza y seno del rinon derecho", "size_mm": 65.0, "shape": "Lobulada e irregular (valor estimativo de referencia)" }
+      { "id": "ROI-1", "location": "Corteza y seno renal del riñón derecho", "size_mm": 55.0, "shape": "Irregular / nodular" },
+      { "id": "ROI-2", "location": "Vena renal derecha", "size_mm": 15.0, "shape": "Tubular / intraluminal" }
     ]
   },
-  "findings": "Se espera observar una masa renal solida y heterogenea localizada en el rinon derecho (afectando corteza y seno renal), caracterizada por un realce tras la administracion de contraste y posterior lavado (washout), con margenes irregulares...",
+  "findings": "Estudio orientado a la evaluación del riñón derecho. Se espera identificar una masa renal sólida y heterogénea con un patrón de realce característico tras la administración de contraste...",
   "classification": "sospechoso",
   "confidence": 0.95,
-  "final_recommendation": "Se recomienda realizar una tomografia computarizada (TC) de abdomen y pelvis con protocolo renal multifasico (fases corticomedular, nefrografica y excretora) para caracterizar la masa y delimitar la extension del trombo venoso...",
-  "next_steps": ["Evaluacion urgente por el servicio de Urologia y Oncologia Medica.", "Completar estadificacion con tomografia de torax para descartar secundarismo pulmonar.", "..."]
+  "final_recommendation": "Realizar tomografía computarizada (TC) de abdomen y pelvis con protocolo renal multifásico (fases simple, corticomedular, nefrográfica y excretora) o resonancia magnética (RM) contrastada para caracterización tumoral completa...",
+  "next_steps": ["Completar la estadificación sistémica mediante TC de tórax para descartar metástasis pulmonares.", "Evaluación urológica urgente para planificación quirúrgica...", "..."]
 }
 
 Imagen de referencia: data/generated/reference_images/GT-RENAL-001.png
 ```
 
-### 5.5 Cómo correr el flujo end-to-end
+### Cómo correr el flujo end-to-end
 
 ```bash
 python scripts/run_e2e.py --case case_002
@@ -222,32 +263,112 @@ python scripts/run_e2e.py --case case_002
 
 Corre Componente 1 y, si recomienda `DERIVAR_A_IMAGEN`, encadena automáticamente Componente 2 sobre el mismo caso, imprimiendo ambos outputs y la ruta de la imagen generada.
 
-### 5.6 Cómo correr el script de evaluación
+### Cómo correr el script de evaluación
 
 ```bash
-python scripts/run_evaluation.py --corrector-run
+python scripts/run_evaluation.py
 ```
 
 Corre C1 (y C2 cuando corresponde) sobre los **110 casos, siempre desde cero** (ignora cualquier resultado guardado de una corrida anterior), guarda cada resultado en `evaluation/results/batch_results.json` a medida que lo procesa, y al final imprime **y guarda** el reporte completo en `evaluation/results/metrics_report.txt` (métricas de C1, C2 y Sistema Integrado).
 
-> ⚠️ **Nota importante sobre el tiempo de esta corrida.** El free tier de Gemini tiene un límite de ~5 solicitudes por minuto (además del límite diario) — ver §3. Con ~200 llamadas necesarias para los 110 casos, esta corrida completa puede tardar **bien más de 10 minutos** en una API key de free tier, aunque el sistema funcione correctamente (el script espera automáticamente y reintenta cuando pega contra ese límite, no falla). Para verificar que el sistema funciona dentro de los 10 minutos sin depender del tier de la API key:
+> ⚠️ **Nota sobre el tiempo de esta corrida.** El free tier de Gemini tiene un límite de ~5 solicitudes por minuto además del límite diario (ver Limitaciones). Con más de 150 llamadas necesarias para los 110 casos, esta corrida completa puede tardar bastante más de 10 minutos en una API key de free tier, aunque el sistema funcione correctamente (el script espera automáticamente y reintenta cuando pega contra ese límite, no falla). Para ver el sistema funcionar rápido sin depender del tier de la API key:
 > ```bash
+> python scripts/run_evaluation.py --limit 8       # corre solo 8 casos nuevos, real y rápido
 > python scripts/run_evaluation.py --report-only   # imprime el reporte acumulado sin llamar al LLM
 > ```
-> Los resultados completos de los 110 casos ya están versionados en este repositorio (`evaluation/results/batch_results.json` y `evaluation/results/metrics_report.txt`, ver §4) — no hace falta volver a correrlos desde cero para verlos.
+> Los resultados completos de los 110 casos ya están versionados en este repositorio (`evaluation/results/batch_results.json` y `evaluation/results/metrics_report.txt`, ver Resultados) — no hace falta volver a correrlos desde cero para verlos.
 
-Para recolectar las 3 métricas de evaluación humana (Coherencia del Razonamiento, Calidad del Informe, Satisfacción del Especialista), un especialista corre:
+Para recolectar las métricas que dependen de evaluación humana (coherencia del razonamiento, calidad del informe, satisfacción del especialista), un especialista puede completar la encuesta desde la interfaz (ver más abajo) o correr:
 ```bash
 python scripts/collect_specialist_feedback.py
 ```
-El reporte del paso anterior las incorpora automáticamente apenas exista al menos una respuesta guardada.
+El reporte de evaluación las incorpora automáticamente apenas exista al menos una respuesta guardada.
 
-### 5.7 Cómo correr la interfaz (Streamlit)
+### Cómo correr la interfaz (Streamlit)
 
-Sección complementaria a la guía de ejecución obligatoria (§5.1-§5.6) — corre el sistema real (no una demo) con una interfaz gráfica, pensada para una audiencia no técnica:
+Corre el sistema real (no una demo) con una interfaz gráfica, pensada para una audiencia no técnica:
 
 ```bash
 streamlit run src/oncobridge/ui/app.py --server.fileWatcherType none
 ```
 
-Se abre en `http://localhost:8501`. Flujo: elegís un paciente (del dataset de 110 casos, o cargás uno nuevo con el formulario), el sistema corre Componente 1 real, y si recomienda derivar a imagen, un botón explícito pasa a la vista del especialista en imágenes (Componente 2 real, con la imagen de referencia generada). La primera carga puede tardar unos segundos mientras se importa el modelo de embeddings — no es un error, es esperado.
+Se abre en `http://localhost:8501`, con tres pasos: **Consulta Oncológica** (elegís un paciente del dataset o cargás uno nuevo con el formulario, y el sistema corre Componente 1 real), **Informe de Imágenes** (si corresponde derivar, un botón explícito lleva a esta vista, donde corre Componente 2 real con la imagen de referencia generada) y **Encuesta** (para dejar feedback, que se integra automáticamente al reporte de evaluación). La primera carga puede tardar unos segundos mientras se importa el modelo de embeddings — no es un error, es esperado.
+
+## Dataset
+
+La base de conocimiento y los casos clínicos son parte del dataset provisto para el trabajo (`data/dataset_clinical_only/dataset/`), un dataset sintético pero clínicamente coherente: no hay pacientes reales, pero los cuadros, biomarcadores y guías de imagen fueron armados para ser representativos de presentaciones oncológicas reales.
+
+| | Cantidad | Descripción |
+|---|---|---|
+| Entradas de ground truth | 30 | Neoplasias malignas (pulmón, colon, riñón, hígado, páncreas, tiroides, linfoma, etc.) y diferenciales no oncológicos (neumonía, colitis, pielonefritis, TBC) usados para descartar cáncer activamente |
+| Casos clínicos | 110 | Pacientes de prueba, cada uno con su `input.json` (datos del paciente) y su `expected_output.json` (diagnóstico correcto esperado) |
+| Verdaderos positivos | 30 | Casos que sí necesitan derivarse a imagen, con diagnóstico oncológico real |
+| Verdaderos negativos | 30 | Casos benignos o fisiológicos que no necesitan imagen |
+| Falsos positivos | 15 | Casos que parecen sospechosos pero no lo son |
+| Falsos negativos | 15 | Casos que sí necesitan imagen pero con presentación atípica |
+| Casos complejos | 20 | Historiales clínicos largos, disparan el resumen automático antes de razonar |
+
+Durante la evaluación, cada uno de los 110 casos se corre de punta a punta contra el sistema real, y el `expected_output.json` de cada caso es lo que usan las métricas para comparar contra lo que devolvió el sistema.
+
+## Resultados
+
+Última corrida completa de los 110 casos (`python scripts/run_evaluation.py`, reporte versionado en `evaluation/results/metrics_report.txt`):
+
+```
+--- Componente 1 (N=110) ---
+Accuracy de derivación:       72.7%
+Sensibilidad:                 94.9%
+Especificidad:                84.4%
+Precisión de GT match:        89.9% (sobre 89/110 casos aplicables)
+Calibración (prob. vs acierto): 0.47
+Tokens promedio por caso:     2186
+
+--- Componente 2 (N=78) ---
+Sensibilidad de hallazgos:    100.0%
+Especificidad de hallazgos:   100.0%
+Precisión de Segmentación (IoU proxy): 0.17
+Concordancia clínica:        sin datos suficientes
+
+--- Sistema Integrado ---
+Tasa de Imagen Innecesaria:   6.3%
+Tiempo con sistema (medido, C1 + C2 cuando corresponde): 5.88 seg/caso promedio
+Reducción estimada vs. referencia citada: ~98.2%
+
+Satisfacción del Especialista (2 respuestas): NPS 5.0/5, Coherencia del razonamiento 4.0/5,
+Completitud del informe 5.0/5, Precisión del informe 4.0/5, Claridad del informe 5.0/5
+```
+
+**Qué muestran estos números:**
+
+La sensibilidad (94.9%) y la especificidad (84.4%) de la decisión de derivar a imagen son sólidas — el sistema rara vez deja pasar un caso que sí necesitaba imagen, y tampoco deriva de más con demasiada frecuencia (la tasa de imagen innecesaria es apenas 6.3%). La precisión de GT match (89.9%) confirma que, cuando hay un diagnóstico correcto conocido, el retriever y el razonamiento identifican bien cuál es en 9 de cada 10 casos.
+
+La accuracy de derivación (72.7%) es más baja que la sensibilidad/especificidad porque exige un acierto exacto entre cuatro categorías posibles de recomendación, no solo el binario "necesita imagen sí o no" — es una vara más exigente, y conviene mirar los dos números juntos para tener el panorama completo.
+
+**Qué limitaciones tienen:** la sensibilidad/especificidad de hallazgos de Componente 2 (100%/100%) hay que leerla con cuidado — `classification` sale de una regla determinística aplicada al mismo diagnóstico que ya identificó Componente 1, así que este número está midiendo básicamente lo mismo que la precisión de GT match, no una capacidad independiente de Componente 2. La calibración (0.47) muestra que la confianza que reporta el modelo es un predictor moderado, no fuerte, de si acertó. El IoU de segmentación (0.17) es bajo, pero es esperable dado que es un proxy de superposición de palabras, no de píxeles reales (ver Limitaciones). Y la encuesta de especialistas todavía tiene solo 2 respuestas — las nuestras, probando la interfaz, no evaluaciones de especialistas externos — así que esas métricas son ilustrativas por ahora, no representativas.
+
+**Conclusión que sacamos de estos números:** el sistema es confiable en la parte que más importa clínicamente (no perder casos que necesitan imagen), y honesto en documentar dónde sus métricas son proxies o todavía no tienen suficiente evidencia detrás.
+
+## Limitaciones
+
+- **El dataset no tiene ninguna imagen real de paciente.** Es un dataset "solo clínico" — por eso tuvimos que adaptar por completo el diseño de Componente 2: en vez de comparar contra un estudio real (que no existe), genera una imagen ilustrativa con Prompt2MedImage y un informe de qué debería buscar el especialista, dejando siempre claro que es una referencia orientativa y no una medición real.
+- **La segmentación de Componente 2 es semántica, no algorítmica.** No hay máscaras de píxeles reales ni anotaciones para entrenarlas o validarlas — las regiones de interés las redacta un LLM a partir de las zonas descriptas en el ground truth, con tamaños y formas marcados explícitamente como referencia orientativa.
+- **Las métricas de Componente 2 son proxies honestos, no la medición literal ideal.** La precisión de segmentación es un IoU de texto (superposición de palabras), no de píxeles. La sensibilidad/especificidad de hallazgos, como se explica en Resultados, termina midiendo en gran parte lo mismo que la precisión de GT match de Componente 1.
+- **Tres de las métricas dependen de evaluación humana, no se pueden automatizar:** coherencia del razonamiento, calidad del informe, y satisfacción del especialista. Se recolectan desde la encuesta de la interfaz o con `scripts/collect_specialist_feedback.py`, y hoy solo tenemos nuestras propias respuestas de prueba — quedan pendientes de especialistas reales.
+- **La reducción de tiempo de triage se compara contra literatura, no contra un ensayo propio.** El tiempo "con sistema" se mide de verdad (cronometrado); el tiempo "sin sistema" cita un estudio publicado (Overhage & McCallie, *Annals of Internal Medicine*, 2020) sobre tiempo de revisión de historial clínico en general, no específico de oncología, y no es un experimento controlado con estos mismos pacientes.
+- **6 de los 110 casos no tienen un diagnóstico de referencia con el cual comparar** (casos benignos o fisiológicos, más un caso de sarcoma que la base de conocimiento no cubre). La precisión de GT match los excluye de su cálculo porque no hay ningún `gt_id` correcto contra el cual medir; el resto de las métricas sí los incluye.
+- **El free tier de Gemini tiene dos límites de cuota, no uno solo:** llamadas por día y, además, un límite de solicitudes por minuto que en la práctica es la restricción más dura para correr los 110 casos rápido.
+- **Este sistema no hace diagnóstico automático.** Es, de punta a punta, un sistema de apoyo a la decisión clínica: cada recomendación que produce está pensada para que un médico la revise, no para reemplazar su criterio.
+
+## Trabajo futuro
+
+- Incorporar imágenes reales de estudios de pacientes, si en algún momento se dispone de un dataset que las incluya, para poder validar Componente 2 contra mediciones reales en vez de proxies.
+- Explorar modelos de visión especializados en imagen médica (VLM) para el análisis de la imagen, en vez de depender de un LLM de propósito general.
+- Sumar segmentación automática real (a nivel de píxel) si se cuenta con imágenes anotadas para entrenarla o validarla.
+- Evaluar la integración del sistema con un PACS o HIS existente, para que la derivación a imagen se pueda disparar directamente desde el sistema hospitalario.
+- Ampliar la evaluación con especialistas reales, más allá de las respuestas de prueba que tenemos hoy, para que las métricas humanas sean representativas.
+
+## Conclusiones
+
+OncoBridge AI nos permitió aplicar, sobre un problema clínico concreto, varias de las ideas centrales de un sistema de IA generativa en producción: recuperación de información relevante en vez de fuerza bruta, decisiones críticas resueltas con fórmulas determinísticas en vez de dejarlas en manos del texto libre de un LLM, y una arquitectura pensada para poder auditar en todo momento qué información recibe el modelo y por qué.
+
+También nos obligó a lidiar con problemas bastante reales de trabajar con una API externa en producción: límites de cuota que cambian, modelos que se dejan de soportar de un día para el otro, y latencias que no siempre están bajo nuestro control. Documentar esas limitaciones con la misma honestidad que documentamos los resultados buenos nos parece parte central de lo que significa evaluar críticamente un sistema como este, más que perseguir un número perfecto en cada métrica.
