@@ -32,7 +32,7 @@ def collect_one_response() -> dict:
     print("\n=== Encuesta de evaluación por especialista — OncoBridge AI ===\n")
 
     nps_score = _ask_int(
-        "Del 0 al 10, ¿qué tan probable es que recomendarías este sistema a un colega?", 0, 10
+        "Del 1 al 5, ¿qué tan probable es que recomendarías este sistema a un colega?", 1, 5
     )
     coherencia_razonamiento = _ask_int(
         "Coherencia del razonamiento clínico del Componente 1 (1=malo, 5=excelente)", 1, 5

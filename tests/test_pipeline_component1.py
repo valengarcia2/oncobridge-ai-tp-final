@@ -40,7 +40,7 @@ def test_pipeline_positive_case_end_to_end(gt_and_retriever):
     assert output.conclusive is True
     assert len(output.matched_ground_truths) > 0
     assert output.token_usage.total_tokens > 0
-    assert output.token_usage.retrieved_gt_entries == config.RETRIEVER_TOP_K
+    assert 0 < output.token_usage.retrieved_gt_entries <= config.RETRIEVER_TOP_K
 
     top_hypothesis = output.matched_ground_truths[0]
     assert top_hypothesis.radiologist_instructions.meddiffusion_reference_prompt != ""

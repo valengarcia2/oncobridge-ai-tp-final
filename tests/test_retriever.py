@@ -42,3 +42,23 @@ def test_correct_gt_is_in_top_k(retriever, case_id):
         f"{case_id}: se esperaba alguno de {correct_ids} en el top-5, "
         f"se recuperó {retrieved_ids}"
     )
+
+
+def test_min_score_filters_out_low_score_candidates(retriever):
+    """
+    Sin min_score (default 0.0) siempre se devuelven top_k candidatos,
+    aunque no matcheen bien. Con un min_score muy alto, ninguno lo supera
+    -- confirma que el filtro efectivamente se aplica antes del top_k.
+    """
+    patient = PatientInput.model_validate(
+        json.loads((config.CLINICAL_CASES_DIR / "case_001" / "input.json").read_text(encoding="utf-8"))
+    )
+
+    unfiltered = retriever.retrieve(patient, top_k=5)
+    assert len(unfiltered) == 5
+
+    filtered = retriever.retrieve(patient, top_k=5, min_score=0.99)
+    assert len(filtered) == 0
+
+    for _gt_id, score in retriever.retrieve(patient, top_k=5, min_score=config.RETRIEVER_MIN_SCORE):
+        assert score >= config.RETRIEVER_MIN_SCORE

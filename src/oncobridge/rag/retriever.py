@@ -45,10 +45,20 @@ class HybridRetriever:
             labs_summary=labs_summary,
         )
 
-    def retrieve(self, patient: PatientInput, top_k: int = 5) -> list[tuple[str, float]]:
+    def retrieve(
+        self, patient: PatientInput, top_k: int = 5, min_score: float = 0.0
+    ) -> list[tuple[str, float]]:
         """
         Devuelve una lista de (gt_id, score_combinado) ordenada de mayor a
         menor, con como máximo top_k elementos.
+
+        min_score descarta candidatos por debajo de ese score combinado
+        ANTES de tomar el top_k -- por default 0.0 (sin filtro, se
+        devuelven siempre top_k, el comportamiento histórico). El pipeline
+        real le pasa config.RETRIEVER_MIN_SCORE: sin este filtro, un
+        paciente sin ningún candidato realmente parecido igual recibía
+        top_k candidatos irrelevantes rellenando la lista -- más tokens y
+        tiempo en el prompt del LLM sin aportar señal real.
         """
         if self._bm25 is None:
             raise RuntimeError("Llamar a build() antes de retrieve()")
@@ -68,4 +78,5 @@ class HybridRetriever:
         }
 
         ranked = sorted(combined.items(), key=lambda item: item[1], reverse=True)
+        ranked = [(gt_id, score) for gt_id, score in ranked if score >= min_score]
         return ranked[:top_k]

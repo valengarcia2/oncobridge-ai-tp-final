@@ -83,7 +83,9 @@ def run_component1(
         patient.medical_history, llm_client=client
     )
 
-    top_candidates = retriever.retrieve(patient, top_k=config.RETRIEVER_TOP_K)
+    top_candidates = retriever.retrieve(
+        patient, top_k=config.RETRIEVER_TOP_K, min_score=config.RETRIEVER_MIN_SCORE
+    )
     compressed_candidates = [
         compress_for_reasoning(entries_by_id[gt_id]) for gt_id, _score in top_candidates
     ]

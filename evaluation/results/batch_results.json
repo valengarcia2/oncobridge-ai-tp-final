@@ -2,14 +2,14 @@
   "case_001": {
     "c1_output": {
       "patient_id": "PAT-00101",
-      "clinical_summary": "Paciente masculino de 63 años con antecedentes de hipertensión arterial y tabaquismo (30 paquetes-año), y antecedente familiar de carcinoma renal (padre a los 68 años). Presenta hematuria macroscópica intermitente de 3 semanas de evolución, dolor lumbar izquierdo persistente y una masa palpable en flanco izquierdo. Los análisis de laboratorio muestran hematuria macroscópica en sedimento urinario, hemoglobina de 10.8 g/dL (anemia leve) y LDH elevada (320 U/L).",
+      "clinical_summary": "Paciente masculino de 63 años con antecedentes de tabaquismo (30 paquetes-año), hipertensión arterial y antecedente familiar de carcinoma renal (padre). Presenta la tríada clásica de hematuria macroscópica intermitente de 3 semanas, dolor lumbar izquierdo persistente y masa palpable en flanco izquierdo. Los laboratorios muestran anemia leve (hemoglobina 10.8 g/dL), LDH elevada (320 U/L) y creatinina de 1.3 mg/dL.",
       "matched_ground_truths": [
         {
           "gt_id": "GT-RENAL-001",
           "icd_10": "C64.9",
           "icd_10_description": "Neoplasia maligna del rinon (carcinoma de celulas renales)",
-          "match_probability": 0.98,
-          "match_rationale": "El paciente presenta la tríada clásica de hematuria macroscópica intermitente, dolor lumbar izquierdo persistente y masa palpable en flanco izquierdo, hallazgos altamente sugestivos de carcinoma de células renales. Esto se refuerza con biomarcadores como LDH elevada (320 U/L) y anemia (hemoglobina 10.8 g/dL), y factores de riesgo significativos como tabaquismo (30 paquetes-año), hipertensión arterial y antecedente familiar de carcinoma renal en el padre. La edad del paciente (63 años) también es un factor de riesgo.",
+          "match_probability": 0.95,
+          "match_rationale": "El paciente presenta la tríada clásica completa (hematuria macroscópica, dolor lumbar y masa palpable en flanco), junto con factores de riesgo mayores (tabaquismo, hipertensión, edad, antecedente familiar de carcinoma renal) y alteraciones de laboratorio compatibles (anemia y LDH elevada).",
           "radiologist_instructions": {
             "suggested_modalities": [
               "abdominal_CT",
@@ -27,18 +27,46 @@
               ],
               "positioning_notes": "TC multifasico con contraste EV. Fase nefrografica para caracterizar el realce. Evaluar extension a vena renal y cava inferior. Reconstruccion coronal."
             },
-            "clinical_context_for_radiologist": "El paciente presenta la tríada clásica de hematuria macroscópica intermitente, dolor lumbar izquierdo persistente y masa palpable en flanco izquierdo, hallazgos altamente sugestivos de carcinoma de células renales. Esto se refuerza con biomarcadores como LDH elevada (320 U/L) y anemia (hemoglobina 10.8 g/dL), y factores de riesgo significativos como tabaquismo (30 paquetes-año), hipertensión arterial y antecedente familiar de carcinoma renal en el padre. La edad del paciente (63 años) también es un factor de riesgo.",
+            "clinical_context_for_radiologist": "El paciente presenta la tríada clásica completa (hematuria macroscópica, dolor lumbar y masa palpable en flanco), junto con factores de riesgo mayores (tabaquismo, hipertensión, edad, antecedente familiar de carcinoma renal) y alteraciones de laboratorio compatibles (anemia y LDH elevada).",
             "meddiffusion_reference_prompt": "Contrast-enhanced abdominal CT, axial view, heterogeneous enhancing solid mass in right kidney, irregular margins, renal vein tumor thrombus, retroperitoneal lymph nodes, high suspicion renal cell carcinoma, clinical medical imaging",
             "meddiffusion_negative_prompt": "simple cyst, homogeneous non-enhancing lesion, fat-containing angiomyolipoma, normal kidney",
             "reference_images_note": "Imágenes de referencia MedDiffusion para GT-RENAL-001. Usar como orientación visual, no como diagnóstico."
           }
         },
         {
+          "gt_id": "GT-ANGIOMIOLIPOMA-001",
+          "icd_10": "D30.0",
+          "icd_10_description": "Neoplasia benigna del rinon (angiomiolipoma)",
+          "match_probability": 0.2,
+          "match_rationale": "Aunque es una neoplasia benigna que típicamente es asintomática, un angiomiolipoma de gran tamaño puede presentarse con masa palpable y dolor por sangrado, aunque no suele explicar la hematuria macroscópica persistente ni la anemia/LDH elevada de forma típica sin un evento agudo de ruptura.",
+          "radiologist_instructions": {
+            "suggested_modalities": [
+              "abdominal_CT",
+              "abdominal_MRI"
+            ],
+            "imaging_location": {
+              "body_region": "abdomen, rinon",
+              "anatomical_landmarks": "corteza renal, grasa del componente lesional",
+              "bilateral_comparison_required": false,
+              "priority_zones": [
+                "lesion renal con densidad grasa macroscopica",
+                "homogeneidad y bordes",
+                "ausencia de trombo venoso"
+              ],
+              "positioning_notes": "TC de abdomen sin contraste para medir densidad grasa (< -10 UH). RM con supresion grasa confirma el componente adiposo."
+            },
+            "clinical_context_for_radiologist": "Aunque es una neoplasia benigna que típicamente es asintomática, un angiomiolipoma de gran tamaño puede presentarse con masa palpable y dolor por sangrado, aunque no suele explicar la hematuria macroscópica persistente ni la anemia/LDH elevada de forma típica sin un evento agudo de ruptura.",
+            "meddiffusion_reference_prompt": "Non-contrast abdominal CT, axial view, well-circumscribed renal lesion with macroscopic fat density, homogeneous, benign angiomyolipoma appearance, clinical medical imaging",
+            "meddiffusion_negative_prompt": "heterogeneous solid enhancing mass, irregular margins, venous thrombus, malignant",
+            "reference_images_note": "Imágenes de referencia MedDiffusion para GT-ANGIOMIOLIPOMA-001. Usar como orientación visual, no como diagnóstico."
+          }
+        },
+        {
           "gt_id": "GT-ADRENAL-001",
           "icd_10": "C74.0",
           "icd_10_description": "Neoplasia maligna de la corteza suprarrenal (carcinoma adrenocortical)",
-          "match_probability": 0.2,
-          "match_rationale": "Aunque el paciente presenta una masa palpable en flanco y LDH elevada, el síntoma principal es hematuria macroscópica, que no es un hallazgo típico de carcinoma adrenocortical. No hay evidencia de signos de hipercortisolismo o virilización, ni de hipertensión de reciente aparición, que son esperados en esta condición.",
+          "match_probability": 0.15,
+          "match_rationale": "Podría explicar la masa palpable en flanco, el dolor y la LDH elevada, pero no justifica la hematuria macroscópica, la cual orienta fuertemente a compromiso del parénquima renal o vía urinaria.",
           "radiologist_instructions": {
             "suggested_modalities": [
               "abdominal_CT",
@@ -56,100 +84,90 @@
               ],
               "positioning_notes": "TC de abdomen con contraste. Evaluar tamano, heterogeneidad, necrosis y lavado. Descartar invasion vascular y metastasis."
             },
-            "clinical_context_for_radiologist": "Aunque el paciente presenta una masa palpable en flanco y LDH elevada, el síntoma principal es hematuria macroscópica, que no es un hallazgo típico de carcinoma adrenocortical. No hay evidencia de signos de hipercortisolismo o virilización, ni de hipertensión de reciente aparición, que son esperados en esta condición.",
+            "clinical_context_for_radiologist": "Podría explicar la masa palpable en flanco, el dolor y la LDH elevada, pero no justifica la hematuria macroscópica, la cual orienta fuertemente a compromiso del parénquima renal o vía urinaria.",
             "meddiffusion_reference_prompt": "Contrast-enhanced abdominal CT, axial view, large heterogeneous adrenal mass with necrosis, irregular enhancement, caval invasion, adrenocortical carcinoma, clinical medical imaging",
             "meddiffusion_negative_prompt": "small homogeneous low-attenuation adenoma, rapid washout, benign",
             "reference_images_note": "Imágenes de referencia MedDiffusion para GT-ADRENAL-001. Usar como orientación visual, no como diagnóstico."
           }
         }
       ],
-      "imaging_needed_probability": 0.98,
-      "reasoning": "El paciente presenta la tríada clásica de síntomas (hematuria, dolor en flanco y masa palpable) altamente sugestiva de carcinoma de células renales. Estos hallazgos clínicos se ven reforzados por la presencia de factores de riesgo significativos como la edad (>50 años), tabaquismo, hipertensión arterial y un fuerte antecedente familiar de carcinoma renal. Los biomarcadores (LDH elevada, anemia) también son consistentes con una neoplasia maligna renal. Las otras hipótesis candidatas son menos probables debido a la inconsistencia con los síntomas cardinales del paciente (ej. hematuria en lugar de diarrea sanguinolenta para colitis, o síntomas de masa palpable y LDH elevada que contradicen una masa pequeña asintomática o un angiomiolipoma benigno).",
+      "imaging_needed_probability": 0.95,
+      "reasoning": "El cuadro clínico del paciente es altamente sugestivo de un carcinoma de células renales (GT-RENAL-001), ya que presenta la tríada clásica completa (hematuria, dolor en flanco y masa palpable), la cual se observa en estadios avanzados. Adicionalmente, cuenta con factores de riesgo clave como edad > 50 años, tabaquismo pesado, hipertensión y un antecedente familiar de primer grado de carcinoma renal. Los laboratorios respaldan esta sospecha con anemia y LDH elevada. Se descarta GT-RENAL-002 debido a que el paciente es sintomático con masa palpable y laboratorios alterados. GT-ANGIOMIOLIPOMA-001 es improbable como causa primaria debido a la presentación clínica tan agresiva y los laboratorios alterados, aunque no se puede excluir por completo sin imágenes. GT-ADRENAL-001 es menos probable por la presencia de hematuria macroscópica franca, que apunta directamente a la vía urinaria/parénquima renal. GT-COLITIS-001 se descarta por la ausencia de síntomas gastrointestinales.",
       "recommendation": "DERIVAR_A_IMAGEN",
       "urgency": "alta",
       "conclusive": true,
       "token_usage": {
         "prompt_tokens": 2254,
-        "completion_tokens": 634,
-        "total_tokens": 5422,
-        "model": "gemini-2.5-flash",
+        "completion_tokens": 726,
+        "total_tokens": 2980,
+        "model": "gemini-flash-latest",
         "retrieved_gt_entries": 5,
         "gt_entries_in_context": 5
       }
     },
-    "c1_elapsed_seconds": 16.156569399870932,
+    "c1_elapsed_seconds": 5.4100413005799055,
     "c2_output": {
       "patient_id": "PAT-00101",
       "segmentation": {
         "regions_of_interest": [
           {
-            "id": "Masa renal sólida",
-            "location": "Riñón derecho (corteza y seno renal)",
-            "size_mm": 50.0,
-            "shape": "Irregular",
-            "margins": "Irregulares",
-            "density": "Heterogénea, con realce post-contraste y patrón de lavado"
+            "id": "ROI_01",
+            "location": "Corteza y seno del rinon derecho",
+            "size_mm": 75.0,
+            "shape": "Lobulada e irregular",
+            "margins": "Irregulares y pobremente definidos",
+            "density": "Heterogenea con realce tras contraste y lavado (washout) sugerente de carcinoma de celulas claras"
           },
           {
-            "id": "Trombo tumoral",
-            "location": "Vena renal derecha y/o vena cava inferior",
-            "size_mm": 20.0,
-            "shape": "Elongado",
+            "id": "ROI_02",
+            "location": "Vena renal derecha",
+            "size_mm": 18.0,
+            "shape": "Tubular expandida",
             "margins": "Irregulares",
-            "density": "Tejido blando, con realce"
+            "density": "Defecto de llenado compatible con trombo tumoral"
           },
           {
-            "id": "Adenopatías retroperitoneales",
-            "location": "Retroperitoneo",
+            "id": "ROI_03",
+            "location": "Ganglios retroperitoneales",
             "size_mm": 15.0,
-            "shape": "Ovoide",
-            "margins": "Lisos",
-            "density": "Tejido blando"
-          },
-          {
-            "id": "Glándula suprarrenal derecha",
-            "location": "Glándula suprarrenal ipsilateral",
-            "size_mm": 10.0,
-            "shape": "Variable, nodular si hay compromiso",
-            "margins": "Variable",
-            "density": "Tejido blando"
+            "shape": "Redondeada",
+            "margins": "Definidos",
+            "density": "Tejido blando, compatible con adenopatias metastasicas"
           }
         ]
       },
-      "findings": "Se espera identificar una masa renal sólida heterogénea con realce tras contraste, mostrando un patrón de lavado característico del carcinoma de células claras, y bordes irregulares. Es crucial evaluar la posible presencia de un trombo tumoral en la vena renal derecha y/o la vena cava inferior. En el contexto de enfermedad avanzada, se anticipa la presencia de adenopatías retroperitoneales y se debe descartar el compromiso de la glándula suprarrenal ipsilateral. (Nota: Los tamaños, formas y márgenes son referencias orientativas basadas en la presentación típica de estos hallazgos, no mediciones reales).",
+      "findings": "Se espera observar una masa renal solida y heterogenea localizada en la corteza y el seno del rinon derecho, caracterizada por un realce avido tras la administracion de contraste y posterior lavado (washout), tipico del carcinoma de celulas claras. Los margenes de la lesion se presentan irregulares. Se debe evaluar la extension local, prestando especial atencion a la presencia de un defecto de llenado en la vena renal derecha y la vena cava inferior, compatible con trombo tumoral. Asimismo, se anticipa la identificacion de adenopatias retroperitoneales sospechosas y posible afectacion de la glandula suprarrenal ipsilateral.",
       "classification": "sospechoso",
-      "confidence": 0.98,
-      "final_recommendation": "Evaluación de una neoplasia maligna renal (carcinoma de células renales) con foco en la extensión local y a distancia.",
+      "confidence": 0.95,
+      "final_recommendation": "Correlacionar los hallazgos tomograficos o de resonancia magnetica con el estadio TNM de la neoplasia renal y evaluar de forma prioritaria la extension del trombo venoso para la planificacion quirurgica.",
       "next_steps": [
-        "Caracterización detallada de la masa renal, incluyendo tamaño, localización, patrón de realce y relación con estructuras adyacentes.",
-        "Evaluación exhaustiva de la vena renal derecha y la vena cava inferior para detectar la presencia y extensión de un trombo tumoral.",
-        "Búsqueda y caracterización de adenopatías retroperitoneales.",
-        "Análisis de la glándula suprarrenal ipsilateral para descartar compromiso metastásico.",
-        "Estadificación completa de la enfermedad según los hallazgos imagenológicos."
+        "Tomografia computarizada (TC) de torax, abdomen y pelvis con protocolo renal multifasico",
+        "Resonancia magnetica (RM) abdominal en caso de dudas sobre la extension del trombo en la vena cava inferior",
+        "Evaluacion urgente por el servicio de Urologia y Oncologia"
       ],
       "token_usage": {
-        "prompt_tokens": 452,
-        "completion_tokens": 651,
-        "total_tokens": 3048,
-        "model": "gemini-2.5-flash",
+        "prompt_tokens": 386,
+        "completion_tokens": 577,
+        "total_tokens": 1441,
+        "model": "gemini-flash-latest",
         "retrieved_gt_entries": null,
         "gt_entries_in_context": null
       }
     },
-    "c2_elapsed_seconds": 12.056783099658787,
+    "c2_elapsed_seconds": 37.82213400024921,
     "error": null
   },
   "case_002": {
     "c1_output": {
       "patient_id": "PAT-00102",
-      "clinical_summary": "Paciente masculino de 59 años con hematuria macroscópica de 2 semanas, dolor persistente en flanco derecho, fatiga y pérdida de peso de 4 kg. Presenta anemia leve (Hb 11.2) y LDH elevada (290). Una ecografía abdominal reciente reveló una masa sólida de 5 cm en el riñón derecho.",
+      "clinical_summary": "Paciente masculino de 59 años que presenta hematuria macroscópica de 2 semanas de evolución, dolor persistente en el flanco derecho, fatiga y pérdida de peso de 4 kg. Los laboratorios muestran anemia leve (hemoglobina 11.2 g/dL) y elevación de LDH (290 U/L). Cuenta con un antecedente ecográfico de septiembre de 2024 que reporta una masa sólida en el riñón derecho de 5 cm, cuya caracterización por TC aún no ha sido concretada.",
       "matched_ground_truths": [
         {
           "gt_id": "GT-RENAL-001",
           "icd_10": "C64.9",
           "icd_10_description": "Neoplasia maligna del rinon (carcinoma de celulas renales)",
           "match_probability": 0.95,
-          "match_rationale": "El paciente presenta hematuria macroscópica, dolor en flanco derecho persistente, fatiga y pérdida de peso, todos síntomas típicos. Los hallazgos de una masa sólida de 5 cm en el riñón derecho y la edad del paciente (59 años) son consistentes. Además, los biomarcadores LDH elevada y hemoglobina anormal (anemia) refuerzan el diagnóstico de neoplasia maligna del riñón.",
+          "match_rationale": "El paciente presenta la constelación sintomática típica de un carcinoma de células renales avanzado: hematuria macroscópica, dolor en flanco, fatiga y pérdida de peso, junto con una masa renal derecha de 5 cm documentada por ecografía. Los hallazgos de laboratorio (anemia leve y LDH elevada) actúan como biomarcadores de soporte consistentes con esta hipótesis.",
           "radiologist_instructions": {
             "suggested_modalities": [
               "abdominal_CT",
@@ -167,7 +185,7 @@
               ],
               "positioning_notes": "TC multifasico con contraste EV. Fase nefrografica para caracterizar el realce. Evaluar extension a vena renal y cava inferior. Reconstruccion coronal."
             },
-            "clinical_context_for_radiologist": "El paciente presenta hematuria macroscópica, dolor en flanco derecho persistente, fatiga y pérdida de peso, todos síntomas típicos. Los hallazgos de una masa sólida de 5 cm en el riñón derecho y la edad del paciente (59 años) son consistentes. Además, los biomarcadores LDH elevada y hemoglobina anormal (anemia) refuerzan el diagnóstico de neoplasia maligna del riñón.",
+            "clinical_context_for_radiologist": "El paciente presenta la constelación sintomática típica de un carcinoma de células renales avanzado: hematuria macroscópica, dolor en flanco, fatiga y pérdida de peso, junto con una masa renal derecha de 5 cm documentada por ecografía. Los hallazgos de laboratorio (anemia leve y LDH elevada) actúan como biomarcadores de soporte consistentes con esta hipótesis.",
             "meddiffusion_reference_prompt": "Contrast-enhanced abdominal CT, axial view, heterogeneous enhancing solid mass in right kidney, irregular margins, renal vein tumor thrombus, retroperitoneal lymph nodes, high suspicion renal cell carcinoma, clinical medical imaging",
             "meddiffusion_negative_prompt": "simple cyst, homogeneous non-enhancing lesion, fat-containing angiomyolipoma, normal kidney",
             "reference_images_note": "Imágenes de referencia MedDiffusion para GT-RENAL-001. Usar como orientación visual, no como diagnóstico."
@@ -175,90 +193,82 @@
         }
       ],
       "imaging_needed_probability": 0.95,
-      "reasoning": "El cuadro clínico del paciente, incluyendo hematuria macroscópica, dolor en flanco derecho, fatiga, pérdida de peso, anemia y LDH elevada, junto con el hallazgo de una masa renal sólida de 5 cm, es altamente consistente con una neoplasia maligna del riñón (carcinoma de células renales). Los factores de riesgo (edad > 50 años) también apoyan esta hipótesis. Las otras candidatas oncológicas (colangiocarcinoma, mesotelioma, adenocarcinoma de pulmón) no presentan ninguna correlación con los síntomas o hallazgos del paciente. La hipótesis de 'Masa renal sólida pequeña (carcinoma renal temprano, hallazgo incidental)' se descarta debido a la presencia de múltiples síntomas, la hematuria macroscópica, la LDH elevada y el tamaño de la masa (5 cm), que no se ajustan a un hallazgo incidental asintomático o una lesión pequeña.",
+      "reasoning": "El cuadro clínico del paciente es altamente sugestivo de una neoplasia renal maligna avanzada o sintomática. Presenta la tríada clásica (dolor en flanco, hematuria macroscópica y masa renal previamente documentada por ecografía, sumado a pérdida de peso y fatiga). Esto coincide plenamente con el perfil de GT-RENAL-001 (carcinoma de células renales), respaldado por la anemia y la elevación de LDH. Se descarta GT-RENAL-002 debido a que el paciente es francamente sintomático y presenta una masa de 5 cm (no pequeña ni incidental). No hay elementos clínicos ni de laboratorio que sugieran patología biliar (GT-COLANGIO-001) o pulmonar/pleural (GT-PULM-001, GT-PULM-004).",
       "recommendation": "DERIVAR_A_IMAGEN",
       "urgency": "alta",
       "conclusive": true,
       "token_usage": {
         "prompt_tokens": 2397,
-        "completion_tokens": 468,
-        "total_tokens": 5574,
-        "model": "gemini-2.5-flash",
+        "completion_tokens": 494,
+        "total_tokens": 2891,
+        "model": "gemini-flash-latest",
         "retrieved_gt_entries": 5,
         "gt_entries_in_context": 5
       }
     },
-    "c1_elapsed_seconds": 14.438831199891865,
+    "c1_elapsed_seconds": 12.544608999975026,
     "c2_output": {
       "patient_id": "PAT-00102",
       "segmentation": {
         "regions_of_interest": [
           {
-            "id": "Masa renal sólida",
-            "location": "Riñón derecho (corteza)",
+            "id": "ROI_01",
+            "location": "Corteza y seno del rinon derecho",
             "size_mm": 50.0,
-            "shape": "Irregular",
-            "margins": "Irregulares",
-            "density": "Heterogénea con realce tras contraste y lavado"
+            "shape": "Lobulada e irregular",
+            "margins": "Irregulares e infiltrativos",
+            "density": "Heterogenea con areas de necrosis"
           },
           {
-            "id": "Trombo tumoral",
-            "location": "Vena renal derecha y/o Vena Cava Inferior",
-            "size_mm": 20.0,
-            "shape": "Alargada (orientativo)",
-            "margins": "Definidos",
-            "density": "Realce similar al tumor primario"
-          },
-          {
-            "id": "Adenopatías retroperitoneales",
-            "location": "Retroperitoneo",
+            "id": "ROI_02",
+            "location": "Vena renal derecha",
             "size_mm": 15.0,
-            "shape": "Ovoide (orientativo)",
-            "margins": "Definidos",
-            "density": "Homogénea con realce"
+            "shape": "Tubular (defecto de llenado)",
+            "margins": "Mal definidos",
+            "density": "Hipodensa (compatible con trombo tumoral)"
           },
           {
-            "id": "Glándula suprarrenal derecha",
-            "location": "Suprarrenal derecha",
-            "size_mm": 30.0,
-            "shape": "Variable (orientativo)",
+            "id": "ROI_03",
+            "location": "Espacio retroperitoneal (ganglios interaortocaval)",
+            "size_mm": 12.0,
+            "shape": "Redondeada",
             "margins": "Definidos",
-            "density": "Homogénea, salvo en caso de afectación"
+            "density": "Tejido blando"
           }
         ]
       },
-      "findings": "Se espera identificar una masa renal sólida heterogénea en el riñón derecho, con bordes irregulares y un patrón de realce tras la administración de contraste que muestre lavado, característico del carcinoma de células claras. Es fundamental evaluar la presencia de un posible trombo tumoral en la vena renal derecha y/o la vena cava inferior. Adicionalmente, se debe buscar la presencia de adenopatías retroperitoneales, indicativas de enfermedad avanzada, y evaluar la glándula suprarrenal ipsilateral en busca de signos de afectación.",
+      "findings": "Se espera observar una masa renal solida y heterogenea de aproximadamente 50 mm en el rinon derecho, con realce tras la administracion de contraste y posterior lavado (washout), caracteristico del carcinoma de celulas claras. Los margenes de la lesion se proyectan irregulares. Se debe evaluar la presencia de un defecto de llenado en la vena renal derecha compatible con trombo tumoral, asi como la existencia de adenopatias retroperitoneales (ganglios aumentados de tamano) y posible compromiso de la glandula suprarrenal ipsilateral.",
       "classification": "sospechoso",
       "confidence": 0.95,
-      "final_recommendation": "Confirmar los hallazgos descritos para la neoplasia maligna del riñón (carcinoma de células renales) y determinar la extensión local y a distancia de la enfermedad para una correcta estadificación.",
+      "final_recommendation": "Realizar Tomografia Computarizada (TC) de abdomen y pelvis con protocolo renal multifasico (o Resonancia Magnetica si existe contraindicacion para el contraste yodado) para caracterizacion precisa de la masa, evaluacion de la extension vascular del trombo y estadificacion TNM.",
       "next_steps": [
-        "Considerar biopsia de la masa renal para confirmación histopatológica.",
-        "Realizar estudios de estadificación adicionales (ej. tomografía de tórax) para descartar enfermedad metastásica a distancia.",
-        "Discutir el caso en un comité multidisciplinario para definir el plan terapéutico."
+        "Tomografia Computarizada de torax para descartar metastasis pulmonares.",
+        "Evaluacion urgente por el servicio de Urologia y Oncologia.",
+        "Valoracion de nefrectomia radical con trombectomia segun extension vascular."
       ],
       "token_usage": {
-        "prompt_tokens": 417,
-        "completion_tokens": 602,
-        "total_tokens": 2256,
-        "model": "gemini-2.5-flash",
+        "prompt_tokens": 409,
+        "completion_tokens": 537,
+        "total_tokens": 1524,
+        "model": "gemini-flash-latest",
         "retrieved_gt_entries": null,
         "gt_entries_in_context": null
       }
     },
-    "c2_elapsed_seconds": 8.727998199872673,
+    "c2_elapsed_seconds": 20.10496009979397,
     "error": null
   },
   "case_003": {
     "c1_output": {
       "patient_id": "PAT-00103",
-      "clinical_summary": "Paciente masculino de 68 años con antecedentes de tabaquismo activo e hipertensión arterial de larga data, y antecedente familiar de carcinoma renal. Presenta un cuadro clínico de masa palpable de gran tamaño en flanco izquierdo, hematuria macroscópica con coágulos, pérdida de peso de 6 kg y dolor lumbar persistente. Los análisis de laboratorio muestran anemia (Hb 10.1), LDH elevada (480), hipercalcemia (Ca 11.6) y creatinina elevada (1.5).",
+      "clinical_summary": "Paciente masculino de 68 años con antecedentes familiares de carcinoma renal (hermano), tabaquismo activo e hipertensión arterial no controlada. Presenta una masa palpable de gran tamaño en el flanco izquierdo, hematuria macroscópica con coágulos, pérdida de peso de 6 kg y dolor lumbar persistente. Los laboratorios revelan anemia (hemoglobina 10.1 g/dL), LDH elevada (480 U/L), hipercalcemia (calcio 11.6 mg/dL) y alteración de la función renal (creatinina 1.5 mg/dL).",
       "matched_ground_truths": [
         {
           "gt_id": "GT-RENAL-001",
           "icd_10": "C64.9",
           "icd_10_description": "Neoplasia maligna del rinon (carcinoma de celulas renales)",
           "match_probability": 0.98,
-          "match_rationale": "El paciente presenta todos los síntomas típicos (masa palpable en flanco, hematuria macroscópica con coágulos, pérdida de peso, dolor lumbar persistente) y biomarcadores esperados (LDH elevada, hipercalcemia paraneoplásica, anemia). Además, cuenta con múltiples factores de riesgo (edad > 50 años, tabaquismo, hipertensión arterial, antecedente familiar de carcinoma renal). La presentación clínica es altamente sugestiva de carcinoma de células renales avanzado.",
+          "match_rationale": "El paciente cumple de manera casi perfecta con todos los criterios del candidato: presenta la tríada clínica completa (masa palpable, hematuria macroscópica y dolor lumbar), pérdida de peso, factores de riesgo mayores (edad, tabaquismo, HTA, antecedente familiar de primer grado) y alteraciones de laboratorio características como anemia, LDH elevada e hipercalcemia paraneoplásica.",
           "radiologist_instructions": {
             "suggested_modalities": [
               "abdominal_CT",
@@ -276,90 +286,147 @@
               ],
               "positioning_notes": "TC multifasico con contraste EV. Fase nefrografica para caracterizar el realce. Evaluar extension a vena renal y cava inferior. Reconstruccion coronal."
             },
-            "clinical_context_for_radiologist": "El paciente presenta todos los síntomas típicos (masa palpable en flanco, hematuria macroscópica con coágulos, pérdida de peso, dolor lumbar persistente) y biomarcadores esperados (LDH elevada, hipercalcemia paraneoplásica, anemia). Además, cuenta con múltiples factores de riesgo (edad > 50 años, tabaquismo, hipertensión arterial, antecedente familiar de carcinoma renal). La presentación clínica es altamente sugestiva de carcinoma de células renales avanzado.",
+            "clinical_context_for_radiologist": "El paciente cumple de manera casi perfecta con todos los criterios del candidato: presenta la tríada clínica completa (masa palpable, hematuria macroscópica y dolor lumbar), pérdida de peso, factores de riesgo mayores (edad, tabaquismo, HTA, antecedente familiar de primer grado) y alteraciones de laboratorio características como anemia, LDH elevada e hipercalcemia paraneoplásica.",
             "meddiffusion_reference_prompt": "Contrast-enhanced abdominal CT, axial view, heterogeneous enhancing solid mass in right kidney, irregular margins, renal vein tumor thrombus, retroperitoneal lymph nodes, high suspicion renal cell carcinoma, clinical medical imaging",
             "meddiffusion_negative_prompt": "simple cyst, homogeneous non-enhancing lesion, fat-containing angiomyolipoma, normal kidney",
             "reference_images_note": "Imágenes de referencia MedDiffusion para GT-RENAL-001. Usar como orientación visual, no como diagnóstico."
           }
+        },
+        {
+          "gt_id": "GT-RENAL-002",
+          "icd_10": "C64.9",
+          "icd_10_description": "Masa renal solida pequena (carcinoma renal temprano, hallazgo incidental)",
+          "match_probability": 0.1,
+          "match_rationale": "Aunque comparte la etiología de carcinoma renal, este candidato describe una masa pequeña, asintomática e incidental, lo cual contradice directamente la presentación clínica de gran tamaño, sintomática y con repercusión sistémica del paciente.",
+          "radiologist_instructions": {
+            "suggested_modalities": [
+              "abdominal_CT",
+              "abdominal_MRI"
+            ],
+            "imaging_location": {
+              "body_region": "abdomen con foco en rinon",
+              "anatomical_landmarks": "corteza renal, seno renal, grasa perirrenal",
+              "bilateral_comparison_required": false,
+              "priority_zones": [
+                "nodulo renal solido pequeno",
+                "patron y grado de realce",
+                "bordes y homogeneidad"
+              ],
+              "positioning_notes": "TC multifasico. Comparar con estudios previos para evaluar crecimiento. Caracterizar realce en fase nefrografica."
+            },
+            "clinical_context_for_radiologist": "Aunque comparte la etiología de carcinoma renal, este candidato describe una masa pequeña, asintomática e incidental, lo cual contradice directamente la presentación clínica de gran tamaño, sintomática y con repercusión sistémica del paciente.",
+            "meddiffusion_reference_prompt": "Contrast-enhanced abdominal CT, axial view, small subtle solid renal nodule under 3 cm, mild enhancement, well-defined margins, low conspicuity early renal cell carcinoma, clinical medical imaging",
+            "meddiffusion_negative_prompt": "large mass, venous thrombus, macroscopic fat, simple cyst, normal kidney",
+            "reference_images_note": "Imágenes de referencia MedDiffusion para GT-RENAL-002. Usar como orientación visual, no como diagnóstico."
+          }
+        },
+        {
+          "gt_id": "GT-ANGIOMIOLIPOMA-001",
+          "icd_10": "D30.0",
+          "icd_10_description": "Neoplasia benigna del rinon (angiomiolipoma)",
+          "match_probability": 0.05,
+          "match_rationale": "Es una neoplasia benigna típicamente asintomática. Aunque puede causar dolor si sangra, no explica la pérdida de peso significativa, la hipercalcemia, la anemia ni la LDH elevada.",
+          "radiologist_instructions": {
+            "suggested_modalities": [
+              "abdominal_CT",
+              "abdominal_MRI"
+            ],
+            "imaging_location": {
+              "body_region": "abdomen, rinon",
+              "anatomical_landmarks": "corteza renal, grasa del componente lesional",
+              "bilateral_comparison_required": false,
+              "priority_zones": [
+                "lesion renal con densidad grasa macroscopica",
+                "homogeneidad y bordes",
+                "ausencia de trombo venoso"
+              ],
+              "positioning_notes": "TC de abdomen sin contraste para medir densidad grasa (< -10 UH). RM con supresion grasa confirma el componente adiposo."
+            },
+            "clinical_context_for_radiologist": "Es una neoplasia benigna típicamente asintomática. Aunque puede causar dolor si sangra, no explica la pérdida de peso significativa, la hipercalcemia, la anemia ni la LDH elevada.",
+            "meddiffusion_reference_prompt": "Non-contrast abdominal CT, axial view, well-circumscribed renal lesion with macroscopic fat density, homogeneous, benign angiomyolipoma appearance, clinical medical imaging",
+            "meddiffusion_negative_prompt": "heterogeneous solid enhancing mass, irregular margins, venous thrombus, malignant",
+            "reference_images_note": "Imágenes de referencia MedDiffusion para GT-ANGIOMIOLIPOMA-001. Usar como orientación visual, no como diagnóstico."
+          }
         }
       ],
       "imaging_needed_probability": 0.98,
-      "reasoning": "El paciente presenta un conjunto de síntomas, hallazgos de laboratorio y factores de riesgo que coinciden de manera muy sólida con la Neoplasia maligna del riñón (carcinoma de células renales). La masa palpable en flanco, hematuria macroscópica, pérdida de peso y dolor lumbar son síntomas cardinales. Los biomarcadores como LDH elevada, hipercalcemia y anemia son consistentes con enfermedad avanzada. Además, el tabaquismo, la hipertensión y el antecedente familiar de carcinoma renal son factores de riesgo importantes. Las otras hipótesis candidatas (masa renal pequeña, angiomiolipoma, neoplasia pulmonar, colitis ulcerosa) son inconsistentes con la presentación clínica del paciente, ya sea por la naturaleza de la masa, la severidad de los síntomas, los hallazgos de laboratorio o la localización de la patología.",
+      "reasoning": "El cuadro clínico del paciente es altamente sugestivo de un carcinoma de células renales avanzado o metastásico. Presenta la tríada clásica completa (masa palpable en flanco, hematuria macroscópica y dolor lumbar), la cual se asocia a estadios avanzados. Adicionalmente, presenta factores de riesgo clave (edad, tabaquismo, hipertensión, antecedente familiar directo) y alteraciones analíticas compatibles con síndromes paraneoplásicos típicos de esta neoplasia (hipercalcemia paraneoplásica y anemia). Se descartan las opciones de masa renal pequeña por la magnitud de la presentación, el angiomiolipoma por la clínica maligna y sistémica, y las opciones pulmonares o colónicas por falta de correspondencia sintomática primaria.",
       "recommendation": "DERIVAR_A_IMAGEN",
       "urgency": "alta",
       "conclusive": true,
       "token_usage": {
         "prompt_tokens": 2307,
-        "completion_tokens": 502,
-        "total_tokens": 4338,
-        "model": "gemini-2.5-flash",
+        "completion_tokens": 664,
+        "total_tokens": 2971,
+        "model": "gemini-flash-latest",
         "retrieved_gt_entries": 5,
         "gt_entries_in_context": 5
       }
     },
-    "c1_elapsed_seconds": 10.126068299636245,
+    "c1_elapsed_seconds": 9.278461700305343,
     "c2_output": {
       "patient_id": "PAT-00103",
       "segmentation": {
         "regions_of_interest": [
           {
-            "id": "Masa renal derecha",
-            "location": "Riñón derecho (corteza y seno renal)",
-            "size_mm": 70.0,
-            "shape": "Irregular",
+            "id": "ROI_01",
+            "location": "Corteza y seno del rinon derecho",
+            "size_mm": 65.0,
+            "shape": "Lobulada e irregular",
+            "margins": "Mal definidos e infiltrativos",
+            "density": "Heterogenea con realce tras contraste y lavado (washout) en fase tardia"
+          },
+          {
+            "id": "ROI_02",
+            "location": "Vena renal derecha",
+            "size_mm": 25.0,
+            "shape": "Alargada (trombo intraluminal)",
             "margins": "Irregulares",
-            "density": "Sólida heterogénea con realce tras contraste"
+            "density": "Densidad de partes blandas con realce que sugiere trombo tumoral"
           },
           {
-            "id": "Trombo tumoral",
-            "location": "Vena renal derecha y/o Vena Cava Inferior",
-            "size_mm": 30.0,
-            "shape": "Alargada, intraluminal",
-            "margins": "Definidos",
-            "density": "Tejido blando con realce"
-          },
-          {
-            "id": "Adenopatías retroperitoneales",
-            "location": "Retroperitoneo",
-            "size_mm": 15.0,
-            "shape": "Ovoide",
-            "margins": "Definidos",
-            "density": "Tejido blando con realce"
+            "id": "ROI_03",
+            "location": "Espacio retroperitoneal (ganglios linfaticos)",
+            "size_mm": 18.0,
+            "shape": "Redondeada",
+            "margins": "Parcialmente definidos",
+            "density": "Partes blandas, compatible con adenopatia metastasica"
           }
         ]
       },
-      "findings": "Masa renal solida heterogenea con realce tras contraste (lavado en carcinoma de celulas claras), bordes irregulares, con posible trombo tumoral en vena renal. Adenopatias retroperitoneales en enfermedad avanzada.",
+      "findings": "Se espera visualizar una masa renal solida y heterogenea localizada en el rinon derecho, con compromiso de la corteza y el seno renal. Tipicamente presenta realce heterogeneo tras la administracion de contraste endovenoso con posterior lavado (washout), caracteristico del carcinoma de celulas claras. Se debe evaluar la presencia de un trombo tumoral que se extiende hacia la vena renal derecha o la vena cava inferior, manifestado como un defecto de llenado intraluminal con realce. Asimismo, es esperable hallar adenopatias retroperitoneales sospechosas (redondeadas, con perdida del hilio graso) y posible compromiso de la glandula suprarrenal ipsilateral.",
       "classification": "sospechoso",
       "confidence": 0.98,
-      "final_recommendation": "Los hallazgos son altamente sugestivos de carcinoma de células renales avanzado. Se recomienda la correlación con la clínica y biomarcadores del paciente para estadificación y planificación terapéutica.",
+      "final_recommendation": "Se recomienda correlacionar los hallazgos tomograficos con urografia por tomografia computarizada (UroTC) o resonancia magnetica (RM) de abdomen y pelvis con protocolo de estadificacion, ademas de TC de torax para descartar secundarismo pulmonar.",
       "next_steps": [
-        "Estadificación completa de la enfermedad (TC de tórax, abdomen y pelvis, gammagrafía ósea si hay sospecha de metástasis óseas).",
-        "Evaluación por oncología para definir plan terapéutico (cirugía, terapia sistémica).",
-        "Confirmación histopatológica si no se ha realizado."
+        "Evaluacion urgente por el servicio de Urologia y Oncologia.",
+        "Completar estadificacion TNM mediante tomografia de torax, abdomen y pelvis con contraste.",
+        "Monitoreo de laboratorio enfocado en la correccion de la hipercalcemia paraneoplasica y la anemia.",
+        "Planificacion de nefrectomia radical (parcial o total segun extension) y eventual trombectomia si se confirma extension venosa."
       ],
       "token_usage": {
-        "prompt_tokens": 430,
-        "completion_tokens": 463,
-        "total_tokens": 2829,
-        "model": "gemini-2.5-flash",
+        "prompt_tokens": 406,
+        "completion_tokens": 635,
+        "total_tokens": 1511,
+        "model": "gemini-flash-latest",
         "retrieved_gt_entries": null,
         "gt_entries_in_context": null
       }
     },
-    "c2_elapsed_seconds": 10.809451200067997,
+    "c2_elapsed_seconds": 5.806918700225651,
     "error": null
   },
   "case_004": {
     "c1_output": {
       "patient_id": "PAT-00104",
-      "clinical_summary": "Paciente masculino de 61 años con antecedentes familiares de cáncer de estómago, infección por H. pylori tratada incompletamente y gastritis atrófica. Presenta dolor epigástrico persistente de 3 meses, saciedad precoz, pérdida de peso no intencional de 6 kg y un episodio de melena. Los laboratorios muestran anemia ferropénica (Hb 10.4, ferritina 15) y elevación de marcadores tumorales (CEA 7.6, CA_19_9 58). La endoscopia reciente reveló gastritis atrófica con pliegue engrosado en antro, con biopsia pendiente.",
+      "clinical_summary": "Paciente masculino de 61 años con dolor epigástrico persistente de 3 meses, saciedad precoz, pérdida de peso de 6 kg y melena reciente. Presenta anemia ferropénica (Hb 10.4, ferritina 15) y elevación de marcadores tumorales (CEA 7.6, CA 19-9 58). Tiene antecedentes de infección incompleta por H. pylori, gastritis atrófica con pliegue engrosado en antro y antecedente familiar de cáncer de estómago.",
       "matched_ground_truths": [
         {
           "gt_id": "GT-GASTRIC-001",
           "icd_10": "C16.9",
           "icd_10_description": "Neoplasia maligna del estomago (adenocarcinoma infiltrante difuso, tipo linitis plastica)",
-          "match_probability": 0.98,
-          "match_rationale": "El paciente presenta dolor epigástrico persistente, saciedad precoz, pérdida de peso no intencional y melena, síntomas altamente sugestivos. Los biomarcadores CEA (7.6) y CA_19_9 (58) están elevados, y hay anemia ferropénica (Hb 10.4, ferritina 15). Los factores de riesgo incluyen antecedente familiar de cáncer gástrico, infección por H. pylori tratada incompletamente y gastritis atrófica con pliegue engrosado en antro en endoscopia.",
+          "match_probability": 0.95,
+          "match_rationale": "El paciente cumple con todos los criterios clínicos clave: dolor epigástrico, saciedad precoz, pérdida de peso, melena, anemia ferropénica, elevación de CEA y CA 19-9, sumado a factores de riesgo críticos como gastritis atrófica, H. pylori y antecedente familiar directo de cáncer gástrico.",
           "radiologist_instructions": {
             "suggested_modalities": [
               "abdominal_CT"
@@ -376,7 +443,7 @@
               ],
               "positioning_notes": "TC de abdomen con contraste EV y distension gastrica. Evaluar espesor y realce de la pared, adenopatias regionales y peritoneo."
             },
-            "clinical_context_for_radiologist": "El paciente presenta dolor epigástrico persistente, saciedad precoz, pérdida de peso no intencional y melena, síntomas altamente sugestivos. Los biomarcadores CEA (7.6) y CA_19_9 (58) están elevados, y hay anemia ferropénica (Hb 10.4, ferritina 15). Los factores de riesgo incluyen antecedente familiar de cáncer gástrico, infección por H. pylori tratada incompletamente y gastritis atrófica con pliegue engrosado en antro en endoscopia.",
+            "clinical_context_for_radiologist": "El paciente cumple con todos los criterios clínicos clave: dolor epigástrico, saciedad precoz, pérdida de peso, melena, anemia ferropénica, elevación de CEA y CA 19-9, sumado a factores de riesgo críticos como gastritis atrófica, H. pylori y antecedente familiar directo de cáncer gástrico.",
             "meddiffusion_reference_prompt": "Contrast-enhanced abdominal CT, axial view, diffuse irregular gastric wall thickening, loss of gastric distensibility, linitis plastica pattern, perigastric lymph nodes, infiltrative gastric adenocarcinoma, clinical medical imaging",
             "meddiffusion_negative_prompt": "normal thin gastric wall, focal benign ulcer, well-distended stomach, normal abdomen",
             "reference_images_note": "Imágenes de referencia MedDiffusion para GT-GASTRIC-001. Usar como orientación visual, no como diagnóstico."
@@ -386,8 +453,8 @@
           "gt_id": "GT-PANCREAS-001",
           "icd_10": "C25.0",
           "icd_10_description": "Neoplasia maligna de la cabeza del pancreas (adenocarcinoma ductal)",
-          "match_probability": 0.35,
-          "match_rationale": "El paciente presenta elevación de CA_19_9 (58) y CEA (7.6), pérdida de peso y edad compatible (>60 años). Sin embargo, no hay ictericia, dolor irradiado a dorso específico, ni otros síntomas o factores de riesgo distintivos de cáncer de páncreas, lo que disminuye la probabilidad frente a la fuerte evidencia gástrica.",
+          "match_probability": 0.25,
+          "match_rationale": "Aunque presenta dolor epigástrico, pérdida de peso y elevación de CA 19-9 y CEA, no hay ictericia, dolor irradiado a dorso ni otros signos específicos de neoplasia de cabeza de páncreas, siendo el cuadro gástrico mucho más explicativo.",
           "radiologist_instructions": {
             "suggested_modalities": [
               "abdominal_CT",
@@ -406,134 +473,90 @@
               ],
               "positioning_notes": "TC con protocolo pancreatico: fase arterial (pancreas), portal (hepatica), tardia. Evaluar resecabilidad vascular."
             },
-            "clinical_context_for_radiologist": "El paciente presenta elevación de CA_19_9 (58) y CEA (7.6), pérdida de peso y edad compatible (>60 años). Sin embargo, no hay ictericia, dolor irradiado a dorso específico, ni otros síntomas o factores de riesgo distintivos de cáncer de páncreas, lo que disminuye la probabilidad frente a la fuerte evidencia gástrica.",
+            "clinical_context_for_radiologist": "Aunque presenta dolor epigástrico, pérdida de peso y elevación de CA 19-9 y CEA, no hay ictericia, dolor irradiado a dorso ni otros signos específicos de neoplasia de cabeza de páncreas, siendo el cuadro gástrico mucho más explicativo.",
             "meddiffusion_reference_prompt": "Abdominal CT axial portal phase, hypodense mass pancreatic head with dilated common bile duct and Wirsung double duct sign, vascular involvement, pancreatic adenocarcinoma, clinical medical imaging",
             "meddiffusion_negative_prompt": "normal pancreas, chronic pancreatitis only, benign cyst",
             "reference_images_note": "Imágenes de referencia MedDiffusion para GT-PANCREAS-001. Usar como orientación visual, no como diagnóstico."
           }
-        },
-        {
-          "gt_id": "GT-COLON-001",
-          "icd_10": "C18.7",
-          "icd_10_description": "Neoplasia maligna del colon sigmoide (adenocarcinoma)",
-          "match_probability": 0.25,
-          "match_rationale": "El paciente presenta elevación de CEA (7.6) y CA_19_9 (58), anemia ferropénica, pérdida de peso y melena (indicativa de sangrado gastrointestinal). Sin embargo, no hay mención de cambios en los hábitos intestinales ni rectorragia, y el dolor es epigástrico, lo que lo hace menos probable que una neoplasia gástrica.",
-          "radiologist_instructions": {
-            "suggested_modalities": [
-              "abdominal_CT"
-            ],
-            "imaging_location": {
-              "body_region": "abdomen-pelvis con foco en sigmoide",
-              "anatomical_landmarks": "colon sigmoide, mesenterio, ganglios regionales, higado",
-              "bilateral_comparison_required": false,
-              "priority_zones": [
-                "engrosamiento mural en sigmoide",
-                "adenopatias mesentericas",
-                "compromiso peritoneal",
-                "metastasis hepaticas (segmentos)"
-              ],
-              "positioning_notes": "TC con contraste en fases arterial y portal para evaluar higado. Colonoscopia indispensable para biopsia."
-            },
-            "clinical_context_for_radiologist": "El paciente presenta elevación de CEA (7.6) y CA_19_9 (58), anemia ferropénica, pérdida de peso y melena (indicativa de sangrado gastrointestinal). Sin embargo, no hay mención de cambios en los hábitos intestinales ni rectorragia, y el dolor es epigástrico, lo que lo hace menos probable que una neoplasia gástrica.",
-            "meddiffusion_reference_prompt": "Abdominal CT axial with contrast, focal asymmetric wall thickening sigmoid colon, mesenteric lymphadenopathy, possible liver metastases, colorectal adenocarcinoma, clinical medical imaging",
-            "meddiffusion_negative_prompt": "diffuse colitis pattern, normal colon, diverticular disease only",
-            "reference_images_note": "Imágenes de referencia MedDiffusion para GT-COLON-001. Usar como orientación visual, no como diagnóstico."
-          }
         }
       ],
-      "imaging_needed_probability": 0.98,
-      "reasoning": "El cuadro clínico del paciente, incluyendo síntomas gastrointestinales superiores (dolor epigástrico, saciedad precoz, pérdida de peso, melena), anemia ferropénica, elevación de CEA y CA_19_9, y factores de riesgo como antecedente familiar de cáncer gástrico, infección por H. pylori y gastritis atrófica, es altamente compatible con una neoplasia maligna de estómago. La endoscopia con hallazgo de pliegue engrosado en antro refuerza esta hipótesis. Otras neoplasias como páncreas, pulmón, colon o riñón son menos probables debido a la ausencia de síntomas específicos de esos órganos y la fuerte correlación con los hallazgos gástricos.",
+      "imaging_needed_probability": 0.95,
+      "reasoning": "El cuadro clínico del paciente es altamente sugestivo de una neoplasia gástrica. Presenta una coincidencia casi perfecta con los factores de riesgo (H. pylori, gastritis atrófica, antecedente familiar), síntomas típicos (dolor epigástrico, saciedad precoz, pérdida de peso, melena) y biomarcadores (CEA y CA 19-9 elevados, anemia ferropénica) del adenocarcinoma gástrico. Se descartan otras neoplasias como la de páncreas, colon, pulmón o renal por falta de síntomas específicos (como ictericia, cambios en el hábito intestinal, tos o hematuria, respectivamente), aunque compartan elevación inespecífica de algunos marcadores.",
       "recommendation": "DERIVAR_A_IMAGEN",
       "urgency": "alta",
       "conclusive": true,
       "token_usage": {
         "prompt_tokens": 2516,
-        "completion_tokens": 778,
-        "total_tokens": 6441,
-        "model": "gemini-2.5-flash",
+        "completion_tokens": 549,
+        "total_tokens": 3065,
+        "model": "gemini-flash-latest",
         "retrieved_gt_entries": 5,
         "gt_entries_in_context": 5
       }
     },
-    "c1_elapsed_seconds": 20.513866200111806,
+    "c1_elapsed_seconds": 28.11158260051161,
     "c2_output": {
       "patient_id": "PAT-00104",
       "segmentation": {
         "regions_of_interest": [
           {
-            "id": "EngrosamientoParietalGastrico",
-            "location": "Pared gástrica (antro, cuerpo, curvaturas)",
+            "id": "ROI-01",
+            "location": "Pared gástrica (antro, cuerpo y curvaturas)",
             "size_mm": 15.0,
-            "shape": "Irregular, difuso",
-            "margins": "Mal definidos, infiltrativos",
-            "density": "Realce mural heterogéneo"
+            "shape": "Difuso e irregular con pérdida de distensibilidad (linitis plástica)",
+            "margins": "Infiltrantes y mal definidos",
+            "density": "Engrosamiento de partes blandas con realce mural heterogéneo"
           },
           {
-            "id": "AdenopatiasPerigastricas",
-            "location": "Ganglios perigástricos",
-            "size_mm": 15.0,
-            "shape": "Ovoide a redondeado",
-            "margins": "Bien definidos",
-            "density": "Homogénea, con realce"
+            "id": "ROI-02",
+            "location": "Ganglios linfáticos perigástricos y del tronco celíaco",
+            "size_mm": 12.0,
+            "shape": "Redondeada y lobulada",
+            "margins": "Irregulares",
+            "density": "Tejido blando con realce patológico"
           },
           {
-            "id": "AdenopatiasCeliacas",
-            "location": "Ganglios del tronco celíaco",
-            "size_mm": 15.0,
-            "shape": "Ovoide a redondeado",
-            "margins": "Bien definidos",
-            "density": "Homogénea, con realce"
-          },
-          {
-            "id": "ImplantesPeritoneales",
-            "location": "Peritoneo (difuso)",
+            "id": "ROI-03",
+            "location": "Cavidad peritoneal (peritoneo y espacio perihepático/esplénico)",
             "size_mm": 8.0,
-            "shape": "Nodular, irregular",
+            "shape": "Nodular (implantes) y laminar (ascitis)",
             "margins": "Mal definidos",
-            "density": "Realce variable"
-          },
-          {
-            "id": "Ascitis",
-            "location": "Cavidad peritoneal",
-            "size_mm": 10.0,
-            "shape": "Colección líquida",
-            "margins": "Bien definidos (líquido libre)",
-            "density": "Hipodensa (líquido)"
+            "density": "Densidad líquida (ascitis) y partes blandas (carcinomatosis)"
           }
         ]
       },
-      "findings": "Se espera observar un engrosamiento parietal gástrico difuso e irregular con pérdida de distensibilidad, característico de linitis plástica. Se anticipa realce mural y la presencia de adenopatías perigástricas. Es posible identificar carcinomatosis peritoneal y ascitis.",
+      "findings": "Se espera observar un engrosamiento parietal gástrico difuso, concéntrico e irregular que afecta el antro, cuerpo y curvaturas, condicionando una marcada rigidez y pérdida de la distensibilidad gástrica (aspecto de linitis plástica), asociado a un realce mural heterogéneo tras la administración de contraste. Asimismo, es esperable identificar adenopatías patológicas en estaciones perigástricas y adyacentes al tronco celíaco, signos de compromiso peritoneal manifestados por implantes nodulares y líquido libre de aspecto ascítico en la cavidad abdominal.",
       "classification": "sospechoso",
-      "confidence": 0.98,
-      "final_recommendation": "Evaluar exhaustivamente el engrosamiento parietal gástrico, la presencia y características de adenopatías perigástricas y celiacas, y signos de carcinomatosis peritoneal y ascitis para determinar la extensión de la enfermedad.",
+      "confidence": 0.95,
+      "final_recommendation": "Se recomienda la realización de una Tomografía Computada (TC) de abdomen y pelvis con protocolo de doble contraste (oral con agua para distensión gástrica y endovenoso) para una adecuada estadificación locorregional (TNM) y evaluación de extensión peritoneal.",
       "next_steps": [
-        "Considerar biopsia guiada por imagen de las lesiones sospechosas para confirmación histopatológica.",
-        "Realizar estadificación completa de la enfermedad.",
-        "Discutir los hallazgos en un comité multidisciplinario de tumores."
+        "Confirmación histopatológica mediante biopsia por endoscopia digestiva alta (EDA)",
+        "Evaluación multidisciplinaria por oncología clínica y cirugía oncológica",
+        "Considerar laparoscopia estadificadora para descartar micrometástasis peritoneales no visibles en imágenes convencionales"
       ],
       "token_usage": {
-        "prompt_tokens": 439,
-        "completion_tokens": 620,
-        "total_tokens": 3028,
-        "model": "gemini-2.5-flash",
+        "prompt_tokens": 390,
+        "completion_tokens": 600,
+        "total_tokens": 1785,
+        "model": "gemini-flash-latest",
         "retrieved_gt_entries": null,
         "gt_entries_in_context": null
       }
     },
-    "c2_elapsed_seconds": 12.539216700010002,
+    "c2_elapsed_seconds": 10.097057499922812,
     "error": null
   },
   "case_005": {
     "c1_output": {
       "patient_id": "PAT-00105",
-      "clinical_summary": "Paciente masculino de 61 años con hallazgo incidental de nódulo renal sólido cortical izquierdo de 2.4 cm con leve realce en TC abdominal realizada por cólico renal. El paciente se encuentra asintomático. Los análisis de laboratorio muestran hematuria microscópica mínima, hemoglobina y creatinina dentro de rangos normales. Una ecografía abdominal previa de 2022 no reportó lesiones renales.",
+      "clinical_summary": "Paciente masculino de 61 años, asintomático, con hallazgo incidental en TC abdominal de un nódulo cortical sólido de 2.4 cm en el riñón izquierdo con leve realce. Presenta función renal conservada (creatinina 1.0), hemoglobina normal (14.2) y sedimento urinario con hematuria microscópica mínima.",
       "matched_ground_truths": [
         {
           "gt_id": "GT-RENAL-002",
           "icd_10": "C64.9",
           "icd_10_description": "Masa renal solida pequena (carcinoma renal temprano, hallazgo incidental)",
-          "match_probability": 0.98,
-          "match_rationale": "El paciente es un hombre de 61 años, asintomático, con un nódulo renal sólido de 2.4 cm con leve realce, hallado incidentalmente en una TC. Presenta hematuria microscópica mínima y función renal conservada. Todos estos hallazgos concuerdan directamente con los criterios de una masa renal sólida pequeña, habitualmente asintomática y de hallazgo incidental, incluyendo la edad y los biomarcadores esperados.",
+          "match_probability": 0.9,
+          "match_rationale": "El paciente presenta un nódulo renal sólido de 2.4 cm con realce, hallado incidentalmente en una TC, manteniéndose asintomático y con hematuria microscópica mínima, lo cual coincide plenamente con la presentación clínica, biomarcadores y factores de riesgo de una masa renal sólida pequeña.",
           "radiologist_instructions": {
             "suggested_modalities": [
               "abdominal_CT",
@@ -550,7 +573,7 @@
               ],
               "positioning_notes": "TC multifasico. Comparar con estudios previos para evaluar crecimiento. Caracterizar realce en fase nefrografica."
             },
-            "clinical_context_for_radiologist": "El paciente es un hombre de 61 años, asintomático, con un nódulo renal sólido de 2.4 cm con leve realce, hallado incidentalmente en una TC. Presenta hematuria microscópica mínima y función renal conservada. Todos estos hallazgos concuerdan directamente con los criterios de una masa renal sólida pequeña, habitualmente asintomática y de hallazgo incidental, incluyendo la edad y los biomarcadores esperados.",
+            "clinical_context_for_radiologist": "El paciente presenta un nódulo renal sólido de 2.4 cm con realce, hallado incidentalmente en una TC, manteniéndose asintomático y con hematuria microscópica mínima, lo cual coincide plenamente con la presentación clínica, biomarcadores y factores de riesgo de una masa renal sólida pequeña.",
             "meddiffusion_reference_prompt": "Contrast-enhanced abdominal CT, axial view, small subtle solid renal nodule under 3 cm, mild enhancement, well-defined margins, low conspicuity early renal cell carcinoma, clinical medical imaging",
             "meddiffusion_negative_prompt": "large mass, venous thrombus, macroscopic fat, simple cyst, normal kidney",
             "reference_images_note": "Imágenes de referencia MedDiffusion para GT-RENAL-002. Usar como orientación visual, no como diagnóstico."
@@ -560,8 +583,8 @@
           "gt_id": "GT-RENAL-001",
           "icd_10": "C64.9",
           "icd_10_description": "Neoplasia maligna del rinon (carcinoma de celulas renales)",
-          "match_probability": 0.15,
-          "match_rationale": "Aunque el paciente presenta un nódulo renal sólido y tiene un factor de riesgo por edad (>50 años), carece de los síntomas y biomarcadores típicos de una neoplasia maligna renal más avanzada descrita en esta entrada, como masa palpable, hematuria macroscópica, dolor lumbar, pérdida de peso, LDH elevada, hipercalcemia o alteraciones significativas en la hemoglobina. La presentación es de un hallazgo incidental y asintomático.",
+          "match_probability": 0.3,
+          "match_rationale": "Aunque se trata de una neoplasia renal sólida, la probabilidad de que corresponda a un carcinoma de células renales avanzado o sintomático es baja debido al tamaño pequeño de la lesión (2.4 cm), la ausencia de masa palpable, dolor, hematuria macroscópica o alteraciones en los biomarcadores sistémicos.",
           "radiologist_instructions": {
             "suggested_modalities": [
               "abdominal_CT",
@@ -579,74 +602,74 @@
               ],
               "positioning_notes": "TC multifasico con contraste EV. Fase nefrografica para caracterizar el realce. Evaluar extension a vena renal y cava inferior. Reconstruccion coronal."
             },
-            "clinical_context_for_radiologist": "Aunque el paciente presenta un nódulo renal sólido y tiene un factor de riesgo por edad (>50 años), carece de los síntomas y biomarcadores típicos de una neoplasia maligna renal más avanzada descrita en esta entrada, como masa palpable, hematuria macroscópica, dolor lumbar, pérdida de peso, LDH elevada, hipercalcemia o alteraciones significativas en la hemoglobina. La presentación es de un hallazgo incidental y asintomático.",
+            "clinical_context_for_radiologist": "Aunque se trata de una neoplasia renal sólida, la probabilidad de que corresponda a un carcinoma de células renales avanzado o sintomático es baja debido al tamaño pequeño de la lesión (2.4 cm), la ausencia de masa palpable, dolor, hematuria macroscópica o alteraciones en los biomarcadores sistémicos.",
             "meddiffusion_reference_prompt": "Contrast-enhanced abdominal CT, axial view, heterogeneous enhancing solid mass in right kidney, irregular margins, renal vein tumor thrombus, retroperitoneal lymph nodes, high suspicion renal cell carcinoma, clinical medical imaging",
             "meddiffusion_negative_prompt": "simple cyst, homogeneous non-enhancing lesion, fat-containing angiomyolipoma, normal kidney",
             "reference_images_note": "Imágenes de referencia MedDiffusion para GT-RENAL-001. Usar como orientación visual, no como diagnóstico."
           }
         }
       ],
-      "imaging_needed_probability": 0.735,
-      "reasoning": "El cuadro clínico del paciente, caracterizado por un nódulo renal sólido de pequeño tamaño (2.4 cm) hallado incidentalmente en un paciente asintomático de 61 años, con hematuria microscópica mínima y función renal conservada, se alinea de manera muy precisa con la descripción de una masa renal sólida pequeña (carcinoma renal temprano, hallazgo incidental). Las otras candidatas oncológicas (neoplasia maligna renal más avanzada, pólipo de colon) no coinciden con la presentación asintomática y el tamaño de la lesión, o con la localización. Las candidatas benignas (hemangioma hepático, quiste renal simple) son descartadas por la localización de la lesión (renal vs. hepática) o por la descripción de la lesión como 'sólida con realce' en lugar de un quiste simple.",
+      "imaging_needed_probability": 0.675,
+      "reasoning": "El cuadro clínico es altamente compatible con una masa renal sólida pequeña de hallazgo incidental (GT-RENAL-002). El paciente cumple con el perfil de edad (>50 años), la presentación asintomática, el hallazgo incidental por TC realizada por otra causa (cólico renal) y la presencia de hematuria microscópica mínima con función renal conservada. Se descarta GT-RENAL-001 debido a la ausencia de síntomas sistémicos, masa palpable, hematuria macroscópica o alteraciones analíticas severas (como anemia o hipercalcemia). Se descarta GT-QUISTERENAL-001 porque la TC describe un nódulo sólido con realce, no un quiste simple. Los candidatos de colon e hígado no tienen relación con el hallazgo renal actual.",
       "recommendation": "DERIVAR_A_IMAGEN",
       "urgency": "media",
       "conclusive": true,
       "token_usage": {
         "prompt_tokens": 2043,
-        "completion_tokens": 618,
-        "total_tokens": 4083,
-        "model": "gemini-2.5-flash",
+        "completion_tokens": 536,
+        "total_tokens": 2579,
+        "model": "gemini-flash-latest",
         "retrieved_gt_entries": 5,
         "gt_entries_in_context": 5
       }
     },
-    "c1_elapsed_seconds": 10.068453199230134,
+    "c1_elapsed_seconds": 30.560628400184214,
     "c2_output": {
       "patient_id": "PAT-00105",
       "segmentation": {
         "regions_of_interest": [
           {
-            "id": "Nódulo renal sólido",
+            "id": "ROI-1",
             "location": "Corteza renal",
             "size_mm": 24.0,
-            "shape": "Ovoide",
+            "shape": "Redondeada (estimación orientativa)",
             "margins": "Bien definidos",
-            "density": "Sólida"
+            "density": "Sólida con realce tenue tras la administración de contraste"
           }
         ]
       },
-      "findings": "Se espera observar un nódulo renal sólido pequeño, con un tamaño aproximado de 2.4 cm, localizado en la corteza renal. Presentará un realce tenue tras la administración de contraste, con bordes bien definidos y una densidad sólida. No se anticipa la presencia de trombo venoso ni adenopatías. Es importante destacar su baja conspicuidad, lo que puede llevar a subestimar su presencia o características.",
+      "findings": "Se espera la visualización de un nódulo renal sólido pequeño de 2.4 cm (24 mm) localizado en la corteza renal. Al estudio dinámico, debe mostrar un patrón de realce tenue y homogéneo, con bordes bien definidos y sin signos de invasión local. No se prevé la presencia de trombo venoso en la vena renal o vena cava inferior, ni adenopatías retroperitoneales asociadas. Dada su baja conspicuidad y tamaño, el hallazgo es sutil y propenso a ser subestimado.",
       "classification": "sospechoso",
-      "confidence": 0.98,
-      "final_recommendation": "Los hallazgos son consistentes con una masa renal sólida pequeña, altamente sugestiva de carcinoma renal temprano (C64.9), un hallazgo incidental en este contexto clínico.",
+      "confidence": 0.9,
+      "final_recommendation": "Confirmar la presencia de la masa renal sólida de comportamiento hipovascular/tenuamente hipervascular y derivar para caracterización adicional o planificación terapéutica dada la sospecha de carcinoma renal temprano.",
       "next_steps": [
-        "Evaluación urológica para definir el manejo.",
-        "Considerar vigilancia activa o intervención, según las características del paciente y del tumor.",
-        "Correlación con estudios previos, si disponibles, para evaluar estabilidad o crecimiento."
+        "Consulta con el especialista en Urología",
+        "Considerar Resonancia Magnética (RM) de abdomen con protocolo renal para una caracterización tisular más detallada",
+        "Discutir opciones de manejo que incluyen nefrectomía parcial, terapias ablativas o vigilancia activa según el perfil del paciente"
       ],
       "token_usage": {
-        "prompt_tokens": 386,
-        "completion_tokens": 300,
-        "total_tokens": 2302,
-        "model": "gemini-2.5-flash",
+        "prompt_tokens": 355,
+        "completion_tokens": 363,
+        "total_tokens": 1327,
+        "model": "gemini-flash-latest",
         "retrieved_gt_entries": null,
         "gt_entries_in_context": null
       }
     },
-    "c2_elapsed_seconds": 10.132294000126421,
+    "c2_elapsed_seconds": 7.379189100116491,
     "error": null
   },
   "case_006": {
     "c1_output": {
       "patient_id": "PAT-00106",
-      "clinical_summary": "Paciente masculino de 52 años con antecedente familiar de carcinoma renal (hermano a los 55). Presenta una masa renal sólida de 2.8 cm en el riñón derecho, hallada incidentalmente en una ecografía abdominal por dolor inespecífico. El paciente está asintomático y no presenta masa palpable. Los análisis de laboratorio (sedimento urinario, hemoglobina, creatinina) son normales.",
+      "clinical_summary": "Paciente masculino de 52 años con antecedente familiar de carcinoma renal (hermano a los 55 años). Presenta un hallazgo incidental por ecografía de un nódulo sólido en el riñón derecho de 2.8 cm. Se encuentra asintomático, sin masa palpable y con laboratorios normales (sedimento urinario normal, hemoglobina 15.0, creatinina 0.9).",
       "matched_ground_truths": [
         {
           "gt_id": "GT-RENAL-002",
           "icd_10": "C64.9",
           "icd_10_description": "Masa renal solida pequena (carcinoma renal temprano, hallazgo incidental)",
-          "match_probability": 0.9,
-          "match_rationale": "El paciente presenta una masa renal sólida de 2.8 cm, hallada incidentalmente, es asintomático y sin masa palpable, lo cual coincide perfectamente con los 'hallazgos clínicos esperados' y 'síntomas típicos' de este diagnóstico. Sus laboratorios (sedimento urinario normal, función renal conservada) son consistentes con los 'biomarcadores esperados'. Además, cumple con el factor de riesgo de 'edad > 50 años' y tiene un antecedente familiar de carcinoma renal, lo que aumenta la probabilidad de un carcinoma renal temprano.",
+          "match_probability": 0.85,
+          "match_rationale": "El paciente cumple con todos los criterios: edad > 50 años, antecedente familiar de carcinoma renal, asintomático, sin masa palpable y con un hallazgo incidental ecográfico de un nódulo sólido renal de 2.8 cm.",
           "radiologist_instructions": {
             "suggested_modalities": [
               "abdominal_CT",
@@ -663,61 +686,653 @@
               ],
               "positioning_notes": "TC multifasico. Comparar con estudios previos para evaluar crecimiento. Caracterizar realce en fase nefrografica."
             },
-            "clinical_context_for_radiologist": "El paciente presenta una masa renal sólida de 2.8 cm, hallada incidentalmente, es asintomático y sin masa palpable, lo cual coincide perfectamente con los 'hallazgos clínicos esperados' y 'síntomas típicos' de este diagnóstico. Sus laboratorios (sedimento urinario normal, función renal conservada) son consistentes con los 'biomarcadores esperados'. Además, cumple con el factor de riesgo de 'edad > 50 años' y tiene un antecedente familiar de carcinoma renal, lo que aumenta la probabilidad de un carcinoma renal temprano.",
+            "clinical_context_for_radiologist": "El paciente cumple con todos los criterios: edad > 50 años, antecedente familiar de carcinoma renal, asintomático, sin masa palpable y con un hallazgo incidental ecográfico de un nódulo sólido renal de 2.8 cm.",
             "meddiffusion_reference_prompt": "Contrast-enhanced abdominal CT, axial view, small subtle solid renal nodule under 3 cm, mild enhancement, well-defined margins, low conspicuity early renal cell carcinoma, clinical medical imaging",
             "meddiffusion_negative_prompt": "large mass, venous thrombus, macroscopic fat, simple cyst, normal kidney",
             "reference_images_note": "Imágenes de referencia MedDiffusion para GT-RENAL-002. Usar como orientación visual, no como diagnóstico."
           }
         }
       ],
-      "imaging_needed_probability": 0.675,
-      "reasoning": "El paciente presenta una masa renal sólida de 2.8 cm, hallada incidentalmente, es asintomático y sus laboratorios son normales. Estos hallazgos son altamente consistentes con un carcinoma renal temprano o un hallazgo incidental de masa renal sólida. El antecedente familiar de carcinoma renal en un hermano refuerza esta hipótesis. El candidato GT-RENAL-002 describe precisamente este escenario clínico. Los otros candidatos son menos probables: GT-QUISTERENAL-001 se contradice con la naturaleza 'sólida' de la masa; GT-RENAL-001 describe un cuadro más avanzado o sintomático que no se ajusta a la presentación actual del paciente; y GT-HIGADO-002 y GT-ADENOMASR-001 son irrelevantes ya que la masa es renal y no hepática o suprarrenal.",
+      "imaging_needed_probability": 0.6375,
+      "reasoning": "El cuadro clínico es altamente compatible con una masa renal sólida pequeña (carcinoma renal temprano, hallazgo incidental), dado que el paciente tiene más de 50 años, antecedentes familiares directos de carcinoma renal, está asintomático, sin masa palpable y presenta una lesión sólida de 2.8 cm. Se descarta el quiste renal simple (GT-QUISTERENAL-001) debido a que la ecografía describe una lesión sólida y no quística. Se descarta el carcinoma renal avanzado (GT-RENAL-001) por la ausencia de síntomas constitucionales, hematuria, masa palpable o alteraciones analíticas. Los candidatos de hígado y suprarrenal no corresponden a la localización de la lesión.",
       "recommendation": "DERIVAR_A_IMAGEN",
       "urgency": "media",
       "conclusive": true,
       "token_usage": {
         "prompt_tokens": 2062,
-        "completion_tokens": 504,
-        "total_tokens": 5321,
-        "model": "gemini-2.5-flash",
+        "completion_tokens": 401,
+        "total_tokens": 2463,
+        "model": "gemini-flash-latest",
         "retrieved_gt_entries": 5,
         "gt_entries_in_context": 5
       }
     },
-    "c1_elapsed_seconds": 13.818831500597298,
+    "c1_elapsed_seconds": 6.135016400367022,
     "c2_output": {
       "patient_id": "PAT-00106",
       "segmentation": {
         "regions_of_interest": [
           {
-            "id": "Nódulo renal sólido",
+            "id": "ROI-01",
             "location": "Corteza renal",
             "size_mm": 28.0,
-            "shape": "Ovalado",
+            "shape": "Esferoidal u ovalada (estimación orientativa)",
             "margins": "Bien definidos",
-            "density": "Sólida con realce tenue"
+            "density": "Sólida, con realce tenue tras la administración de contraste"
           }
         ]
       },
-      "findings": "Se espera identificar un nódulo renal sólido de tamaño pequeño, inferior a 3 cm, con un realce tenue tras la administración de contraste. Los bordes del nódulo se anticipan bien definidos. Es crucial evaluar la ausencia de trombos en la vena renal y de adenopatías perirrenales. Se advierte que la lesión podría presentar baja conspicuidad, siendo potencialmente fácil de subestimar.",
+      "findings": "Se espera observar un nódulo renal sólido pequeño de 2.8 cm (menor a 3 cm) localizado en la corteza renal, caracterizado por presentar bordes bien definidos y un patrón de realce tenue tras la administración de contraste. Debido a su baja conspicuidad, este hallazgo es fácil de subestimar en estudios de rutina. No se evidencian signos de trombo venoso en la vena renal o cava, ni adenopatías retroperitoneales. La grasa perirrenal y el seno renal se muestran conservados, sin signos de invasión local.",
       "classification": "sospechoso",
-      "confidence": 0.9,
-      "final_recommendation": "Dada la alta probabilidad de un carcinoma renal temprano (C64.9) en el contexto clínico, se recomienda una evaluación exhaustiva de las características del nódulo renal, incluyendo su patrón y grado de realce, la definición de sus bordes y su homogeneidad. Es fundamental descartar la presencia de trombo venoso y adenopatías.",
+      "confidence": 0.85,
+      "final_recommendation": "Confirmar la sospecha de carcinoma renal temprano mediante caracterización precisa del patrón de realce y derivar para evaluación urológica.",
       "next_steps": [
-        "Confirmar las características del nódulo renal sólido, prestando especial atención a su realce y bordes.",
-        "Descartar la presencia de trombo en la vena renal y adenopatías perirrenales.",
-        "Considerar la baja conspicuidad potencial del nódulo para evitar subestimación."
+        "Realizar Tomografía Computarizada (TC) de abdomen con protocolo renal multifásico (fases corticomedular, nefrogénica y excretora)",
+        "Considerar Resonancia Magnética (RM) abdominal con contraste en caso de dudas diagnósticas o contraindicación para TC",
+        "Interconsulta con el servicio de Urología para planificación terapéutica"
       ],
       "token_usage": {
-        "prompt_tokens": 409,
-        "completion_tokens": 356,
-        "total_tokens": 2368,
-        "model": "gemini-2.5-flash",
+        "prompt_tokens": 340,
+        "completion_tokens": 373,
+        "total_tokens": 1296,
+        "model": "gemini-flash-latest",
         "retrieved_gt_entries": null,
         "gt_entries_in_context": null
       }
     },
-    "c2_elapsed_seconds": 8.921728299930692,
+    "c2_elapsed_seconds": 5.229539600200951,
+    "error": null
+  },
+  "case_007": {
+    "c1_output": {
+      "patient_id": "PAT-00107",
+      "clinical_summary": "Paciente femenina de 62 años con antecedente de colangitis esclerosante primaria (CEP) desde 2021. Consulta por cuadro de 3 semanas de evolución caracterizado por ictericia progresiva, prurito generalizado, coluria, acolia, dolor en hipocondrio derecho y pérdida de peso. Los laboratorios evidencian un marcado patrón colestásico (FAL 410, GGT 520, Bilirrubina total 8.4) y elevación significativa de marcadores tumorales (CA 19-9: 480 U/mL, CEA: 9.1 ng/mL).",
+      "matched_ground_truths": [
+        {
+          "gt_id": "GT-COLANGIO-001",
+          "icd_10": "C22.1",
+          "icd_10_description": "Neoplasia maligna de las vias biliares intrahepaticas (colangiocarcinoma, forma agresiva)",
+          "match_probability": 0.95,
+          "match_rationale": "La paciente presenta una coincidencia casi perfecta con el perfil de colangiocarcinoma: antecedente de colangitis esclerosante primaria (principal factor de riesgo), clínica típica de ictericia obstructiva (coluria, acolia, prurito, dolor en hipocondrio derecho, pérdida de peso) y biomarcadores altamente compatibles (CA 19-9 muy elevado a 480, CEA elevado a 9.1, y patrón colestásico severo).",
+          "radiologist_instructions": {
+            "suggested_modalities": [
+              "abdominal_MRI",
+              "abdominal_CT"
+            ],
+            "imaging_location": {
+              "body_region": "higado (vias biliares intrahepaticas)",
+              "anatomical_landmarks": "parenquima hepatico, arbol biliar intrahepatico, hilio hepatico, ganglios regionales",
+              "bilateral_comparison_required": false,
+              "priority_zones": [
+                "masa hepatica con realce periferico progresivo",
+                "dilatacion biliar periferica",
+                "retraccion capsular",
+                "adenopatias hiliares"
+              ],
+              "positioning_notes": "RM de abdomen con contraste y colangio-RM. Evaluar realce dinamico (captacion tardia por fibrosis) y mapa biliar."
+            },
+            "clinical_context_for_radiologist": "La paciente presenta una coincidencia casi perfecta con el perfil de colangiocarcinoma: antecedente de colangitis esclerosante primaria (principal factor de riesgo), clínica típica de ictericia obstructiva (coluria, acolia, prurito, dolor en hipocondrio derecho, pérdida de peso) y biomarcadores altamente compatibles (CA 19-9 muy elevado a 480, CEA elevado a 9.1, y patrón colestásico severo).",
+            "meddiffusion_reference_prompt": "Contrast-enhanced abdominal MRI, axial view, infiltrative hepatic mass with progressive peripheral enhancement, capsular retraction, peripheral biliary duct dilation, intrahepatic cholangiocarcinoma, clinical medical imaging",
+            "meddiffusion_negative_prompt": "hemangioma, simple cyst, homogeneous benign lesion, normal liver",
+            "reference_images_note": "Imágenes de referencia MedDiffusion para GT-COLANGIO-001. Usar como orientación visual, no como diagnóstico."
+          }
+        },
+        {
+          "gt_id": "GT-PANCREAS-001",
+          "icd_10": "C25.0",
+          "icd_10_description": "Neoplasia maligna de la cabeza del pancreas (adenocarcinoma ductal)",
+          "match_probability": 0.6,
+          "match_rationale": "El adenocarcinoma de cabeza de páncreas puede presentarse de forma idéntica con ictericia obstructiva, coluria, acolia, prurito, pérdida de peso y elevación de CA 19-9 y CEA. Sin embargo, la presencia de dolor en hipocondrio derecho (en lugar de epigástrico irradiado a dorso) y el antecedente clave de colangitis esclerosante primaria hacen que esta opción sea menos probable que el colangiocarcinoma, aunque sigue siendo un diagnóstico diferencial importante.",
+          "radiologist_instructions": {
+            "suggested_modalities": [
+              "abdominal_CT",
+              "MRCP"
+            ],
+            "imaging_location": {
+              "body_region": "abdomen con foco en cabeza pancreatica",
+              "anatomical_landmarks": "cabeza/cuerpo/cola de pancreas, ducto pancreatico (Wirsung), via biliar, mesenterio, arteria mesenterica superior",
+              "bilateral_comparison_required": false,
+              "priority_zones": [
+                "masa pancreatica focal",
+                "dilatacion biliar y de Wirsung (signo del doble conducto)",
+                "compromiso vascular (arteria mesenterica, vena porta)",
+                "adenopatias regionales",
+                "metastasis hepaticas y peritoneales"
+              ],
+              "positioning_notes": "TC con protocolo pancreatico: fase arterial (pancreas), portal (hepatica), tardia. Evaluar resecabilidad vascular."
+            },
+            "clinical_context_for_radiologist": "El adenocarcinoma de cabeza de páncreas puede presentarse de forma idéntica con ictericia obstructiva, coluria, acolia, prurito, pérdida de peso y elevación de CA 19-9 y CEA. Sin embargo, la presencia de dolor en hipocondrio derecho (en lugar de epigástrico irradiado a dorso) y el antecedente clave de colangitis esclerosante primaria hacen que esta opción sea menos probable que el colangiocarcinoma, aunque sigue siendo un diagnóstico diferencial importante.",
+            "meddiffusion_reference_prompt": "Abdominal CT axial portal phase, hypodense mass pancreatic head with dilated common bile duct and Wirsung double duct sign, vascular involvement, pancreatic adenocarcinoma, clinical medical imaging",
+            "meddiffusion_negative_prompt": "normal pancreas, chronic pancreatitis only, benign cyst",
+            "reference_images_note": "Imágenes de referencia MedDiffusion para GT-PANCREAS-001. Usar como orientación visual, no como diagnóstico."
+          }
+        }
+      ],
+      "imaging_needed_probability": 0.95,
+      "reasoning": "La presentación clínica de ictericia obstructiva progresiva, dolor en hipocondrio derecho, pérdida de peso y prurito, sumado a un patrón de colestasis severa y elevación marcada de CA 19-9 y CEA, es altamente sospechosa de colangiocarcinoma. El antecedente de colangitis esclerosante primaria (CEP) es el factor de riesgo más importante y conocido para esta neoplasia. El cuadro también podría plantear diagnóstico diferencial con adenocarcinoma de cabeza de páncreas debido a la ictericia obstructiva y elevación de CA 19-9, aunque el dolor en hipocondrio derecho y el antecedente de CEP orientan fuertemente a la vía biliar. No hay elementos clínicos ni de laboratorio que sugieran neoplasias gástricas, renales o pulmonares.",
+      "recommendation": "DERIVAR_A_IMAGEN",
+      "urgency": "alta",
+      "conclusive": true,
+      "token_usage": {
+        "prompt_tokens": 2552,
+        "completion_tokens": 672,
+        "total_tokens": 3224,
+        "model": "gemini-flash-latest",
+        "retrieved_gt_entries": 5,
+        "gt_entries_in_context": 5
+      }
+    },
+    "c1_elapsed_seconds": 27.954360600560904,
+    "c2_output": {
+      "patient_id": "PAT-00107",
+      "segmentation": {
+        "regions_of_interest": [
+          {
+            "id": "ROI_01",
+            "location": "Parenquima hepatico (segmentos hiliares/intrahepaticos)",
+            "size_mm": 55.0,
+            "shape": "Irregular e infiltrante",
+            "margins": "Mal definidos",
+            "density": "Heterogenea, hipodensa en fase sin contraste con realce periferico progresivo"
+          },
+          {
+            "id": "ROI_02",
+            "location": "Capsula hepatica adyacente a la lesion",
+            "size_mm": 0.0,
+            "shape": "Lineal (retraccion)",
+            "margins": "No aplicable",
+            "density": "Retraccion capsular focal"
+          },
+          {
+            "id": "ROI_03",
+            "location": "Arbol biliar intrahepatico periferico",
+            "size_mm": 8.0,
+            "shape": "Tubular (dilatacion)",
+            "margins": "Definidos",
+            "density": "Contenido liquido (bilis)"
+          },
+          {
+            "id": "ROI_04",
+            "location": "Hilio hepatico (ganglios regionales)",
+            "size_mm": 15.0,
+            "shape": "Redondeada (adenopatia)",
+            "margins": "Definidos",
+            "density": "Partes blandas"
+          }
+        ]
+      },
+      "findings": "Se espera observar una masa hepatica infiltrante de comportamiento agresivo y rapido crecimiento, caracterizada por un realce periferico progresivo en fases dinamicas y captacion tardia central condicionada por estroma fibrotico. Es caracteristica la presencia de retraccion de la capsula hepatica adyacente y una marcada dilatacion de la via biliar intrahepatica periferica al tumor. Asimismo, se anticipa la identificacion de adenopatias hiliares regionales sospechosas en el hilio hepatico.",
+      "classification": "sospechoso",
+      "confidence": 0.95,
+      "final_recommendation": "Correlacionar los hallazgos de imagen descritos con los antecedentes de colangitis esclerosante primaria, el patron colestasico severo y la elevacion critica de los biomarcadores tumorales (CA 19-9 de 480 U/ml y CEA de 9.1 ng/ml) para guiar la confirmacion histopatologica y estadificacion.",
+      "next_steps": [
+        "Realizar biopsia dirigida por aguja gruesa para confirmacion histopatologica.",
+        "Completar estadificacion mediante TC de torax, abdomen y pelvis con protocolo oncologico.",
+        "Presentar el caso en comite multidisciplinario de tumores hepatobiliares."
+      ],
+      "token_usage": {
+        "prompt_tokens": 424,
+        "completion_tokens": 651,
+        "total_tokens": 1572,
+        "model": "gemini-flash-latest",
+        "retrieved_gt_entries": null,
+        "gt_entries_in_context": null
+      }
+    },
+    "c2_elapsed_seconds": 5.259028200060129,
+    "error": null
+  },
+  "case_008": {
+    "c1_output": {
+      "patient_id": "PAT-00108",
+      "clinical_summary": "Paciente femenina de 71 años con antecedentes de hipertensión arterial que presenta la tríada clásica de carcinoma de células renales: masa palpable en flanco derecho, hematuria macroscópica de 4 meses de evolución y dolor lumbar derecho persistente. En agosto de 2024 se reportó ecografía con lesión renal derecha sospechosa, sin realización de la TC recomendada. Analíticamente destaca hematuria macroscópica, anemia leve (hemoglobina 10.5 g/dL), LDH elevada (350 U/L) y leve alteración de la función renal (creatinina 1.4 mg/dL).",
+      "matched_ground_truths": [
+        {
+          "gt_id": "GT-RENAL-001",
+          "icd_10": "C64.9",
+          "icd_10_description": "Neoplasia maligna del rinon (carcinoma de celulas renales)",
+          "match_probability": 0.95,
+          "match_rationale": "La paciente presenta la tríada clásica completa (masa palpable en flanco, hematuria macroscópica persistente y dolor lumbar), edad > 50 años, antecedente de hipertensión, anemia, LDH elevada y una ecografía previa con lesión renal sospechosa no caracterizada por tomografía.",
+          "radiologist_instructions": {
+            "suggested_modalities": [
+              "abdominal_CT",
+              "abdominal_MRI"
+            ],
+            "imaging_location": {
+              "body_region": "abdomen con foco en rinon derecho",
+              "anatomical_landmarks": "rinon derecho (corteza y seno renal), vena renal y cava inferior, glandula suprarrenal ipsilateral, ganglios retroperitoneales",
+              "bilateral_comparison_required": false,
+              "priority_zones": [
+                "masa renal solida",
+                "trombo tumoral en vena renal o cava",
+                "ganglios retroperitoneales",
+                "glandula suprarrenal ipsilateral"
+              ],
+              "positioning_notes": "TC multifasico con contraste EV. Fase nefrografica para caracterizar el realce. Evaluar extension a vena renal y cava inferior. Reconstruccion coronal."
+            },
+            "clinical_context_for_radiologist": "La paciente presenta la tríada clásica completa (masa palpable en flanco, hematuria macroscópica persistente y dolor lumbar), edad > 50 años, antecedente de hipertensión, anemia, LDH elevada y una ecografía previa con lesión renal sospechosa no caracterizada por tomografía.",
+            "meddiffusion_reference_prompt": "Contrast-enhanced abdominal CT, axial view, heterogeneous enhancing solid mass in right kidney, irregular margins, renal vein tumor thrombus, retroperitoneal lymph nodes, high suspicion renal cell carcinoma, clinical medical imaging",
+            "meddiffusion_negative_prompt": "simple cyst, homogeneous non-enhancing lesion, fat-containing angiomyolipoma, normal kidney",
+            "reference_images_note": "Imágenes de referencia MedDiffusion para GT-RENAL-001. Usar como orientación visual, no como diagnóstico."
+          }
+        },
+        {
+          "gt_id": "GT-ANGIOMIOLIPOMA-001",
+          "icd_10": "D30.0",
+          "icd_10_description": "Neoplasia benigna del rinon (angiomiolipoma)",
+          "match_probability": 0.2,
+          "match_rationale": "Aunque es una neoplasia renal común en mujeres y puede causar dolor en flanco, la presencia de hematuria macroscópica severa de 4 meses, anemia y LDH elevada hacen que una etiología benigna pura como el angiomiolipoma sea muy poco probable como diagnóstico primario.",
+          "radiologist_instructions": {
+            "suggested_modalities": [
+              "abdominal_CT",
+              "abdominal_MRI"
+            ],
+            "imaging_location": {
+              "body_region": "abdomen, rinon",
+              "anatomical_landmarks": "corteza renal, grasa del componente lesional",
+              "bilateral_comparison_required": false,
+              "priority_zones": [
+                "lesion renal con densidad grasa macroscopica",
+                "homogeneidad y bordes",
+                "ausencia de trombo venoso"
+              ],
+              "positioning_notes": "TC de abdomen sin contraste para medir densidad grasa (< -10 UH). RM con supresion grasa confirma el componente adiposo."
+            },
+            "clinical_context_for_radiologist": "Aunque es una neoplasia renal común en mujeres y puede causar dolor en flanco, la presencia de hematuria macroscópica severa de 4 meses, anemia y LDH elevada hacen que una etiología benigna pura como el angiomiolipoma sea muy poco probable como diagnóstico primario.",
+            "meddiffusion_reference_prompt": "Non-contrast abdominal CT, axial view, well-circumscribed renal lesion with macroscopic fat density, homogeneous, benign angiomyolipoma appearance, clinical medical imaging",
+            "meddiffusion_negative_prompt": "heterogeneous solid enhancing mass, irregular margins, venous thrombus, malignant",
+            "reference_images_note": "Imágenes de referencia MedDiffusion para GT-ANGIOMIOLIPOMA-001. Usar como orientación visual, no como diagnóstico."
+          }
+        },
+        {
+          "gt_id": "GT-RENAL-002",
+          "icd_10": "C64.9",
+          "icd_10_description": "Masa renal solida pequena (carcinoma renal temprano, hallazgo incidental)",
+          "match_probability": 0.05,
+          "match_rationale": "Se descarta prácticamente debido a que la paciente no está asintomática ni es un hallazgo incidental de una lesión pequeña; presenta una masa palpable y síntomas floridos de enfermedad avanzada.",
+          "radiologist_instructions": {
+            "suggested_modalities": [
+              "abdominal_CT",
+              "abdominal_MRI"
+            ],
+            "imaging_location": {
+              "body_region": "abdomen con foco en rinon",
+              "anatomical_landmarks": "corteza renal, seno renal, grasa perirrenal",
+              "bilateral_comparison_required": false,
+              "priority_zones": [
+                "nodulo renal solido pequeno",
+                "patron y grado de realce",
+                "bordes y homogeneidad"
+              ],
+              "positioning_notes": "TC multifasico. Comparar con estudios previos para evaluar crecimiento. Caracterizar realce en fase nefrografica."
+            },
+            "clinical_context_for_radiologist": "Se descarta prácticamente debido a que la paciente no está asintomática ni es un hallazgo incidental de una lesión pequeña; presenta una masa palpable y síntomas floridos de enfermedad avanzada.",
+            "meddiffusion_reference_prompt": "Contrast-enhanced abdominal CT, axial view, small subtle solid renal nodule under 3 cm, mild enhancement, well-defined margins, low conspicuity early renal cell carcinoma, clinical medical imaging",
+            "meddiffusion_negative_prompt": "large mass, venous thrombus, macroscopic fat, simple cyst, normal kidney",
+            "reference_images_note": "Imágenes de referencia MedDiffusion para GT-RENAL-002. Usar como orientación visual, no como diagnóstico."
+          }
+        }
+      ],
+      "imaging_needed_probability": 0.95,
+      "reasoning": "La presentación clínica de la paciente es altamente sugestiva de una neoplasia renal maligna avanzada o de gran tamaño (GT-RENAL-001), cumpliendo con la tríada clásica completa (masa, dolor y hematuria), además de presentar anemia, LDH elevada e hipertensión como factor de riesgo y hallazgo clínico. Se descarta una masa pequeña incidental (GT-RENAL-002) debido al tamaño sugerido por la masa palpable y la severidad de los síntomas. Un angiomiolipoma (GT-ANGIOMIOLIPOMA-001) es menos probable dada la marcada elevación de LDH, la anemia y la persistencia de hematuria macroscópica severa sin un cuadro de sangrado agudo/retroperitoneal típico. No hay elementos clínicos que sugieran colangiocarcinoma (GT-COLANGIO-001) ni mesotelioma (GT-PULM-004).",
+      "recommendation": "DERIVAR_A_IMAGEN",
+      "urgency": "alta",
+      "conclusive": true,
+      "token_usage": {
+        "prompt_tokens": 2276,
+        "completion_tokens": 697,
+        "total_tokens": 2973,
+        "model": "gemini-flash-latest",
+        "retrieved_gt_entries": 5,
+        "gt_entries_in_context": 5
+      }
+    },
+    "c1_elapsed_seconds": 10.658428699709475,
+    "c2_output": {
+      "patient_id": "PAT-00108",
+      "segmentation": {
+        "regions_of_interest": [
+          {
+            "id": "ROI_01",
+            "location": "Corteza y seno del rinon derecho",
+            "size_mm": 65.0,
+            "shape": "Lobulada e irregular",
+            "margins": "Irregulares e infiltrativos",
+            "density": "Heterogenea con realce tras la administracion de contraste y lavado (washout) sugerente de carcinoma de celulas claras"
+          },
+          {
+            "id": "ROI_02",
+            "location": "Vena renal derecha",
+            "size_mm": 18.0,
+            "shape": "Alargada (defecto de llenado)",
+            "margins": "Definidos por la pared vascular",
+            "density": "Hipodensa con realce interno, compatible con trombo tumoral"
+          },
+          {
+            "id": "ROI_03",
+            "location": "Ganglios retroperitoneales",
+            "size_mm": 14.0,
+            "shape": "Redondeada",
+            "margins": "Definidos",
+            "density": "Homogenea con leve realce, compatible con adenopatias metastasicas"
+          }
+        ]
+      },
+      "findings": "Se espera observar una masa renal solida y heterogenea localizada en el rinon derecho, con un diametro estimado de referencia de 65 mm. La lesion presenta bordes irregulares y un patron de realce tipico tras la administracion de contraste endovenoso, caracterizado por una captacion avida en fase arterial y lavado posterior (washout). Se debe evaluar especificamente la extension local hacia el seno renal, asi como la presencia de un defecto de llenado en la vena renal derecha compatible con trombo tumoral. Asimismo, se espera la presencia de adenopatias retroperitoneales sospechosas (mayores a 10 mm en su eje corto) y se debe descartar compromiso de la glandula suprarrenal ipsilateral.",
+      "classification": "sospechoso",
+      "confidence": 0.95,
+      "final_recommendation": "Estudio tomografico de abdomen y pelvis con protocolo multifasico para caracterizacion de masa renal y estadificacion local (TNM). Se sugiere correlacionar con tomografia de torax para descartar secundarismo pulmonar dado el contexto de sospecha de enfermedad avanzada.",
+      "next_steps": [
+        "Realizar TC de torax, abdomen y pelvis con contraste endovenoso (protocolo de masa renal).",
+        "Evaluacion por el servicio de Urologia Oncologica para planificacion quirurgica (nefrectomia radical vs. parcial) y manejo del trombo venoso.",
+        "Presentacion del caso en comite multidisciplinario de oncologia."
+      ],
+      "token_usage": {
+        "prompt_tokens": 388,
+        "completion_tokens": 629,
+        "total_tokens": 1502,
+        "model": "gemini-flash-latest",
+        "retrieved_gt_entries": null,
+        "gt_entries_in_context": null
+      }
+    },
+    "c2_elapsed_seconds": 9.856753199361265,
+    "error": null
+  },
+  "case_009": {
+    "c1_output": {
+      "patient_id": "PAT-00109",
+      "clinical_summary": "Paciente masculino de 67 años con tabaquismo severo (45 paquetes/año), EPOC y antecedente reciente de neumonía en el lóbulo medio derecho. Presenta tos hemoptoica de 6 semanas, pérdida de peso significativa (8 kg), disnea progresiva y dolor torácico derecho. Laboratorios muestran elevación de CEA (12.4 ng/mL) y CYFRA_21_1 (5.8 ng/mL), junto con anemia leve.",
+      "matched_ground_truths": [
+        {
+          "gt_id": "GT-PULM-001",
+          "icd_10": "C34.1",
+          "icd_10_description": "Neoplasia maligna del lobulo superior del pulmon (adenocarcinoma)",
+          "match_probability": 0.9,
+          "match_rationale": "El paciente cumple con todos los factores de riesgo (edad, tabaquismo severo, EPOC, antecedente familiar) y síntomas típicos (pérdida de peso > 5%, hemoptisis, disnea progresiva, dolor torácico). Además, presenta elevación significativa de CEA (12.4 vs > 5 esperado) y CYFRA_21_1.",
+          "radiologist_instructions": {
+            "suggested_modalities": [
+              "chest_CT"
+            ],
+            "imaging_location": {
+              "body_region": "torax con foco en lobulo afectado",
+              "anatomical_landmarks": "lobulos pulmonares, hilios, mediastino, pleura",
+              "bilateral_comparison_required": true,
+              "priority_zones": [
+                "nodulo o masa pulmonar",
+                "ganglios mediastinales (estaciones 4, 7, 10)",
+                "pleura y derrame pleural",
+                "huesos visibles (costillas, columna)"
+              ],
+              "positioning_notes": "TC con cortes finos (1-1.25 mm) con contraste IV. Reconstrucciones MIP y MinIP para nodulos. PET-TC para staging si confirma malignidad."
+            },
+            "clinical_context_for_radiologist": "El paciente cumple con todos los factores de riesgo (edad, tabaquismo severo, EPOC, antecedente familiar) y síntomas típicos (pérdida de peso > 5%, hemoptisis, disnea progresiva, dolor torácico). Además, presenta elevación significativa de CEA (12.4 vs > 5 esperado) y CYFRA_21_1.",
+            "meddiffusion_reference_prompt": "Chest CT axial view, irregular spiculated pulmonary mass upper lobe, lobulated margins, bronchial involvement, mediastinal lymphadenopathy, lung adenocarcinoma, clinical medical imaging",
+            "meddiffusion_negative_prompt": "smooth round nodule, calcified granuloma, normal lung, pneumonia infiltrate",
+            "reference_images_note": "Imágenes de referencia MedDiffusion para GT-PULM-001. Usar como orientación visual, no como diagnóstico."
+          }
+        },
+        {
+          "gt_id": "GT-PULM-002",
+          "icd_10": "C34.9",
+          "icd_10_description": "Neoplasia maligna del pulmon, parte no especificada (carcinoma escamoso)",
+          "match_probability": 0.85,
+          "match_rationale": "El carcinoma escamoso se asocia fuertemente al tabaquismo intenso y cursa típicamente con hemoptisis y neumonías postobstructivas recurrentes (el paciente tuvo neumonía en el lóbulo medio derecho recientemente). El marcador CYFRA_21_1, altamente sensible para este subtipo, se encuentra elevado (5.8).",
+          "radiologist_instructions": {
+            "suggested_modalities": [
+              "chest_CT"
+            ],
+            "imaging_location": {
+              "body_region": "torax con foco en arbol bronquial central",
+              "anatomical_landmarks": "bronquios principales, hilios pulmonares, ganglios mediastinales",
+              "bilateral_comparison_required": true,
+              "priority_zones": [
+                "masa endobronquial o perihiliar",
+                "atelectasia o consolidacion postobstructiva",
+                "cavitacion intratumoral",
+                "compromiso mediastinal"
+              ],
+              "positioning_notes": "TC con contraste para caracterizar masa central. Broncoscopia indispensable para biopsia y mapeo endobronquial."
+            },
+            "clinical_context_for_radiologist": "El carcinoma escamoso se asocia fuertemente al tabaquismo intenso y cursa típicamente con hemoptisis y neumonías postobstructivas recurrentes (el paciente tuvo neumonía en el lóbulo medio derecho recientemente). El marcador CYFRA_21_1, altamente sensible para este subtipo, se encuentra elevado (5.8).",
+            "meddiffusion_reference_prompt": "Chest CT axial, central perihilar cavitary mass, post-obstructive atelectasis, bronchial encasement, squamous cell carcinoma lung, clinical medical imaging",
+            "meddiffusion_negative_prompt": "peripheral nodule, calcified granuloma, normal lung",
+            "reference_images_note": "Imágenes de referencia MedDiffusion para GT-PULM-002. Usar como orientación visual, no como diagnóstico."
+          }
+        },
+        {
+          "gt_id": "GT-PULM-004",
+          "icd_10": "C45.0",
+          "icd_10_description": "Mesotelioma maligno de la pleura",
+          "match_probability": 0.4,
+          "match_rationale": "Aunque comparte síntomas como disnea, dolor torácico y pérdida de peso, no se documenta exposición a asbesto en los antecedentes del paciente, y los biomarcadores son más orientativos a carcinoma pulmonar epitelial que a mesotelioma.",
+          "radiologist_instructions": {
+            "suggested_modalities": [
+              "chest_CT",
+              "chest_MRI"
+            ],
+            "imaging_location": {
+              "body_region": "torax con foco en pleura",
+              "anatomical_landmarks": "pleura visceral y parietal, fisuras pleurales, pericardio, diafragma",
+              "bilateral_comparison_required": true,
+              "priority_zones": [
+                "engrosamiento pleural nodular > 1cm",
+                "extension a fisura interlobar",
+                "compromiso de pared toracica o pericardio",
+                "derrame pleural acompanante"
+              ],
+              "positioning_notes": "TC con contraste para caracterizar engrosamiento. RM si dudas de invasion de pared o diafragma."
+            },
+            "clinical_context_for_radiologist": "Aunque comparte síntomas como disnea, dolor torácico y pérdida de peso, no se documenta exposición a asbesto en los antecedentes del paciente, y los biomarcadores son más orientativos a carcinoma pulmonar epitelial que a mesotelioma.",
+            "meddiffusion_reference_prompt": "Chest CT axial with contrast, circumferential nodular pleural thickening, pleural effusion, hemithorax retraction, mesothelioma, asbestos exposure pattern, clinical medical imaging",
+            "meddiffusion_negative_prompt": "smooth pleural effusion, transudate, normal lung",
+            "reference_images_note": "Imágenes de referencia MedDiffusion para GT-PULM-004. Usar como orientación visual, no como diagnóstico."
+          }
+        }
+      ],
+      "imaging_needed_probability": 0.9,
+      "reasoning": "El cuadro clínico es altamente sospechoso de neoplasia maligna de pulmón. El paciente presenta factores de riesgo críticos (edad, tabaquismo severo, EPOC, antecedente familiar de cáncer de pulmón) y síntomas cardinales (hemoptisis, pérdida de peso marcada, disnea y dolor torácico). Los biomarcadores CEA y CYFRA_21_1 están significativamente elevados, lo cual apoya fuertemente el diagnóstico de adenocarcinoma o carcinoma escamoso de pulmón. El antecedente de neumonía en el lóbulo medio derecho en 2024-03 podría representar un fenómeno postobstructivo.",
+      "recommendation": "DERIVAR_A_IMAGEN",
+      "urgency": "alta",
+      "conclusive": true,
+      "token_usage": {
+        "prompt_tokens": 2414,
+        "completion_tokens": 659,
+        "total_tokens": 3073,
+        "model": "gemini-flash-latest",
+        "retrieved_gt_entries": 5,
+        "gt_entries_in_context": 5
+      }
+    },
+    "c1_elapsed_seconds": 14.466490400023758,
+    "c2_output": {
+      "patient_id": "PAT-00109",
+      "segmentation": {
+        "regions_of_interest": [
+          {
+            "id": "ROI_01",
+            "location": "Lóbulo superior del pulmón",
+            "size_mm": 24.0,
+            "shape": "Irregular y lobulada",
+            "margins": "Espiculados",
+            "density": "Heterogénea, con posible broncograma aéreo o cavitación"
+          },
+          {
+            "id": "ROI_02",
+            "location": "Ganglios mediastinales (estaciones 4, 7 y 10)",
+            "size_mm": 12.0,
+            "shape": "Redondeada",
+            "margins": "Definidos",
+            "density": "Tejido blando"
+          }
+        ]
+      },
+      "findings": "En el estudio de tórax se espera identificar una masa o nódulo pulmonar localizado en el lóbulo superior, con un tamaño de referencia estimado en 24 mm (superior al límite de 8 mm), caracterizado por presentar márgenes espiculados, irregulares o lobulados, y potencial asociación a broncograma aéreo o cavitación. Adicionalmente, se prevé la presencia de adenopatías en las estaciones ganglionares mediastinales (estaciones 4, 7 y 10) con diámetros mayores a 10 mm (estimado de referencia de 12 mm). Se sugiere evaluar minuciosamente la pleura para descartar derrame o implantes, así como las estructuras óseas visualizadas (costillas y columna vertebral) ante el riesgo de compromiso secundario.",
+      "classification": "sospechoso",
+      "confidence": 0.9,
+      "final_recommendation": "Correlacionar los hallazgos de masa pulmonar sospechosa y adenopatías mediastinales con el contexto de alta sospecha clínica (tabaquismo severo, hemoptisis, pérdida de peso) y la elevación de marcadores tumorales (CEA y CYFRA 21-1) para proceder con la estadificación oncológica.",
+      "next_steps": [
+        "Solicitar biopsia de la lesión pulmonar o de adenopatías mediastinales para confirmación histológica y perfilado molecular.",
+        "Realizar PET-CT para estadificación sistémica completa (TNM).",
+        "Evaluación prioritaria por neumonología y oncología médica."
+      ],
+      "token_usage": {
+        "prompt_tokens": 398,
+        "completion_tokens": 533,
+        "total_tokens": 1720,
+        "model": "gemini-flash-latest",
+        "retrieved_gt_entries": null,
+        "gt_entries_in_context": null
+      }
+    },
+    "c2_elapsed_seconds": 12.916718499734998,
+    "error": null
+  },
+  "case_010": {
+    "c1_output": {
+      "patient_id": "PAT-00110",
+      "clinical_summary": "Paciente masculino de 72 años, ex-fumador severo (50 paquetes/año), que presenta un nódulo pulmonar de 22 mm con bordes espiculados en el lóbulo superior derecho detectado por TC de screening. Refiere tos seca y leve baja de peso. Los laboratorios muestran elevación de CEA (8.4 ng/mL) y CYFRA_21_1 (4.2 ng/mL).",
+      "matched_ground_truths": [
+        {
+          "gt_id": "GT-PULM-001",
+          "icd_10": "C34.1",
+          "icd_10_description": "Neoplasia maligna del lobulo superior del pulmon (adenocarcinoma)",
+          "match_probability": 0.85,
+          "match_rationale": "El paciente cumple con la edad, antecedente de tabaquismo severo, localización en lóbulo superior, nódulo espiculado de 22 mm, tos, pérdida de peso y elevación significativa de CEA (8.4 ng/mL) y CYFRA_21_1 (4.2 ng/mL), altamente compatibles con adenocarcinoma de pulmón.",
+          "radiologist_instructions": {
+            "suggested_modalities": [
+              "chest_CT"
+            ],
+            "imaging_location": {
+              "body_region": "torax con foco en lobulo afectado",
+              "anatomical_landmarks": "lobulos pulmonares, hilios, mediastino, pleura",
+              "bilateral_comparison_required": true,
+              "priority_zones": [
+                "nodulo o masa pulmonar",
+                "ganglios mediastinales (estaciones 4, 7, 10)",
+                "pleura y derrame pleural",
+                "huesos visibles (costillas, columna)"
+              ],
+              "positioning_notes": "TC con cortes finos (1-1.25 mm) con contraste IV. Reconstrucciones MIP y MinIP para nodulos. PET-TC para staging si confirma malignidad."
+            },
+            "clinical_context_for_radiologist": "El paciente cumple con la edad, antecedente de tabaquismo severo, localización en lóbulo superior, nódulo espiculado de 22 mm, tos, pérdida de peso y elevación significativa de CEA (8.4 ng/mL) y CYFRA_21_1 (4.2 ng/mL), altamente compatibles con adenocarcinoma de pulmón.",
+            "meddiffusion_reference_prompt": "Chest CT axial view, irregular spiculated pulmonary mass upper lobe, lobulated margins, bronchial involvement, mediastinal lymphadenopathy, lung adenocarcinoma, clinical medical imaging",
+            "meddiffusion_negative_prompt": "smooth round nodule, calcified granuloma, normal lung, pneumonia infiltrate",
+            "reference_images_note": "Imágenes de referencia MedDiffusion para GT-PULM-001. Usar como orientación visual, no como diagnóstico."
+          }
+        },
+        {
+          "gt_id": "GT-PULM-002",
+          "icd_10": "C34.9",
+          "icd_10_description": "Neoplasia maligna del pulmon, parte no especificada (carcinoma escamoso)",
+          "match_probability": 0.65,
+          "match_rationale": "Aunque el carcinoma escamoso suele ser más central y asociarse a hemoptisis, la edad, el tabaquismo severo, la tos y la elevación de CYFRA_21_1 hacen que esta neoplasia sea un diferencial muy probable.",
+          "radiologist_instructions": {
+            "suggested_modalities": [
+              "chest_CT"
+            ],
+            "imaging_location": {
+              "body_region": "torax con foco en arbol bronquial central",
+              "anatomical_landmarks": "bronquios principales, hilios pulmonares, ganglios mediastinales",
+              "bilateral_comparison_required": true,
+              "priority_zones": [
+                "masa endobronquial o perihiliar",
+                "atelectasia o consolidacion postobstructiva",
+                "cavitacion intratumoral",
+                "compromiso mediastinal"
+              ],
+              "positioning_notes": "TC con contraste para caracterizar masa central. Broncoscopia indispensable para biopsia y mapeo endobronquial."
+            },
+            "clinical_context_for_radiologist": "Aunque el carcinoma escamoso suele ser más central y asociarse a hemoptisis, la edad, el tabaquismo severo, la tos y la elevación de CYFRA_21_1 hacen que esta neoplasia sea un diferencial muy probable.",
+            "meddiffusion_reference_prompt": "Chest CT axial, central perihilar cavitary mass, post-obstructive atelectasis, bronchial encasement, squamous cell carcinoma lung, clinical medical imaging",
+            "meddiffusion_negative_prompt": "peripheral nodule, calcified granuloma, normal lung",
+            "reference_images_note": "Imágenes de referencia MedDiffusion para GT-PULM-002. Usar como orientación visual, no como diagnóstico."
+          }
+        },
+        {
+          "gt_id": "GT-GRANULOMA-001",
+          "icd_10": "D38.1",
+          "icd_10_description": "Tumor de comportamiento incierto del aparato respiratorio (granuloma)",
+          "match_probability": 0.15,
+          "match_rationale": "Un granuloma es un diferencial para nódulos pulmonares, pero el tamaño de 22 mm, los bordes espiculados, la pérdida de peso y la elevación de marcadores tumorales (CEA y CYFRA_21_1) hacen que esta opción benigna sea muy poco probable.",
+          "radiologist_instructions": {
+            "suggested_modalities": [
+              "chest_CT"
+            ],
+            "imaging_location": {
+              "body_region": "torax (zona de lesion)",
+              "anatomical_landmarks": "parenquima pulmonar perifierico habitualmente",
+              "bilateral_comparison_required": false,
+              "priority_zones": [
+                "nodulo solitario",
+                "caracteristicas de benignidad (calcio, estabilidad)"
+              ],
+              "positioning_notes": "TC con cortes finos para caracterizar calcificaciones. Comparar con estudios previos para confirmar estabilidad."
+            },
+            "clinical_context_for_radiologist": "Un granuloma es un diferencial para nódulos pulmonares, pero el tamaño de 22 mm, los bordes espiculados, la pérdida de peso y la elevación de marcadores tumorales (CEA y CYFRA_21_1) hacen que esta opción benigna sea muy poco probable.",
+            "meddiffusion_reference_prompt": "Chest CT, small well-defined round nodule with central calcification, popcorn pattern, benign granuloma, stable lesion, clinical medical imaging",
+            "meddiffusion_negative_prompt": "spiculated mass, irregular borders, cavitation, growth in serial scans",
+            "reference_images_note": "Imágenes de referencia MedDiffusion para GT-GRANULOMA-001. Usar como orientación visual, no como diagnóstico."
+          }
+        }
+      ],
+      "imaging_needed_probability": 0.85,
+      "reasoning": "La presentación clínica es altamente sospechosa de neoplasia maligna pulmonar primaria. El paciente presenta factores de riesgo críticos (edad avanzada, tabaquismo muy intenso) y un nódulo de 22 mm con características de malignidad (bordes espiculados) en el lóbulo superior derecho. Los biomarcadores CEA y CYFRA_21_1 están elevados, lo cual apoya fuertemente la sospecha de adenocarcinoma (GT-PULM-001) o carcinoma escamoso (GT-PULM-002), siendo el primero el más probable dada la localización y la elevación de CEA. Se descartan diagnósticos benignos como granuloma o TBC activa debido a la elevación de marcadores tumorales, la morfología espiculada del nódulo y la ausencia de síntomas sistémicos específicos de TBC (fiebre vespertina, sudoración nocturna).",
+      "recommendation": "DERIVAR_A_IMAGEN",
+      "urgency": "alta",
+      "conclusive": true,
+      "token_usage": {
+        "prompt_tokens": 2224,
+        "completion_tokens": 693,
+        "total_tokens": 2917,
+        "model": "gemini-flash-latest",
+        "retrieved_gt_entries": 5,
+        "gt_entries_in_context": 5
+      }
+    },
+    "c1_elapsed_seconds": 3.428286999464035,
+    "c2_output": {
+      "patient_id": "PAT-00110",
+      "segmentation": {
+        "regions_of_interest": [
+          {
+            "id": "ROI_01",
+            "location": "Lóbulo superior del pulmón",
+            "size_mm": 22.0,
+            "shape": "Irregular",
+            "margins": "Espiculados",
+            "density": "Sólida heterogénea"
+          },
+          {
+            "id": "ROI_02",
+            "location": "Ganglios mediastinales (Estación 4 o 7)",
+            "size_mm": 12.0,
+            "shape": "Redondeada",
+            "margins": "Definidos",
+            "density": "Tejido blando"
+          }
+        ]
+      },
+      "findings": "Se espera observar un nódulo o masa pulmonar de aproximadamente 22 mm localizado en el lóbulo superior, caracterizado por bordes espiculados, lobulados o irregulares, con posible presencia de broncograma aéreo o cavitación. Asimismo, se debe evaluar la presencia de adenopatías mediastinales mayores a 10 mm en las estaciones ganglionares prioritarias (estaciones 4, 7 y 10), así como descartar signos de afectación pleural (derrame o engrosamiento) y lesiones osteolíticas en las estructuras óseas visualizadas (costillas y columna).",
+      "classification": "sospechoso",
+      "confidence": 0.85,
+      "final_recommendation": "Correlacionar los hallazgos tomográficos con los niveles elevados de marcadores tumorales (CEA y CYFRA 21-1) y proceder con la estadificación clínica completa.",
+      "next_steps": [
+        "Confirmación histopatológica mediante biopsia dirigida por tomografía o broncoscopia.",
+        "Realización de PET-TC corporal total para estadificación ganglionar y a distancia.",
+        "Resonancia magnética de cerebro para descartar micrometástasis.",
+        "Evaluación por comité multidisciplinario de oncología torácica."
+      ],
+      "token_usage": {
+        "prompt_tokens": 394,
+        "completion_tokens": 454,
+        "total_tokens": 1410,
+        "model": "gemini-flash-latest",
+        "retrieved_gt_entries": null,
+        "gt_entries_in_context": null
+      }
+    },
+    "c2_elapsed_seconds": 29.793383999727666,
     "error": null
   }
 }

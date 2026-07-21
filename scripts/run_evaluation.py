@@ -22,10 +22,19 @@ Uso:
     python scripts/run_evaluation.py                # procesa casos pendientes (sin limite)
     python scripts/run_evaluation.py --limit 15      # procesa como maximo 15 casos NUEVOS esta corrida
     python scripts/run_evaluation.py --report-only   # no llama al LLM, solo reporta con lo ya guardado
+    python scripts/run_evaluation.py --corrector-run # corre los 110 casos SIEMPRE desde cero (ignora
+                                                      # batch_results.json de corridas anteriores, no
+                                                      # saltea nada) y sobrescribe ese archivo solo con
+                                                      # los resultados de esta corrida -- para revisar
+                                                      # token_usage caso por caso sin arrastrar datos
+                                                      # de corridas viejas.
 """
 
 import argparse
+import contextlib
+import io
 import json
+import time
 
 from google.genai.errors import ClientError
 
@@ -48,6 +57,7 @@ from oncobridge.schemas.component2_io import Component2Output
 from oncobridge.schemas.evaluation import ExpectedOutput
 
 RESULTS_PATH = config.PROJECT_ROOT / "evaluation" / "results" / "batch_results.json"
+METRICS_REPORT_PATH = config.PROJECT_ROOT / "evaluation" / "results" / "metrics_report.txt"
 
 
 def _load_results() -> dict:
@@ -125,6 +135,36 @@ def _purge_quota_exhaustion_errors(results: dict) -> dict:
     return limpio
 
 
+def _print_timing_summary(
+    tiempos_por_caso: list[float],
+    tiempo_total: float,
+    procesados_esta_corrida: int,
+    total_esperados_esta_corrida: int,
+    total_casos_dataset: int,
+    total_resueltos_acumulado: int,
+) -> None:
+    """
+    Registro de tiempos de ejecución de la corrida: cuántos casos se
+    llegaron a procesar, cuántos faltan (de esta corrida y del dataset
+    completo), y cuánto tardó en total y por caso -- para llevar la cuenta
+    de si el sistema entra en el tope de tiempo de la consigna.
+    """
+    faltan_esta_corrida = total_esperados_esta_corrida - procesados_esta_corrida
+    faltan_dataset = total_casos_dataset - total_resueltos_acumulado
+    promedio = tiempo_total / procesados_esta_corrida if procesados_esta_corrida else 0.0
+
+    print("\n" + "-" * 50)
+    print("Registro de tiempos de esta corrida")
+    print("-" * 50)
+    print(f"Casos procesados esta corrida: {procesados_esta_corrida}/{total_esperados_esta_corrida}"
+          f" (faltan de esta corrida: {faltan_esta_corrida})")
+    print(f"Acumulado del dataset:          {total_resueltos_acumulado}/{total_casos_dataset}"
+          f" (faltan en total: {faltan_dataset})")
+    print(f"Tiempo total de esta corrida:   {tiempo_total:.1f}s ({tiempo_total / 60:.1f} min)")
+    print(f"Tiempo promedio por caso:       {promedio:.1f}s")
+    print("-" * 50)
+
+
 def _run_pending_cases(limit: int | None) -> None:
     results = _purge_quota_exhaustion_errors(_load_results())
     _save_results(results)  # persiste la limpieza ya mismo, no solo en memoria
@@ -144,23 +184,31 @@ def _run_pending_cases(limit: int | None) -> None:
         print("Nada para procesar esta corrida.")
         return
 
+    tiempos_por_caso: list[float] = []
+    inicio_corrida = time.perf_counter()
+
     for i, case_dir in enumerate(to_process, start=1):
         case_id = case_dir.name
-        print(f"[{i}/{len(to_process)}] Procesando {case_id}...")
+        inicio_caso = time.perf_counter()
         try:
             results[case_id] = _process_case(case_dir, gt_entries, retriever, client)
             _save_results(results)
+            elapsed_caso = time.perf_counter() - inicio_caso
+            tiempos_por_caso.append(elapsed_caso)
+            print(f"[{i}/{len(to_process)}] {case_id} OK ({elapsed_caso:.1f}s)")
         except Exception as exc:
+            elapsed_caso = time.perf_counter() - inicio_caso
             if _is_daily_quota_exhausted(exc):
                 print(
-                    f"\nCuota diaria de la API agotada en {case_id} -- cortando acá para no "
-                    "perder tiempo con casos que van a fallar igual. Volvé a correr este mismo "
-                    "comando más tarde (o mañana) para seguir donde quedó -- este caso NO se "
-                    "marca como error, se reintenta desde cero la próxima vez."
+                    f"\nCuota diaria de la API agotada en {case_id} (tras {elapsed_caso:.1f}s) -- "
+                    "cortando acá para no perder tiempo con casos que van a fallar igual. Volvé a "
+                    "correr este mismo comando más tarde (o mañana) para seguir donde quedó -- "
+                    "este caso NO se marca como error, se reintenta desde cero la próxima vez."
                 )
-                return
+                break
 
-            print(f"  ERROR en {case_id}: {exc}")
+            tiempos_por_caso.append(elapsed_caso)
+            print(f"[{i}/{len(to_process)}] {case_id} ERROR ({elapsed_caso:.1f}s): {exc}")
             results[case_id] = {
                 "c1_output": None,
                 "c1_elapsed_seconds": None,
@@ -170,6 +218,79 @@ def _run_pending_cases(limit: int | None) -> None:
             }
             _save_results(results)
 
+    _print_timing_summary(
+        tiempos_por_caso,
+        tiempo_total=time.perf_counter() - inicio_corrida,
+        procesados_esta_corrida=len(tiempos_por_caso),
+        total_esperados_esta_corrida=len(to_process),
+        total_casos_dataset=len(case_dirs),
+        total_resueltos_acumulado=len(results),
+    )
+
+
+def _run_corrector_evaluation() -> None:
+    """
+    Corre el pipeline completo sobre los 110 casos de una sola vez, SIEMPRE
+    desde cero (ignora por completo lo que haya en batch_results.json de
+    una corrida anterior -- no saltea ningún caso por estar ya resuelto).
+
+    Sí guarda cada resultado en batch_results.json a medida que lo procesa
+    (para poder revisar token_usage caso por caso), pero el archivo queda
+    sobrescrito con SOLO los casos de esta corrida -- no es acumulativo
+    entre corridas como _run_pending_cases.
+
+    Si la cuota diaria se agota a mitad de camino, corta ahí y reporta las
+    métricas sobre los casos ya procesados hasta ese punto (lo ya guardado
+    en el json queda, no se pierde).
+    """
+    gt_entries = load_ground_truth_base(config.GT_BASE_DIR)
+    retriever = HybridRetriever()
+    retriever.build(gt_entries)
+    client = LLMClient()
+
+    case_dirs = sorted(config.CLINICAL_CASES_DIR.glob("case_*"))
+    results: dict = {}
+    tiempos_por_caso: list[float] = []
+    inicio_corrida = time.perf_counter()
+
+    for i, case_dir in enumerate(case_dirs, start=1):
+        case_id = case_dir.name
+        inicio_caso = time.perf_counter()
+        try:
+            results[case_id] = _process_case(case_dir, gt_entries, retriever, client)
+            _save_results(results)
+            elapsed_caso = time.perf_counter() - inicio_caso
+            tiempos_por_caso.append(elapsed_caso)
+            print(f"[{i}/{len(case_dirs)}] {case_id} OK ({elapsed_caso:.1f}s)")
+        except Exception as exc:
+            elapsed_caso = time.perf_counter() - inicio_caso
+            if _is_daily_quota_exhausted(exc):
+                print(
+                    f"\nCuota diaria de la API agotada en {case_id} (tras {elapsed_caso:.1f}s) -- "
+                    f"se corta acá. Reporte con los {len(results)} casos ya procesados:"
+                )
+                break
+            tiempos_por_caso.append(elapsed_caso)
+            print(f"[{i}/{len(case_dirs)}] {case_id} ERROR ({elapsed_caso:.1f}s): {exc}")
+            results[case_id] = {
+                "c1_output": None,
+                "c1_elapsed_seconds": None,
+                "c2_output": None,
+                "c2_elapsed_seconds": None,
+                "error": str(exc),
+            }
+            _save_results(results)
+
+    _print_timing_summary(
+        tiempos_por_caso,
+        tiempo_total=time.perf_counter() - inicio_corrida,
+        procesados_esta_corrida=len(tiempos_por_caso),
+        total_esperados_esta_corrida=len(case_dirs),
+        total_casos_dataset=len(case_dirs),
+        total_resueltos_acumulado=len(results),
+    )
+    _print_and_save_report(results)
+
 
 def _load_expected(case_id: str) -> ExpectedOutput:
     raw = json.loads(
@@ -178,8 +299,14 @@ def _load_expected(case_id: str) -> ExpectedOutput:
     return ExpectedOutput.model_validate(raw)
 
 
-def _print_report() -> None:
-    results = _purge_quota_exhaustion_errors(_load_results())
+def _print_report(results: dict | None = None) -> None:
+    """
+    Si no se pasa `results`, lo carga de batch_results.json (uso normal del
+    equipo). Si se pasa (uso de --corrector-run), reporta directamente
+    sobre ese dict en memoria, sin tocar el archivo en disco.
+    """
+    if results is None:
+        results = _purge_quota_exhaustion_errors(_load_results())
     total_cases = len(list(config.CLINICAL_CASES_DIR.glob("case_*")))
     gt_entries = load_ground_truth_base(config.GT_BASE_DIR)
     gt_index = {e.gt_id: e for e in gt_entries}
@@ -200,18 +327,23 @@ def _print_report() -> None:
 
     c1_pairs: list[tuple[Component1Output, ExpectedOutput]] = []
     c2_pairs: list[tuple[Component2Output, ExpectedOutput]] = []
-    c1_elapsed_seconds: list[float] = []
+    total_elapsed_seconds: list[float] = []
 
     for case_id in ok_case_ids:
         entry = results[case_id]
         expected = _load_expected(case_id)
         c1_output = Component1Output.model_validate(entry["c1_output"])
         c1_pairs.append((c1_output, expected))
-        c1_elapsed_seconds.append(entry["c1_elapsed_seconds"])
 
+        # Tiempo real "con sistema" para este caso: C1 siempre, más C2 cuando
+        # el caso efectivamente se derivó a imagen -- si no, el clínico nunca
+        # hubiera esperado ese segundo paso, así que no cuenta para el.
+        case_elapsed_seconds = entry["c1_elapsed_seconds"]
         if entry["c2_output"] is not None:
             c2_output = Component2Output.model_validate(entry["c2_output"])
             c2_pairs.append((c2_output, expected))
+            case_elapsed_seconds += entry["c2_elapsed_seconds"]
+        total_elapsed_seconds.append(case_elapsed_seconds)
 
     if not c1_pairs:
         print("\nTodavía no hay ningún caso resuelto -- corré el script sin --report-only primero.")
@@ -247,9 +379,9 @@ def _print_report() -> None:
     tasa = tasa_imagen_innecesaria(c1_pairs)
     print(f"Tasa de Imagen Innecesaria:   {tasa:.1%}")
 
-    triage = compute_triage_time_reduction(c1_elapsed_seconds)
+    triage = compute_triage_time_reduction(total_elapsed_seconds)
     print("Reducción de Tiempo de Triage (estimada):")
-    print(f"  Tiempo con sistema (medido):    {triage.measured_seconds_promedio:.2f} seg/caso promedio (N={len(c1_elapsed_seconds)})")
+    print(f"  Tiempo con sistema (medido):    {triage.measured_seconds_promedio:.2f} seg/caso promedio (N={len(total_elapsed_seconds)})")
     print(f"  Tiempo sin sistema (referencia): {triage.referencia_manual_minutos:.2f} min")
     print(f"    Fuente: {triage.referencia_fuente}")
     print(f"  Reducción estimada:              ~{triage.reduccion_pct:.1f}%")
@@ -264,11 +396,31 @@ def _print_report() -> None:
         print("  Sin evaluaciones de especialistas registradas aún -- correr scripts/collect_specialist_feedback.py")
     else:
         print(f"  Basado en {feedback['n_respuestas']} respuesta(s):")
-        print(f"  NPS promedio:                    {feedback['nps_score_promedio']:.1f} / 10")
+        print(f"  NPS promedio:                    {feedback['nps_score_promedio']:.1f} / 5")
         print(f"  Coherencia del razonamiento (C1): {feedback['coherencia_razonamiento_promedio']:.1f} / 5")
         print(f"  Completitud del informe (C2):     {feedback['completitud_informe_promedio']:.1f} / 5")
         print(f"  Precisión del informe (C2):       {feedback['precision_informe_promedio']:.1f} / 5")
         print(f"  Claridad del informe (C2):        {feedback['claridad_informe_promedio']:.1f} / 5")
+
+
+def _print_and_save_report(results: dict | None = None) -> None:
+    """
+    Envoltorio de _print_report: además de imprimir en la terminal, guarda
+    el mismo texto en evaluation/results/metrics_report.txt -- así el
+    reporte no se pierde al cerrar la consola y se puede citar en el
+    README sin tener que volver a correr todo el script (que tarda).
+    Sobrescribe el archivo en cada corrida (refleja siempre la última).
+    """
+    buffer = io.StringIO()
+    with contextlib.redirect_stdout(buffer):
+        _print_report(results)
+    output = buffer.getvalue()
+
+    print(output, end="")
+
+    METRICS_REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    METRICS_REPORT_PATH.write_text(output, encoding="utf-8")
+    print(f"\n(Reporte también guardado en {METRICS_REPORT_PATH})")
 
 
 def main():
@@ -279,12 +431,24 @@ def main():
     parser.add_argument(
         "--report-only", action="store_true", help="No llama al LLM, solo reporta con lo ya guardado"
     )
+    parser.add_argument(
+        "--corrector-run",
+        action="store_true",
+        help=(
+            "Corre los 110 casos SIEMPRE desde cero (ignora resultados previos, no saltea "
+            "nada) y sobrescribe batch_results.json solo con los de esta corrida."
+        ),
+    )
     args = parser.parse_args()
+
+    if args.corrector_run:
+        _run_corrector_evaluation()
+        return
 
     if not args.report_only:
         _run_pending_cases(args.limit)
 
-    _print_report()
+    _print_and_save_report()
 
 
 if __name__ == "__main__":
