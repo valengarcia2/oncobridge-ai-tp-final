@@ -88,12 +88,16 @@ def render_oncologo_view() -> None:
                 "hipótesis oncológica con los datos disponibles."
             )
 
+    st.divider()
     if output.recommendation == "DERIVAR_A_IMAGEN" and output.matched_ground_truths:
-        st.divider()
         st.caption(
             "El sistema sugiere derivar a estudio de imagen. La decisión de derivar "
             "es siempre del médico."
         )
         if st.button("Derivar a especialista en imágenes →", type="primary"):
             st.session_state.view = "radiologo"
+            st.rerun()
+    else:
+        if st.button("Responder encuesta de evaluación →", type="primary"):
+            st.session_state.view = "encuesta"
             st.rerun()

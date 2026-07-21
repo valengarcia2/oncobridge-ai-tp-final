@@ -18,8 +18,10 @@ importar en qué vista/paso esté el usuario.
 """
 
 import streamlit as st
+import streamlit.components.v1 as components
 
 from oncobridge.ui.components import inject_custom_css, render_disclaimer, render_step_header
+from oncobridge.ui.views.encuesta import render_encuesta_view
 from oncobridge.ui.views.oncologo import render_oncologo_view
 from oncobridge.ui.views.radiologo import render_radiologo_view
 
@@ -29,11 +31,31 @@ inject_custom_css()
 if "view" not in st.session_state:
     st.session_state.view = "oncologo"
 
+# Streamlit no vuelve solo al principio de la página al cambiar de vista
+# (session_state.view) -- sin esto, el usuario queda con el scroll donde
+# estaba en la vista anterior y hay que scrollear manualmente para leer
+# desde arriba.
+if st.session_state.get("_last_view") != st.session_state.view:
+    st.session_state["_last_view"] = st.session_state.view
+    components.html(
+        """
+        <script>
+            var doc = window.parent.document;
+            var container = doc.querySelector('section.main') || doc.querySelector('[data-testid="stAppViewContainer"]');
+            if (container) { container.scrollTo({top: 0, behavior: 'instant'}); }
+            window.parent.scrollTo(0, 0);
+        </script>
+        """,
+        height=0,
+    )
+
 st.title("🩺 OncoBridge AI")
 render_disclaimer()
 render_step_header(current=st.session_state.view)
 
 if st.session_state.view == "oncologo":
     render_oncologo_view()
-else:
+elif st.session_state.view == "radiologo":
     render_radiologo_view()
+else:
+    render_encuesta_view()

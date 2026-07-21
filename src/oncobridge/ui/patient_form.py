@@ -9,7 +9,6 @@ import uuid
 import pandas as pd
 import streamlit as st
 
-from oncobridge import config
 from oncobridge.schemas.component1_io import Demographics, MedicalHistoryEvent, PatientInput
 
 _EMPTY_HISTORY_ROW = {"fecha": "", "evento": ""}
@@ -20,8 +19,14 @@ def render_new_patient_form() -> PatientInput | None:
     """Devuelve un PatientInput si el usuario completó y confirmó el formulario; si no, None."""
     st.markdown("#### Datos del paciente")
 
+    # Se genera una sola vez por sesión (no en cada rerun del script) y con
+    # key fija -- si no, Streamlit lo trata como un widget nuevo en cada
+    # interacción y el ID "cambia solo" cada vez que tocás otro campo.
+    if "new_patient_id" not in st.session_state:
+        st.session_state.new_patient_id = f"PAT-{uuid.uuid4().hex[:6].upper()}"
+
     patient_id = st.text_input(
-        "ID del paciente", value=f"PAT-{uuid.uuid4().hex[:6].upper()}"
+        "ID del paciente", value=st.session_state.new_patient_id, key="patient_id_input"
     )
 
     col_edad, col_sexo = st.columns(2)
@@ -38,24 +43,32 @@ def render_new_patient_form() -> PatientInput | None:
     )
 
     st.markdown("##### Historial clínico (eventos)")
-    st.caption(
-        f"Más de {config.COMPLEX_HISTORY_THRESHOLD} eventos activa el resumen "
-        "automático antes de mandarlo al modelo."
-    )
-    history_df = st.data_editor(
-        pd.DataFrame([_EMPTY_HISTORY_ROW]),
-        num_rows="dynamic",
-        width="stretch",
-        key="medical_history_editor",
-    )
+    with st.container(border=True):
+        history_df = st.data_editor(
+            pd.DataFrame([_EMPTY_HISTORY_ROW]),
+            num_rows="dynamic",
+            width="stretch",
+            hide_index=True,
+            column_config={
+                "fecha": st.column_config.TextColumn("Fecha", width="medium"),
+                "evento": st.column_config.TextColumn("Evento", width="large"),
+            },
+            key="medical_history_editor",
+        )
 
     st.markdown("##### Laboratorio actual")
-    labs_df = st.data_editor(
-        pd.DataFrame([_EMPTY_LAB_ROW]),
-        num_rows="dynamic",
-        width="stretch",
-        key="labs_editor",
-    )
+    with st.container(border=True):
+        labs_df = st.data_editor(
+            pd.DataFrame([_EMPTY_LAB_ROW]),
+            num_rows="dynamic",
+            width="stretch",
+            hide_index=True,
+            column_config={
+                "nombre": st.column_config.TextColumn("Nombre", width="medium"),
+                "valor": st.column_config.TextColumn("Valor", width="medium"),
+            },
+            key="labs_editor",
+        )
 
     if not st.button("Analizar paciente", type="primary", key="analizar_paciente_nuevo"):
         return None

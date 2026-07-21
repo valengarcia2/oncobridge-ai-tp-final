@@ -72,8 +72,14 @@ def render_radiologo_view() -> None:
         next_steps_html = f"<p><strong>Próximos pasos sugeridos:</strong></p><ul>{items}</ul>"
     render_info_card("Recomendación final", f"<p>{esc(output.final_recommendation)}</p>{next_steps_html}")
 
-    if st.button("Analizar otro paciente", type="primary"):
-        for key in ("c1_output", "c2_output", "patient"):
-            st.session_state.pop(key, None)
-        st.session_state.view = "oncologo"
-        st.rerun()
+    col_reiniciar, col_encuesta = st.columns(2)
+    with col_reiniciar:
+        if st.button("Analizar otro paciente", type="primary"):
+            for key in ("c1_output", "c2_output", "patient"):
+                st.session_state.pop(key, None)
+            st.session_state.view = "oncologo"
+            st.rerun()
+    with col_encuesta:
+        if st.button("Responder encuesta de evaluación →", type="primary"):
+            st.session_state.view = "encuesta"
+            st.rerun()
