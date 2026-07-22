@@ -42,6 +42,8 @@ El sistema tiene una fase que se corre una única vez (cargar y preparar la base
 
 **Adaptamos por completo el diseño de Componente 2 porque el dataset no tiene ninguna imagen real de paciente.** Es un dataset "solo clínico": los datos de laboratorio, síntomas e historial son reales, pero no hay estudios de imagen para comparar. En vez de simular una comparación contra una imagen que no existe (lo cual hubiera sido metodológicamente cuestionable), Componente 2 genera una imagen ilustrativa a partir de las guías de imagen ya definidas en el ground truth, y arma un informe de qué debería buscar el especialista — dejando explícito en todo momento que es una referencia, no un estudio real.
 
+**Para esa imagen usamos `Nihirc/Prompt2MedImage` en vez de un checkpoint de Stable Diffusion genérico.** Es un modelo de Hugging Face afinado específicamente sobre imágenes médicas reales (el dataset ROCO), pero compatible con la misma API de `diffusers` que un Stable Diffusion estándar. Probamos primero con un checkpoint genérico y las imágenes no se parecían en nada a un estudio médico real; con Prompt2MedImage, al estar entrenado sobre ese dominio, el resultado es muchísimo más creíble como referencia visual para un radiólogo, sin tener que entrenar ni afinar nada nosotros.
+
 **Separamos el sistema en dos componentes secuenciales en vez de un único agente que haga todo.** Refleja el flujo real de una consulta: un oncólogo evalúa primero al paciente y decide si hace falta imagen; recién ahí entra el especialista en imágenes. Mantener esa secuencia como dos pasos explícitos (con una derivación que el usuario tiene que confirmar, nunca automática) hace que el sistema sea más fácil de auditar componente por componente, y refuerza la idea de que el sistema asiste pero no decide solo.
 
 ### Así se arma todo junto
@@ -271,7 +273,7 @@ python scripts/run_evaluation.py
 
 Corre C1 (y C2 cuando corresponde) sobre los **110 casos, siempre desde cero** (ignora cualquier resultado guardado de una corrida anterior), guarda cada resultado en `evaluation/results/batch_results.json` a medida que lo procesa, y al final imprime **y guarda** el reporte completo en `evaluation/results/metrics_report.txt` (métricas de C1, C2 y Sistema Integrado).
 
-> ⚠️ **Nota sobre el tiempo de esta corrida.** El free tier de Gemini tiene un límite de ~5 solicitudes por minuto además del límite diario (ver Limitaciones). Con más de 150 llamadas necesarias para los 110 casos, esta corrida completa puede tardar bastante más de 10 minutos en una API key de free tier, aunque el sistema funcione correctamente (el script espera automáticamente y reintenta cuando pega contra ese límite, no falla). Para ver el sistema funcionar rápido sin depender del tier de la API key:
+> Para ver el sistema funcionar rápido sin depender del tier de la API key:
 > ```bash
 > python scripts/run_evaluation.py --limit 8       # corre solo 8 casos nuevos, real y rápido
 > python scripts/run_evaluation.py --report-only   # imprime el reporte acumulado sin llamar al LLM
@@ -282,7 +284,7 @@ Para recolectar las métricas que dependen de evaluación humana (coherencia del
 ```bash
 python scripts/collect_specialist_feedback.py
 ```
-El reporte de evaluación las incorpora automáticamente apenas exista al menos una respuesta guardada.
+El reporte de evaluación las incorpora automáticamente apenas exista al menos una respuesta guardada — quedan guardadas en `evaluation/results/specialist_feedback.json`.
 
 ### Cómo correr la interfaz (Streamlit)
 
@@ -348,6 +350,19 @@ La accuracy de derivación (72.7%) es más baja que la sensibilidad/especificida
 
 **Conclusión que sacamos de estos números:** el sistema es confiable en la parte que más importa clínicamente (no perder casos que necesitan imagen), y honesto en documentar dónde sus métricas son proxies o todavía no tienen suficiente evidencia detrás.
 
+## Consideraciones éticas
+
+### El sistema como herramienta de apoyo, no de reemplazo
+
+Lo repetimos en varios lugares de este README porque nos parece central: OncoBridge AI es un sistema de apoyo a la decisión clínica, no un diagnóstico automático. Cada output que produce está pensado para que un médico lo revise antes de actuar — la interfaz lo deja explícito con un disclaimer permanente, y el flujo mismo obliga a que sea el oncólogo quien decida derivar a imagen, nunca el sistema por su cuenta.
+
+### Riesgos a considerar
+
+- **Alucinaciones.** El modelo puede armar un razonamiento que suene clínicamente coherente y esté mal. La arquitectura no lo evita del todo, pero sí lo acota: las decisiones más críticas (si hace falta imagen, con qué urgencia, la clasificación de Componente 2) las resolvimos con fórmulas y reglas de código en vez de dejarlas en el texto libre del LLM, justamente para reducir el espacio donde una alucinación puede terminar afectando el resultado final.
+- **Sesgo de datos.** El sistema solo puede reconocer bien las condiciones representadas en la base de conocimiento (30 entradas) y en el dataset de evaluación (110 casos sintéticos). Un caso real con una presentación distinta a las que vio el retriever, o una condición que directamente no está en la base, probablemente no se identifique bien.
+- **Calibración de confianza.** Esto lo medimos directamente (ver Resultados): la correlación entre la `match_probability` que reporta el sistema y si esa hipótesis era la correcta dio 0.47 — un valor moderado, no fuerte. Una probabilidad de 90% que reporta el modelo no equivale necesariamente a 90% de certeza clínica real, y no debería leerse como si fuera una probabilidad estadística validada.
+- **Privacidad.** Este proyecto trabaja sobre un dataset sintético, sin pacientes reales, así que no hay datos sensibles en juego. Pero un sistema de este tipo, llevado a un entorno real, necesitaría procesar datos de pacientes bajo los marcos de privacidad correspondientes (anonimización, consentimiento, resguardo de la historia clínica) antes de poder usarse — algo que quedó fuera del alcance de este trabajo, pero que sería un requisito no negociable para cualquier despliegue real.
+
 ## Limitaciones
 
 - **El dataset no tiene ninguna imagen real de paciente.** Es un dataset "solo clínico" — por eso tuvimos que adaptar por completo el diseño de Componente 2: en vez de comparar contra un estudio real (que no existe), genera una imagen ilustrativa con Prompt2MedImage y un informe de qué debería buscar el especialista, dejando siempre claro que es una referencia orientativa y no una medición real.
@@ -369,6 +384,6 @@ La accuracy de derivación (72.7%) es más baja que la sensibilidad/especificida
 
 ## Conclusiones
 
-OncoBridge AI nos permitió aplicar, sobre un problema clínico concreto, varias de las ideas centrales de un sistema de IA generativa en producción: recuperación de información relevante en vez de fuerza bruta, decisiones críticas resueltas con fórmulas determinísticas en vez de dejarlas en manos del texto libre de un LLM, y una arquitectura pensada para poder auditar en todo momento qué información recibe el modelo y por qué.
+Armar OncoBridge AI nos sirvió para llevar a la práctica, en un caso concreto, varios de los conceptos que fuimos viendo a lo largo de la cursada: RAG, manejo de contexto, salida estructurada, y sobre todo la idea de que un sistema de IA generativa hay que evaluarlo con la misma exigencia con la que se evalúa cualquier otro sistema, no solo mostrar que "anda". Fue la primera vez que armamos un pipeline de este tamaño de punta a punta, y eso nos llevó a tomar decisiones que en un ejercicio de clase más chico no se nos hubieran planteado — como decidir qué parte del razonamiento le dejamos al LLM y qué parte resolvemos con una fórmula, o pensar bien qué información necesita ver el modelo en cada paso para no gastar de más.
 
-También nos obligó a lidiar con problemas bastante reales de trabajar con una API externa en producción: límites de cuota que cambian, modelos que se dejan de soportar de un día para el otro, y latencias que no siempre están bajo nuestro control. Documentar esas limitaciones con la misma honestidad que documentamos los resultados buenos nos parece parte central de lo que significa evaluar críticamente un sistema como este, más que perseguir un número perfecto en cada métrica.
+Por el camino nos cruzamos con varios problemas que probablemente nos vamos a volver a encontrar el día de mañana trabajando con estas herramientas: una API externa que cambia sus límites de cuota, un modelo que deja de estar disponible de un día para el otro sin aviso, tiempos de respuesta que varían por motivos que no dependen de nosotros. Preferimos dejar todo esto documentado tal cual pasó, en vez de esconderlo para que el proyecto se vea más prolijo — nos parece que muestra mejor lo que realmente aprendimos que un resultado perfecto en cada métrica.
