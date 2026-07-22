@@ -42,7 +42,7 @@ El sistema tiene una fase que se corre una única vez (cargar y preparar la base
 
 **Adaptamos por completo el diseño de Componente 2 porque el dataset no tiene ninguna imagen real de paciente.** Es un dataset "solo clínico": los datos de laboratorio, síntomas e historial son reales, pero no hay estudios de imagen para comparar. En vez de simular una comparación contra una imagen que no existe, Componente 2 genera una imagen ilustrativa a partir de las guías de imagen ya definidas en el ground truth, y arma un informe de qué debería buscar el especialista, dejando explícito en todo momento que es una referencia, no un estudio real.
 
-**Para esa imagen usamos `Nihirc/Prompt2MedImage` en vez de un checkpoint de Stable Diffusion genérico.** Es un modelo de Hugging Face afinado específicamente sobre imágenes médicas reales (el dataset ROCO), pero compatible con la misma API de `diffusers` que un Stable Diffusion estándar. Probamos primero con un checkpoint genérico y las imágenes no se parecían en nada a un estudio médico real. Con Prompt2MedImage, al estar entrenado sobre ese dominio, el resultado es muchísimo más creíble como referencia visual para un radiólogo, sin tener que entrenar ni afinar nada nosotros.
+**Para generar esa imagen usamos `Nihirc/Prompt2MedImage` en lugar de un checkpoint genérico de Stable Diffusion.** Es un modelo de Hugging Face afinado específicamente sobre imágenes médicas reales (el dataset ROCO), pero compatible con la misma API de `diffusers` que un Stable Diffusion estándar. Probamos primero con un modelo genérico de Stable Diffusion, pero las imágenes no se parecían en nada a un estudio médico real. También evaluamos utilizar MedDiffusion, aunque su integración implicaba una complejidad considerable debido a sus requerimientos de infraestructura y configuración. Prompt2MedImage permitió obtener imágenes mucho más realistas y clínicamente plausibles como referencia visual para el radiólogo
 
 ### Así se arma todo junto
 
@@ -355,7 +355,7 @@ La accuracy de derivación (72.7%) es más baja que la sensibilidad/especificida
 
 ### El sistema como herramienta de apoyo, no de reemplazo
 
-Lo repetimos en varios lugares de este README porque nos parece central: OncoBridge AI es un sistema de apoyo a la decisión clínica, no un diagnóstico automático. Cada output que produce está pensado para que un médico lo revise antes de actuar. La interfaz lo deja explícito con un disclaimer permanente, y el flujo mismo obliga a que sea el oncólogo quien decida derivar a imagen, nunca el sistema por su cuenta.
+OncoBridge AI es un sistema de apoyo a la decisión clínica, no un diagnóstico automático. Cada output que produce está pensado para que un médico lo revise antes de actuar. La interfaz lo deja explícito con un disclaimer permanente, y el flujo mismo obliga a que sea el oncólogo quien decida derivar a imagen, nunca el sistema por su cuenta.
 
 ### Riesgos a considerar
 
@@ -385,6 +385,6 @@ Lo repetimos en varios lugares de este README porque nos parece central: OncoBri
 
 ## Conclusiones
 
-Armar OncoBridge AI nos sirvió para llevar a la práctica, en un caso concreto, varios de los conceptos que fuimos viendo a lo largo de la cursada: RAG, manejo de contexto, salida estructurada, y sobre todo la idea de que un sistema de IA generativa hay que evaluarlo con la misma exigencia con la que se evalúa cualquier otro sistema, no solo mostrar que funciona. Fue la primera vez que armamos un pipeline de este tamaño de punta a punta, y eso nos llevó a tomar decisiones que en un ejercicio de clase más chico no se nos hubieran planteado, como decidir qué parte del razonamiento le dejamos al LLM y qué parte resolvemos con una fórmula, o pensar bien qué información necesita ver el modelo en cada paso para no gastar de más.
+OncoBridge AI nos permitió aplicar, sobre un problema clínico concreto, muchos de los conceptos que fuimos viendo durante la cursada. Tuvimos que pensar cómo combinar RAG con un LLM, qué decisiones tenía sentido dejar en manos del modelo y cuáles era mejor resolver con una lógica propia, cómo aprovechar el contexto sin enviar información innecesaria y, sobre todo, cómo evaluar un sistema de IA más allá de simplemente comprobar que funciona.
 
-Por el camino nos cruzamos con varios problemas que probablemente nos vamos a volver a encontrar el día de mañana trabajando con estas herramientas: una API externa que cambia sus límites de cuota, un modelo que deja de estar disponible de un día para el otro sin aviso, tiempos de respuesta que varían por motivos que no dependen de nosotros. Preferimos dejar todo esto documentado tal cual pasó, en vez de esconderlo para que el proyecto se vea más prolijo. Nos parece que muestra mejor lo que realmente aprendimos que un resultado perfecto en cada métrica.
+Al mismo tiempo, nos encontramos con varios desafíos que aparecen cuando uno trabaja con estas herramientas en la práctica, como límites de uso de las APIs, tiempos de respuesta variables y otras restricciones que no siempre dependen de nosotros. Creemos que documentar esas situaciones y tenerlas en cuenta durante la evaluación fue tan importante como los resultados obtenidos, porque forman parte del desarrollo real de este tipo de sistemas.
